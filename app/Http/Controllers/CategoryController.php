@@ -16,4 +16,10 @@ class CategoryController extends Controller
         $categoriesPaginator = Category::paginate(15);
         return view('pages.catalog', ['categories' => $categoriesPaginator]);
     }
+
+    public function show($name)
+    {
+        $ProductsPaginator = Category::where('friendly_url_name', $name)->firstOrFail()->products()->paginate(15);
+        return view('pages.category', ['products' => $ProductsPaginator]);
+    }
 }
