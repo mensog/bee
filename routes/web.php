@@ -17,4 +17,8 @@ Route::get('/', function () {
     return view('pages/main');
 })->name('home');
 
+Route::get('/category', function () {
+    return view('pages/category');
+})->name('category');
+
 Route::get('/catalog', 'CategoryController@index')->name('catalog');
