@@ -2,9 +2,11 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
+use App\Category;
 use App\Product;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
+use Illuminate\Support\Arr;
 
 $factory->define(Product::class, function (Faker $faker) {
     $name = mb_strtolower($faker->unique()->firstName);
@@ -18,5 +20,8 @@ $factory->define(Product::class, function (Faker $faker) {
         'img_url' => 'https://picsum.photos/200/200?' . $faker->unique()->numberBetween(),
         'description' => $faker->text(rand(150, 350)),
         'weight' => $faker->numberBetween(50, 50000),
+        'category_id' => function () {
+            return (Arr::random(Category::all()->toArray()))['id'];
+        },
     ];
 });
