@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
 
 </head>
-<header>
+<header class="header">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="{{route('home')}}">BeeClub</a>

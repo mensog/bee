@@ -12,6 +12,12 @@ html body {
     background: #fff;
 }
 
+.header{
+    .navbar{
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    }
+}
+
 .pagination {
     justify-content: center;
 }
@@ -28,7 +34,7 @@ html body {
 
 .product {
     background: #f9f9f9;
-
+    padding: 70px 0;
     .product__title {
         font-weight: normal;
         font-size: 2.25rem;
