@@ -15,3 +15,12 @@ html body{
 .pagination {
     justify-content: center;
 }
+
+.product-card{
+    p{
+        color: $black;
+    }
+    h5{
+        text-decoration: none;
+    }
+}
