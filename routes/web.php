@@ -16,7 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pages/main');
 })->name('home');
-
-Route::get('/category/{name}', 'CategoryController@show')->name('category');
-
 Route::get('/catalog', 'CategoryController@index')->name('catalog');
+Route::get('/category/{name}', 'CategoryController@show')->name('category');
