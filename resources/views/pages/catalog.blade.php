@@ -17,7 +17,7 @@
     <div class="row">
         @foreach ($categories as $key => $category)
         <div class="col-lg-3 col-12">
-            <a href="category/{{ $category->friendly_url_name }}">
+            <a href="{{ route('category', $category->friendly_url_name) }}">
                 <div id="category_{{ $category->id }}" class="card mb-3">
                     <div class="card-body">
                         <h5 class="card-title">{{ $category->name }}</h5>
