@@ -18,3 +18,4 @@ Route::get('/', function () {
 })->name('home');
 Route::get('/catalog', 'CategoryController@index')->name('catalog');
 Route::get('/category/{name}', 'CategoryController@show')->name('category');
+Route::get('/product/{name}', 'ProductController@show')->name('product');
