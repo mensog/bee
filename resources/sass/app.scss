@@ -8,7 +8,7 @@
 @import '~bootstrap/scss/bootstrap';
 
 
-html body{
+html body {
     background: #fff;
 }
 
@@ -16,11 +16,41 @@ html body{
     justify-content: center;
 }
 
-.product-card{
-    p{
+.product-card {
+    p {
         color: $black;
     }
-    h5{
+
+    h5 {
         text-decoration: none;
+    }
+}
+
+.product {
+    background: #f9f9f9;
+
+    .product__title {
+        font-weight: normal;
+        font-size: 2.25rem;
+        line-height: 2.9375rem;
+        color: $black;
+        text-align: left;
+        padding: 0;
+        margin: 0 0 20px;
+    }
+
+    .product__description {
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 20px;
+        color: $black;
+        margin-bottom: 25px;
+    }
+
+    .product__price {
+        font-weight: bold;
+        font-size: 2.25rem;
+        line-height: 2.9375rem;
+        color: $black;
     }
 }
