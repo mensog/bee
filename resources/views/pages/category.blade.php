@@ -10,7 +10,7 @@
     <div class="row">
         @foreach ($products as $key => $product)
             <div class="col-lg-3 col-12">
-                <a class="text-decoration-none" href="category/{{ $product->friendly_url_name }}">
+                <a class="text-decoration-none" href="product/{{ $product->friendly_url_name }}">
                     <div id="product_{{ $product->id }}" data-sku="{{ $product-> sku }}"
                          class="card product-card mb-3">
                         <img src="{{ $product->img_url }}" class="card-img-top" alt="{{ $product->name }}">
