@@ -36,7 +36,7 @@
                                             <div class="product-item__body pb-xl-2">
                                                 <div class="mb-2"><a
                                                         href="{{ route('product', $product->friendly_url_name) }}"
-                                                        class="font-size-12 text-gray-5">Категория товара</a>
+                                                        class="font-size-12 text-gray-5">{{$product->category->name}}</a>
                                                 </div>
                                                 <h5 class="mb-1 product-item__title"><a
                                                         href="{{ route('product', $product->friendly_url_name) }}"
