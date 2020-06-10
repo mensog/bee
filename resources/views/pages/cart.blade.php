@@ -12,24 +12,34 @@
                     <tr>
                         <th class="product-thumbnail">&nbsp;</th>
                         <th class="product-name">Товар</th>
+                        <th class="product-qty">Количество</th>
                         <th class="product-price">Цена</th>
+                        <th class="product-delete">&nbsp;</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach ($products as $product)
                         <tr class="">
                             <td class="d-none d-md-table-cell">
-                                <a href="{{ route('category', $product->friendly_url_name) }}"><img
+                                <a href="{{ route('product', $product->friendly_url_name) }}"><img
                                         class="img-fluid max-width-100 p-1 border border-color-1"
                                         src="{{$product->img_url}}" alt="{{$product->description}}"></a>
                             </td>
 
                             <td data-title="Product">
-                                <a href="#" class="text-gray-90">{{$product->name}}</a>
+                                <a href="{{ route('category', $product->friendly_url_name) }}" class="text-gray-90">{{$product->name}}</a>
+                            </td>
+
+                            <td data-title="Qty">
+                                <span class="text-gray-90">{{$quantity[$product->id]}}</span>
                             </td>
 
                             <td data-title="Price">
                                 <span class="">{{$product->price / 100}} руб</span>
+                            </td>
+
+                            <td data-title="Delete">
+                                <a href="{{route('remove_from_cart', ['product-id' => $product->id] )}}" class="text-gray-90">Удалить</a>
                             </td>
                         </tr>
                     @endforeach
