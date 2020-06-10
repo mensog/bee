@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
+use App\Product;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -22,5 +23,20 @@ class CartController extends Controller
             return redirect()->route('product', $cart->redirectTo);
         }
         return redirect()->route('/');
+    }
+
+    /**
+     * Вывод корзины товаров
+     *
+     * @param Request $request
+     * @return \Illuminate\View\View
+     */
+    public function show(Request $request)
+    {
+        $cart = new Cart($request->session());
+        $cartContent = $cart->getContent();
+        $productIds = array_keys($cartContent);
+        $products = Product::find($productIds);
+        return view('pages.cart', ['products' => $products, 'quantity' => $cartContent]);
     }
 }

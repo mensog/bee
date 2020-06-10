@@ -52,4 +52,14 @@ class Cart
         $this->session->put('cart', json_encode($this->content));
         return true;
     }
+
+    /**
+     * Возвращает содержимое корзины
+     *
+     * @return array Содержимое корзины в формате id товара => количество
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
 }

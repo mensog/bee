@@ -20,3 +20,4 @@ Route::get('/catalog', 'CategoryController@index')->name('catalog');
 Route::get('/category/{name}', 'CategoryController@show')->name('category');
 Route::get('/product/{name}', 'ProductController@show')->name('product');
 Route::get('/addtocart', 'CartController@addProduct')->name('add_to_cart');
+Route::get('/cart', 'CartController@show')->name('cart');
