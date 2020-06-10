@@ -22,6 +22,6 @@ class OrderController extends Controller
         $order->save();
         $order->fillFromCart($cart);
         $cart->clear();
-        return redirect()->route('/');
+        return redirect()->route('home');
     }
 }
