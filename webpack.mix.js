@@ -12,4 +12,10 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js').version()
-    .sass('resources/sass/app.scss', 'public/css').version();
+    .sass('resources/sass/app.scss', 'public/css').version()
+    .styles(['resources/css/app.css', 'resources/css/animate.css/animate.css', 'resources/css/font-awesome/fontawesome-all.min.css',
+            'resources/css/vendor/hs-megamenu/src/hs.megamenu.css', 'resources/css/vendor/ion-rangeslider/css/ion.rangeSlider.css',
+            'resources/css/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css', 'resources/css/vendor/fancybox/jquery.fancybox.css',
+            'resources/css/vendor/slick-carousel/slick/slick.css', 'resources/css/vendor/bootstrap-select/dist/css/bootstrap-select.min.css',
+            'resources/css/font-beeclub.css'
+    ], 'public/css/app.css').version();
