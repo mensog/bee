@@ -8,13 +8,13 @@
                 <div class="mb-6 border border-width-2 border-color-3 borders-radius-6">
                     <ul id="sidebarNav" class="list-unstyled mb-0 sidebar-navbar view-all">
                         <li>
-                            <div class="dropdown-title">Категории товаров {{ $categories->total() }}</div>
+                            <div class="dropdown-title">Категории товаров {{ $categories->count() }}</div>
                         </li>
                         @foreach ($categories as $key => $category)
                             <li id="category_{{ $category->id }}">
                                 <a class="dropdown-toggle dropdown-toggle-collapse"
                                    href="{{ route('category', $category->friendly_url_name) }}" role="button">
-                                    {{ $category->name }}<span
+                                    {{ $category->name }} ({{ $category->products_count }})<span
                                         class="text-gray-25 font-size-12 font-weight-normal"></span>
                                 </a>
                             </li>
