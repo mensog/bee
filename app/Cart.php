@@ -62,4 +62,17 @@ class Cart
     {
         return $this->content;
     }
+
+    /**
+     * Удаляет товар из корзины
+     *
+     * @param int $productId ID товара
+     */
+    public function removeProduct(int $productId)
+    {
+        if (isset($this->content[$productId])) {
+            unset($this->content[$productId]);
+        }
+        $this->session->put('cart', json_encode($this->content));
+    }
 }
