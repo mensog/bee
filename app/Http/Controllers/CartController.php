@@ -37,7 +37,6 @@ class CartController extends Controller
         $cartContent = $cart->getContent();
         $productIds = array_keys($cartContent);
         $products = Product::find($productIds);
-        var_dump($cartContent);
         return view('pages.cart', ['products' => $products, 'quantity' => $cartContent]);
     }
 
