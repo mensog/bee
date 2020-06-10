@@ -30,7 +30,7 @@
                         <ul class="row list-unstyled products-group no-gutters">
                             @foreach ($products as $key => $product)
                                 <li id="product_{{ $product->id }}"
-                                    class="col-6 col-md-3 col-wd-2gdot4 product-item {{$key + 1 % 4 ? 'remove-divider-md-lg remove-divider-xl' : ''}} {{$key + 1 % 5 ? 'remove-divider-wd' : ''}}">
+                                    class="col-6 col-md-3 col-wd-2gdot4 product-item {{$key + 1 % 4 ? 'remove-divider-md-lg remove-divider-xl' : ''}} {{ ($key + 1) % 5  === 0 ? 'remove-divider-wd' : '' }}">
                                     <div class="product-item__outer h-100">
                                         <div class="product-item__inner px-xl-4 p-3">
                                             <div class="product-item__body pb-xl-2">
