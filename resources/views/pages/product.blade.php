@@ -22,7 +22,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <a href="#" class="btn px-5 btn-primary-dark transition-3d-hover"><i
+                            <a href="{{route('add_to_cart', ['product-id' => $product->id, 'quantity' => 1] )}}" class="btn px-5 btn-primary-dark transition-3d-hover"><i
                                     class="ec ec-add-to-cart mr-2 font-size-20"></i> Добавить в корзину</a>
                         </div>
                     </div>
