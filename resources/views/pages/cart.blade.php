@@ -7,7 +7,8 @@
         </div>
         <div class="mb-10 cart-table">
             @if(count($products) !== 0)
-                <form class="mb-4" action="#" method="post">
+                <form class="mb-4" action="{{ route('checkout') }}" method="post">
+                    @csrf
                     <table class="table" cellspacing="0">
                         <thead>
                         <tr>
@@ -52,22 +53,20 @@
                                     <div class="d-block d-md-flex flex-center-between">
                                         <div class="mb-3 mb-md-0 w-xl-40">
 
-                                            <form class="js-focus-state">
                                                 <label class="sr-only" for="subscribeSrEmail">E-mail</label>
                                                 <div class="input-group">
-                                                    <input type="text" class="form-control" name="text"
+                                                    <input type="text" class="form-control" name="email"
                                                            id="subscribeSrEmail" placeholder="Введите e-mail"
                                                            aria-label="email" aria-describedby="subscribeButton"
                                                            required>
                                                     <div class="input-group-append">
-                                                        <button class="btn btn-block btn-dark px-4" type="button"
+                                                        <button class="btn btn-block btn-dark px-4" type="submit"
                                                                 id="subscribeButton"><i
                                                                 class="fas fa-tags d-md-none"></i><span
                                                                 class="d-none d-md-inline">Оформить заказ</span>
                                                         </button>
                                                     </div>
                                                 </div>
-                                            </form>
 
                                         </div>
                                     </div>

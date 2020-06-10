@@ -75,4 +75,13 @@ class Cart
         }
         $this->session->put('cart', json_encode($this->content));
     }
+
+    /**
+     * Очищает корзину
+     */
+    public function clear()
+    {
+        $this->content = [];
+        $this->session->put('cart', json_encode($this->content));
+    }
 }
