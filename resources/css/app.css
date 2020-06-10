@@ -30727,6 +30727,7 @@ label.btn {
 }
 
 .u-sidebar--left {
+    display: none;
     right: auto;
     left: 0;
     box-shadow: 13px 0 20px rgba(119, 131, 143, 0.08);
