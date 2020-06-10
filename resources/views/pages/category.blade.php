@@ -49,7 +49,7 @@
                                                 </div>
                                                 <p class="font-size-12 p-0 text-gray-110 mb-4">{{ Str::of($product->description)->limit(80, ' ...') }}</p>
                                                 <div class="text-gray-20 mb-2 font-size-12">
-                                                    SKU: {{ $product-> sku }}</div>
+                                                    Артикул: {{ $product-> sku }}</div>
                                                 <div class="flex-center-between mb-1">
                                                     <div class="prodcut-price">
                                                         <div class="text-gray-100">{{ $product->price / 100 }} руб</div>

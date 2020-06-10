@@ -15,7 +15,7 @@
                             <h2 class="font-size-25 text-lh-1dot2">{{ $product->name }}</h2>
                         </div>
                         <p>{{ $product->description }}</p>
-                        <p>SKU: {{ $product-> sku }}</p>
+                        <p>Артикул: {{ $product-> sku }}</p>
                         <div class="mb-4">
                             <div class="d-flex align-items-baseline">
                                 <ins class="font-size-36 text-decoration-none">{{ $product->price / 100 }} руб</ins>
