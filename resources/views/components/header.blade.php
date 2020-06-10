@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
 
     <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/app-sass.css')}}">
 </head>
 
 <body>

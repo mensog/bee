@@ -25,7 +25,7 @@
 
             <div class="col-xl-9 col-wd-9gdot5">
                 <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade pt-2 show active" id="pills-two-example1" role="tabpanel"
+                    <div class="tab-pane mb-8 fade pt-2 show active" id="pills-two-example1" role="tabpanel"
                          aria-labelledby="pills-two-example1-tab" data-target-group="groups">
                         <ul class="row list-unstyled products-group no-gutters">
                             @foreach ($products as $key => $product)
@@ -76,6 +76,7 @@
                             @endforeach
                         </ul>
                     </div>
+                    {{$products->links()}}
                 </div>
             </div>
         </div>

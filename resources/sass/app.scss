@@ -2,61 +2,12 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap');
 
 // Variables
-@import 'variables';
+//@import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+//@import '~bootstrap/scss/bootstrap';
 
-
-html body {
-    background: #fff;
-}
-
-.header{
-    .navbar{
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-    }
-}
 
 .pagination {
     justify-content: center;
-}
-
-.product-card {
-    p {
-        color: $black;
-    }
-
-    h5 {
-        text-decoration: none;
-    }
-}
-
-.product {
-    background: #f9f9f9;
-    padding: 70px 0;
-    .product__title {
-        font-weight: normal;
-        font-size: 2.25rem;
-        line-height: 2.9375rem;
-        color: $black;
-        text-align: left;
-        padding: 0;
-        margin: 0 0 20px;
-    }
-
-    .product__description {
-        font-weight: 300;
-        font-size: 14px;
-        line-height: 20px;
-        color: $black;
-        margin-bottom: 25px;
-    }
-
-    .product__price {
-        font-weight: bold;
-        font-size: 2.25rem;
-        line-height: 2.9375rem;
-        color: $black;
-    }
 }
