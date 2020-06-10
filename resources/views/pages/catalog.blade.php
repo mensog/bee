@@ -55,7 +55,7 @@
                                                         <div class="text-gray-100">{{ $product->price / 100 }} руб</div>
                                                     </div>
                                                     <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="#"
+                                                        <a href="{{route('add_to_cart', ['product-id' => $product->id, 'quantity' => 1] )}}"
                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
                                                                 class="ec ec-add-to-cart"></i></a>
                                                     </div>
