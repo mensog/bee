@@ -14,7 +14,9 @@
                 <p class="product__description">{{ $product->description }}</p>
                 <p class="product__price">{{ $product->price / 100 }} ₽</p>
                 <p class="product__weight">Вес: {{ $product->weight / 1000 }} кг</p>
-                <form class="product-form" action="" data-id="{{ $product->id }}">
+                <form class="product-form" action="{{route('add_to_cart')}}" data-id="{{ $product->id }}">
+                    <input type="hidden" name="product-id" value="{{ $product->id }}">
+                    <input type="hidden" name="quantity" value="1">
                     <button class="btn btn-success" type="submit">Добавить в корзину</button>
                 </form>
             </div>
