@@ -11,7 +11,7 @@ class Order extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function products()
+    public function items()
     {
         return $this->hasMany('App\OrderItem');
     }
@@ -43,7 +43,7 @@ class Order extends Model
     public function getSum()
     {
         $sum = 0;
-        $items = $this->products();
+        $items = $this->items;
         foreach ($items as $item) {
             $sum += $item->getSum();
         }

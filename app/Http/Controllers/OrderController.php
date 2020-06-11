@@ -33,7 +33,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::with('products')->paginate(50);
+        $orders = Order::with('items', 'items.product')->paginate(50);
         return view('pages.admin.orders', ['orders' => $orders]);
     }
 }
