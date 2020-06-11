@@ -24,4 +24,16 @@ class OrderController extends Controller
         $cart->clear();
         return redirect()->route('home');
     }
+
+    /**
+     * Контроллер вывода заказов в админке
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index()
+    {
+        $orders = Order::with('products')->paginate(50);
+        return view('pages.admin.orders', ['orders' => $orders]);
+    }
 }
