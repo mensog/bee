@@ -15,7 +15,7 @@
                                             data-scs-animation-in="fadeInUp">
                                             {{$bannerProduct->category->name}}
                                         </h6>
-                                        <h1 class="font-size-46 text-lh-50 font-weight-light mb-8"
+                                        <h1 class="font-size-36 text-lh-50 font-weight-light mb-8"
                                             data-scs-animation-in="fadeInUp"
                                             data-scs-animation-delay="200">
                                             {{$bannerProduct->name}}
