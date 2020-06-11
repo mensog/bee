@@ -33390,7 +33390,7 @@ label.btn {
 ------------------------------------*/
 .svg-preloader {
     z-index: -1;
-    background: transparent url(../svg/preloaders/circle-preloader.svg) center no-repeat !important;
+    background: transparent url(../../svg/preloaders/circle-preloader.svg) center no-repeat !important;
     overflow: hidden;
     transition: all 0.4s ease-in;
 }
@@ -35599,7 +35599,7 @@ label.btn {
 }
 
 .u-slick {
-    background: url(../svg/preloaders/circle-preloader.svg) no-repeat 50% 50%;
+    background: url(../../svg/preloaders/circle-preloader.svg) no-repeat 50% 50%;
 }
 
 .u-slick .js-next,
@@ -37794,11 +37794,11 @@ blockquote:not(.blockquote) p {
 }
 
 .font-size-44 {
-    font-size: 2.75012rem;
+    font-size: 2.75012rem !important;
 }
 
 .font-size-46 {
-    font-size: 2.87525rem;
+    font-size: 2.87525rem !important;
 }
 
 @media (min-width: 992px) {
@@ -37834,7 +37834,7 @@ blockquote:not(.blockquote) p {
 }
 
 .font-size-56 {
-    font-size: 3.5rem;
+    font-size: 3.5rem !important;
 }
 
 .font-size-58 {
@@ -40362,3 +40362,18 @@ blockquote:not(.blockquote) p {
 .u-range-slider-indicator .irs-slider {
     top: 0.2rem;
 }
+
+#owl-main.owl-carousel .owl-item img {
+    display: block;
+    width: 60%;
+    max-width: 100%;
+}
+
+.products-group{
+    padding-bottom: 20px;
+}
+
+.sidebar-navbar.view-all .dropdown-toggle{
+    white-space: inherit;
+}
+

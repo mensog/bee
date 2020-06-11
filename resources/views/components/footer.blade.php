@@ -35,6 +35,26 @@
         </div>
     </div>
 </footer>
+
 <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
+
+<script>
+    $('.owl-carousel').owlCarousel({
+        animateOut: 'fadeOut',
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: false,
+        stopOnHover: true,
+        nav:false,
+        lazyLoad: true,
+        stagePadding: 0,
+        dots: true,
+        responsive:{
+            0:{
+                items:1
+            }
+        }
+    })
+</script>
 </body>
 </html>
