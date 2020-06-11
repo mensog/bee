@@ -5,7 +5,7 @@
         <div class="mb-xl-14 mb-6">
             <div class="row">
                 <div class="col-md-5 mb-4 mb-md-0">
-                    <img class="product__img" src="{{ $product->img_url }}" alt="{{ $product->name }}">
+                    <img class="product__img img-fluid" src="{{ $product->img_url }}" alt="{{ $product->name }}">
                 </div>
                 <div class="col-md-7 mb-md-6 mb-lg-0">
                     <div class="mb-2">
