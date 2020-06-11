@@ -9,7 +9,7 @@
                         <div class="item">
                             <div class="row pt-7 py-md-0">
                                 <div class="d-none d-wd-block offset-1"></div>
-                                <div class="col-xl col col-md-6 mt-md-8 mt-lg-10">
+                                <div class="col-xl-4 col-6 col-md-6 mt-md-8 mt-lg-10">
                                     <div class="ml-xl-4">
                                         <h6 class="font-size-15 font-weight-bold mb-2 text-cyan"
                                             data-scs-animation-in="fadeInUp">
@@ -28,7 +28,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="col-xl-7 col-6 d-flex align-items-end ml-auto ml-md-0"
+                                <div class="col-xl-7 col-md-6 col-6 d-flex align-items-end ml-auto ml-md-0"
                                      data-scs-animation-in="fadeInRight"
                                      data-scs-animation-delay="500">
                                     <img class="img-fluid ml-auto mr-10 mr-wd-auto"
