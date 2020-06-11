@@ -34,4 +34,19 @@ class Order extends Model
             $orderItem->save();
         });
     }
+
+    /**
+     * Возвращает сумму заказа
+     *
+     * @return int
+     */
+    public function getSum()
+    {
+        $sum = 0;
+        $items = $this->products();
+        foreach ($items as $item) {
+            $sum += $item->getSum();
+        }
+        return $sum;
+    }
 }
