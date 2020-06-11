@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'MainController@index')->name('home');
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/orders', 'OrderController@index')->name('admin_orders');
+    Route::get('/products', 'ProductController@index')->name('admin_products');
+});
 Route::get('/catalog', 'CategoryController@index')->name('catalog');
 Route::get('/category/{name}', 'CategoryController@show')->name('category');
 Route::get('/product/{name}', 'ProductController@show')->name('product');

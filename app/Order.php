@@ -11,7 +11,7 @@ class Order extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function products()
+    public function items()
     {
         return $this->hasMany('App\OrderItem');
     }
@@ -33,5 +33,20 @@ class Order extends Model
             $orderItem->quantity = $cartContent[$productId];
             $orderItem->save();
         });
+    }
+
+    /**
+     * Возвращает сумму заказа
+     *
+     * @return int
+     */
+    public function getSum()
+    {
+        $sum = 0;
+        $items = $this->items;
+        foreach ($items as $item) {
+            $sum += $item->getSum();
+        }
+        return $sum;
     }
 }

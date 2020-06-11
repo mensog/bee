@@ -228,8 +228,12 @@
                                 </li>
 
                                 <li class="nav-item hs-has-mega-menu u-header__nav-item">
-                                    <a class="nav-link u-header__nav-link" href="#" aria-haspopup="true"
-                                       aria-expanded="false">Админка</a>
+                                    <a class="nav-link u-header__nav-link" href="{{route('admin_orders')}}" aria-haspopup="true"
+                                       aria-expanded="false">Админка-заказы</a>
+                                </li>
+                                <li class="nav-item hs-has-mega-menu u-header__nav-item">
+                                    <a class="nav-link u-header__nav-link" href="{{route('admin_products')}}" aria-haspopup="true"
+                                       aria-expanded="false">Админка-товары</a>
                                 </li>
                             </ul>
                         </div>
