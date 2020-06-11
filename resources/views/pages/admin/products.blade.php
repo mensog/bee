@@ -36,7 +36,7 @@
                                                 Описание: {{ $product->description }}</p>
                                             <div class="text-gray-20 mb-2 font-size-12">
                                                 <span>Артикул: {{ $product-> sku }}</span>
-                                                <span>Вес: {{ $product->weight }}</span>
+                                                <span>Вес: {{ $product->weight / 1000}} кг.</span>
                                             </div>
                                             <div class="flex-center-between mb-1">
                                                 <div class="prodcut-price">
