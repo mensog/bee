@@ -2,7 +2,8 @@
 
 <main id="content" role="main" class="orders-admin">
     <div class="container">
-        <h2>Всего заказов: {{count($orders)}}</h2>
+        @if($orders->total() !== 0)
+        <h2>Всего заказов: {{$orders->total()}}</h2>
         <div class="row">
             @foreach($orders as $order)
                 <div class="col-12">
@@ -39,6 +40,10 @@
             @endforeach
 
         </div>
+        {{$orders->links()}}
+        @else
+            <h2 class="text-center pt-10 pb-10">Заказов еще не было создано</h2>
+        @endif
     </div>
 </main>
 
