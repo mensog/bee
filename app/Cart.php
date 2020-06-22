@@ -2,65 +2,53 @@
 
 namespace App;
 
-use Illuminate\Session\Store;
+use Illuminate\Database\Eloquent\Model;
 
-class Cart
+class Cart extends Model
 {
-    protected $session;
-    protected $content;
-    public $redirectTo;
 
     /**
-     * Cart constructor.
-     * @param Store $session Текущая сессия пользователя
+     * @return Cart
      */
-    public function __construct(Store $session)
+    public static function current()
     {
-        $this->session = $session;
-        $cartContent = $session->get('cart');
-        if ($cartContent) {
-            $this->content = json_decode($cartContent, true);
-        } else {
-            $this->content = [];
-        }
-        $this->redirectTo = '/';
+        $request = app('request');
+        $cartId = $request->cookie('cartId');
+        $cart = static::where('id', $cartId)->firstOr(function () {
+            $cart = new Cart();
+            $cart->content = [];
+            $cart->save();
+            return $cart;
+        });
+        return $cart;
     }
 
+    public function getContentAttribute($value)
+    {
+        return json_decode($value, true);
+    }
+
+    public function setContentAttribute($value)
+    {
+        $this->attributes['content'] = json_encode($value);
+    }
 
     /**
      * Добавляет товар в корзину
      * @param $productId int ID товара
      * @param $quantity int Количество
-     * @return bool true - если товар добавлен, false - если товара не существует,
      * или пытаемся добавить 0 или отрицательное количество товаров
      */
     public function addProduct(int $productId, int $quantity)
     {
-        $product = Product::find($productId);
-        if (!$product) {
-            return false;
-        }
-        $this->redirectTo = $product->friendly_url_name;
-        if ($quantity <= 0) {
-            return false;
-        }
-        if (isset($this->content[$productId])) {
-            $this->content[$productId] += $quantity;
+        $content = $this->content;
+        if (isset($content[$productId])) {
+            $this->updateProductQuantity($productId, $quantity);
         } else {
-            $this->content[$productId] = $quantity;
+            $content[$productId] = $quantity;
         }
-        $this->session->put('cart', json_encode($this->content));
-        return true;
-    }
-
-    /**
-     * Возвращает содержимое корзины
-     *
-     * @return array Содержимое корзины в формате id товара => количество
-     */
-    public function getContent()
-    {
-        return $this->content;
+        $this->content = $content;
+        $this->save();
     }
 
     /**
@@ -70,10 +58,12 @@ class Cart
      */
     public function removeProduct(int $productId)
     {
-        if (isset($this->content[$productId])) {
-            unset($this->content[$productId]);
+        $content = $this->content;
+        if (isset($content[$productId])) {
+            unset($content[$productId]);
         }
-        $this->session->put('cart', json_encode($this->content));
+        $this->content = $content;
+        $this->save();
     }
 
     /**
@@ -82,6 +72,18 @@ class Cart
     public function clear()
     {
         $this->content = [];
-        $this->session->put('cart', json_encode($this->content));
+        $this->save();
+    }
+
+    public function updateProductQuantity(int $productId, int $quantity)
+    {
+        if (isset($this->content[$productId])) {
+            $content = $this->content;
+            $content[$productId] = $quantity;
+            $this->content = $content;
+            $this->save();
+        } else {
+            $this->addProduct($productId, $quantity);
+        }
     }
 }
