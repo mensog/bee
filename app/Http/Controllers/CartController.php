@@ -12,17 +12,18 @@ class CartController extends Controller
      * Добавление товара в корзину
      *
      * @param Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function addProduct(Request $request)
     {
-        $productId = (int)$request->input('product-id');
+        $productId = (int)$request->input('productId');
         $quantity = (int)$request->input('quantity');
-        $cart = new Cart($request->session());
-        if ($cart->addProduct($productId, $quantity)) {
-            return redirect()->route('product', $cart->redirectTo);
-        }
-        return redirect()->route('/');
+        $cart = Cart::current();
+        $cart->addProduct($productId, $quantity);
+        $response = [
+            'count' => count($cart->content),
+        ];
+        return response()->json($response, 201);
     }
 
     /**
@@ -33,8 +34,8 @@ class CartController extends Controller
      */
     public function show(Request $request)
     {
-        $cart = new Cart($request->session());
-        $cartContent = $cart->getContent();
+        $cart = Cart::current();
+        $cartContent = $cart->content;
         $productIds = array_keys($cartContent);
         $products = Product::find($productIds);
         return view('pages.cart', ['products' => $products, 'quantity' => $cartContent]);
@@ -44,13 +45,60 @@ class CartController extends Controller
      * Удаление товара из корзины
      *
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Http\JsonResponse
      */
     public function removeProduct(Request $request)
     {
-        $productId = (int)$request->input('product-id');
-        $cart = new Cart($request->session());
+        $productId = (int)$request->input('productId');
+        $cart = Cart::current();
         $cart->removeProduct($productId);
-        return redirect()->route('cart');
+        $response = [
+            'count' => count($cart->content),
+        ];
+        return response()->json($response);
+    }
+
+    /**
+     * Изменение количество товара в корзине
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function updateProductQuantity(Request $request)
+    {
+        $productId = (int)$request->input('productId');
+        $quantity = (int)$request->input('quantity');
+        $cart = Cart::current();
+        $cart->updateProductQuantity($productId, $quantity);
+        $response = [
+            'count' => count($cart->content),
+        ];
+        return response()->json($response);
+
+    }
+
+    /**
+     * Обработка апи-запросов к корзине
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response
+     */
+    public function api(Request $request)
+    {
+        $possibleActions = ['add', 'remove', 'updateQuantity'];
+        $action = $request->input('action');
+        $response = response()->json([], 404);
+        if (in_array($action, $possibleActions)) {
+            if ($action === 'add') {
+                $response = $this->addProduct($request);
+            }
+            if ($action === 'remove') {
+                $response = $this->removeProduct($request);
+            }
+            if ($action === 'updateQuantity') {
+                $response = $this->updateProductQuantity($request);
+            }
+        }
+        return $response;
     }
 }
