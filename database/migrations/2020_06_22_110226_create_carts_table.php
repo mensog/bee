@@ -18,7 +18,7 @@ class CreateCartsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->integer('user_id')->unsigned()->nullable();
-            $table->json('content')->default(new Expression('(JSON_ARRAY())'));
+            $table->longText('content');
         });
     }
 
