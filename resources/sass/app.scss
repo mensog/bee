@@ -13,9 +13,86 @@
 }
 
 
-button.loading{
+button.loading {
     position: relative;
-    i:before{
+
+    i:before {
         content: url("/svg/preloaders/loading.svg");
+    }
+}
+
+.card-cart {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+
+    .card-cart__body {
+        padding: 45px 30px 20px;
+        position: relative;
+    }
+
+    .card-cart__body.loading:before {
+        content: url("/svg/preloaders/loading-primary.svg");
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        max-width: 70px;
+        max-height: 70px;
+        display: block;
+    }
+
+    .card-cart__body.loading {
+        opacity: 0.5;
+    }
+
+    .card-cart__footer {
+        padding: 20px 30px 45px;
+    }
+
+    .card-cart__title {
+        margin-top: 10px;
+        font-size: 18px;
+    }
+
+    .card-cart__delete {
+        button {
+            background: #fff;
+            border: 0;
+            max-width: 40px;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+    }
+
+    .cart-qty::-webkit-outer-spin-button,
+    .cart-qty::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .cart-qty {
+        -moz-appearance: textfield;
+    }
+
+    .card-cart__props, .card-cart__delete {
+        align-self: center;
+    }
+
+    .card-cart__sku {
+        font-size: 14px;
+        margin-bottom: 0;
+    }
+
+    .card-cart__price {
+        align-self: center;
+
+        p {
+            margin-bottom: 0;
+            text-align: right;
+        }
     }
 }

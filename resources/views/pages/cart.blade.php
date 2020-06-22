@@ -7,75 +7,74 @@
         </div>
         <div class="mb-10 cart-table">
             @if(count($products) !== 0)
-                <form class="mb-4" action="{{ route('checkout') }}" method="post">
-                    @csrf
-                    <table class="table" cellspacing="0">
-                        <thead>
-                        <tr>
-                            <th class="product-thumbnail">&nbsp;</th>
-                            <th class="product-name">Товар</th>
-                            <th class="product-qty">Количество</th>
-                            <th class="product-price">Цена</th>
-                            <th class="product-delete">&nbsp;</th>
-                        </tr>
-                        </thead>
-                        <tbody>
+                <div class="card-cart">
+                    <div id="cardBody" class="card-cart__body">
+                        @csrf
                         @foreach ($products as $product)
-                            <tr class="">
-                                <td class="d-none d-md-table-cell">
+                            <div class="row">
+                                <div class="col-lg-2">
                                     <a href="{{ route('product', $product->friendly_url_name) }}"><img
-                                            class="img-fluid max-width-100 p-1 border border-color-1"
+                                            class="img-fluid card-cart__img max-width-100"
                                             src="{{$product->img_url}}" alt="{{$product->description}}"></a>
-                                </td>
-
-                                <td data-title="Product">
-                                    <a href="{{ route('category', $product->friendly_url_name) }}"
-                                       class="text-gray-90">{{$product->name}}</a>
-                                </td>
-
-                                <td data-title="Qty">
-                                    <span class="text-gray-90">{{$quantity[$product->id]}}</span>
-                                </td>
-
-                                <td data-title="Price">
-                                    <span class="">{{$product->price / 100}} руб</span>
-                                </td>
-
-                                <td data-title="Delete">
-                                    <a href="{{route('remove_from_cart', ['product-id' => $product->id] )}}"
-                                       class="text-gray-90">Удалить</a>
-                                </td>
-                            </tr>
-                        @endforeach
-                        <tr>
-                            <td colspan="6" class="border-top space-top-2 justify-content-center">
-                                <div class="pt-md-3">
-                                    <div class="d-block d-md-flex flex-center-between">
-                                        <div class="mb-3 mb-md-0 w-xl-40">
-
-                                                <label class="sr-only" for="subscribeSrEmail">E-mail</label>
-                                                <div class="input-group">
-                                                    <input type="text" class="form-control" name="email"
-                                                           id="subscribeSrEmail" placeholder="Введите e-mail"
-                                                           aria-label="email" aria-describedby="subscribeButton"
-                                                           required>
-                                                    <div class="input-group-append">
-                                                        <button class="btn btn-block btn-dark px-4" type="submit"
-                                                                id="subscribeButton"><i
-                                                                class="fas fa-tags d-md-none"></i><span
-                                                                class="d-none d-md-inline">Оформить заказ</span>
-                                                        </button>
-                                                    </div>
-                                                </div>
-
+                                </div>
+                                <div class="col-lg-5">
+                                    <p class="card-cart__title">
+                                        <a href="{{ route('category', $product->friendly_url_name) }}"
+                                           class="text-gray-90">{{$product->name}}</a>
+                                    </p>
+                                    <p class="card-cart__sku">Артикул: {{ $product-> sku }}</p>
+                                </div>
+                                <div class="col-lg-5 card-cart__props">
+                                    <div class="row">
+                                        <div class="col-lg-6 text-right col-12 card-cart__price">
+                                            <p>{{$product->price / 100}} руб</p>
+                                        </div>
+                                        <div class="col-lg-2 card-cart__qty">
+                                            <input data-quantity="{{$quantity[$product->id]}}"
+                                                   data-id="{{$product->id}}" data-action="updateQuantity"
+                                                   data-page="cart" class="form-control cart-qty text-center"
+                                                   type="number"
+                                                   value="{{$quantity[$product->id]}}">
+                                        </div>
+                                        <div class="col-lg-4 col-12 card-cart__delete">
+                                            <button data-id="{{$product->id}}" data-action="remove" data-page="cart"
+                                                    class="change-cart">
+                                                <img class="img-fluid" src="/svg/trash.svg" alt="remove">
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </form>
+                            </div>
+                            <hr>
+                        @endforeach
+                    </div>
+                    <div class="card-cart__footer">
+                        <form action="{{ route('checkout') }}" method="post">
+                            <div class="pt-md-3">
+                                <div class="d-block d-md-flex flex-center-between">
+                                    <div class="mb-3 mb-md-0 w-xl-40">
+
+                                        <label class="sr-only" for="subscribeSrEmail">E-mail</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" name="email"
+                                                   id="subscribeSrEmail" placeholder="Введите e-mail"
+                                                   aria-label="email" aria-describedby="subscribeButton"
+                                                   required>
+                                            <div class="input-group-append">
+                                                <button class="btn btn-block btn-dark px-4" type="submit"
+                                                        id="subscribeButton"><i
+                                                        class="fas fa-tags d-md-none"></i><span
+                                                        class="d-none d-md-inline">Оформить заказ</span>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             @else
                 <div>
                     <p class="text-center font-size-36">Сейчас корзина пуста</p>
