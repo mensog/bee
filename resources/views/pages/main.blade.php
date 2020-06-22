@@ -123,10 +123,11 @@
                                                     <div class="text-gray-100">{{$recentProduct->price / 100}}руб
                                                     </div>
                                                 </div>
-                                                <div class="d-none d-xl-block prodcut-add-cart">
-                                                    <a href="{{route('add_to_cart', ['product-id' => $recentProduct->id, 'quantity' => 1] )}}"
-                                                       class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                            class="ec ec-add-to-cart"></i></a>
+                                                <div class="d-none d-xl-block product-add-cart">
+                                                    <button data-id="{{$recentProduct->id}}" data-quantity="{{1}}"
+                                                            class="btn-add-cart border-0 add-to-cart btn-primary transition-3d-hover">
+                                                        <i class="ec ec-add-to-cart"></i>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>

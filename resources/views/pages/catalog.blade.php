@@ -47,17 +47,18 @@
                                                             class="img-fluid" src="{{ $product->img_url }}"
                                                             alt="{{ $product->name }}"></a>
                                                 </div>
-                                                <p class="font-size-12 p-0 text-gray-110 mb-4">{{ Str::of($product->description)->limit(80, ' ...') }}</p>
+                                                <p class="font-size-12 p-0 text-gray-110 mb-4">{{ Str::of($product->description)->limit(75, ' ...') }}</p>
                                                 <div class="text-gray-20 mb-2 font-size-12">
                                                     Артикул: {{ $product-> sku }}</div>
                                                 <div class="flex-center-between mb-1">
                                                     <div class="prodcut-price">
                                                         <div class="text-gray-100">{{ $product->price / 100 }} руб</div>
                                                     </div>
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="{{route('add_to_cart', ['product-id' => $product->id, 'quantity' => 1] )}}"
-                                                           class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
+                                                    <div class="d-none d-xl-block product-add-cart">
+                                                        <button data-id="{{$product->id}}" data-quantity="{{1}}"
+                                                                class="btn-add-cart border-0 add-to-cart btn-primary transition-3d-hover">
+                                                            <i class="ec ec-add-to-cart"></i>
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>

@@ -11,3 +11,11 @@
 .pagination {
     justify-content: center;
 }
+
+
+button.loading{
+    position: relative;
+    i:before{
+        content: url("/svg/preloaders/loading.svg");
+    }
+}

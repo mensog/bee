@@ -11,7 +11,8 @@
                     <div class="mb-2">
                         <div class="border-bottom mb-3 pb-md-1 pb-3">
                             <a href="{{ route('category', $product->category->friendly_url_name) }}"
-                               class="font-size-12 text-gray-5 mb-2 d-inline-block">{{$product->category->name}}/{{ $product->name }}</a>
+                               class="font-size-12 text-gray-5 mb-2 d-inline-block">{{$product->category->name}}
+                                /{{ $product->name }}</a>
                             <h2 class="font-size-25 text-lh-1dot2">{{ $product->name }}</h2>
                         </div>
                         <p>{{ $product->description }}</p>
@@ -22,8 +23,12 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <a href="{{route('add_to_cart', ['product-id' => $product->id, 'quantity' => 1] )}}" class="btn px-5 btn-primary-dark transition-3d-hover"><i
+                            <a href="{{route('add_to_cart', ['product-id' => $product->id, 'quantity' => 1] )}}"
+                               class="btn px-5 btn-primary-dark transition-3d-hover"><i
                                     class="ec ec-add-to-cart mr-2 font-size-20"></i> Добавить в корзину</a>
+                            <button data-id="{{$product->id}}" data-quantity="{{1}}" class="btn add-to-cart px-5 btn-primary-dark transition-3d-hover">
+                                <i class="ec ec-add-to-cart mr-2 font-size-20"></i> Добавить в корзину
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -31,5 +36,4 @@
         </div>
     </div>
 </main>
-
 <x-footer/>

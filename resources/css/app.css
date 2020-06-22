@@ -36674,10 +36674,6 @@ blockquote:not(.blockquote) p {
     border-radius: 6.1875rem;
 }
 
-.btn-add-cart i {
-    font-size: 1.25rem;
-}
-
 .btn-add-cart:hover {
     background-color: #fed700;
     color: #fff;
