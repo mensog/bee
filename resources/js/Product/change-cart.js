@@ -1,4 +1,4 @@
-$('.change-cart').on('click', function (e) {
+$('body').on('click', '.change-cart', function (e) {
     e.preventDefault()
     const productId = $(this).data('id');
     const quantity = $(this).data('quantity');
@@ -8,7 +8,7 @@ $('.change-cart').on('click', function (e) {
     changeCart(productId, action, fromPage, quantity)
 })
 
-$('.cart-qty').on('blur', function () {
+$('body').on('blur', '.cart-qty', function () {
     let quantity = $(this).data('quantity');
     if (Number($(this).val()) !== Number(quantity)) {
         const productId = $(this).data('id');
@@ -27,7 +27,6 @@ function changeCart(productId, action, fromPage, quantity) {
         productId, action, fromPage, quantity
     }
     data = clean(data)
-    console.log(data)
     const cartBody = $('#cardBody')
     $.ajax({
         type: 'POST',
@@ -41,9 +40,8 @@ function changeCart(productId, action, fromPage, quantity) {
             if (data['count'] !== '') {
                 $('#cartCounter').html(data['count'])
             }
-            // cartBody.html(data)
+            cartBody.replaceWith(data['html'])
             cartBody.removeClass('loading')
-            console.log(data);
         },
         error: e => {
             console.log(e)

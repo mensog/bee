@@ -8,7 +8,6 @@ $('body').on('click', '.add-to-cart:not(.loading)', function (e) {
         quantity,
         action
     }
-    console.log(data)
     $.ajax({
         type: 'POST',
         url: "/api/cart",
@@ -22,7 +21,6 @@ $('body').on('click', '.add-to-cart:not(.loading)', function (e) {
                 $('#cartCounter').html(data['count'])
             }
             $(this).removeClass('loading')
-            console.log(data);
         },
         error: e => {
             console.log(e)
