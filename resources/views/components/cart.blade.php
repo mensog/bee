@@ -27,7 +27,7 @@
                                value="{{$quantity[$product->id]}}">
                     </div>
                     <div class="col-lg-4 col-12 card-cart__delete">
-                        <button data-id="{{$product->id}}" data-action="remove" data-page="cart"
+                        <button type="button" data-id="{{$product->id}}" data-action="remove" data-page="cart"
                                 class="change-cart">
                             <img class="img-fluid" src="/svg/trash.svg" alt="remove">
                         </button>
