@@ -18,7 +18,7 @@ class CartController extends Controller
     {
         $productId = (int)$request->input('productId');
         $quantity = (int)$request->input('quantity');
-        $cart = Cart::current();
+        $cart = app('Cart');
         $cart->addProduct($productId, $quantity);
         $response = [
             'count' => $cart->countTotalQuantity(),
@@ -34,7 +34,7 @@ class CartController extends Controller
      */
     public function show(Request $request)
     {
-        $cart = Cart::current();
+        $cart = app('Cart');
         $cartContent = $cart->content;
         $productIds = array_keys($cartContent);
         $products = Product::find($productIds);
@@ -50,7 +50,7 @@ class CartController extends Controller
     public function removeProduct(Request $request)
     {
         $productId = (int)$request->input('productId');
-        $cart = Cart::current();
+        $cart = app('Cart');
         $cart->removeProduct($productId);
         $response = [
             'count' => $cart->countTotalQuantity(),
@@ -68,7 +68,7 @@ class CartController extends Controller
     {
         $productId = (int)$request->input('productId');
         $quantity = (int)$request->input('quantity');
-        $cart = Cart::current();
+        $cart = app('Cart');
         $cart->updateProductQuantity($productId, $quantity);
         $response = [
             'count' => $cart->countTotalQuantity(),

@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Crypt;
 
 class Cart extends Model
 {
@@ -12,12 +14,16 @@ class Cart extends Model
      */
     public static function current()
     {
-        $request = app('request');
-        $cartId = $request->cookie('cartId');
+        try {
+            $cartId = Crypt::decrypt(Cookie::get('cartId'), false);
+        } catch (\Exception $exception) {
+            $cartId = null;
+        }
         $cart = static::where('id', $cartId)->firstOr(function () {
             $cart = new Cart();
             $cart->content = [];
             $cart->save();
+            Cookie::queue('cartId', $cart->id, 30 * 24 * 3600);
             return $cart;
         });
         return $cart;
