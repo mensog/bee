@@ -27,21 +27,21 @@ function changeCart(productId, action, fromPage, quantity) {
         productId, action, fromPage, quantity
     }
     data = clean(data)
-    const cartBody = $('#cardBody')
+    const cart = $('#cart')
     $.ajax({
         type: 'POST',
         url: "/api/cart",
         data: JSON.stringify(data),
         contentType: 'application/json',
         beforeSend: () => {
-            cartBody.addClass('loading')
+            cart.addClass('loading')
         },
         success: data => {
             if (data['count'] !== '') {
                 $('#cartCounter').html(data['count'])
             }
-            cartBody.replaceWith(data['html'])
-            cartBody.removeClass('loading')
+            cart.replaceWith(data['html'])
+            cart.removeClass('loading')
         },
         error: e => {
             console.log(e)
