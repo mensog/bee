@@ -21,7 +21,7 @@ class CartController extends Controller
         $cart = Cart::current();
         $cart->addProduct($productId, $quantity);
         $response = [
-            'count' => count($cart->content),
+            'count' => $cart->countTotalQuantity(),
         ];
         return response()->json($response, 201);
     }
@@ -53,7 +53,7 @@ class CartController extends Controller
         $cart = Cart::current();
         $cart->removeProduct($productId);
         $response = [
-            'count' => count($cart->content),
+            'count' => $cart->countTotalQuantity(),
         ];
         return response()->json($response);
     }
@@ -71,7 +71,7 @@ class CartController extends Controller
         $cart = Cart::current();
         $cart->updateProductQuantity($productId, $quantity);
         $response = [
-            'count' => count($cart->content),
+            'count' => $cart->countTotalQuantity(),
         ];
         return response()->json($response);
 

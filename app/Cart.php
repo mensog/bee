@@ -86,4 +86,13 @@ class Cart extends Model
             $this->addProduct($productId, $quantity);
         }
     }
+
+    public function countTotalQuantity()
+    {
+        $count = 0;
+        foreach ($this->content as $productId => $quantity) {
+            $count += $quantity;
+        }
+        return $count;
+    }
 }
