@@ -195,7 +195,7 @@
                                        data-placement="top" title="Корзина">
                                         <i class="font-size-22 ec ec-shopping-bag"></i>
                                         <span id="cartCounter" class="d-none d-xl-block font-weight-bold font-size-16 text-gray-90 ml-3">
-
+                                            {{$headerCartCount}}
                                         </span>
                                     </a>
                                 </li>
