@@ -13,6 +13,7 @@ class CartController extends Controller
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
+     * @throws \Throwable
      */
     public function addProduct(Request $request)
     {
@@ -20,10 +21,16 @@ class CartController extends Controller
         $quantity = (int)$request->input('quantity');
         $cart = app('Cart');
         $cart->addProduct($productId, $quantity);
+        $cartContent = $cart->content;
         $response = [
             'count' => $cart->countTotalQuantity(),
         ];
-        return response()->json($response, 201);
+        if ($request->input('fromPage') === 'cart') {
+            $productIds = array_keys($cartContent);
+            $products = Product::find($productIds);
+            $response['html'] = view('pages.cart', ['products' => $products, 'quantity' => $cartContent])->render();
+        }
+        return response()->json($response);
     }
 
     /**
@@ -46,15 +53,22 @@ class CartController extends Controller
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
+     * @throws \Throwable
      */
     public function removeProduct(Request $request)
     {
         $productId = (int)$request->input('productId');
         $cart = app('Cart');
         $cart->removeProduct($productId);
+        $cartContent = $cart->content;
         $response = [
             'count' => $cart->countTotalQuantity(),
         ];
+        if ($request->input('fromPage') === 'cart') {
+            $productIds = array_keys($cartContent);
+            $products = Product::find($productIds);
+            $response['html'] = view('components.cart', ['products' => $products, 'quantity' => $cartContent])->render();
+        }
         return response()->json($response);
     }
 
@@ -63,6 +77,7 @@ class CartController extends Controller
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
+     * @throws \Throwable
      */
     public function updateProductQuantity(Request $request)
     {
@@ -70,9 +85,15 @@ class CartController extends Controller
         $quantity = (int)$request->input('quantity');
         $cart = app('Cart');
         $cart->updateProductQuantity($productId, $quantity);
+        $cartContent = $cart->content;
         $response = [
             'count' => $cart->countTotalQuantity(),
         ];
+        if ($request->input('fromPage') === 'cart') {
+            $productIds = array_keys($cartContent);
+            $products = Product::find($productIds);
+            $response['html'] = view('components.cart', ['products' => $products, 'quantity' => $cartContent])->render();
+        }
         return response()->json($response);
 
     }
@@ -82,6 +103,7 @@ class CartController extends Controller
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response
+     * @throws \Throwable
      */
     public function api(Request $request)
     {
