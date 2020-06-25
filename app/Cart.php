@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Crypt;
 class Cart extends Model
 {
 
+    protected $products;
+
     /**
      * @return Cart
      */
@@ -55,6 +57,7 @@ class Cart extends Model
         }
         $this->content = $content;
         $this->save();
+        $this->initProducts();
     }
 
     /**
@@ -70,6 +73,7 @@ class Cart extends Model
         }
         $this->content = $content;
         $this->save();
+        $this->initProducts();
     }
 
     /**
@@ -88,6 +92,7 @@ class Cart extends Model
             $content[$productId] = $quantity;
             $this->content = $content;
             $this->save();
+            $this->initProducts();
         } else {
             $this->addProduct($productId, $quantity);
         }
@@ -100,5 +105,46 @@ class Cart extends Model
             $count += $quantity;
         }
         return $count;
+    }
+
+    public function getTotal()
+    {
+        if (is_null($this->products)) {
+            $this->initProducts();
+        }
+        $total = 0;
+        $cartContent = $this->content;
+        foreach ($this->products as $product) {
+            $total += $cartContent[$product->id] * $product->price;
+        }
+        return $total;
+    }
+
+    protected function initProducts()
+    {
+        $cartContent = $this->content;
+        $productIds = array_keys($cartContent);
+        $this->products = Product::find($productIds);
+    }
+
+    public function getProducts()
+    {
+        if (is_null($this->products)) {
+            $this->initProducts();
+        }
+        return $this->products;
+    }
+
+    public function getItemsSubTotal()
+    {
+        if (is_null($this->products)) {
+            $this->initProducts();
+        }
+        $itemsSubTotal = [];
+        $cartContent = $this->content;
+        foreach ($this->products as $product) {
+            $itemsSubTotal[$product->id] = $cartContent[$product->id] * $product->price;
+        }
+        return $itemsSubTotal;
     }
 }

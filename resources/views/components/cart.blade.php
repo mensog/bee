@@ -19,10 +19,8 @@
                     <div class="col-lg-5 card-cart__props">
                         <div class="row">
                             <div class="col-lg-6 text-right col-12 card-cart__price">
-                                <p class="card-cart__price-total">{{$product->price / 100}} ₽</p>
-                                @if($quantity[$product->id] > 1)
-                                    <p>{{($product->price / 100) / $quantity[$product->id]}} ₽/шт.</p>
-                                @endif
+                                <p class="card-cart__price-total">{{$itemsSubTotal[$product->id] / 100}} ₽</p>
+                                <p>{{ $product->price / 100 }} ₽/шт.</p>
                             </div>
                             <div class="col-lg-2 card-cart__qty">
                                 <input data-quantity="{{$quantity[$product->id]}}"
@@ -73,7 +71,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-12 card-cart-total__price">
                             <p class="card-cart-total__title">Итого:</p>
-                            <p>12456 ₽</p>
+                            <p>{{ $cartTotal / 100 }} ₽</p>
                         </div>
                         <div class="col-lg-6 col-12 card-cart-total__delete">
                             <button type="button" class="btn btn-success">

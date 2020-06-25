@@ -18,17 +18,34 @@ class Cart extends Component
      * @var array
      */
     public $quantity;
+    /**
+     * Array of subtotals.
+     *
+     * @var array
+     */
+    public $itemsSubTotal;
+
+    /**
+     * Array of subtotals.
+     *
+     * @var int
+     */
+    public $cartTotal;
 
     /**
      * Create a new cart component instance.
      *
      * @param $products
      * @param $quantity
+     * @param $itemsSubTotal
+     * @param $cartTotal
      */
-    public function __construct($products, $quantity)
+    public function __construct($products, $quantity, $itemsSubTotal, $cartTotal)
     {
         $this->products = $products;
         $this->quantity = $quantity;
+        $this->itemsSubTotal = $itemsSubTotal;
+        $this->cartTotal = $cartTotal;
     }
 
     /**

@@ -26,9 +26,10 @@ class CartController extends Controller
             'count' => $cart->countTotalQuantity(),
         ];
         if ($request->input('fromPage') === 'cart') {
-            $productIds = array_keys($cartContent);
-            $products = Product::find($productIds);
-            $response['html'] = view('pages.cart', ['products' => $products, 'quantity' => $cartContent])->render();
+            $products = $cart->getProducts();
+            $itemsSubTotal = $cart->getItemsSubTotal();
+            $cartTotal = $cart->getTotal();
+            $response['html'] = view('components.cart', ['products' => $products, 'quantity' => $cartContent, 'itemsSubTotal' => $itemsSubTotal, 'cartTotal' => $cartTotal])->render();
         }
         return response()->json($response);
     }
@@ -43,9 +44,10 @@ class CartController extends Controller
     {
         $cart = app('Cart');
         $cartContent = $cart->content;
-        $productIds = array_keys($cartContent);
-        $products = Product::find($productIds);
-        return view('pages.cart', ['products' => $products, 'quantity' => $cartContent]);
+        $products = $cart->getProducts();
+        $itemsSubTotal = $cart->getItemsSubTotal();
+        $cartTotal = $cart->getTotal();
+        return view('pages.cart', ['products' => $products, 'quantity' => $cartContent, 'itemsSubTotal' => $itemsSubTotal, 'cartTotal' => $cartTotal]);
     }
 
     /**
@@ -65,9 +67,10 @@ class CartController extends Controller
             'count' => $cart->countTotalQuantity(),
         ];
         if ($request->input('fromPage') === 'cart') {
-            $productIds = array_keys($cartContent);
-            $products = Product::find($productIds);
-            $response['html'] = view('components.cart', ['products' => $products, 'quantity' => $cartContent])->render();
+            $products = $cart->getProducts();
+            $itemsSubTotal = $cart->getItemsSubTotal();
+            $cartTotal = $cart->getTotal();
+            $response['html'] = view('components.cart', ['products' => $products, 'quantity' => $cartContent, 'itemsSubTotal' => $itemsSubTotal, 'cartTotal' => $cartTotal])->render();
         }
         return response()->json($response);
     }
@@ -90,9 +93,10 @@ class CartController extends Controller
             'count' => $cart->countTotalQuantity(),
         ];
         if ($request->input('fromPage') === 'cart') {
-            $productIds = array_keys($cartContent);
-            $products = Product::find($productIds);
-            $response['html'] = view('components.cart', ['products' => $products, 'quantity' => $cartContent])->render();
+            $products = $cart->getProducts();
+            $itemsSubTotal = $cart->getItemsSubTotal();
+            $cartTotal = $cart->getTotal();
+            $response['html'] = view('components.cart', ['products' => $products, 'quantity' => $cartContent, 'itemsSubTotal' => $itemsSubTotal, 'cartTotal' => $cartTotal])->render();
         }
         return response()->json($response);
 

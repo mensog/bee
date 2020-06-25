@@ -6,7 +6,7 @@
             <h1 class="text-center">Корзина</h1>
         </div>
         <div class="mb-10">
-            <x-cart :products="$products" :quantity="$quantity"/>
+            <x-cart :products="$products" :quantity="$quantity" :itemsSubTotal="$itemsSubTotal" :cartTotal="$cartTotal"/>
         </div>
     </div>
 </main>
