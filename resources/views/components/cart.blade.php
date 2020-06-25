@@ -26,13 +26,14 @@
                             </div>
                             <div class="col-lg-2 card-cart__qty">
                                 <input data-quantity="{{ $quantity[$product->id] }}"
+                                       min="0" oninput="validity.valid||(value='')"
                                        data-id="{{ $product->id }}" data-action="updateQuantity"
                                        data-page="cart" class="form-control cart-qty text-center"
                                        type="number"
                                        value="{{ $quantity[$product->id] }}">
                             </div>
                             <div class="col-lg-4 col-12 card-cart__delete">
-                                <button type="button" data-id="{{ $product->id }}" data-action="remove" data-page="cart"
+                                <button type="button" data-id="{{ $product->id }}" data-quantity="0" data-action="updateQuantity" data-page="cart"
                                         class="change-cart">
                                     <img class="img-fluid" src="/svg/trash.svg" alt="remove">
                                 </button>

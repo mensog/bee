@@ -129,15 +129,22 @@ button.loading {
 .product-in-cart {
     display: flex;
     flex-direction: row;
+
+    .btn-plus:hover, .btn-minus:hover {
+        cursor: pointer !important;
+        background: #fafafa;
+    }
 }
 
 .cart-qty::-webkit-outer-spin-button,
-.cart-qty::-webkit-inner-spin-button {
+.cart-qty::-webkit-inner-spin-button,
+.product-qty::-webkit-outer-spin-button,
+.product-qty::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-.cart-qty {
+.cart-qty, .product-qty {
     padding: 5px;
     -moz-appearance: textfield;
 }

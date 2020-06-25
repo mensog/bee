@@ -1,13 +1,18 @@
+import {clean} from "../app";
+
 $('body').on('click', '.add-to-cart:not(.loading)', function (e) {
     e.preventDefault()
     const productId = $(this).data('id');
     const quantity = $(this).data('quantity');
+    const fromPage = $(this).data('page');
     const action = 'add';
-    const data = {
+    let data = {
         productId,
+        fromPage,
         quantity,
         action
     }
+    data = clean(data)
     $.ajax({
         type: 'POST',
         url: "/api/cart",
@@ -19,6 +24,10 @@ $('body').on('click', '.add-to-cart:not(.loading)', function (e) {
         success: data => {
             if (data['count'] !== '') {
                 $('#cartCounter').html(data['count'])
+            }
+            if (fromPage === 'product') {
+                const productQty = $('#productQty')
+                productQty.replaceWith(data['html'])
             }
             $(this).removeClass('loading')
         },
