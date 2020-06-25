@@ -31,6 +31,7 @@ const changeQty = type => {
                 quantity++
             }
         }
+        input.val(quantity)
     } else {
         quantity = input.data('quantity');
         if (Number(input.val()) !== Number(quantity)) {
@@ -50,7 +51,9 @@ const changeQty = type => {
             if (data['count'] !== '') {
                 $('#cartCounter').html(data['count'])
             }
-            productQty.replaceWith(data['html'])
+            if (quantity === 0) {
+                productQty.replaceWith(data['html'])
+            }
         },
         error: e => {
             console.log(e)
