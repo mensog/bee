@@ -1,5 +1,7 @@
 import {clean} from "../app";
 
+let timeout;
+
 $('body').on('blur', '.product-qty', function () {
     changeQty()
 })
@@ -13,8 +15,6 @@ $('body').on('click', '.btn-minus', function () {
 })
 
 const changeQty = type => {
-    const productQty = $('#productQty')
-    let data;
     const input = $('.product-qty');
     const productId = input.data('id');
     const action = input.data('action');
@@ -38,9 +38,22 @@ const changeQty = type => {
             quantity = input.val()
         }
     }
-    data = {
+
+    if (timeout !== undefined) {
+        clearTimeout(timeout);
+        timeout = undefined;
+    }
+
+    timeout = setTimeout(() => {
+        sendRequest(productId, action, fromPage, quantity)
+    }, 500)
+}
+
+const sendRequest = (productId, action, fromPage, quantity) => {
+    let data = {
         productId, action, fromPage, quantity
     }
+    const productQty = $('#productQty')
     data = clean(data)
     $.ajax({
         type: 'POST',
