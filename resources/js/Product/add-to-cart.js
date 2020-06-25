@@ -28,6 +28,9 @@ $('body').on('click', '.add-to-cart:not(.loading)', function (e) {
             if (fromPage === 'product') {
                 const productQty = $('#productQty')
                 productQty.replaceWith(data['html'])
+            } else {
+                $(this).removeClass('add-to-cart')
+                $(this).children('i').removeClass('ec-add-to-cart').addClass('ec-shopping-bag')
             }
             $(this).removeClass('loading')
         },

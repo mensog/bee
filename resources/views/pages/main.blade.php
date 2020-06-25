@@ -124,10 +124,17 @@
                                                     </div>
                                                 </div>
                                                 <div class="d-none d-xl-block product-add-cart">
-                                                    <button data-id="{{ $recentProduct->id }}" data-quantity="1"
-                                                            class="btn-add-cart border-0 add-to-cart btn-primary transition-3d-hover">
-                                                        <i class="ec ec-add-to-cart"></i>
-                                                    </button>
+                                                    @if(isset($cartContent[$recentProduct->id]))
+                                                        <button data-id="{{ $recentProduct->id }}" data-quantity="1"
+                                                                class="btn-add-cart border-0 btn-primary transition-3d-hover">
+                                                            <i class="ec ec-shopping-bag"></i>
+                                                        </button>
+                                                    @else
+                                                        <button data-id="{{ $recentProduct->id }}" data-quantity="1"
+                                                                class="btn-add-cart border-0 add-to-cart btn-primary transition-3d-hover">
+                                                            <i class="ec ec-add-to-cart"></i>
+                                                        </button>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
