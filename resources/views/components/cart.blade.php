@@ -11,7 +11,7 @@
                     </div>
                     <div class="col-lg-5">
                         <p class="card-cart__title">
-                            <a href="{{ route('category', $product->friendly_url_name) }}"
+                            <a href="{{ route('product', $product->friendly_url_name) }}"
                                class="text-gray-90">{{ $product->name }}</a>
                         </p>
                         <p class="card-cart__sku">Артикул: {{ $product-> sku }}</p>
