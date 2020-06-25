@@ -21,7 +21,7 @@
                             <div class="col-lg-6 text-right col-12 card-cart__price">
                                 <p class="card-cart__price-total">{{$itemsSubTotal[$product->id] / 100}} ₽</p>
                                 @if($quantity[$product->id] > 1)
-                                    <p>{{ $product->price / 100 }} ₽/шт.</p>
+                                    <p>{{$product->price / 100}} ₽/шт.</p>
                                 @endif
                             </div>
                             <div class="col-lg-2 card-cart__qty">
@@ -46,23 +46,21 @@
         <div class="card-cart__footer">
             <div class="row">
                 <div class="col-lg-7">
-                    <form action="{{ route('checkout') }}" method="post">
-                        <div class="pt-md-3">
-                            <div class="d-block d-md-flex flex-center-between">
-                                <div class="mb-3 mb-md-0 w-xl-80">
-                                    <label class="sr-only" for="subscribeSrEmail">E-mail</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="email"
-                                               id="subscribeSrEmail" placeholder="Введите e-mail"
-                                               aria-label="email" aria-describedby="subscribeButton"
-                                               required>
-                                        <div class="input-group-append">
-                                            <button class="btn btn-block btn-dark px-4" type="submit"
-                                                    id="subscribeButton"><i
-                                                    class="fas fa-tags d-md-none"></i><span
-                                                    class="d-none d-md-inline">Заказ в 1 клик</span>
-                                            </button>
-                                        </div>
+                    <form action="{{route('checkout')}}" method="post">
+                        <div class="d-block d-md-flex flex-center-between">
+                            <div class="mb-3 mb-md-0 w-xl-80">
+                                <label class="sr-only" for="subscribeSrEmail">E-mail</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="email"
+                                           id="subscribeSrEmail" placeholder="Введите e-mail"
+                                           aria-label="email" aria-describedby="subscribeButton"
+                                           required>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-block btn-dark px-4" type="submit"
+                                                id="subscribeButton"><i
+                                                class="fas fa-tags d-md-none"></i><span
+                                                class="d-none d-md-inline">Заказ в 1 клик</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
