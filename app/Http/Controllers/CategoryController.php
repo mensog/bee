@@ -16,13 +16,17 @@ class CategoryController extends Controller
     {
         $categories = Category::withCount('products')->get(); // Ограничение для демонстрации и пока нет разделения на категории и подкатегории
         $productsPaginator = Product::paginate(50);
-        return view('pages.catalog', ['categories' => $categories, 'products' => $productsPaginator]);
+        $cart = app('Cart');
+        $cartContent = $cart->content;
+        return view('pages.catalog', ['categories' => $categories, 'products' => $productsPaginator, 'cartContent' => $cartContent]);
     }
 
     public function show($name)
     {
         $categories = Category::withCount('products')->get(); // Ограничение для демонстрации и пока нет разделения на категории и подкатегории
         $productsPaginator = Category::where('friendly_url_name', $name)->firstOrFail()->products()->paginate(50);
-        return view('pages.category', ['categories' => $categories, 'products' => $productsPaginator]);
+        $cart = app('Cart');
+        $cartContent = $cart->content;
+        return view('pages.category', ['categories' => $categories, 'products' => $productsPaginator, 'cartContent' => $cartContent]);
     }
 }

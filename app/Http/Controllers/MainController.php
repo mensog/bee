@@ -15,6 +15,8 @@ class MainController extends Controller
     {
         $bannerProducts = Product::inRandomOrder()->limit(2)->get();
         $recentProducts = Product::orderBy('created_at','desc')->limit(18)->get();
-        return view('pages.main', ['bannerProducts' => $bannerProducts, 'recentProducts' => $recentProducts]);
+        $cart = app('Cart');
+        $cartContent = $cart->content;
+        return view('pages.main', ['bannerProducts' => $bannerProducts, 'recentProducts' => $recentProducts, 'cartContent' => $cartContent]);
     }
 }
