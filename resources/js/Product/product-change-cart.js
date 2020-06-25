@@ -51,7 +51,7 @@ const changeQty = type => {
             if (data['count'] !== '') {
                 $('#cartCounter').html(data['count'])
             }
-            if (quantity === 0) {
+            if (Number(quantity) === 0) {
                 productQty.replaceWith(data['html'])
             }
         },
