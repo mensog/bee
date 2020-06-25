@@ -30,13 +30,13 @@
                         <ul class="row list-unstyled products-group no-gutters">
                             @foreach ($products as $key => $product)
                                 <li id="product_{{ $product->id }}"
-                                    class="col-6 col-md-3 col-wd-2gdot4 product-item {{$key + 1 % 4 ? 'remove-divider-md-lg remove-divider-xl' : ''}} {{ ($key + 1) % 5  === 0 ? 'remove-divider-wd' : '' }}">
+                                    class="col-6 col-md-3 col-wd-2gdot4 product-item {{ $key + 1 % 4 ? 'remove-divider-md-lg remove-divider-xl' : ''}} {{ ($key + 1) % 5  === 0 ? 'remove-divider-wd' : '' }}">
                                     <div class="product-item__outer h-100">
                                         <div class="product-item__inner px-xl-4 p-3">
                                             <div class="product-item__body pb-xl-2">
                                                 <div class="mb-2"><a
                                                         href="{{ route('product', $product->friendly_url_name) }}"
-                                                        class="font-size-12 text-gray-5">{{$product->category->name}}</a>
+                                                        class="font-size-12 text-gray-5">{{ $product->category->name }}</a>
                                                 </div>
                                                 <h5 class="mb-1 product-item__title"><a
                                                         href="{{ route('product', $product->friendly_url_name) }}"
@@ -55,7 +55,7 @@
                                                         <div class="text-gray-100">{{ $product->price / 100 }} руб</div>
                                                     </div>
                                                     <div class="d-none d-xl-block product-add-cart">
-                                                        <button data-id="{{$product->id}}" data-quantity="{{1}}"
+                                                        <button data-id="{{ $product->id }}" data-quantity="1"
                                                                 class="btn-add-cart border-0 add-to-cart btn-primary transition-3d-hover">
                                                             <i class="ec ec-add-to-cart"></i>
                                                         </button>
@@ -77,7 +77,7 @@
                             @endforeach
                         </ul>
                     </div>
-                    {{$products->links()}}
+                    {{ $products->links() }}
                 </div>
             </div>
         </div>
