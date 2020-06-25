@@ -7,32 +7,32 @@
                     <div class="col-lg-2">
                         <a href="{{ route('product', $product->friendly_url_name) }}"><img
                                 class="img-fluid card-cart__img max-width-100"
-                                src="{{$product->img_url}}" alt="{{$product->description}}"></a>
+                                src="{{ $product->img_url }}" alt="{{ $product->description }}"></a>
                     </div>
                     <div class="col-lg-5">
                         <p class="card-cart__title">
                             <a href="{{ route('category', $product->friendly_url_name) }}"
-                               class="text-gray-90">{{$product->name}}</a>
+                               class="text-gray-90">{{ $product->name }}</a>
                         </p>
                         <p class="card-cart__sku">Артикул: {{ $product-> sku }}</p>
                     </div>
                     <div class="col-lg-5 card-cart__props">
                         <div class="row">
                             <div class="col-lg-6 text-right col-12 card-cart__price">
-                                <p class="card-cart__price-total">{{$itemsSubTotal[$product->id] / 100}} ₽</p>
+                                <p class="card-cart__price-total">{{ $itemsSubTotal[$product->id] / 100 }} ₽</p>
                                 @if($quantity[$product->id] > 1)
-                                    <p>{{$product->price / 100}} ₽/шт.</p>
+                                    <p>{{ $product->price / 100 }} ₽/шт.</p>
                                 @endif
                             </div>
                             <div class="col-lg-2 card-cart__qty">
-                                <input data-quantity="{{$quantity[$product->id]}}"
-                                       data-id="{{$product->id}}" data-action="updateQuantity"
+                                <input data-quantity="{{ $quantity[$product->id]}}"
+                                       data-id="{{ $product->id }}" data-action="updateQuantity"
                                        data-page="cart" class="form-control cart-qty text-center"
                                        type="number"
-                                       value="{{$quantity[$product->id]}}">
+                                       value="{{ $quantity[$product->id] }}">
                             </div>
                             <div class="col-lg-4 col-12 card-cart__delete">
-                                <button type="button" data-id="{{$product->id}}" data-action="remove" data-page="cart"
+                                <button type="button" data-id="{{ $product->id }}" data-action="remove" data-page="cart"
                                         class="change-cart">
                                     <img class="img-fluid" src="/svg/trash.svg" alt="remove">
                                 </button>
@@ -46,7 +46,7 @@
         <div class="card-cart__footer">
             <div class="row">
                 <div class="col-lg-7">
-                    <form action="{{route('checkout')}}" method="post">
+                    <form action="{{ route('checkout') }}" method="post">
                         <div class="d-block d-md-flex flex-center-between">
                             <div class="mb-3 mb-md-0 w-xl-80">
                                 <label class="sr-only" for="subscribeSrEmail">E-mail</label>
@@ -86,6 +86,6 @@
 @else
     <div>
         <p class="text-center font-size-36">Сейчас корзина пуста</p>
-        <p class="text-center font-size-36">Перейти в <a href="{{route('catalog')}}">каталог</a></p>
+        <p class="text-center font-size-36">Перейти в <a href="{{ route('catalog') }}">каталог</a></p>
     </div>
 @endif
