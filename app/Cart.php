@@ -88,11 +88,15 @@ class Cart extends Model
     public function updateProductQuantity(int $productId, int $quantity)
     {
         if (isset($this->content[$productId])) {
-            $content = $this->content;
-            $content[$productId] = $quantity;
-            $this->content = $content;
-            $this->save();
-            $this->initProducts();
+            if ($quantity == 0) {
+                $this->removeProduct($productId);
+            } else {
+                $content = $this->content;
+                $content[$productId] = $quantity;
+                $this->content = $content;
+                $this->save();
+                $this->initProducts();
+            }
         } else {
             $this->addProduct($productId, $quantity);
         }

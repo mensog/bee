@@ -53,31 +53,6 @@ class CartController extends Controller
     }
 
     /**
-     * Удаление товара из корзины
-     *
-     * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
-     * @throws \Throwable
-     */
-    public function removeProduct(Request $request)
-    {
-        $productId = (int)$request->input('productId');
-        $cart = app('Cart');
-        $cart->removeProduct($productId);
-        $cartContent = $cart->content;
-        $response = [
-            'count' => $cart->countTotalQuantity(),
-        ];
-        if ($request->input('fromPage') === 'cart') {
-            $products = $cart->getProducts();
-            $itemsSubTotal = $cart->getItemsSubTotal();
-            $cartTotal = $cart->getTotal();
-            $response['html'] = view('components.cart', ['products' => $products, 'quantity' => $cartContent, 'itemsSubTotal' => $itemsSubTotal, 'cartTotal' => $cartTotal])->render();
-        }
-        return response()->json($response);
-    }
-
-    /**
      * Изменение количество товара в корзине
      *
      * @param Request $request
@@ -115,15 +90,12 @@ class CartController extends Controller
      */
     public function api(Request $request)
     {
-        $possibleActions = ['add', 'remove', 'updateQuantity'];
+        $possibleActions = ['add', 'updateQuantity'];
         $action = $request->input('action');
         $response = response()->json([], 404);
         if (in_array($action, $possibleActions)) {
             if ($action === 'add') {
                 $response = $this->addProduct($request);
-            }
-            if ($action === 'remove') {
-                $response = $this->removeProduct($request);
             }
             if ($action === 'updateQuantity') {
                 $response = $this->updateProductQuantity($request);
