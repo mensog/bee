@@ -9,7 +9,14 @@ class ProductController extends Controller
     public function show($name)
     {
         $product = Product::with('category')->where('friendly_url_name', $name)->firstOrFail();
-        return view('pages.product', ['product' => $product]);
+        $cart = app('Cart');
+        $cartContent = $cart->content;
+        if (isset($cartContent[$product->id])) {
+            $inCartQuantity = $cartContent[$product->id];
+        } else {
+            $inCartQuantity = 0;
+        }
+        return view('pages.product', ['product' => $product, 'inCartQuantity' => $inCartQuantity]);
     }
 
     /**
@@ -19,6 +26,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::paginate(20);
-        return view('pages.admin.products', ['products' => $products]);
+        $cart = app('Cart');
+        $cartContent = $cart->content;
+        return view('pages.admin.products', ['products' => $products, 'cartContent' => $cartContent]);
     }
 }
