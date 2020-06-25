@@ -22,7 +22,7 @@ const changeQty = type => {
     let quantity = input.val();
     if (type) {
         if (type === 'minus') {
-            if (quantity >= 0) {
+            if (quantity > 0) {
                 quantity--
             }
         }
