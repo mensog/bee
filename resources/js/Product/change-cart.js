@@ -1,3 +1,5 @@
+import {clean} from "../app";
+
 $('body').on('click', '.change-cart', function (e) {
     e.preventDefault()
     const productId = $(this).data('id');
@@ -48,8 +50,3 @@ function changeCart(productId, action, fromPage, quantity) {
         }
     });
 }
-
-const clean = obj => {
-    Object.keys(obj).forEach(key => (obj[key] == null || undefined) && delete obj[key]);
-    return obj
-};
