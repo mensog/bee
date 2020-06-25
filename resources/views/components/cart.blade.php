@@ -20,7 +20,9 @@
                         <div class="row">
                             <div class="col-lg-6 text-right col-12 card-cart__price">
                                 <p class="card-cart__price-total">{{$itemsSubTotal[$product->id] / 100}} ₽</p>
-                                <p>{{ $product->price / 100 }} ₽/шт.</p>
+                                @if($quantity[$product->id] > 1)
+                                    <p>{{ $product->price / 100 }} ₽/шт.</p>
+                                @endif
                             </div>
                             <div class="col-lg-2 card-cart__qty">
                                 <input data-quantity="{{$quantity[$product->id]}}"

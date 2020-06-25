@@ -16,7 +16,7 @@ class OrderController extends Controller
      */
     public function create(Request $request)
     {
-        $cart = new Cart($request->session());
+        $cart = Cart::current();
         $order = new Order();
         $order->email = $request->input('email');
         $order->save();
