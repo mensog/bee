@@ -69,17 +69,6 @@ button.loading {
         }
     }
 
-    .cart-qty::-webkit-outer-spin-button,
-    .cart-qty::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-
-    .cart-qty {
-        padding: 5px;
-        -moz-appearance: textfield;
-    }
-
     .card-cart__props, .card-cart__delete {
         align-self: center;
     }
@@ -135,4 +124,20 @@ button.loading {
             margin-bottom: 0;
         }
     }
+}
+
+.product-in-cart {
+    display: flex;
+    flex-direction: row;
+}
+
+.cart-qty::-webkit-outer-spin-button,
+.cart-qty::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.cart-qty {
+    padding: 5px;
+    -moz-appearance: textfield;
 }

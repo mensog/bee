@@ -25,7 +25,7 @@
                                 @endif
                             </div>
                             <div class="col-lg-2 card-cart__qty">
-                                <input data-quantity="{{ $quantity[$product->id]}}"
+                                <input data-quantity="{{ $quantity[$product->id] }}"
                                        data-id="{{ $product->id }}" data-action="updateQuantity"
                                        data-page="cart" class="form-control cart-qty text-center"
                                        type="number"
