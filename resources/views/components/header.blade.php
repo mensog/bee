@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
-    <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/app-sass.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/app-sass.css') }}">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
             <div class="container">
                 <div class="d-flex align-items-center">
                     <div class="topbar-left">
-                        <a href="{{route('home')}}" class="text-gray-110 font-size-13 u-header-topbar__nav-link">Beeclub
+                        <a href="{{ route('home') }}" class="text-gray-110 font-size-13 u-header-topbar__nav-link">Beeclub
                             - маркетплейс строительных материалов</a>
                     </div>
                     <div class="topbar-right ml-auto">
@@ -62,7 +62,7 @@
                         <nav
                             class="navbar navbar-expand u-header__navbar py-0 justify-content-xl-between max-width-270 min-width-270">
                             <a class="order-1 order-xl-0 navbar-brand u-header__navbar-brand u-header__navbar-brand-center"
-                               href="{{route('home')}}" aria-label="BeeClub">
+                               href="{{ route('home') }}" aria-label="BeeClub">
                                 <svg width="127" height="34" viewBox="0 0 127 34" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -190,12 +190,12 @@
                                                                           title="My Account"><i
                                             class="font-size-22 ec ec-user"></i></a></li>
                                 <li class="col pr-xl-0 px-2 px-sm-3">
-                                    <a href="{{route('cart')}}" class="text-gray-90 position-relative d-flex "
+                                    <a href="{{ route('cart') }}" class="text-gray-90 position-relative d-flex "
                                        data-toggle="tooltip"
                                        data-placement="top" title="Корзина">
                                         <i class="font-size-22 ec ec-shopping-bag"></i>
                                         <span id="cartCounter" class="d-none d-xl-block font-weight-bold font-size-16 text-gray-90 ml-3">
-                                            {{$headerCartCount}}
+                                            {{ $headerCartCount ? $headerCartCount : '' }}
                                         </span>
                                     </a>
                                 </li>
@@ -215,27 +215,27 @@
                             <ul class="navbar-nav u-header__navbar-nav">
 
                                 <li class="nav-item hs-has-mega-menu u-header__nav-item">
-                                    <a class="nav-link u-header__nav-link" href="{{route('home')}}" aria-haspopup="true"
+                                    <a class="nav-link u-header__nav-link" href="{{ route('home') }}" aria-haspopup="true"
                                        aria-expanded="false">Главная</a>
                                 </li>
 
                                 <li class="nav-item hs-has-mega-menu u-header__nav-item">
-                                    <a class="nav-link u-header__nav-link" href="{{route('catalog')}}"
+                                    <a class="nav-link u-header__nav-link" href="{{ route('catalog') }}"
                                        aria-haspopup="true" aria-expanded="false">Каталог</a>
                                 </li>
 
                                 <li class="nav-item hs-has-mega-menu u-header__nav-item">
-                                    <a class="nav-link u-header__nav-link" href="{{route('cart')}}" aria-haspopup="true"
+                                    <a class="nav-link u-header__nav-link" href="{{ route('cart') }}" aria-haspopup="true"
                                        aria-expanded="false">Корзина</a>
                                 </li>
 
                                 <li class="nav-item hs-has-mega-menu u-header__nav-item">
-                                    <a class="nav-link u-header__nav-link" href="{{route('admin_orders')}}"
+                                    <a class="nav-link u-header__nav-link" href="{{ route('admin_orders') }}"
                                        aria-haspopup="true"
                                        aria-expanded="false">Админка-заказы</a>
                                 </li>
                                 <li class="nav-item hs-has-mega-menu u-header__nav-item">
-                                    <a class="nav-link u-header__nav-link" href="{{route('admin_products')}}"
+                                    <a class="nav-link u-header__nav-link" href="{{ route('admin_products') }}"
                                        aria-haspopup="true"
                                        aria-expanded="false">Админка-товары</a>
                                 </li>
