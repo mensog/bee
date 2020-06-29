@@ -50,7 +50,7 @@
                     <form action="{{ route('checkout') }}" method="post">
                         <div class="d-block d-md-flex flex-center-between">
                             <div class="mb-3 mb-md-0 w-xl-80">
-                                <label class="sr-only" for="subscribeSrEmail">E-mail</label>
+                                <label class="sr-only" for="subscribeSrEmail">e-mail</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" name="email"
                                            id="subscribeSrEmail" placeholder="Введите e-mail"

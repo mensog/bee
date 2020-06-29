@@ -13,9 +13,9 @@
                             <div class="form-group row">
 
                                 <div class="col-md-12">
-                                    <label for="email">{{ __('E-Mail') }}</label>
+                                    <label for="email">{{ __('e-mail') }}</label>
                                     <input id="email" type="email"
-                                           placeholder="Email"
+                                           placeholder="e-mail"
                                            class="form-control @error('email') is-invalid @enderror" name="email"
                                            value="{{ old('email') }}" required autocomplete="email" autofocus>
 
