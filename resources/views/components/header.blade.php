@@ -45,8 +45,9 @@
                                    data-unfold-animation-in="fadeInRight"
                                    data-unfold-animation-out="fadeOutRight"
                                    data-unfold-duration="500">
-                                    <i class="ec ec-user mr-1"></i> Зарегистрироваться <span
-                                        class="text-gray-50">или</span> Войти
+                                    <i class="ec ec-user mr-1"></i> <a
+                                        href="{{ route('register') }}">Зарегистрироваться</a> <span
+                                        class="text-gray-50">или</span> <a href="{{ route('login') }}">Войти</a>
                                 </a>
                             </li>
                         </ul>
@@ -194,7 +195,8 @@
                                        data-toggle="tooltip"
                                        data-placement="top" title="Корзина">
                                         <i class="font-size-22 ec ec-shopping-bag"></i>
-                                        <span id="cartCounter" class="d-none d-xl-block font-weight-bold font-size-16 text-gray-90 ml-3">
+                                        <span id="cartCounter"
+                                              class="d-none d-xl-block font-weight-bold font-size-16 text-gray-90 ml-3">
                                             {{ $headerCartCount ? $headerCartCount : '' }}
                                         </span>
                                     </a>
@@ -215,7 +217,8 @@
                             <ul class="navbar-nav u-header__navbar-nav">
 
                                 <li class="nav-item hs-has-mega-menu u-header__nav-item">
-                                    <a class="nav-link u-header__nav-link" href="{{ route('home') }}" aria-haspopup="true"
+                                    <a class="nav-link u-header__nav-link" href="{{ route('home') }}"
+                                       aria-haspopup="true"
                                        aria-expanded="false">Главная</a>
                                 </li>
 
@@ -225,7 +228,8 @@
                                 </li>
 
                                 <li class="nav-item hs-has-mega-menu u-header__nav-item">
-                                    <a class="nav-link u-header__nav-link" href="{{ route('cart') }}" aria-haspopup="true"
+                                    <a class="nav-link u-header__nav-link" href="{{ route('cart') }}"
+                                       aria-haspopup="true"
                                        aria-expanded="false">Корзина</a>
                                 </li>
 
