@@ -45,9 +45,19 @@
                                    data-unfold-animation-in="fadeInRight"
                                    data-unfold-animation-out="fadeOutRight"
                                    data-unfold-duration="500">
-                                    <i class="ec ec-user mr-1"></i> <a
-                                        href="{{ route('register') }}">Зарегистрироваться</a> <span
-                                        class="text-gray-50">или</span> <a href="{{ route('login') }}">Войти</a>
+                                    <i class="ec ec-user mr-1"></i>
+                                    @guest
+                                        <a href="{{ route('register') }}">Зарегистрироваться</a> <span
+                                            class="text-gray-50">или</span> <a href="{{ route('login') }}">Войти</a>
+                                    @else
+                                        <a onclick="event.preventDefault();
+                                           document.getElementById('logout-form').submit();"
+                                           href="{{ route('logout') }}">Выйти</a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                              style="display: none;">
+                                            @csrf
+                                        </form>
+                                    @endif
                                 </a>
                             </li>
                         </ul>
