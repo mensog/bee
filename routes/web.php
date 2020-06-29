@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'MainController@index')->name('home');
+Route::get('/', 'MainController@index')->name('main');
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/orders', 'OrderController@index')->name('admin_orders');
     Route::get('/products', 'ProductController@index')->name('admin_products');

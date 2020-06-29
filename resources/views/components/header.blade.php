@@ -73,7 +73,7 @@
                         <nav
                             class="navbar navbar-expand u-header__navbar py-0 justify-content-xl-between max-width-270 min-width-270">
                             <a class="order-1 order-xl-0 navbar-brand u-header__navbar-brand u-header__navbar-brand-center"
-                               href="{{ route('home') }}" aria-label="BeeClub">
+                               href="{{ route('main') }}" aria-label="BeeClub">
                                 <svg width="127" height="34" viewBox="0 0 127 34" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -227,7 +227,7 @@
                             <ul class="navbar-nav u-header__navbar-nav">
 
                                 <li class="nav-item hs-has-mega-menu u-header__nav-item">
-                                    <a class="nav-link u-header__nav-link" href="{{ route('home') }}"
+                                    <a class="nav-link u-header__nav-link" href="{{ route('main') }}"
                                        aria-haspopup="true"
                                        aria-expanded="false">Главная</a>
                                 </li>
