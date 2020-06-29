@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
@@ -178,5 +179,24 @@ class Cart extends Model
             $itemsSubTotal[$product->id] = $cartContent[$product->id] * $product->price;
         }
         return $itemsSubTotal;
+    }
+
+    public static function mergeCarts($userId)
+    {
+        $cookieCart = app('Cart');
+        $cookieCart = static::currentByCookie();
+        $userIdCart = static::getByUserId($userId);
+        $mergedContent = [];
+        foreach (array_keys($cookieCart->content + $userIdCart->content) as $key) {
+            $mergedContent[$key] = (isset($cookieCart->content[$key]) ? $cookieCart->content[$key] : 0) + (isset($userIdCart->content[$key]) ? $userIdCart->content[$key] : 0);
+        }
+        $userIdCart->content = $mergedContent;
+        $userIdCart->save();
+        $cookieCart->delete();
+    }
+
+    public static function deleteExpiredCarts()
+    {
+        Cart::where('updated_at', '<', Carbon::now()->subSeconds(self::CART_ID_COOKIE_EXPIRES))->delete();
     }
 }
