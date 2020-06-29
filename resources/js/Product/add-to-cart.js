@@ -16,6 +16,9 @@ $('body').on('click', '.add-to-cart:not(.loading)', function (e) {
     $.ajax({
         type: 'POST',
         url: "/api/cart",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
         data: JSON.stringify(data),
         contentType: 'application/json',
         beforeSend: () => {

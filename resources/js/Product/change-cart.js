@@ -33,6 +33,9 @@ function changeCart(productId, action, fromPage, quantity) {
     $.ajax({
         type: 'POST',
         url: "/api/cart",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
         data: JSON.stringify(data),
         contentType: 'application/json',
         beforeSend: () => {

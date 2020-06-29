@@ -18,4 +18,3 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/cart', 'CartController@api')->name('api_cart');
