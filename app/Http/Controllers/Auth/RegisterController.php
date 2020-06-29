@@ -49,12 +49,27 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $messages = [
+            'required' => 'Поле :attribute обязательно для заполнения.',
+            'password.min' => 'Пароль должен содержать как минимум :min имволов',
+            'email.unique' => 'Пользователь с таким e-mail уже существует',
+            'max' => 'Поле :attribute должно содержать не более :max символов',
+            'password.confirmed' => 'Пароли не совпадают',
+        ];
+
+        $names = [
+            'name' => 'имя',
+            'surname' => 'фамилия',
+            'email' => 'e-mail',
+            'password' => 'пароль',
+        ];
+
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        ], $messages, $names);
     }
 
     /**
