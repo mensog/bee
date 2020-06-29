@@ -3,11 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Crypt;
 
 class Cart extends Model
 {
+    const CART_ID_COOKIE_NAME = 'cartId';
+    const CART_ID_COOKIE_EXPIRES = 30 * 24 * 3600;
 
     protected $products;
 
@@ -16,16 +19,41 @@ class Cart extends Model
      */
     public static function current()
     {
-        try {
-            $cartId = Crypt::decrypt(Cookie::get('cartId'), false);
-        } catch (\Exception $exception) {
+        if (Auth::check()) {
+            return static::getByUserId(Auth::id());
+        }
+        return static::currentByCookie();
+    }
+
+    private static function currentByCookie()
+    {
+        $cookie = Cookie::get(self::CART_ID_COOKIE_NAME);
+        if ($cookie) {
+            try {
+                $cartId = Crypt::decrypt(Cookie::get('cartId'), false);
+            } catch (\Exception $exception) {
+                $cartId = $cookie;
+            }
+        } else {
             $cartId = null;
         }
         $cart = static::where('id', $cartId)->firstOr(function () {
             $cart = new Cart();
             $cart->content = [];
             $cart->save();
-            Cookie::queue('cartId', $cart->id, 30 * 24 * 3600);
+            Cookie::queue(self::CART_ID_COOKIE_NAME, $cart->id, self::CART_ID_COOKIE_EXPIRES);
+            return $cart;
+        });
+        return $cart;
+    }
+
+    private static function getByUserId($userId)
+    {
+        $cart = static::where('user_id', $userId)->firstOr(function () use ($userId) {
+            $cart = new Cart();
+            $cart->content = [];
+            $cart->user_id = $userId;
+            $cart->save();
             return $cart;
         });
         return $cart;

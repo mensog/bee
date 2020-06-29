@@ -27,7 +27,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $cart = $this->app->make('Cart');
-        view()->share('headerCartCount', $cart->countTotalQuantity());
+        view()->composer('*', function ($view) {
+            $cart = $this->app->make('Cart');
+            view()->share('headerCartCount', $cart->countTotalQuantity());
+        });
     }
 }
