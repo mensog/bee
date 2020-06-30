@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1 class="text-center mb-4">{{ __('Восстановление пароля') }}</h1>
+        <h1 class="text-center mb-4">Создание нового пароля</h1>
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card-auth">
@@ -16,7 +16,7 @@
                             <div class="form-group row">
 
                                 <div class="col-md-12">
-                                    <label for="email">{{ __('e-mail') }}</label>
+                                    <label for="email">e-mail</label>
                                     <input id="email" type="email"
                                            placeholder="Введите e-mail"
                                            class="form-control @error('email') is-invalid @enderror" name="email"
@@ -33,7 +33,7 @@
                             <div class="form-group row">
 
                                 <div class="col-md-12">
-                                    <label for="password">{{ __('Пароль') }}</label>
+                                    <label for="password">Новый пароль (не менее 8 символов)</label>
                                     <input id="password" type="password"
                                            placeholder="Введите пароль"
                                            class="form-control @error('password') is-invalid @enderror" name="password"
@@ -49,7 +49,7 @@
 
                             <div class="form-group row">
                                 <div class="col-md-12">
-                                    <label for="password-confirm">{{ __('Повторите пароль') }}</label>
+                                    <label for="password-confirm">Повторите пароль</label>
                                     <input id="password-confirm" type="password" class="form-control"
                                            placeholder="Повторите пароль"
                                            name="password_confirmation" required autocomplete="new-password">
@@ -59,7 +59,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-12 text-center">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Сбросить пароль') }}
+                                        Создать новый пароль
                                     </button>
                                 </div>
                             </div>
