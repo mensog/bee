@@ -197,6 +197,6 @@ class Cart extends Model
 
     public static function deleteExpiredCarts()
     {
-        Cart::where('updated_at', '<', Carbon::now()->subSeconds(self::CART_ID_COOKIE_EXPIRES))->delete();
+        Cart::where('updated_at', '<', Carbon::now()->subSeconds(self::CART_ID_COOKIE_EXPIRES))->whereNull('user_id')->delete();
     }
 }
