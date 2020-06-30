@@ -65,10 +65,9 @@
                                 <div class="col-12 text-center">
                                     @if (Route::has('password.request'))
                                         <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            {{ __('Забыли свой пароль?') }}
+                                            Забыли свой пароль?
                                         </a>
-                                        <span class="text-gray-50">или</span>
-                                        <a class="btn btn-link" href="{{ route('register') }}">Не зарегистрированы</a>
+                                        <a class="btn btn-link" href="{{ route('register') }}">Не зарегистрированы?</a>
                                     @endif
                                 </div>
                             </div>
