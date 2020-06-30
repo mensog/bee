@@ -7,7 +7,7 @@
             <div class="col-md-6">
                 <div class="card-auth">
                     <div class="card-auth__body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form class="registration" method="POST" action="{{ route('register') }}">
                             @csrf
 
                             <div class="form-group row">

@@ -56,15 +56,13 @@
                             <p>{{ $cartTotal / 100 }} ₽</p>
                         </div>
                         <div class="col-lg-6 col-12 card-cart-total__delete">
-                            @guest
-                                <a href="{{ route('login') }}" type="button" class="btn text-white btn-success">
+                            <a href="{{ route('checkout') }}" type="button" class="btn text-white btn-success">
+                                @guest
                                     Войти для оформления
-                                </a>
-                            @else
-                                <a href="{{ route('checkout') }}" type="button" class="btn text-white btn-success">
+                                @else
                                     Оформить доставку
-                                </a>
-                            @endguest
+                                @endguest
+                            </a>
                         </div>
                     </div>
                 </div>

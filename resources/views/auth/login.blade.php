@@ -67,6 +67,8 @@
                                         <a class="btn btn-link" href="{{ route('password.request') }}">
                                             {{ __('Забыли свой пароль?') }}
                                         </a>
+                                        <span class="text-gray-50">или</span>
+                                        <a class="btn btn-link" href="{{ route('register') }}">Не зарегистрированы</a>
                                     @endif
                                 </div>
                             </div>

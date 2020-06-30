@@ -8,6 +8,7 @@ require('./bootstrap');
 require('./Product/add-to-cart');
 require('./Product/change-cart');
 require('./Product/product-change-cart');
+import is from '../../node_modules/is_js/is'
 
 // window.Vue = require('vue');
 
@@ -33,6 +34,34 @@ require('./Product/product-change-cart');
 // const app = new Vue({
 //     el: '#app',
 // });
+
+$('.registration #email').on('keyup', function () {
+    if (is.email($(this).val())) {
+        $(this).removeClass('is-invalid')
+        $(this).addClass('is-valid')
+    } else {
+        $(this).addClass('is-invalid')
+    }
+})
+
+$('.registration #password').on('keyup', function () {
+    if ($(this).val().length >= 8) {
+        $(this).removeClass('is-invalid')
+        $(this).addClass('is-valid')
+    } else {
+        $(this).addClass('is-invalid')
+    }
+})
+
+$('.registration #password-confirm').on('keyup', function () {
+    let password = $('#password').val()
+    if ($(this).val() === password) {
+        $(this).removeClass('is-invalid')
+        $(this).addClass('is-valid')
+    } else {
+        $(this).addClass('is-invalid')
+    }
+})
 
 export const clean = obj => {
     Object.keys(obj).forEach(key => (obj[key] == null || undefined) && delete obj[key]);
