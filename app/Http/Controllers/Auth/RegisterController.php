@@ -55,6 +55,7 @@ class RegisterController extends Controller
             'email.unique' => 'Пользователь с таким e-mail уже существует',
             'max' => 'Поле :attribute должно содержать не более :max символов',
             'password.confirmed' => 'Пароли не совпадают',
+            'personal-data-agree.accepted' => 'Необходимо согласиться на обработку персональных данных',
         ];
 
         $names = [
@@ -62,6 +63,7 @@ class RegisterController extends Controller
             'surname' => 'фамилия',
             'email' => 'e-mail',
             'password' => 'пароль',
+            'personal-data-agree' => 'согласие на обработку персональных данных',
         ];
 
         return Validator::make($data, [
@@ -69,6 +71,7 @@ class RegisterController extends Controller
             'surname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'personal-data-agree' => ['required', 'accepted'],
         ], $messages, $names);
     }
 
