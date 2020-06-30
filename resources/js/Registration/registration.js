@@ -1,4 +1,7 @@
 import is from '../../../node_modules/is_js/is'
+import inputmask from '../../../node_modules/inputmask/dist/jquery.inputmask'
+
+$('#phone').inputmask();
 
 let isValid = [];
 
@@ -8,6 +11,10 @@ $('.registration #email, .registration #name, .registration #surname, .registrat
 
 $('.reset-password #email, .reset-password #password, .reset-password #password-confirm').on('keyup', function () {
     checkRegistrationForm(false, $(this), 'reset-password')
+})
+
+$('.checkout #email, .checkout #name-n-surname, .checkout #phone, .checkout #address').on('keyup', function () {
+    checkRegistrationForm(false, $(this), 'checkout')
 })
 
 $('.registration #personal-data-agreement').on('change', function () {
@@ -31,6 +38,23 @@ const checkRegistrationForm = (load, $this, page) => {
                             $(this).addClass('is-invalid')
                         let index = isValid.indexOf($(this).attr('id'));
                         if (index !== -1) isValid.splice(index, 1);
+                    }
+                    break
+                case 'email':
+                    if (page === 'checkout') {
+                        if (is.email($(this).val())) {
+                            $(this).removeClass('is-invalid')
+                            $(this).addClass('is-valid')
+                            if (!isValid.includes($(this).attr('id'))) {
+                                isValid.push($(this).attr('id'))
+                            }
+                        } else {
+                            $(this).removeClass('is-valid')
+                            if (!load)
+                                $(this).addClass('is-invalid')
+                            let index = isValid.indexOf($(this).attr('id'));
+                            if (index !== -1) isValid.splice(index, 1);
+                        }
                     }
                     break
                 case 'password':
@@ -185,3 +209,4 @@ const checkRegistrationForm = (load, $this, page) => {
 }
 
 checkRegistrationForm('start', false, 'registration')
+checkRegistrationForm('start', false, 'checkout')

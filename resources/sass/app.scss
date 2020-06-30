@@ -163,8 +163,51 @@ button.loading {
         padding-left: 16px;
     }
 
-    .invalid-feedback{
+    .invalid-feedback {
         padding-left: 16px;
     }
 }
 
+.checkout {
+
+    .checkout__product {
+        max-width: 50px;
+        margin: 5px;
+    }
+
+    .checkout__subtotal {
+        margin: 15px 0;
+        padding: 15px 0;
+        border-top: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd;
+
+        span{
+            color: #000;
+        }
+    }
+
+    .checkout__h1 {
+        font-size: 2rem;
+        font-weight: 400;
+
+        a {
+            color: #fed700;
+            font-size: 1rem;
+        }
+    }
+
+    .checkout__total {
+        font-size: 1rem;
+        font-weight: 400;
+
+        b {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000;
+        }
+    }
+
+    .checkout__agreement {
+        font-size: 0.775rem;
+    }
+}
