@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1 class="text-center mb-4">{{ __('Сброс пароля') }}</h1>
+        <h1 class="text-center mb-4">Сброс пароля</h1>
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card-auth">
@@ -19,7 +19,7 @@
 
                             <div class="form-group row">
                                 <div class="col-md-12">
-                                    <label for="email">{{ __('e-mail') }}</label>
+                                    <label for="email">e-mail</label>
                                     <input id="email" type="email"
                                            placeholder="Введите e-mail"
                                            class="form-control @error('email') is-invalid @enderror" name="email"
@@ -36,7 +36,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-12 text-center">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Отправить ссылку на восстановление пароля') }}
+                                        Отправить ссылку на восстановление пароля
                                     </button>
                                 </div>
                             </div>
