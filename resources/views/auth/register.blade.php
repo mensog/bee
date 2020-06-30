@@ -86,7 +86,7 @@
                             <div class="form-group row">
                                 <div class="col-md-1 pr-0">
                                     <input id="personal-data-agreement" type="checkbox" class="form-control"
-                                           name="personal_data_agreement" required>
+                                           name="personal-data-agree" required>
                                 </div>
                                 <div class="col-md-10 align-self-end">
                                     <label class="pl-0" for="personal-data-agreement">Я согласен на обработку <a
