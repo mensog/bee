@@ -103,4 +103,15 @@ class CartController extends Controller
         }
         return $response;
     }
+
+    public function showCheckout(Request $request)
+    {
+        $cart = app('Cart');
+        $cartContent = $cart->content;
+        $products = $cart->getProducts();
+        $itemsSubTotal = $cart->getItemsSubTotal();
+        $cartTotal = $cart->getTotal();
+        $user = auth()->user();
+        return view('pages.checkout', ['products' => $products, 'quantity' => $cartContent, 'itemsSubTotal' => $itemsSubTotal, 'cartTotal' => $cartTotal, 'user' => $user]);
+    }
 }

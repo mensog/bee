@@ -24,7 +24,7 @@ Route::get('/product/{name}', 'ProductController@show')->name('product');
 Route::get('/cart', 'CartController@show')->name('cart');
 Route::get('/addtocart', 'CartController@addProduct')->name('add_to_cart');
 Route::get('/removefromcart', 'CartController@removeProduct')->name('remove_from_cart');
-Route::post('/checkout', 'OrderController@create')->name('checkout');
+Route::get('/checkout', 'CartController@showCheckout')->middleware('auth')->name('checkout_page');
 
 Route::post('/api/cart', 'CartController@api')->name('api_cart');
 
