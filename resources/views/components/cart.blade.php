@@ -33,7 +33,8 @@
                                        value="{{ $quantity[$product->id] }}">
                             </div>
                             <div class="col-lg-4 col-12 card-cart__delete">
-                                <button type="button" data-id="{{ $product->id }}" data-quantity="0" data-action="updateQuantity" data-page="cart"
+                                <button type="button" data-id="{{ $product->id }}" data-quantity="0"
+                                        data-action="updateQuantity" data-page="cart"
                                         class="change-cart">
                                     <img class="img-fluid" src="/svg/trash.svg" alt="remove">
                                 </button>
@@ -47,26 +48,6 @@
         <div class="card-cart__footer">
             <div class="row">
                 <div class="col-lg-7">
-                    <form action="{{ route('checkout') }}" method="post">
-                        <div class="d-block d-md-flex flex-center-between">
-                            <div class="mb-3 mb-md-0 w-xl-80">
-                                <label class="sr-only" for="subscribeSrEmail">e-mail</label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" name="email"
-                                           id="subscribeSrEmail" placeholder="Введите e-mail"
-                                           aria-label="email" aria-describedby="subscribeButton"
-                                           required>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-block btn-dark px-4" type="submit"
-                                                id="subscribeButton"><i
-                                                class="fas fa-tags d-md-none"></i><span
-                                                class="d-none d-md-inline">Заказ в 1 клик</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
                 </div>
                 <div class="col-lg-5 card-cart-total">
                     <div class="row">
@@ -75,9 +56,15 @@
                             <p>{{ $cartTotal / 100 }} ₽</p>
                         </div>
                         <div class="col-lg-6 col-12 card-cart-total__delete">
-                            <button type="button" class="btn btn-success">
-                                Оформить доставку
-                            </button>
+                            @guest
+                                <a href="{{ route('login') }}" type="button" class="btn text-white btn-success">
+                                    Войти для оформления
+                                </a>
+                            @else
+                                <a href="{{ route('checkout') }}" type="button" class="btn text-white btn-success">
+                                    Оформить доставку
+                                </a>
+                            @endguest
                         </div>
                     </div>
                 </div>
