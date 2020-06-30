@@ -29,5 +29,6 @@ Route::post('/checkout', 'OrderController@create')->name('checkout');
 Route::post('/api/cart', 'CartController@api')->name('api_cart');
 
 Auth::routes();
+Route::get('/personal-data-agreement', 'StaticPageController@personalDataAgreement')->name('personal-data-agreement');
 
 Route::get('/home', 'HomeController@index')->name('home');
