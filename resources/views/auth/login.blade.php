@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1 class="text-center mb-4">{{ __('Авторизация') }}</h1>
+        <h1 class="text-center mb-4">Авторизация</h1>
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card-auth">
@@ -13,7 +13,7 @@
                             <div class="form-group row">
 
                                 <div class="col-md-12">
-                                    <label for="email">{{ __('e-mail') }}</label>
+                                    <label for="email">e-mail</label>
                                     <input id="email" type="email"
                                            placeholder="e-mail"
                                            class="form-control @error('email') is-invalid @enderror" name="email"
@@ -30,7 +30,7 @@
                             <div class="form-group row">
 
                                 <div class="col-md-12">
-                                    <label for="password">{{ __('Пароль') }}</label>
+                                    <label for="password">Пароль</label>
                                     <input id="password" type="password" placeholder="Введите пароль"
                                            class="form-control @error('password') is-invalid @enderror" name="password"
                                            required autocomplete="current-password">
@@ -50,7 +50,7 @@
                                                id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                         <label class="form-check-label" for="remember">
-                                            {{ __('Запомнить меня') }}
+                                            Запомнить меня
                                         </label>
                                     </div>
                                 </div>
@@ -59,7 +59,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-12 text-center">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Авторизоваться') }}
+                                        Авторизоваться
                                     </button>
                                 </div>
                                 <div class="col-12 text-center">
