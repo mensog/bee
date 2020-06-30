@@ -100,6 +100,9 @@
                                         {{ __('Зарегистрироваться') }}
                                     </button>
                                 </div>
+                                <div class="col-md-12 text-center">
+                                    <a class="btn btn-link" href="{{ route('login') }}">Уже зарегистрированы?</a>
+                                </div>
                             </div>
                         </form>
                     </div>
