@@ -60,7 +60,7 @@
                             <div class="form-group row">
 
                                 <div class="col-md-12">
-                                    <label for="password">Пароль</label>
+                                    <label for="password">Пароль <span class="text-secondary small">(не менее 8 символов)</span></label>
                                     <input id="password" type="password"
                                            placeholder="Введите пароль"
                                            class="form-control @error('password') is-invalid @enderror" name="password"
@@ -89,8 +89,7 @@
                                            name="personal-data-agree" required>
                                 </div>
                                 <div class="col-md-10 align-self-end">
-                                    <label class="pl-0" for="personal-data-agreement">Я согласен на обработку <a
-                                            href="{{ route('personal-data-agreement') }}">моих данных</a></label>
+                                    <label class="pl-0" for="personal-data-agreement">Я согласен на <a href="{{ route('personal-data-agreement') }}">обработку моих данных</a></label>
                                 </div>
                             </div>
 

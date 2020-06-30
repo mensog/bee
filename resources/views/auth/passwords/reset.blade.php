@@ -33,7 +33,7 @@
                             <div class="form-group row">
 
                                 <div class="col-md-12">
-                                    <label for="password">Новый пароль (не менее 8 символов)</label>
+                                    <label for="password">Новый пароль <span class="text-secondary small">(не менее 8 символов)</span></label>
                                     <input id="password" type="password"
                                            placeholder="Введите пароль"
                                            class="form-control @error('password') is-invalid @enderror" name="password"
