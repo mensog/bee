@@ -106,9 +106,9 @@ const checkRegistrationForm = (load, $this) => {
                 }
                 break
             case 'password':
+                let password = $('#password').val().trim()
                 if ($this.attr('id') === 'password-confirm') {
-                    let password = $('#password').val()
-                    if ($this.val() === password && $this.val().length >= 8) {
+                    if ($this.val().length >= 8 && $this.val() === password) {
                         $this.removeClass('is-invalid')
                         $this.addClass('is-valid')
                         if (!isValid.includes($this.attr('id'))) {
@@ -122,12 +122,27 @@ const checkRegistrationForm = (load, $this) => {
                         if (index !== -1) isValid.splice(index, 1);
                     }
                 } else {
+                    let passwordInput = $('#password-confirm')
+                    password = passwordInput.val().trim()
+                    if ($this.val() !== password) {
+                        passwordInput.removeClass('is-valid')
+                        passwordInput.addClass('is-invalid')
+                        let index = isValid.indexOf(passwordInput.attr('id'));
+                        if (index !== -1) isValid.splice(index, 1);
+                    } else {
+                        passwordInput.addClass('is-valid')
+                        passwordInput.removeClass('is-invalid')
+                        if (!isValid.includes(passwordInput.attr('id'))) {
+                            isValid.push(passwordInput.attr('id'))
+                        }
+                    }
                     if ($this.val().length >= 8) {
                         $this.removeClass('is-invalid')
                         $this.addClass('is-valid')
                         if (!isValid.includes($this.attr('id'))) {
                             isValid.push($this.attr('id'))
                         }
+
                     } else {
                         $this.removeClass('is-valid')
                         if (!load)
