@@ -3,16 +3,20 @@ import is from '../../../node_modules/is_js/is'
 let isValid = [];
 
 $('.registration #email, .registration #name, .registration #surname, .registration #password, .registration #password-confirm').on('keyup', function () {
-    checkRegistrationForm(false, $(this))
+    checkRegistrationForm(false, $(this), 'registration')
+})
+
+$('.reset-password #email, .reset-password #password, .reset-password #password-confirm').on('keyup', function () {
+    checkRegistrationForm(false, $(this), 'reset-password')
 })
 
 $('.registration #personal-data-agreement').on('change', function () {
-    checkRegistrationForm(false, $(this))
+    checkRegistrationForm(false, $(this), 'registration')
 })
 
-const checkRegistrationForm = (load, $this) => {
+const checkRegistrationForm = (load, $this, page) => {
     if (load) {
-        $('.registration input').each(function () {
+        $(`.${page} input`).each(function () {
             switch ($(this).attr('type')) {
                 case 'text':
                     if ($(this).val().trim() !== '') {
@@ -136,6 +140,12 @@ const checkRegistrationForm = (load, $this) => {
                             isValid.push(passwordInput.attr('id'))
                         }
                     }
+                    if (password === '') {
+                        passwordInput.removeClass('is-valid')
+                        passwordInput.removeClass('is-invalid')
+                        let index = isValid.indexOf(passwordInput.attr('id'));
+                        if (index !== -1) isValid.splice(index, 1);
+                    }
                     if ($this.val().length >= 8) {
                         $this.removeClass('is-invalid')
                         $this.addClass('is-valid')
@@ -165,11 +175,13 @@ const checkRegistrationForm = (load, $this) => {
         }
     }
 
-    if (isValid.length === 6) {
-        $('.registration button[type=submit]').prop('disabled', false)
+    let num = $(`.${page} input:visible`).length;
+
+    if (isValid.length === num) {
+        $(`.${page} button[type=submit]`).prop('disabled', false)
     } else {
-        $('.registration button[type=submit]').prop('disabled', true)
+        $(`.${page} button[type=submit]`).prop('disabled', true)
     }
 }
 
-checkRegistrationForm('start')
+checkRegistrationForm('start', false, 'registration')
