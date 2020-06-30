@@ -183,7 +183,6 @@ class Cart extends Model
 
     public static function mergeCarts($userId)
     {
-        $cookieCart = app('Cart');
         $cookieCart = static::currentByCookie();
         $userIdCart = static::getByUserId($userId);
         $mergedContent = [];
