@@ -74,7 +74,6 @@ const checkRegistrationForm = (load, $this) => {
             }
         })
     } else {
-        console.log($this.attr('type'))
         switch ($this.attr('type')) {
             case 'text':
                 if ($this.val().trim() !== '') {
