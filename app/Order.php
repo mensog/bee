@@ -23,7 +23,7 @@ class Order extends Model
      */
     public function fillFromCart(Cart $cart)
     {
-        $cartContent = $cart->getContent();
+        $cartContent = $cart->content;
         $productIds = array_keys($cartContent);
         Product::find($productIds)->pluck('price', 'id')->each(function ($price, $productId) use ($cartContent) {
             $orderItem = new OrderItem();
