@@ -181,7 +181,7 @@ button.loading {
         border-top: 1px solid #dddddd;
         border-bottom: 1px solid #dddddd;
 
-        span{
+        span {
             color: #000;
         }
     }
@@ -191,6 +191,7 @@ button.loading {
         font-weight: 400;
 
         a {
+            line-height: 2.5;
             color: #fed700;
             font-size: 1rem;
         }
