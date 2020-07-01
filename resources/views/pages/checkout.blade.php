@@ -1,7 +1,8 @@
 <x-header/>
 
 <div class="container mt-3">
-    <form class="checkout" method="POST" action="">
+    <form class="checkout" method="POST" action="{{ route('place_order') }}">
+        @csrf
         <div class="row">
             <div class="col-lg-8">
                 <p class="checkout__h1 mb-4">Получатель</p>
@@ -12,7 +13,7 @@
                                 <label for="name-n-surname">Имя и Фамилия</label>
                                 <input id="name-n-surname" type="text"
                                        placeholder="Введите имя"
-                                       class="form-control" name="name-n-surname"
+                                       class="form-control" name="fullName"
                                        value="{{ $user->name . ' ' . $user->surname }}" required>
                             </div>
                         </div>
