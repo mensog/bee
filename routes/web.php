@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,7 @@ Route::get('/cart', 'CartController@show')->name('cart');
 Route::get('/addtocart', 'CartController@addProduct')->name('add_to_cart');
 Route::get('/removefromcart', 'CartController@removeProduct')->name('remove_from_cart');
 Route::get('/checkout', 'CartController@showCheckout')->middleware('auth')->name('checkout_page');
+Route::post('/order', 'OrderController@create')->middleware('auth')->name('place_order');
 
 Route::post('/api/cart', 'CartController@api')->name('api_cart');
 
