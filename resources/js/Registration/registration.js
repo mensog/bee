@@ -3,11 +3,25 @@ import IMask from '../../../node_modules/imask/dist/imask.min'
 
 const element = document.getElementById('phone');
 
-if (document.body.contains(element)) {
+const checkout = document.getElementById('checkout')
+
+let mask
+
+if (document.body.contains(checkout)) {
     const maskOptions = {
         mask: '+{7}(000)000-00-00'
     };
-    let mask = IMask(element, maskOptions);
+    mask = IMask(element, maskOptions);
+
+    const checkout = document.getElementById('checkout')
+
+    let checkoutFormObject = document.forms['checkout']
+
+    let checkoutFormElement = checkoutFormObject.elements["phone"];
+
+    checkout.onsubmit = () => {
+        checkoutFormElement.value = mask.unmaskedValue
+    }
 }
 
 let isValid = [];

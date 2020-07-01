@@ -1,7 +1,7 @@
 <x-header/>
 
 <div class="container mt-3">
-    <form class="checkout" method="POST" action="{{ route('place_order') }}">
+    <form id="checkout" class="checkout" method="POST" action="{{ route('place_order') }}">
         @csrf
         <div class="row">
             <div class="col-lg-8">
@@ -34,7 +34,7 @@
                                 <input id="phone" type="phone"
                                        placeholder="+7 (000) 000 00 00"
                                        class="form-control" name="phone"
-                                       value="" required autocomplete="phone" autofocus>
+                                       required autocomplete="phone" autofocus>
                             </div>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                                 <input id="address" type="text"
                                        placeholder="Введите адрес доставки"
                                        class="form-control" name="address"
-                                       value="" required>
+                                       required>
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                             <p class="checkout__total d-flex justify-content-between align-items-end">
                                 Итого <b>{{ $cartTotal / 100 }} ₽</b>
                             </p>
-                            <button class="btn btn-primary w-100 mb-4">Оформить заказ</button>
+                            <button type="submit" class="btn btn-primary w-100 mb-4">Оформить заказ</button>
                             <p class="checkout__agreement mb-0 text-center">Нажимая кнопку «Оформить», я даю согласие на обработку
                                 персональных данных, в соответствии с
                                 <a href="{{ route('personal-data-agreement') }}">Политикой</a>, и соглашаюсь с
