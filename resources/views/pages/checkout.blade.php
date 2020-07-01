@@ -31,7 +31,6 @@
                             <div class="col-md-12">
                                 <label for="phone">Телефон</label>
                                 <input id="phone" type="phone"
-                                       data-inputmask="'mask': '+7-(999)999-99-99'"
                                        placeholder="+7 (000) 000 00 00"
                                        class="form-control" name="phone"
                                        value="" required autocomplete="phone" autofocus>

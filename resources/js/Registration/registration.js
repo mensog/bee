@@ -1,7 +1,11 @@
 import is from '../../../node_modules/is_js/is'
-import inputmask from '../../../node_modules/inputmask/dist/jquery.inputmask'
+import IMask from '../../../node_modules/imask/dist/imask.min'
 
-$('#phone').inputmask();
+const element = document.getElementById('phone');
+const maskOptions = {
+    mask: '+{7}(000)000-00-00'
+};
+let mask = IMask(element, maskOptions);
 
 let isValid = [];
 
@@ -105,6 +109,21 @@ const checkRegistrationForm = (load, $this, page) => {
         switch ($this.attr('type')) {
             case 'text':
                 if ($this.val().trim() !== '') {
+                    $this.removeClass('is-invalid')
+                    $this.addClass('is-valid')
+                    if (!isValid.includes($this.attr('id'))) {
+                        isValid.push($this.attr('id'))
+                    }
+                } else {
+                    $this.removeClass('is-valid')
+                    if (!load)
+                        $this.addClass('is-invalid')
+                    let index = isValid.indexOf($this.attr('id'));
+                    if (index !== -1) isValid.splice(index, 1);
+                }
+                break
+            case 'phone':
+                if (mask.unmaskedValue.length === 11) {
                     $this.removeClass('is-invalid')
                     $this.addClass('is-valid')
                     if (!isValid.includes($this.attr('id'))) {

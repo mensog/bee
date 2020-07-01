@@ -12,7 +12,6 @@
 
                             <div class="form-group row">
 
-
                                 <div class="col-md-6">
                                     <label for="name">Имя</label>
                                     <input id="name" type="text"
