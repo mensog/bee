@@ -2,10 +2,13 @@ import is from '../../../node_modules/is_js/is'
 import IMask from '../../../node_modules/imask/dist/imask.min'
 
 const element = document.getElementById('phone');
-const maskOptions = {
-    mask: '+{7}(000)000-00-00'
-};
-let mask = IMask(element, maskOptions);
+
+if (document.body.contains(element)) {
+    const maskOptions = {
+        mask: '+{7}(000)000-00-00'
+    };
+    let mask = IMask(element, maskOptions);
+}
 
 let isValid = [];
 
