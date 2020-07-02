@@ -4,10 +4,12 @@ $('body').on('click', '.add-to-favorites:not(.loading)', function (e) {
     e.preventDefault()
     const productId = $(this).data('id');
     const action = $(this).data('action');
-    const page = $(this).data('page');
+    const fromPage = $(this).data('page');
     const counter = $('#favoritesCounter')
+    const favorites = $('#favorites')
     let data = {
         productId,
+        fromPage,
         action
     }
     data = clean(data)
@@ -20,7 +22,11 @@ $('body').on('click', '.add-to-favorites:not(.loading)', function (e) {
         data: JSON.stringify(data),
         contentType: 'application/json',
         beforeSend: () => {
-            $(this).addClass('loading')
+            if (fromPage === 'favorites') {
+                favorites.addClass('loading')
+            } else {
+                $(this).addClass('loading')
+            }
         },
         success: data => {
             if (data['count'] === 0) {
@@ -30,14 +36,19 @@ $('body').on('click', '.add-to-favorites:not(.loading)', function (e) {
             }
             counter.html(data['count'])
 
-            if (action === 'add') {
-                $(this).data('action', 'remove')
-                $(this).html('<i class="ec heart mr-1 font-size-15"></i>')
+            if (fromPage === 'favorites') {
+                $('#favorites').replaceWith(data['html'])
+                favorites.removeClass('loading')
             } else {
-                $(this).data('action', 'add')
-                $(this).html('<i class="ec ec-favorites mr-1 font-size-15"></i>')
+                if (action === 'add') {
+                    $(this).data('action', 'remove')
+                    $(this).html('<i class="ec heart mr-1 font-size-15"></i>')
+                } else {
+                    $(this).data('action', 'add')
+                    $(this).html('<i class="ec ec-favorites mr-1 font-size-15"></i>')
+                }
+                $(this).removeClass('loading')
             }
-            $(this).removeClass('loading')
         },
         error: e => {
             console.log(e)
