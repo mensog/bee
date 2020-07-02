@@ -9,7 +9,7 @@ let mask
 
 if (document.body.contains(checkout)) {
     const maskOptions = {
-        mask: '+{7}(000)000-00-00'
+        mask: '+{7} (000) 000-00-00'
     };
     mask = IMask(element, maskOptions);
 
