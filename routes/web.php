@@ -30,7 +30,7 @@ Route::post('/order', 'OrderController@create')->middleware('auth')->name('place
 Route::post('/favorites', 'FavoriteListController@show')->name('favorites');
 
 Route::post('/api/cart', 'CartController@api')->name('api_cart');
-Route::post('/api/favorites', 'CartController@api')->name('api_favorites');
+Route::post('/api/favorites', 'FavoriteListController@api')->name('api_favorites');
 
 Auth::routes();
 Route::get('/personal-data-agreement', 'StaticPageController@personalDataAgreement')->name('personal-data-agreement');
