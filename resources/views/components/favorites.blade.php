@@ -37,7 +37,7 @@
                             <div class="col-lg-4 col-12 card-cart__delete d-flex">
                                 <button data-id="{{ $product->id }}" data-action="remove" data-page="favorites"
                                         class="btn-add-to-favorites add-to-favorites p-0 btn btn-link text-gray-6 font-size-13">
-                                    <i class="ec ec-close-remove mr-1 font-size-15"></i>
+                                    <i class="ec heart mr-1 font-size-15"></i>
                                 </button>
                             </div>
                         </div>

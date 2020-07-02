@@ -33,9 +33,9 @@ $('body').on('click', '.add-to-favorites:not(.loading)', function (e) {
             if (action === 'add') {
                 $(this).data('action', 'remove')
                 if (page !== 'favorites') {
-                    $(this).html('<i class="ec ec-close-remove mr-1 font-size-15"></i> Из избранного')
+                    $(this).html('<i class="ec heart mr-1 font-size-15"></i> Из избранного')
                 } else {
-                    $(this).html('<i class="ec ec-close-remove mr-1 font-size-15"></i>')
+                    $(this).html('<i class="ec heart mr-1 font-size-15"></i>')
                 }
             } else {
                 $(this).data('action', 'add')

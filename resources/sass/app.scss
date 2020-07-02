@@ -21,6 +21,12 @@ button.loading {
     }
 }
 
+button {
+    i.heart:before {
+        content: url("/svg/heart.svg");
+    }
+}
+
 .add-to-favorites.loading {
     position: relative;
 
