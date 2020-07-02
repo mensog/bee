@@ -39,4 +39,12 @@ class FavoriteListController extends Controller
         }
         return $response;
     }
+
+    public function show(Request $request)
+    {
+        $favoritesList = app('FavoriteList');
+        $favoritesListContent = $favoritesList->content;
+        $products = $favoritesListContent->getProducts();
+        return view('pages.favorites', ['products' => $products]);
+    }
 }
