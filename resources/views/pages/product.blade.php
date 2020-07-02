@@ -18,14 +18,12 @@
                                 @if($inFavoritesList)
                                     <button data-id="{{ $product->id }}" data-action="remove"
                                             class="btn-add-to-favorites add-to-favorites btn btn-link pl-0 text-gray-6 font-size-13">
-                                        <i class="ec ec-close-remove mr-1 font-size-15"></i>
-                                        Из избранного
+                                        <i class="ec heart mr-1 font-size-15"></i>
                                     </button>
                                 @else
                                     <button data-id="{{ $product->id }}" data-action="add"
                                             class="btn-add-to-favorites add-to-favorites btn btn-link pl-0 text-gray-6 font-size-13">
                                         <i class="ec ec-favorites mr-1 font-size-15"></i>
-                                        В избранное
                                     </button>
                                 @endif</h2>
                         </div>
