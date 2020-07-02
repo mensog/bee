@@ -29,6 +29,7 @@ Route::get('/checkout', 'CartController@showCheckout')->middleware('auth')->name
 Route::post('/order', 'OrderController@create')->middleware('auth')->name('place_order');
 
 Route::post('/api/cart', 'CartController@api')->name('api_cart');
+Route::post('/api/favorites', 'CartController@api')->name('api_favorites');
 
 Auth::routes();
 Route::get('/personal-data-agreement', 'StaticPageController@personalDataAgreement')->name('personal-data-agreement');
