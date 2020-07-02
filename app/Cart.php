@@ -155,8 +155,7 @@ class Cart extends Model
 
     protected function initProducts()
     {
-        $cartContent = $this->content;
-        $productIds = array_keys($cartContent);
+        $productIds = $this->getProductIds();
         $this->products = Product::find($productIds);
     }
 
@@ -166,6 +165,12 @@ class Cart extends Model
             $this->initProducts();
         }
         return $this->products;
+    }
+
+    public function getProductIds()
+    {
+        $cartContent = $this->content;
+        return array_keys($cartContent);
     }
 
     public function getItemsSubTotal()

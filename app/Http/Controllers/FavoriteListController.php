@@ -33,7 +33,9 @@ class FavoriteListController extends Controller
             ];
             if ($request->input('fromPage') === 'favorites') {
                 $products = $favoriteList->getProducts();
-                $response['html'] = view('components.favorites', ['products' => $products])->render();
+                $cart = app('Cart');
+                $inCartProductIds = $cart->getProductIds();
+                $response['html'] = view('components.favorites', ['products' => $products, 'inCartProductIds' => $inCartProductIds])->render();
             }
             return response()->json($response);
         }
@@ -44,6 +46,8 @@ class FavoriteListController extends Controller
     {
         $favoritesList = app('FavoriteList');
         $products = $favoritesList->getProducts();
-        return view('pages.favorites', ['products' => $products]);
+        $cart = app('Cart');
+        $inCartProductIds = $cart->getProductIds();
+        return view('pages.favorites', ['products' => $products, 'inCartProductIds' => $inCartProductIds]);
     }
 }
