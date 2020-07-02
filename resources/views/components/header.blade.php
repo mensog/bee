@@ -51,13 +51,7 @@
                                         <a href="{{ route('register') }}">Зарегистрироваться</a> <span
                                             class="text-gray-50">или</span> <a href="{{ route('login') }}">Войти</a>
                                     @else
-                                        <a onclick="event.preventDefault();
-                                           document.getElementById('logout-form').submit();"
-                                           href="{{ route('logout') }}">Выйти</a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                              style="display: none;">
-                                            @csrf
-                                        </form>
+                                        <a href="{{ route('lk') }}">Личный кабинет</a>
                                     @endguest
                                 </a>
                             </li>

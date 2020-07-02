@@ -10,12 +10,12 @@ class MainController extends Controller
 {
     public function index(Request $request)
     {
-        return view('pages.lk.index');
+        return view('lk.dashboard');
     }
 
     public function orders(Request $request)
     {
         $orders = Auth::user()->orders()->with('items', 'items.product')->paginate(10);
-        return view('pages.lk.orders', ['orders' => $orders]);
+        return view('lk.orders', ['orders' => $orders]);
     }
 }
