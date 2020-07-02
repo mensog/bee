@@ -229,6 +229,20 @@ button.loading {
     cursor: pointer;
 }
 
-.btn-add-cart{
+.btn-add-cart {
     background-color: #e6e6e6 !important;
+}
+
+.counter-container {
+    position: relative;
+
+    span {
+        min-width: 21px;
+        border-radius: 15px;
+        position: absolute;
+        text-align: center;
+        top: -9px;
+        right: -13px;
+        background-color: #fed700;
+    }
 }
