@@ -6,7 +6,7 @@
             <h1 class="text-center">Избранное</h1>
         </div>
         <div class="mb-10">
-            <x-favorites :products="$products"/>
+            <x-favorites :products="$products" :inCartProductIds="$inCartProductIds"/>
         </div>
     </div>
 </main>

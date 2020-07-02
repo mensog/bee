@@ -12,15 +12,23 @@ class favorites extends Component
      * @var array
      */
     public $products;
+    /**
+     * Array of products in cart.
+     *
+     * @var array
+     */
+    public $inCartProductIds;
 
     /**
      * Create a new component instance.
      *
      * @param $products
+     * @param $inCartProductIds
      */
-    public function __construct($products)
+    public function __construct($products, $inCartProductIds)
     {
         $this->products = $products;
+        $this->inCartProductIds = $inCartProductIds;
     }
 
     /**
