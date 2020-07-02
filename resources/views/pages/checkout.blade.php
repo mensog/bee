@@ -73,10 +73,12 @@
                                 Итого <b>{{ $cartTotal / 100 }} ₽</b>
                             </p>
                             <button type="submit" class="btn btn-primary w-100 mb-4">Оформить заказ</button>
-                            <p class="checkout__agreement mb-0 text-center">Нажимая кнопку «Оформить», я даю согласие на обработку
-                                персональных данных, в соответствии с
-                                <a href="{{ route('personal-data-agreement') }}">Политикой</a>, и соглашаюсь с
-                                Правилами.
+                            <p class="checkout__agreement mb-0 text-center">Нажимая кнопку «Оформить», я даю
+                                <a target="_blank" href="{{ route('personal-data-agreement') }}">согласие</a> на
+                                обработку персональных данных, в соответствии с
+                                <a target="_blank" href="{{ route('personal-data-policy') }}">Политикой</a>, и
+                                соглашаюсь с
+                                <a target="_blank" href="{{ route('sale-regulations') }}">Правилами</a>.
                             </p>
                         </div>
                     </div>
