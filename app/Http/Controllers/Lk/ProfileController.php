@@ -24,7 +24,7 @@ class ProfileController extends Controller
     public function showEditDataForm(Request $request)
     {
         $user = Auth::user();
-        return view('pages.lk.edit-data', ['user' => $user]);
+        return view('lk.edit-data', ['user' => $user]);
     }
 
     protected function editDataValidator(array $data)
@@ -56,7 +56,7 @@ class ProfileController extends Controller
     public function showChangeEmailForm(Request $request)
     {
         $user = Auth::user();
-        return view('pages.lk.change-email', ['user' => $user]);
+        return view('lk.change-email', ['user' => $user]);
     }
 
     public function changeEmail(Request $request)
@@ -92,7 +92,7 @@ class ProfileController extends Controller
     public function showChangePasswordForm(Request $request)
     {
         $user = Auth::user();
-        return view('pages.lk.change-password', ['user' => $user]);
+        return view('lk.change-password', ['user' => $user]);
     }
 
     public function changePassword(Request $request)
