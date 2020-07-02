@@ -17,6 +17,8 @@ class MainController extends Controller
         $recentProducts = Product::orderBy('created_at','desc')->limit(18)->get();
         $cart = app('Cart');
         $cartContent = $cart->content;
-        return view('pages.main', ['bannerProducts' => $bannerProducts, 'recentProducts' => $recentProducts, 'cartContent' => $cartContent]);
+        $favoritesList = app('FavoriteList');
+        $favoritesListContent = $favoritesList->content;
+        return view('pages.main', ['bannerProducts' => $bannerProducts, 'recentProducts' => $recentProducts, 'cartContent' => $cartContent, 'favoritesListContent' => $favoritesListContent]);
     }
 }

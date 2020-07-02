@@ -18,7 +18,9 @@ class CategoryController extends Controller
         $productsPaginator = Product::paginate(50);
         $cart = app('Cart');
         $cartContent = $cart->content;
-        return view('pages.catalog', ['categories' => $categories, 'products' => $productsPaginator, 'cartContent' => $cartContent]);
+        $favoritesList = app('FavoriteList');
+        $favoritesListContent = $favoritesList->content;
+        return view('pages.catalog', ['categories' => $categories, 'products' => $productsPaginator, 'cartContent' => $cartContent, 'favoritesListContent' => $favoritesListContent]);
     }
 
     public function show($name)
@@ -27,6 +29,8 @@ class CategoryController extends Controller
         $productsPaginator = Category::where('friendly_url_name', $name)->firstOrFail()->products()->paginate(50);
         $cart = app('Cart');
         $cartContent = $cart->content;
-        return view('pages.category', ['categories' => $categories, 'products' => $productsPaginator, 'cartContent' => $cartContent]);
+        $favoritesList = app('FavoriteList');
+        $favoritesListContent = $favoritesList->content;
+        return view('pages.category', ['categories' => $categories, 'products' => $productsPaginator, 'cartContent' => $cartContent, 'favoritesListContent' => $favoritesListContent]);
     }
 }

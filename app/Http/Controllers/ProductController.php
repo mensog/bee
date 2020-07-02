@@ -16,7 +16,14 @@ class ProductController extends Controller
         } else {
             $inCartQuantity = 0;
         }
-        return view('pages.product', ['product' => $product, 'inCartQuantity' => $inCartQuantity]);
+        $favoritesList = app('FavoriteList');
+        $favoritesListContent = $favoritesList->content;
+        if (in_array($product->id, $favoritesListContent)) {
+            $inFavoritesList = true;
+        } else {
+            $inFavoritesList = false;
+        }
+        return view('pages.product', ['product' => $product, 'inCartQuantity' => $inCartQuantity, 'inFavoritesList' => $inFavoritesList]);
     }
 
     /**
@@ -28,6 +35,8 @@ class ProductController extends Controller
         $products = Product::paginate(20);
         $cart = app('Cart');
         $cartContent = $cart->content;
-        return view('pages.admin.products', ['products' => $products, 'cartContent' => $cartContent]);
+        $favoritesList = app('FavoriteList');
+        $favoritesListContent = $favoritesList->content;
+        return view('pages.admin.products', ['products' => $products, 'cartContent' => $cartContent, 'favoritesListContent' => $favoritesListContent]);
     }
 }
