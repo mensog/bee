@@ -63,7 +63,9 @@
                         <div class="card-auth__body">
                             <div class="d-flex flex-wrap">
                                 @foreach($products as $key => $product)
-                                    <img class="checkout__product" src="{{ $product->img_url }}" alt="">
+                                    @if($key <= 10)
+                                        <img class="checkout__product" src="{{ $product->img_url }}" alt="">
+                                    @endif
                                 @endforeach
                             </div>
                             <p class="checkout__subtotal d-flex justify-content-between align-items-end">
