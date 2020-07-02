@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Cart;
+use App\FavoriteList;
 use App\Observers\CartObserver;
 use Illuminate\Support\ServiceProvider;
 
@@ -20,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         $this->app->singleton('FavoriteList', function () {
-            return Cart::current();
+            return FavoriteList::current();
         });
     }
 
