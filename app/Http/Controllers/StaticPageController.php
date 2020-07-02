@@ -14,4 +14,20 @@ class StaticPageController extends Controller
         $page = StaticPage::where('name', $dbPageName)->first();
         return view('pages.static', ['page' => $page, 'pageName' => $pageName, 'dbPageName' => $dbPageName]);
     }
+
+    public function personalDataPolicy()
+    {
+        $dbPageName = 'personal data policy';
+        $pageName = 'Политика обработки персональных данных';
+        $page = StaticPage::where('name', $dbPageName)->first();
+        return view('pages.static', ['page' => $page, 'pageName' => $pageName, 'dbPageName' => $dbPageName]);
+    }
+
+    public function saleRegulations()
+    {
+        $dbPageName = 'sale regulations';
+        $pageName = 'Правила продажи';
+        $page = StaticPage::where('name', $dbPageName)->first();
+        return view('pages.static', ['page' => $page, 'pageName' => $pageName, 'dbPageName' => $dbPageName]);
+    }
 }
