@@ -31,7 +31,7 @@ class Cart extends Model
         $cookie = Cookie::get(self::CART_ID_COOKIE_NAME);
         if ($cookie) {
             try {
-                $cartId = Crypt::decrypt(Cookie::get('cartId'), false);
+                $cartId = Crypt::decrypt(Cookie::get(self::CART_ID_COOKIE_NAME), false);
             } catch (\Exception $exception) {
                 $cartId = $cookie;
             }
