@@ -18,6 +18,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton('Cart', function () {
             return Cart::current();
         });
+
+        $this->app->singleton('FavoriteList', function () {
+            return Cart::current();
+        });
     }
 
     /**
@@ -30,6 +34,9 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function ($view) {
             $cart = $this->app->make('Cart');
             view()->share('headerCartCount', $cart->countTotalQuantity());
+
+            $favorites = $this->app->make('FavoriteList');
+            view()->share('headerFavoritesCount', $favorites->countTotalQuantity());
         });
     }
 }
