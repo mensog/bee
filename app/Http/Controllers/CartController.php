@@ -76,6 +76,11 @@ class CartController extends Controller
             $response['html'] = view('components.cart', ['products' => $products, 'quantity' => $cartContent, 'itemsSubTotal' => $itemsSubTotal, 'cartTotal' => $cartTotal])->render();
         } elseif ($request->input('fromPage') === 'product') {
             $response['html'] = view('components.product-add-to-cart', ['productId'=> $productId, 'inCartQuantity' => $quantity])->render();
+        } elseif ($request->input('fromPage') === 'favorites') {
+            $inCartProducts = $cart->getProducts();
+            $favoritesList = app('FavoriteList');
+            $favoriteProducts = $favoritesList->getProducts();
+            $response['html'] = view('components.favorites', ['products'=> $favoriteProducts, 'inCartProducts' => $inCartProducts])->render();
         }
         return response()->json($response);
 
