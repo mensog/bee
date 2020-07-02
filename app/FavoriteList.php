@@ -92,7 +92,7 @@ class FavoriteList extends Model
     {
         $content = $this->content;
         $key = array_search($productId, $content);
-        if ($key) {
+        if ($key !== false) {
             unset($content[$key]);
         }
         $this->content = $content;
