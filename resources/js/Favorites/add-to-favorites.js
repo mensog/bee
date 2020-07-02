@@ -3,7 +3,8 @@ import {clean} from "../app";
 $('body').on('click', '.add-to-favorites:not(.loading)', function (e) {
     e.preventDefault()
     const productId = $(this).data('id');
-    const action = $(this).data('action')
+    const action = $(this).data('action');
+    const page = $(this).data('page');
     let data = {
         productId,
         action
@@ -26,10 +27,18 @@ $('body').on('click', '.add-to-favorites:not(.loading)', function (e) {
             }
             if (action === 'add') {
                 $(this).data('action', 'remove')
-                $(this).html('<i class="ec ec-close-remove mr-1 font-size-15"></i> Из избранного')
+                if (page !== 'favorites') {
+                    $(this).html('<i class="ec ec-close-remove mr-1 font-size-15"></i> Из избранного')
+                } else {
+                    $(this).html('<i class="ec ec-close-remove mr-1 font-size-15"></i>')
+                }
             } else {
                 $(this).data('action', 'add')
-                $(this).html('<i class="ec ec-favorites mr-1 font-size-15"></i> В избранное')
+                if (page !== 'favorites') {
+                    $(this).html('<i class="ec ec-favorites mr-1 font-size-15"></i> В избранное')
+                } else {
+                    $(this).html('<i class="ec ec-favorites mr-1 font-size-15"></i>')
+                }
             }
             $(this).removeClass('loading')
         },
