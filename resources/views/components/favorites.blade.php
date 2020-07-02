@@ -21,15 +21,7 @@
                             <div class="col-lg-6 text-right col-12 card-cart__price">
                                 <p>{{ $product->price / 100 }} ₽/шт.</p>
                             </div>
-                            <div class="col-lg-2 card-cart__qty">
-                                <input data-quantity="1"
-                                       min="0" oninput="validity.valid||(value='')"
-                                       data-id="{{ $product->id }}" data-action="updateQuantity"
-                                       data-page="cart" class="form-control cart-qty text-center"
-                                       type="number"
-                                       value="1">
-                            </div>
-                            <div class="col-lg-4 col-12 card-cart__delete d-flex">
+                            <div class="col-lg-6 col-12 card-cart__delete d-flex">
                                 <button data-id="{{ $product->id }}" data-quantity="1"
                                         class="btn-add-cart border-0 mr-3 add-to-cart btn-primary transition-3d-hover">
                                     <i class="ec ec-add-to-cart"></i>
