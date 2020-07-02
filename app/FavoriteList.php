@@ -116,7 +116,6 @@ class FavoriteList extends Model
 
     protected function initProducts()
     {
-        $cartContent = $this->content;
         $this->products = Product::find($this->content);
     }
 
