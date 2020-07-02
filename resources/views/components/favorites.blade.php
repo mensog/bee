@@ -1,5 +1,5 @@
 @if(count($products) !== 0)
-    <div id="cart" class="card-cart">
+    <div id="favorites" class="card-cart">
         <div class="card-cart__body">
             @csrf
             @foreach ($products as $product)
