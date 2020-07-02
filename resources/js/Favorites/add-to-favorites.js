@@ -5,6 +5,7 @@ $('body').on('click', '.add-to-favorites:not(.loading)', function (e) {
     const productId = $(this).data('id');
     const action = $(this).data('action');
     const page = $(this).data('page');
+    const counter = $('#favoritesCounter')
     let data = {
         productId,
         action
@@ -22,9 +23,13 @@ $('body').on('click', '.add-to-favorites:not(.loading)', function (e) {
             $(this).addClass('loading')
         },
         success: data => {
-            if (data['count'] !== '') {
-                $('#favoritesCounter').html(data['count'])
+            if (data['count'] === 0) {
+                counter.removeClass('d-xl-block')
+            } else {
+                counter.addClass('d-xl-block')
             }
+            counter.html(data['count'])
+
             if (action === 'add') {
                 $(this).data('action', 'remove')
                 if (page !== 'favorites') {

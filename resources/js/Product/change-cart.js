@@ -30,6 +30,7 @@ function changeCart(productId, action, fromPage, quantity) {
     }
     data = clean(data)
     const cart = $('#cart')
+    const counter = $('#cartCounter')
     $.ajax({
         type: 'POST',
         url: "/api/cart",
@@ -42,9 +43,12 @@ function changeCart(productId, action, fromPage, quantity) {
             cart.addClass('loading')
         },
         success: data => {
-            if (data['count'] !== '') {
-                $('#cartCounter').html(data['count'])
+            if (data['count'] === 0) {
+                counter.removeClass('d-xl-block')
+            } else {
+                counter.addClass('d-xl-block')
             }
+            counter.html(data['count'])
             cart.replaceWith(data['html'])
             cart.removeClass('loading')
         },

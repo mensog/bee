@@ -6,6 +6,7 @@ $('body').on('click', '.add-to-cart:not(.loading)', function (e) {
     const quantity = $(this).data('quantity');
     const fromPage = $(this).data('page');
     const action = 'add';
+    const counter = $('#cartCounter')
     let data = {
         productId,
         fromPage,
@@ -25,9 +26,12 @@ $('body').on('click', '.add-to-cart:not(.loading)', function (e) {
             $(this).addClass('loading')
         },
         success: data => {
-            if (data['count'] !== '') {
-                $('#cartCounter').html(data['count'])
+            if (data['count'] === 0) {
+                counter.removeClass('d-xl-block')
+            } else {
+                counter.addClass('d-xl-block')
             }
+            counter.html(data['count'])
             if (fromPage === 'product') {
                 const productQty = $('#productQty')
                 productQty.replaceWith(data['html'])
