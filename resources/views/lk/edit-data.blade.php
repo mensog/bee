@@ -4,8 +4,6 @@
     <h2>Изменение личных данных</h2>
     <div class="card-lk">
         <div class="card-lk__body">
-
-            {{ var_dump($user) }}
             <form id="editData" action="{{ route('lk_profile_edit_data') }}">
                 @csrf
                 <div class="form-group row">
