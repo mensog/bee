@@ -6,6 +6,7 @@
 
 require('./bootstrap');
 require('./Product/add-to-cart');
+require('./Favorites/add-to-favorites');
 require('./Product/change-cart');
 require('./Product/product-change-cart');
 require('./Registration/registration');

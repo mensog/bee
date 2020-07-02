@@ -73,9 +73,19 @@
                                                 <div class="border-top pt-2 flex-center-between flex-wrap">
                                                     <a href="#" class="text-gray-6 font-size-13"><i
                                                             class="ec ec-compare mr-1 font-size-15"></i> Сравнить</a>
-                                                    <a href="#" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> В
-                                                        избранное</a>
+                                                    @if(in_array($product->id, $favoritesListContent))
+                                                        <button data-id="{{ $product->id }}" data-action="remove"
+                                                                class="btn-add-to-favorites add-to-favorites btn btn-link pl-0 text-gray-6 font-size-13">
+                                                            <i class="ec ec-close-remove mr-1 font-size-15"></i>
+                                                            Из избранного
+                                                        </button>
+                                                    @else
+                                                        <button data-id="{{ $product->id }}" data-action="add"
+                                                                class="btn-add-to-favorites add-to-favorites btn btn-link pl-0 text-gray-6 font-size-13">
+                                                            <i class="ec ec-favorites mr-1 font-size-15"></i>
+                                                            В избранное
+                                                        </button>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>

@@ -21,6 +21,14 @@ button.loading {
     }
 }
 
+.add-to-favorites.loading {
+    position: relative;
+
+    i:before {
+        content: url("/svg/preloaders/loading-btn-primary.svg");
+    }
+}
+
 .card-cart.loading:before {
     content: url("/svg/preloaders/loading-primary.svg");
     position: absolute;
@@ -211,4 +219,12 @@ button.loading {
     .checkout__agreement {
         font-size: 0.775rem;
     }
+}
+
+.btn-link.text-gray-6:hover {
+    color: #333e48 !important;
+}
+
+.btn-add-to-favorites:hover {
+    cursor: pointer;
 }
