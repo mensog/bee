@@ -43,4 +43,9 @@ class User extends Authenticatable
         // Добавляем свой класс.
         $this->notify(new ResetPassword($token));
     }
+
+    public function orders()
+    {
+        return $this->hasMany('App\Order');
+    }
 }
