@@ -5,6 +5,7 @@
     <div class="card-lk">
         <div class="card-lk__body">
             <form id="changePassword" action="{{ route('lk_profile_change_password') }}">
+                @csrf
                 <div class="form-group row">
                     <div class="col-md-12">
                         <label for="password">Текущий пароль</label>

@@ -5,6 +5,7 @@
     <div class="card-lk">
         <div class="card-lk__body">
             <form id="editData" action="{{ route('lk_profile_edit_data') }}">
+                @csrf
                 <div class="form-group row">
                     <div class="col-md-6">
                         <label for="name">Имя</label>

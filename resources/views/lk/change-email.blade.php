@@ -14,6 +14,7 @@
                 </div>
             </div>
             <form id="changeEmail" action="{{ route('lk_profile_change_email') }}">
+                @csrf
                 <div class="form-group row">
                     <div class="col-md-12">
                         <label for="email">Новый e-mail</label>
