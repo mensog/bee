@@ -7,22 +7,27 @@
                 <div class="lk-sidebar">
                     <ul>
                         <li>
-                            <a href="{{ route('lk') }}">Главная</a>
+                            <a class="{{ Route::currentRouteName() == 'lk' ? 'active' : '' }}" href="{{ route('lk') }}">Главная</a>
                         </li>
                         <li>
-                            <a href="{{ route('lk_orders') }}">Заказы</a>
+                            <a class="{{ Route::currentRouteName() == 'lk_orders' ? 'active' : '' }}"
+                               href="{{ route('lk_orders') }}">Заказы</a>
                         </li>
                         <li>
-                            <a href="{{ route('lk_profile') }}">Личные данные</a>
+                            <a class="{{ Route::currentRouteName() == 'lk_profile' ? 'active' : '' }}"
+                               href="{{ route('lk_profile') }}">Личные данные</a>
                         </li>
                         <li>
-                            <a href="{{ route('lk_profile_edit_data_form') }}">Изменение личных данных</a>
+                            <a class="{{ Route::currentRouteName() == 'lk_profile_edit_data_form' ? 'active' : '' }}"
+                               href="{{ route('lk_profile_edit_data_form') }}">Изменение личных данных</a>
                         </li>
                         <li>
-                            <a href="{{ route('lk_profile_change_email_form') }}">Смена e-mail</a>
+                            <a class="{{ Route::currentRouteName() == 'lk_profile_change_email_form' ? 'active' : '' }}"
+                               href="{{ route('lk_profile_change_email_form') }}">Смена e-mail</a>
                         </li>
                         <li>
-                            <a href="{{ route('lk_profile_change_password_form') }}">Смена пароля</a>
+                            <a class="{{ Route::currentRouteName() == 'lk_profile_change_password_form' ? 'active' : '' }}"
+                               href="{{ route('lk_profile_change_password_form') }}">Смена пароля</a>
                         </li>
                         <li>
                             <a onclick="event.preventDefault();document.getElementById('logout-form').submit();"

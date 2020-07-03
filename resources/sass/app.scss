@@ -233,8 +233,12 @@ button.loading {
 
             a {
                 font-size: 1rem;
-                font-weight: 700;
+                font-weight: normal;
                 color: #333e48;
+            }
+
+            a.active {
+                font-weight: 700;
             }
         }
     }
