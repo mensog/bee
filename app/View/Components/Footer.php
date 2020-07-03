@@ -7,13 +7,20 @@ use Illuminate\View\Component;
 class Footer extends Component
 {
     /**
+     * is password changed.
+     *
+     * @var bool
+     */
+    public $passwordChanged;
+
+    /**
      * Create a new component instance.
      *
-     * @return void
+     * @param $passwordChanged
      */
-    public function __construct()
+    public function __construct($passwordChanged)
     {
-        //
+        $this->passwordChanged = $passwordChanged;
     }
 
     /**
