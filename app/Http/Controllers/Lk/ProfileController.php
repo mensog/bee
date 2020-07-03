@@ -73,7 +73,7 @@ class ProfileController extends Controller
         $messages = [
             'required' => 'Поле :attribute обязательно для заполнения.',
             'max' => 'Поле :attribute должно содержать не более :max символов',
-            'unique:users' => 'Этот e-mail уже занят'
+            'unique' => 'Этот e-mail уже занят'
         ];
         $names = [
             'email' => 'e-mail',
