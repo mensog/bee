@@ -26,16 +26,21 @@
                                                 <div>
                                                     @foreach($order->items as $item)
                                                         <div class="mr-3 mb-2">
-                                                            <span class="mb-2"><a href="{{ $item->product->friendly_url_name }}">{{ $item->product->name }}</a></span>
-                                                            <span class="mb-2 text-muted">(ID: {{ $item->product_id }})</span>
-                                                            <span class="mb-2">{{ $item->quantity }}&nbsp;шт&nbsp;</span>
+                                                            <span class="mb-2"><a
+                                                                    href="/product/{{ $item->product->friendly_url_name }}">{{ $item->product->name }}</a></span>
+                                                            <span
+                                                                class="mb-2 text-muted">(ID: {{ $item->product_id }})</span>
+                                                            <span
+                                                                class="mb-2">{{ $item->quantity }}&nbsp;шт&nbsp;</span>
                                                             <span class="mb-2">×</span>
-                                                            <span class="mb-2">&nbsp;{{ $item->price / 100 }}&nbsp;руб</span>
-                                                            <span class="mb-2">= {{ $item->getSum() / 100 }}&nbsp;руб</span>
+                                                            <span
+                                                                class="mb-2">&nbsp;{{ $item->price / 100 }}&nbsp;руб</span>
+                                                            <span
+                                                                class="mb-2">= {{ $item->getSum() / 100 }}&nbsp;руб</span>
                                                         </div>
                                                     @endforeach
                                                 </div>
-                                                <p class="mb-2"><h4>Сумма заказа: {{ $order->getSum() / 100 }}&nbsp;руб.</h4></p>
+                                                <h4>Сумма заказа: {{ $order->getSum() / 100 }}&nbsp;руб.</h4>
                                             </div>
                                         </div>
                                     </div>
