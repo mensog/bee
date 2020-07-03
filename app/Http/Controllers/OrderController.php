@@ -45,7 +45,7 @@ class OrderController extends Controller
     {
         $cart = Cart::current();
         if (count($cart->content) == 0) {
-            return redirect()->route('home');
+            return redirect()->route('cart');
         }
         $this->orderCreateValidator($request->all())->validate();
         $order = new Order();
@@ -57,8 +57,9 @@ class OrderController extends Controller
         $order->status = OrderStatus::PENDING;
         $order->save();
         $order->fillFromCart($cart);
+        $request->session()->flash('createdOrderId', $order->id);
         $cart->clear();
-        return redirect()->route('home');
+        return redirect()->route('lk_orders');
     }
 
     /**

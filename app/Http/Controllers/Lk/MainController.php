@@ -16,6 +16,11 @@ class MainController extends Controller
     public function orders(Request $request)
     {
         $orders = Auth::user()->orders()->with('items', 'items.product')->paginate(10);
-        return view('lk.orders', ['orders' => $orders]);
+        if ($request->session()->has('createdOrderId')) {
+            $createdOrderId = session('createdOrderId');
+        } else {
+            $createdOrderId = false;
+        }
+        return view('lk.orders', ['orders' => $orders, 'createdOrderId' => $createdOrderId]);
     }
 }
