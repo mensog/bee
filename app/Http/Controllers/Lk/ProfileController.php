@@ -50,7 +50,7 @@ class ProfileController extends Controller
         $user->name = $request->input('name');
         $user->surname = $request->input('surname');
         $user->save();
-        return redirect('lk_profile');
+        return redirect()->route('lk_profile');
     }
 
     public function showChangeEmailForm(Request $request)
@@ -65,7 +65,7 @@ class ProfileController extends Controller
         $user = Auth::user();
         $user->email = $request->input('email');
         $user->save();
-        return redirect('lk_profile');
+        return redirect()->route('lk_profile');
     }
 
     protected function changeEmailValidator(array $data)
@@ -102,7 +102,7 @@ class ProfileController extends Controller
         $user->password = Hash::make($request->input('newPassword'));
         $user->save();
         $request->session()->flash('passwordChanged', true);
-        return redirect('lk_profile');
+        return redirect()->route('lk_profile');
     }
 
     protected function changePasswordValidator(array $data)
