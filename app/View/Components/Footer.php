@@ -18,7 +18,7 @@ class Footer extends Component
      *
      * @param $passwordChanged
      */
-    public function __construct($passwordChanged)
+    public function __construct($passwordChanged = false)
     {
         $this->passwordChanged = $passwordChanged;
     }
