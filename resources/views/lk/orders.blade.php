@@ -15,7 +15,7 @@
                                             <div class="col-5">
                                                 <p class="mb-2 mt-2">ID Заказа: {{ $order->id }}</p>
                                                 <p class="mb-2">Статус: {{ __('order_status.' . $order->status) }}</p>
-                                                <p class="mb-2">Создан: {{ $order->created_at }}</p>
+                                                <p class="mb-2">Создан: {{ date('d.m.Y H:i',strtotime($order->created_at)) }}</p>
                                                 <p class="mb-2">Адрес доставки: {{ $order->address }}</p>
                                                 <p class="mb-2">Контактное лицо: {{ $order->full_name }}</p>
                                                 <p class="mb-2">Телефон: {{ $order->phone }}</p>
