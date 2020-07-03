@@ -21,7 +21,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/products', 'ProductController@index')->name('admin_products');
 });
 
-Route::group(['prefix' => 'lk', 'namespace' => 'lk', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'lk', 'namespace' => 'Lk', 'middleware' => 'auth'], function () {
     Route::get('/', 'MainController@index')->name('lk');
     Route::get('/orders', 'MainController@orders')->name('lk_orders');
     Route::get('/profile', 'ProfileController@index')->name('lk_profile');
