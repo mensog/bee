@@ -168,6 +168,7 @@ const checkRegistrationForm = (load, $this, page, ignoreID) => {
                 }
                 break
             case 'email':
+                $this.next('.invalid-feedback').remove()
                 if (is.email($this.val())) {
                     $this.removeClass('is-invalid')
                     $this.addClass('is-valid')
