@@ -3,7 +3,7 @@
 @section('content')
     <div>
         @if($orders->total() !== 0)
-            <h2>У вас {{ $orders->total() }} @choice('заказ|заказа|заказов', $orders->total())</h2>
+            <h2>@choice('У вас :count заказ|У вас :count заказа|У вас :count заказов|{0}', $orders->total(), [':count' => $orders->total()])</h2>
             <div class="card-lk">
                 <div class="card-lk__body">
                     <div class="row">
