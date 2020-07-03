@@ -20,6 +20,7 @@
                         <label for="email">Новый e-mail</label>
                         <input id="email" type="email"
                                placeholder="Введите e-mail"
+                               value="{{ old('email') }}"
                                class="form-control @error('email') is-invalid @enderror" name="email">
                         @error('email')
                         <span class="invalid-feedback" role="alert">
