@@ -248,6 +248,7 @@ button.loading {
     position: relative;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     background-color: #fff;
+    transition: 145ms ease-in-out;
 
     .card-lk__body {
         padding: 20px 30px 20px;
@@ -267,4 +268,8 @@ button.loading {
     .invalid-feedback {
         padding-left: 16px;
     }
+}
+
+.card-lk.card-lk-hover:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
 }
