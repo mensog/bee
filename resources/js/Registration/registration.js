@@ -74,7 +74,7 @@ const checkRegistrationForm = (load, $this, page, ignoreID) => {
                     }
                     break
                 case 'email':
-                    if (page === 'checkout' || page === 'change-email') {
+                    if (page === 'checkout') {
                         if (is.email($(this).val())) {
                             $(this).removeClass('is-invalid')
                             $(this).addClass('is-valid')
