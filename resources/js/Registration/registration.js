@@ -42,6 +42,10 @@ $('.change-email #email, .change-email #password').on('keyup', function () {
     checkRegistrationForm(false, $(this), 'change-email')
 })
 
+$('.change-password #password, .change-password #newPassword, .change-password #newPasswordConfirmation').on('keyup', function () {
+    checkRegistrationForm(false, $(this), 'change-password')
+})
+
 $('.checkout #email, .checkout #name-n-surname, .checkout #phone, .checkout #address').on('keyup', function () {
     checkRegistrationForm(false, $(this), 'checkout')
 })
@@ -179,7 +183,10 @@ const checkRegistrationForm = (load, $this, page) => {
                 break
             case 'password':
                 let password = $('#password').val().trim()
-                if ($this.attr('id') === 'password-confirm') {
+                if ($this.attr('id') === 'password-confirm' || $this.attr('id') === 'newPasswordConfirmation') {
+                    if ($this.attr('id') === 'newPasswordConfirmation') {
+                        password = $('#newPassword').val().trim()
+                    }
                     if ($this.val().length >= 8 && $this.val() === password) {
                         $this.removeClass('is-invalid')
                         $this.addClass('is-valid')
@@ -194,7 +201,12 @@ const checkRegistrationForm = (load, $this, page) => {
                         if (index !== -1) isValid.splice(index, 1);
                     }
                 } else {
-                    let passwordInput = $('#password-confirm')
+                    let passwordInput
+                    if ($this.attr('id') === 'newPassword') {
+                        passwordInput = $('#newPasswordConfirmation')
+                    } else {
+                        passwordInput = $('#password-confirm')
+                    }
 
                     if (passwordInput.length) {
                         password = passwordInput.val().trim()
