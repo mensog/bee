@@ -15,7 +15,7 @@ class MainController extends Controller
 
     public function orders(Request $request)
     {
-        $orders = Auth::user()->orders()->with('items', 'items.product')->paginate(10);
+        $orders = Auth::user()->orders()->with('items', 'items.product')->orderBy('created_at', 'desc')->paginate(10);
         if ($request->session()->has('createdOrderId')) {
             $createdOrderId = session('createdOrderId');
         } else {
