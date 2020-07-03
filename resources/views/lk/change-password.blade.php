@@ -1,10 +1,10 @@
 @extends('layouts.lk')
 
 @section('content')
-    <h2>Смена e-mail</h2>
+    <h2>Смена пароля</h2>
     <div class="card-lk">
         <div class="card-lk__body">
-            <form id="changePassword" action="{{ route('lk_profile_change_password') }}">
+            <form id="changePassword" action="{{ route('lk_profile_change_password') }}" method="post">
                 @csrf
                 <div class="form-group row">
                     <div class="col-md-12">
