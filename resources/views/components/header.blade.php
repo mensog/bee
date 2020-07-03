@@ -185,23 +185,34 @@
                                         </form>
                                     </div>
                                 </li>
-                                <li class="col d-none d-xl-block"><a href="/" class="text-gray-90" data-toggle="tooltip"
-                                                                     data-placement="top" title="Сравнить"><i
-                                            class="font-size-22 ec ec-compare"></i></a></li>
-                                <li class="col d-none d-xl-block"><a href="/" class="text-gray-90" data-toggle="tooltip"
-                                                                     data-placement="top" title="Избранное"><i
-                                            class="font-size-22 ec ec-favorites"></i></a></li>
-                                <li class="col d-xl-none px-2 px-sm-3"><a href="/" class="text-gray-90"
-                                                                          data-toggle="tooltip" data-placement="top"
-                                                                          title="My Account"><i
-                                            class="font-size-22 ec ec-user"></i></a></li>
+                                <li class="col d-none d-xl-block">
+                                    <a href="/" class="text-gray-90" data-toggle="tooltip"
+                                       data-placement="top" title="Сравнить">
+                                        <i class="font-size-22 ec ec-compare"></i></a>
+                                </li>
+                                <li class="col d-none d-xl-block">
+                                    <a href="{{ route('favorites') }}" class="text-gray-90 counter-container"
+                                       title="Избранное">
+                                        <i class="font-size-22 ec ec-favorites"></i>
+                                        <span id="favoritesCounter"
+                                              class="d-none d-xl-block font-weight-bold text-gray-90 ml-3">
+                                            {{ $headerFavoritesCount ? $headerFavoritesCount : '' }}
+                                        </span>
+                                    </a></li>
+                                <li class="col d-xl-none px-2 px-sm-3">
+                                    <a href="/" class="text-gray-90"
+                                       data-toggle="tooltip" data-placement="top"
+                                       title="My Account">
+                                        <i class="font-size-22 ec ec-user"></i>
+                                    </a>
+                                </li>
                                 <li class="col pr-xl-0 px-2 px-sm-3">
-                                    <a href="{{ route('cart') }}" class="text-gray-90 position-relative d-flex "
-                                       data-toggle="tooltip"
-                                       data-placement="top" title="Корзина">
+                                    <a href="{{ route('cart') }}"
+                                       class="text-gray-90 position-relative d-flex counter-container"
+                                       title="Корзина">
                                         <i class="font-size-22 ec ec-shopping-bag"></i>
                                         <span id="cartCounter"
-                                              class="d-none d-xl-block font-weight-bold font-size-16 text-gray-90 ml-3">
+                                              class="d-none d-xl-block font-weight-bold text-gray-90 ml-3">
                                             {{ $headerCartCount ? $headerCartCount : '' }}
                                         </span>
                                     </a>

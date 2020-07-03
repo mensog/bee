@@ -21,6 +21,20 @@ button.loading {
     }
 }
 
+button {
+    i.heart:before {
+        content: url("/svg/heart.svg");
+    }
+}
+
+.add-to-favorites.loading {
+    position: relative;
+
+    i:before {
+        content: url("/svg/preloaders/loading-btn-primary.svg");
+    }
+}
+
 .card-cart.loading:before {
     content: url("/svg/preloaders/loading-primary.svg");
     position: absolute;
@@ -277,4 +291,30 @@ button.loading {
 
 .card-lk.card-lk-hover:hover {
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+}
+
+.btn-link.text-gray-6:hover {
+    color: #333e48 !important;
+}
+
+.btn-add-to-favorites:hover {
+    cursor: pointer !important;
+}
+
+.btn-add-cart {
+    background-color: #e6e6e6 !important;
+}
+
+.counter-container {
+    position: relative;
+
+    span {
+        min-width: 21px;
+        border-radius: 15px;
+        position: absolute;
+        text-align: center;
+        top: -9px;
+        right: -13px;
+        background-color: #fed700;
+    }
 }

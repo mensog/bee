@@ -41,8 +41,10 @@ Route::get('/addtocart', 'CartController@addProduct')->name('add_to_cart');
 Route::get('/removefromcart', 'CartController@removeProduct')->name('remove_from_cart');
 Route::get('/checkout', 'CartController@showCheckout')->middleware('auth')->name('checkout_page');
 Route::post('/order', 'OrderController@create')->middleware('auth')->name('place_order');
+Route::get('/favorites', 'FavoriteListController@show')->name('favorites');
 
 Route::post('/api/cart', 'CartController@api')->name('api_cart');
+Route::post('/api/favorites', 'FavoriteListController@api')->name('api_favorites');
 
 Auth::routes();
 Route::get('/personal-data-agreement', 'StaticPageController@personalDataAgreement')->name('personal-data-agreement');

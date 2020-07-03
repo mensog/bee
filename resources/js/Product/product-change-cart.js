@@ -54,6 +54,7 @@ const sendRequest = (productId, action, fromPage, quantity) => {
         productId, action, fromPage, quantity
     }
     const productQty = $('#productQty')
+    const counter = $('#cartCounter')
     data = clean(data)
     $.ajax({
         type: 'POST',
@@ -64,9 +65,12 @@ const sendRequest = (productId, action, fromPage, quantity) => {
         data: JSON.stringify(data),
         contentType: 'application/json',
         success: data => {
-            if (data['count'] !== '') {
-                $('#cartCounter').html(data['count'])
+            if (data['count'] === 0) {
+                counter.removeClass('d-xl-block')
+            } else {
+                counter.addClass('d-xl-block')
             }
+            counter.html(data['count'])
             if (Number(quantity) === 0) {
                 productQty.replaceWith(data['html'])
             }
