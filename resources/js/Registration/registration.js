@@ -39,11 +39,11 @@ $('.edit-data #name, .edit-data #surname').on('keyup', function () {
 })
 
 $('.change-email #email, .change-email #password').on('keyup', function () {
-    checkRegistrationForm(false, $(this), 'change-email')
+    checkRegistrationForm(false, $(this), 'change-email', 'password')
 })
 
 $('.change-password #password, .change-password #newPassword, .change-password #newPasswordConfirmation').on('keyup', function () {
-    checkRegistrationForm(false, $(this), 'change-password')
+    checkRegistrationForm(false, $(this), 'change-password', 'password')
 })
 
 $('.checkout #email, .checkout #name-n-surname, .checkout #phone, .checkout #address').on('keyup', function () {
@@ -54,7 +54,7 @@ $('.registration #personal-data-agreement').on('change', function () {
     checkRegistrationForm(false, $(this), 'registration')
 })
 
-const checkRegistrationForm = (load, $this, page) => {
+const checkRegistrationForm = (load, $this, page, ignoreID) => {
     if (load) {
         $(`.${page} input`).each(function () {
             switch ($(this).attr('type')) {
@@ -91,6 +91,7 @@ const checkRegistrationForm = (load, $this, page) => {
                     }
                     break
                 case 'password':
+
                     if ($(this).attr('id') === 'password-confirm') {
                         let password = $('#password').val()
                         if ($(this).val() === password && $(this).val().length >= 8) {
@@ -182,65 +183,76 @@ const checkRegistrationForm = (load, $this, page) => {
                 }
                 break
             case 'password':
-                let password = $('#password').val().trim()
-                if ($this.attr('id') === 'password-confirm' || $this.attr('id') === 'newPasswordConfirmation') {
-                    if ($this.attr('id') === 'newPasswordConfirmation') {
-                        password = $('#newPassword').val().trim()
-                    }
-                    if ($this.val().length >= 8 && $this.val() === password) {
-                        $this.removeClass('is-invalid')
-                        $this.addClass('is-valid')
-                        if (!isValid.includes($this.attr('id'))) {
-                            isValid.push($this.attr('id'))
+                if ($this.attr('id') !== ignoreID) {
+                    let password = $('#password').val().trim()
+                    if ($this.attr('id') === 'password-confirm' || $this.attr('id') === 'newPasswordConfirmation') {
+                        if ($this.attr('id') === 'newPasswordConfirmation') {
+                            password = $('#newPassword').val().trim()
+                        }
+                        if ($this.val().length >= 8 && $this.val() === password) {
+                            $this.removeClass('is-invalid')
+                            $this.addClass('is-valid')
+                            if (!isValid.includes($this.attr('id'))) {
+                                isValid.push($this.attr('id'))
+                            }
+                        } else {
+                            $this.removeClass('is-valid')
+                            if (!load)
+                                $this.addClass('is-invalid')
+                            let index = isValid.indexOf($this.attr('id'));
+                            if (index !== -1) isValid.splice(index, 1);
                         }
                     } else {
-                        $this.removeClass('is-valid')
-                        if (!load)
-                            $this.addClass('is-invalid')
-                        let index = isValid.indexOf($this.attr('id'));
-                        if (index !== -1) isValid.splice(index, 1);
-                    }
-                } else {
-                    let passwordInput
-                    if ($this.attr('id') === 'newPassword') {
-                        passwordInput = $('#newPasswordConfirmation')
-                    } else {
-                        passwordInput = $('#password-confirm')
-                    }
-
-                    if (passwordInput.length) {
-                        password = passwordInput.val().trim()
-                        if ($this.val() !== password) {
-                            passwordInput.removeClass('is-valid')
-                            passwordInput.addClass('is-invalid')
-                            let index = isValid.indexOf(passwordInput.attr('id'));
-                            if (index !== -1) isValid.splice(index, 1);
+                        let passwordInput
+                        if ($this.attr('id') === 'newPassword') {
+                            passwordInput = $('#newPasswordConfirmation')
                         } else {
-                            passwordInput.addClass('is-valid')
-                            passwordInput.removeClass('is-invalid')
-                            if (!isValid.includes(passwordInput.attr('id'))) {
-                                isValid.push(passwordInput.attr('id'))
+                            passwordInput = $('#password-confirm')
+                        }
+
+                        if (passwordInput.length) {
+                            password = passwordInput.val().trim()
+                            if ($this.val() !== password) {
+                                passwordInput.removeClass('is-valid')
+                                passwordInput.addClass('is-invalid')
+                                let index = isValid.indexOf(passwordInput.attr('id'));
+                                if (index !== -1) isValid.splice(index, 1);
+                            } else {
+                                passwordInput.addClass('is-valid')
+                                passwordInput.removeClass('is-invalid')
+                                if (!isValid.includes(passwordInput.attr('id'))) {
+                                    isValid.push(passwordInput.attr('id'))
+                                }
+                            }
+                            if (password === '') {
+                                passwordInput.removeClass('is-valid')
+                                passwordInput.removeClass('is-invalid')
+                                let index = isValid.indexOf(passwordInput.attr('id'));
+                                if (index !== -1) isValid.splice(index, 1);
                             }
                         }
-                        if (password === '') {
-                            passwordInput.removeClass('is-valid')
-                            passwordInput.removeClass('is-invalid')
-                            let index = isValid.indexOf(passwordInput.attr('id'));
+
+                        if ($this.val().length >= 8) {
+                            $this.removeClass('is-invalid')
+                            $this.addClass('is-valid')
+                            if (!isValid.includes($this.attr('id'))) {
+                                isValid.push($this.attr('id'))
+                            }
+
+                        } else {
+                            $this.removeClass('is-valid')
+                            if (!load)
+                                $this.addClass('is-invalid')
+                            let index = isValid.indexOf($this.attr('id'));
                             if (index !== -1) isValid.splice(index, 1);
                         }
                     }
-
-                    if ($this.val().length >= 8) {
-                        $this.removeClass('is-invalid')
-                        $this.addClass('is-valid')
+                } else {
+                    if ($this.val().trim() !== '') {
                         if (!isValid.includes($this.attr('id'))) {
                             isValid.push($this.attr('id'))
                         }
-
                     } else {
-                        $this.removeClass('is-valid')
-                        if (!load)
-                            $this.addClass('is-invalid')
                         let index = isValid.indexOf($this.attr('id'));
                         if (index !== -1) isValid.splice(index, 1);
                     }
