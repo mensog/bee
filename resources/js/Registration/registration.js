@@ -34,6 +34,10 @@ $('.reset-password #email, .reset-password #password, .reset-password #password-
     checkRegistrationForm(false, $(this), 'reset-password')
 })
 
+$('.edit-data #name, .edit-data #surname').on('keyup', function () {
+    checkRegistrationForm(false, $(this), 'edit-data')
+})
+
 $('.checkout #email, .checkout #name-n-surname, .checkout #phone, .checkout #address').on('keyup', function () {
     checkRegistrationForm(false, $(this), 'checkout')
 })
@@ -246,3 +250,5 @@ const checkRegistrationForm = (load, $this, page) => {
 
 checkRegistrationForm('start', false, 'registration')
 checkRegistrationForm('start', false, 'checkout')
+checkRegistrationForm('start', false, 'edit-data')
+
