@@ -9,7 +9,7 @@
                     <div class="row">
                         @foreach($orders as $order)
                             <div class="col-12">
-                                <div class="card mb-3 @if($createdOrderId === $order->id) border-primary @endif">
+                                <div class="card mb-3 @if($createdOrderId == $order->id) border-primary @endif">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-5">
