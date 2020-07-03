@@ -11,7 +11,7 @@
                         </li>
                         <li>
                             <a class="{{ Route::currentRouteName() == 'lk_orders' ? 'active' : '' }}"
-                               href="{{ route('lk_orders') }}">Заказы</a>
+                               href="{{ route('lk_orders') }}">История покупок</a>
                         </li>
                         <li>
                             <a class="{{ Route::currentRouteName() == 'lk_profile' ? 'active' : '' }}"
