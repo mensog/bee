@@ -48,5 +48,3 @@ Auth::routes();
 Route::get('/personal-data-agreement', 'StaticPageController@personalDataAgreement')->name('personal-data-agreement');
 Route::get('/personal-data-policy', 'StaticPageController@personalDataPolicy')->name('personal-data-policy');
 Route::get('/sale-regulations', 'StaticPageController@saleRegulations')->name('sale-regulations');
-
-Route::get('/home', 'HomeController@index')->name('home');

@@ -20,7 +20,7 @@
             <div class="container">
                 <div class="d-flex align-items-center">
                     <div class="topbar-left">
-                        <a href="{{ route('home') }}" class="text-gray-110 font-size-13 u-header-topbar__nav-link">Beeclub
+                        <a href="{{ route('main') }}" class="text-gray-110 font-size-13 u-header-topbar__nav-link">Beeclub
                             - маркетплейс строительных материалов</a>
                     </div>
                     <div class="topbar-right ml-auto">
