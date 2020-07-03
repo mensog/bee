@@ -89,6 +89,24 @@ const checkRegistrationForm = (load, $this, page, ignoreID) => {
                             if (index !== -1) isValid.splice(index, 1);
                         }
                     }
+
+                    if (page === 'change-email') {
+                        if (!$(this).hasClass('is-invalid')) {
+                            if (is.email($(this).val())) {
+                                $(this).removeClass('is-invalid')
+                                $(this).addClass('is-valid')
+                                if (!isValid.includes($(this).attr('id'))) {
+                                    isValid.push($(this).attr('id'))
+                                }
+                            } else {
+                                $(this).removeClass('is-valid')
+                                if (!load)
+                                    $(this).addClass('is-invalid')
+                                let index = isValid.indexOf($(this).attr('id'));
+                                if (index !== -1) isValid.splice(index, 1);
+                            }
+                        }
+                    }
                     break
                 case 'password':
 
