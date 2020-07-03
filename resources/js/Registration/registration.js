@@ -281,6 +281,7 @@ const checkRegistrationForm = (load, $this, page, ignoreID) => {
 }
 
 checkRegistrationForm('start', false, 'registration')
+checkRegistrationForm('start', false, 'change-email')
 checkRegistrationForm('start', false, 'checkout')
 checkRegistrationForm('start', false, 'edit-data')
 
