@@ -38,6 +38,10 @@ $('.edit-data #name, .edit-data #surname').on('keyup', function () {
     checkRegistrationForm(false, $(this), 'edit-data')
 })
 
+$('.change-email #email, .change-email #password').on('keyup', function () {
+    checkRegistrationForm(false, $(this), 'change-email')
+})
+
 $('.checkout #email, .checkout #name-n-surname, .checkout #phone, .checkout #address').on('keyup', function () {
     checkRegistrationForm(false, $(this), 'checkout')
 })
@@ -191,25 +195,29 @@ const checkRegistrationForm = (load, $this, page) => {
                     }
                 } else {
                     let passwordInput = $('#password-confirm')
-                    password = passwordInput.val().trim()
-                    if ($this.val() !== password) {
-                        passwordInput.removeClass('is-valid')
-                        passwordInput.addClass('is-invalid')
-                        let index = isValid.indexOf(passwordInput.attr('id'));
-                        if (index !== -1) isValid.splice(index, 1);
-                    } else {
-                        passwordInput.addClass('is-valid')
-                        passwordInput.removeClass('is-invalid')
-                        if (!isValid.includes(passwordInput.attr('id'))) {
-                            isValid.push(passwordInput.attr('id'))
+
+                    if (passwordInput.length) {
+                        password = passwordInput.val().trim()
+                        if ($this.val() !== password) {
+                            passwordInput.removeClass('is-valid')
+                            passwordInput.addClass('is-invalid')
+                            let index = isValid.indexOf(passwordInput.attr('id'));
+                            if (index !== -1) isValid.splice(index, 1);
+                        } else {
+                            passwordInput.addClass('is-valid')
+                            passwordInput.removeClass('is-invalid')
+                            if (!isValid.includes(passwordInput.attr('id'))) {
+                                isValid.push(passwordInput.attr('id'))
+                            }
+                        }
+                        if (password === '') {
+                            passwordInput.removeClass('is-valid')
+                            passwordInput.removeClass('is-invalid')
+                            let index = isValid.indexOf(passwordInput.attr('id'));
+                            if (index !== -1) isValid.splice(index, 1);
                         }
                     }
-                    if (password === '') {
-                        passwordInput.removeClass('is-valid')
-                        passwordInput.removeClass('is-invalid')
-                        let index = isValid.indexOf(passwordInput.attr('id'));
-                        if (index !== -1) isValid.splice(index, 1);
-                    }
+
                     if ($this.val().length >= 8) {
                         $this.removeClass('is-invalid')
                         $this.addClass('is-valid')

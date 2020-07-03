@@ -13,21 +13,32 @@
                            value="{{ $user->email }}" disabled readonly>
                 </div>
             </div>
-            <form id="changeEmail" action="{{ route('lk_profile_change_email') }}" method="post">
+            <form id="changeEmail" class="change-email" action="{{ route('lk_profile_change_email') }}" method="post">
                 @csrf
                 <div class="form-group row">
                     <div class="col-md-12">
                         <label for="email">Новый e-mail</label>
                         <input id="email" type="email"
                                placeholder="Введите e-mail"
-                               class="form-control" name="email">
+                               class="form-control @error('email') is-invalid @enderror" name="email">
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-12">
                         <label for="password">Подтвердите пароль</label>
                         <input id="password" type="password"
-                               class="form-control" name="password">
+                               placeholder="Подтвердите свой пароль"
+                               class="form-control @error('password') is-invalid @enderror" name="password">
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary m-auto d-table">
