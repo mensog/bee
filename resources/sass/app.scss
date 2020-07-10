@@ -318,3 +318,45 @@ button {
         background-color: #fed700;
     }
 }
+
+.product-props {
+    .product-props__header {
+        font-weight: 500;
+        margin-bottom: 10px;
+        color: #000;
+    }
+
+    .product-props-group {
+        .product-props-group__item {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .product-props-group__title {
+            width: 100%;
+            max-width: 69%;
+            display: flex;
+            font-size: 18px;
+            color: #000;
+        }
+
+        .product-props-group__title:after {
+            display: block;
+            content: "";
+            width: 100%;
+            border-bottom: 1px dashed #e1e2e5;
+            margin: 0 8px 8px;
+        }
+
+        .product-props-group__desc {
+            width: 100%;
+            max-width: 30%;
+            font-size: 18px;
+            color: #000;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+}

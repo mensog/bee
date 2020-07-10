@@ -13,7 +13,7 @@
                             <a href="{{ route('category', $product->category->friendly_url_name) }}"
                                class="font-size-12 text-gray-5 mb-2 d-inline-block">{{$product->category->name}}
                                 /{{ $product->name }}</a>
-                            <h2 class="font-size-25 text-lh-1dot2 d-flex justify-content-between">
+                            <h2 class="text-lh-1dot2 d-flex justify-content-between">
                                 {{ $product->name }}
                                 @if($inFavoritesList)
                                     <button data-id="{{ $product->id }}" data-action="remove"
@@ -25,7 +25,11 @@
                                             class="btn-add-to-favorites add-to-favorites btn btn-link pl-0 text-gray-6 font-size-13">
                                         <i class="ec ec-favorites mr-1 font-size-15"></i>
                                     </button>
-                                @endif</h2>
+                                @endif
+                            </h2>
+                            @if($storeName)
+                                <a href="{{$storeLink}}"><h3 class="font-size-16">{{$storeName}}</h3></a>
+                            @endif
                         </div>
                         <p>{{ $product->description }}</p>
                         <p>Артикул: {{ $product-> sku }}</p>
@@ -37,6 +41,19 @@
                         <div class="mb-3">
                             <x-product-add-to-cart :inCartQuantity="$inCartQuantity" :productId="$product->id"/>
                         </div>
+                        @if($attributes && count($attributes) !== 0)
+                            <div class="product-props">
+                                <p class="product-props__header font-size-25">Характеристики</p>
+                                <div class="product-props-group">
+                                    @foreach($attributes as $attribute)
+                                        <div class="product-props-group__item">
+                                            <p class="product-props-group__title">{{$attribute->name}}</p>
+                                            <p class="product-props-group__desc">{{$attribute->value}}</p>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
