@@ -330,29 +330,30 @@ button {
         .product-props-group__item {
             display: flex;
             flex-direction: row;
+            border-bottom: 1px solid #e1e2e5;
+            margin-bottom: 5px;
+            padding-bottom: 5px;
+        }
+
+        .product-props-group__item:last-of-type{
+            border-bottom: 0;
         }
 
         .product-props-group__title {
             width: 100%;
-            max-width: 69%;
+            max-width: 65%;
             display: flex;
-            font-size: 18px;
+            font-size: 15px;
             color: #000;
-        }
-
-        .product-props-group__title:after {
-            display: block;
-            content: "";
-            width: 100%;
-            border-bottom: 1px dashed #e1e2e5;
-            margin: 0 8px 8px;
+            margin-right: 10px;
         }
 
         .product-props-group__desc {
             width: 100%;
-            max-width: 30%;
-            font-size: 18px;
+            max-width: 35%;
+            font-size: 15px;
             color: #000;
+            text-align: right;
         }
 
         p {
