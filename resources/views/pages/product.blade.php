@@ -41,14 +41,14 @@
                         <div class="mb-3">
                             <x-product-add-to-cart :inCartQuantity="$inCartQuantity" :productId="$product->id"/>
                         </div>
-                        @if($attributes && count($attributes) !== 0)
+                        @if(isset($attributes) && is_array($attributes) && count($attributes) > 0)
                             <div class="product-props">
                                 <p class="product-props__header font-size-25">Характеристики</p>
                                 <div class="product-props-group">
                                     @foreach($attributes as $attribute)
                                         <div class="product-props-group__item">
-                                            <p class="product-props-group__title">{{$attribute->name}}</p>
-                                            <p class="product-props-group__desc">{{$attribute->value}}</p>
+                                            <p class="product-props-group__title">{{ $attribute['name'] }}</p>
+                                            <p class="product-props-group__desc">{{ $attribute['value'] }}</p>
                                         </div>
                                     @endforeach
                                 </div>

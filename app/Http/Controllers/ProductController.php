@@ -8,7 +8,16 @@ class ProductController extends Controller
 {
     public function show($name)
     {
-        $product = Product::with('category')->where('friendly_url_name', $name)->firstOrFail();
+        $product = Product::with('category')->with('productAttributeValues')->with('productAttributeValues.productAttribute')->where('friendly_url_name', $name)->firstOrFail();
+        $attributes = [];
+        foreach ($product->productAttributeValues as $attributeValue){
+            $attributes[] = [
+                'name' => $attributeValue->productAttribute->name,
+                'value' => $attributeValue->value,
+            ];
+        }
+        $storeName = $product->getStoreName();
+        $storeLink = $product->getStoreProductLink();
         $cart = app('Cart');
         $cartContent = $cart->content;
         if (isset($cartContent[$product->id])) {
@@ -23,7 +32,7 @@ class ProductController extends Controller
         } else {
             $inFavoritesList = false;
         }
-        return view('pages.product', ['product' => $product, 'inCartQuantity' => $inCartQuantity, 'inFavoritesList' => $inFavoritesList]);
+        return view('pages.product', ['product' => $product, 'inCartQuantity' => $inCartQuantity, 'inFavoritesList' => $inFavoritesList, 'attributes' => $attributes, 'storeName' => $storeName, 'storeLink' => $storeLink]);
     }
 
     /**
