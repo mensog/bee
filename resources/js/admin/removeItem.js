@@ -6,12 +6,10 @@ jQuery(($) => {
         if (typeof dataText === "undefined" || dataText === '') {
             dataText = 'позицию'
         }
-        console.log(dataAction)
-        console.log(dataText)
         const deleteModalText = $('#deleteModalFormText')
-        const deleteModal = $('#deleteModal');
+        const deleteModalForm = $('#deleteModalForm');
 
-        deleteModal.attr('action', dataAction)
+        deleteModalForm.attr('action', dataAction)
         deleteModalText.text(dataText)
     })
 })

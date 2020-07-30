@@ -347,7 +347,7 @@
                                     @foreach($order->items as $key => $item)
                                         @if($key < 2)
                                             <tr class="gradeX clickable-row"
-                                                data-href="{{ route('product', $item->product->friendly_url_name) }}">
+                                                data-href="{{ route('admin_product', $item->product->friendly_url_name) }}">
                                                 <td>{{ $i }}</td>
                                                 <td>{{ $item->product->name }}</td>
                                                 <td>Статус товара</td>

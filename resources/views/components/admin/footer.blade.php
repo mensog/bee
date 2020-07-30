@@ -9,7 +9,7 @@
                 <h4 class="modal-title" id="formModalLabel">Удаление</h4>
             </div>
             <div class="modal-body">
-                <p>Вы действительно хотите удалить <span id="deleteModalFormText"></span></p>
+                <p>Вы действительно хотите удалить <span id="deleteModalFormText"></span>?</p>
             </div>
             <div class="modal-footer">
                 <form id="deleteModalForm" action="" class="form" method="get">

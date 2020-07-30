@@ -2,11 +2,8 @@ jQuery($ => {
     const parserOptions = $('.parserOption')
 
     $('.parserToggle').on('change', function () {
-        console.log($(this).attr('name'), $(this).is(':checked'))
-
         toggleOption($(this).attr('name'), $(this).is(':checked'))
     })
-
 
     const toggleOption = (name, value) => {
 
@@ -29,7 +26,4 @@ jQuery($ => {
     $('.parserToggle').map((index, item) => {
         toggleOption($(item).attr('name'), $(item).is(':checked'))
     })
-
-    toggleOption()
-
 })
