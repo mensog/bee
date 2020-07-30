@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
+        $products = Product::limit(5000)->get(); // TODO ЛИМИТ ВРЕМЕННО, ПОКА НЕ СДЕЛАЕМ AJAX
         return view('pages.admin.products', ['products' => $products]);
     }
 
