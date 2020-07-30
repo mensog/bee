@@ -80,7 +80,7 @@
                                     <div>
                                         Дата обновления
                                         <span class="pull-right">
-                                            {{ date('d.m.Y H:i',strtotime($product->updated_at)) }}
+                                            {{ date('d.m.Y H:i',strtotime($product->last_parse)) }}
                                         </span>
                                     </div>
                                     <form action="" class="form" method="">
