@@ -308,15 +308,18 @@
                                                 <td data-toggle="tooltip" data-placement="bottom"
                                                     data-trigger="hover"
                                                     data-original-title="Опубликовать">
-                                                    <a class="btn btn-flat ink-reaction btn-success">
+                                                    <a data-target="#publishCommentModal" data-toggle="modal"
+                                                       data-action class="btn btn-flat ink-reaction btn-success">
                                                         <i class="md md-publish"></i>
                                                     </a>
                                                 </td>
                                                 <td data-toggle="tooltip" data-placement="bottom"
                                                     data-trigger="hover"
                                                     data-original-title="Ответить">
-                                                    <a class="btn btn-flat ink-reaction btn-default" data-toggle="modal"
-                                                       data-target="#formModal">
+                                                    <a class="btn btn-flat ink-reaction btn-default"
+                                                       data-action=""
+                                                       data-toggle="modal"
+                                                       data-target="#replyCommentModal">
                                                         <i class="md md-reply"></i>
                                                     </a>
                                                 </td>
@@ -339,7 +342,8 @@
                         </div>
                     </div>
 
-                    <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel"
+                    <div class="modal fade" id="replyCommentModal" tabindex="-1" role="dialog"
+                         aria-labelledby="replyCommentModalLabel"
                          aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -347,9 +351,10 @@
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                                         &times;
                                     </button>
-                                    <h4 class="modal-title" id="formModalLabel">Ответить на комментарий</h4>
+                                    <h4 class="modal-title" id="replyCommentModalLabel">Ответить на комментарий</h4>
                                 </div>
-                                <form class="form-horizontal" role="form">
+                                <form id="replyCommentModalForm" class="form-horizontal" method="" action="">
+                                    @csrf
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <div class="col-sm-3">
@@ -372,14 +377,43 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Отмена
+                                        <button onclick="event.preventDefault()" type="button" class="btn btn-default"
+                                                data-dismiss="modal">Отмена
                                         </button>
-                                        <button type="button" class="btn btn-primary">Ответить</button>
+                                        <button type="submit" class="btn btn-primary">Ответить</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
+
+                    <div class="modal fade" id="publishCommentModal" tabindex="-1" role="dialog"
+                         aria-labelledby="publishCommentModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="publishCommentModalLabel">Публикация комментария</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Вы действительно хотите опубликовать комментарий?
+                                </div>
+                                <div class="modal-footer">
+                                    <form id="publishCommentModalForm" class="form" method="" action="">
+                                        @csrf
+                                        <button onclick="event.preventDefault()" type="button" class="btn btn-default"
+                                                data-dismiss="modal">Отмена
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">Опубликовать</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

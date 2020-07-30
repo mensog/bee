@@ -1,10 +1,17 @@
+//Core
 require('./bootstrap');
-require('./libs/DataTables/jquery.dataTables.min')
 require('./core/source/App.js')
+
+//Third-party
 import * as FilePond from 'filepond'
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
+require('./libs/DataTables/jquery.dataTables.min')
+
+//App
 require('./removeItem')
 require('./parserOptions')
+require('./publishComment')
+require('./replyComment')
 
 document.addEventListener('DOMContentLoaded', function () {
 
