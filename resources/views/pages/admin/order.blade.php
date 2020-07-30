@@ -241,6 +241,7 @@
                     </div>
                 </div>
                 <div class="col-lg-9">
+
                     <div class="card no-shadow">
                         <div class="card-head">
                             <header>
@@ -354,14 +355,14 @@
                                                 <td>{{ $item->price / 100 }} руб</td>
                                                 <td>{{ $item->quantity }}шт</td>
                                                 <td>{{ $item->getSum() / 100 }} руб</td>
-                                                <td>Ссылка в магазине</td>
+                                                <td class="remove"><a href="{{ $item->product->getStoreProductLink() }}">Ссылка в магазине</a></td>
                                                 <td class="remove"
                                                     data-toggle="tooltip" data-placement="bottom"
                                                     data-trigger="hover"
                                                     data-original-title="Удалить">
                                                     <a href="#" class="btn btn-flat ink-reaction btn-danger"
                                                        data-action=""
-                                                       data-text="продукт"
+                                                       data-text="{{ $item->product->name }}"
                                                        data-toggle="modal" data-target="#deleteModal">
                                                         <i class="fa fa-trash"></i>
                                                     </a>
@@ -490,7 +491,7 @@
                                                     <td>{{ $item->price / 100 }} руб</td>
                                                     <td>{{ $item->quantity }}шт</td>
                                                     <td>{{ $item->getSum() / 100 }} руб</td>
-                                                    <td>Ссылка в магазине</td>
+                                                    <td><a href="{{ $item->product->getStoreProductLink() }}">Ссылка в магазине</a></td>
                                                     <td class="remove"
                                                         data-toggle="tooltip" data-placement="bottom"
                                                         data-trigger="hover"

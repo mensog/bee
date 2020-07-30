@@ -57,7 +57,7 @@
                                                    id="attrVal" required>
                                             <label for="attrVal">Значение атрибута</label>
                                         </div>
-                                        <button type="submit" class="btn btn-flex ink-reaction btn-warning">
+                                        <button type="submit" class="btn btn-block ink-reaction btn-warning">
                                             Добавить атрибут
                                         </button>
                                     </form>

@@ -58,7 +58,7 @@
                                     </thead>
                                     <tbody>
                                     @foreach($user->orders as $order)
-                                        <tr class="gradeX">
+                                        <tr class="gradeX clickable-row" data-href="{{ route('admin_order', $order->id) }}">
                                             <td>{{ $order->id }}</td>
                                             <td>{{ __('order_status.' . $order->status) }}</td>
                                             <td>{{ date('d.m.Y H:i',strtotime($order->created_at)) }}</td>
@@ -67,10 +67,6 @@
                                                 Информация о заказе
                                                 <div class="card order-card-hover" style="z-index: 5">
                                                     <div class="card-body no-padding">
-                                                        <a href="{{ route('admin_order', $order->id) }}"
-                                                           class="ink-reaction btn btn-default-bright btn-block">
-                                                            Перейти к заказу
-                                                        </a>
                                                         <ul class="list">
                                                             @foreach($order->items as $item)
                                                                 <li class="tile">

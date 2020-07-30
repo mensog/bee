@@ -72,7 +72,7 @@
                                                 data-original-title="Удалить">
                                                 <a href="#" class="btn btn-flat ink-reaction btn-danger"
                                                    data-action=""
-                                                   data-text="позицию"
+                                                   data-text="заказ №{{ $order->id }}"
                                                    data-toggle="modal" data-target="#deleteModal">
                                                     <i class="fa fa-trash"></i>
                                                 </a>

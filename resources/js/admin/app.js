@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
 jQuery(document).ready(function ($) {
 
     $('.clickable-row > td:not(.remove)').on('click', function () {
-        console.log($(this))
         window.location = $(this).parent('.clickable-row').data("href");
     });
 

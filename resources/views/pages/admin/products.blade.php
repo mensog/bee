@@ -29,6 +29,7 @@
                                         <th class="sort-alpha">Поставщик</th>
                                         <th class="sort-numeric">Стоимость</th>
                                         <th class="sort-alpha">Категория</th>
+                                        <th class="sort-alpha">Ссылка в магазине</th>
                                         <th>Посл. изменение</th>
                                         <th></th>
                                     </tr>
@@ -39,10 +40,12 @@
                                             data-href="{{ route('admin_product', $product->friendly_url_name) }}">
                                             <td>{{ $product->sku }}</td>
                                             <td>{{ $product->status }}</td>
-                                            <td>{{ $product->name }}</td>
+                                            <td>{{ Str::limit($product->name, 30) }}</td>
                                             <td>{{ $product->getStoreName() }}</td>
                                             <td>{{ $product->price / 100 }} руб</td>
-                                            <td>{{ $product->category->name }}</td>
+                                            <td>{{ Str::limit($product->category->name, 30) }}</td>
+                                            <td class="remove"><a
+                                                    href="{{ $product->getStoreProductLink() }}">Ссылка</a></td>
                                             <td>{{ date('d.m.Y H:i',strtotime($product->updated_at)) }}</td>
                                             <td class="remove"
                                                 data-toggle="tooltip" data-placement="bottom"
@@ -50,7 +53,7 @@
                                                 data-original-title="Удалить">
                                                 <a href="#" class="btn btn-flat ink-reaction btn-danger"
                                                    data-action=""
-                                                   data-text="продукт"
+                                                   data-text="{{ $product->name }}"
                                                    data-toggle="modal" data-target="#deleteModal">
                                                     <i class="fa fa-trash"></i>
                                                 </a>
