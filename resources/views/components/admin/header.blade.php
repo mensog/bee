@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <title>Beeclub Admin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ mix('css/admin/app.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ mix('css/admin/app-sass.css') }}">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=9bcdd5bb-55ca-4cd8-b742-d9995a78e126&lang=ru_RU" type="text/javascript"></script>
+</head>
+<header id="header">
+    <div class="headerbar">
+        <div class="headerbar-left">
+            <ul class="header-nav header-nav-options">
+                <li class="header-nav-brand">
+                    <div class="brand-holder">
+                        <a href="{{ route('admin_main') }}">
+                            <span class="text-lg">BeeClub</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="headerbar-right">
+            <ul class="header-nav header-nav-options">
+                <li class="dropdown hidden-xs">
+                    <a href="javascript:void(0);" class="btn btn-icon-toggle btn-default" data-toggle="dropdown">
+                        <i class="fa fa-bell"></i><sup class="badge style-danger">4</sup>
+                    </a>
+                    <ul class="dropdown-menu animation-expand">
+                        <li class="dropdown-header">Today's messages</li>
+                        <li>
+                            <a class="alert alert-callout alert-warning" href="javascript:void(0);">
+                                <img class="pull-right img-circle dropdown-avatar"
+                                     src="../../assets/img/avatar2.jpg?1404026449" alt=""/>
+                                <strong>Уведомление</strong><br/>
+                                <small>пример</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="alert alert-callout alert-info" href="javascript:void(0);">
+                                <img class="pull-right img-circle dropdown-avatar"
+                                     src="../../assets/img/avatar3.jpg?1404026799" alt=""/>
+                                <strong>Уведомление</strong><br/>
+                                <small>пример</small>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="header-nav header-nav-profile">
+                <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
+                        <img src="../../assets/img/avatar1.jpg?1403934956" alt=""/>
+                        <span class="profile-info">
+									Имя фамилия
+									<small>Администратор</small>
+								</span>
+                    </a>
+                    <ul class="dropdown-menu animation-dock">
+                        <li><a href="#">Настройки</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#"><i class="fa fa-fw fa-power-off text-danger"></i>
+                                Выйти</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<body class="menubar-pin">
+<div id="base">
+    <div id="menubar" class="menubar-inverse">
+        <div class="menubar-fixed-panel" style="display:inline-table;">
+            <div>
+                <a class="btn btn-icon-toggle btn-default menubar-toggle" data-toggle="menubar"
+                   href="javascript:void(0);">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+            <div class="expanded">
+                <a href="{{ route('admin_main') }}">
+                    <span class="text-lg">BeeClub</span>
+                </a>
+            </div>
+        </div>
+        <div class="menubar-scroll-panel">
+
+            <ul id="main-menu" class="gui-controls">
+
+                <li>
+                    <a href="{{ route('admin_main') }}" class="{{ Route::currentRouteName() == 'admin_main' ? 'active' : '' }}">
+                        <div class="gui-icon"><i class="md md-home"></i></div>
+                        <span class="title">Главная</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('admin_orders') }}" class="{{ Route::currentRouteName() == 'admin_orders' ? 'active' : '' }}">
+                        <div class="gui-icon"><i class="md md-storage"></i></div>
+                        <span class="title">Заказы</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('admin_users') }}"
+                       class="{{ (Route::currentRouteName() == 'admin_customers' || Route::currentRouteName() == 'admin_customer') ? 'active' : '' }}">
+                        <div class="gui-icon"><i class="md md-account-child"></i></div>
+                        <span class="title">Покупатели</span>
+                    </a>
+                </li>
+
+                <li class="gui-folder {{ (Route::currentRouteName() == 'admin_categories' ||  Route::currentRouteName() == 'admin_unsorted_categories') ? 'active' : '' }}">
+                    <a>
+                        <div class="gui-icon"><i class="md md-assignment"></i></div>
+                        <span class="title">Управление</span>
+                    </a>
+                    <ul>
+                        <li class="{{ Route::currentRouteName() == 'admin_categories' ? 'active' : '' }}"><a
+                                    class="{{ Route::currentRouteName() == 'admin_categories' ? 'active' : '' }}"
+                                    href="{{ route('admin_categories') }}"><span class="title">Структура категорий</span></a></li>
+                        <li class="{{ Route::currentRouteName() == 'admin_unsorted_categories' ? 'active' : '' }}"><a
+                                    class="{{ Route::currentRouteName() == 'admin_unsorted_categories' ? 'active' : '' }}"
+                                    href="{{ route('admin_unsorted_categories') }}"><span
+                                        class="title">Неразобранные категории</span></a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="{{ route('admin_products') }}"
+                       class="{{ Route::currentRouteName() == 'admin_products' ? 'active' : '' }}">
+                        <div class="gui-icon"><i class="md md-collections"></i></div>
+                        <span class="title">Товары</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('admin_partners') }}"
+                       class="{{ Route::currentRouteName() == 'admin_partners' ? 'active' : '' }}">
+                        <div class="gui-icon"><span class="md md-accessibility"></span></div>
+                        <span class="title">Партнеры</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('admin_couriers') }}"
+                       class="{{ Route::currentRouteName() == 'admin_couriers' ? 'active' : '' }}">
+                        <div class="gui-icon"><i class="md md-directions-car"></i></div>
+                        <span class="title">Курьеры</span>
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="menubar-foot-panel">
+                <a class="btn btn-icon-toggle menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+            </div>
+        </div>
+    </div>

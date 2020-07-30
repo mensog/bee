@@ -1,0 +1,46 @@
+// Fonts
+//@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+//@import 'variables';
+
+// Bootstrap
+//@import '~bootstrap/scss/bootstrap';
+
+
+.order-hover {
+    position: relative;
+
+    .order-card-hover {
+        width: 350px;
+        z-index: 100;
+        top: 0;
+        left: 100%;
+        display: none;
+        position: absolute;
+    }
+}
+
+.order-card-hover {
+    .list {
+        .tile {
+            .tile-text {
+                padding: 3px 0;
+            }
+        }
+    }
+}
+
+.order-hover:hover {
+    .order-card-hover {
+        display: block;
+    }
+}
+
+.header-nav-options {
+    .dropdown {
+        .dropdown-menu {
+            width: fit-content;
+        }
+    }
+}

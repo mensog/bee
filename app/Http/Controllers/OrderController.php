@@ -54,23 +54,11 @@ class OrderController extends Controller
         $order->email = $request->input('email');
         $order->phone = $request->input('phone');
         $order->address = $request->input('address');
-        $order->status = OrderStatus::PENDING;
+        $order->status = OrderStatus::CREATED;
         $order->save();
         $order->fillFromCart($cart);
         $request->session()->flash('createdOrderId', $order->id);
         $cart->clear();
         return redirect()->route('lk_orders');
-    }
-
-    /**
-     * Контроллер вывода заказов в админке
-     *
-     * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function index()
-    {
-        $orders = Order::with('items', 'items.product')->paginate(50);
-        return view('pages.admin.orders', ['orders' => $orders]);
     }
 }

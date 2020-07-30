@@ -49,4 +49,9 @@ class Order extends Model
         }
         return $sum;
     }
+
+    public function courier()
+    {
+        return $this->belongsTo('App\Courier');
+    }
 }

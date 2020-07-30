@@ -1,50 +1,85 @@
-<x-header/>
+<x-admin.header/>
 
-<main id="content" role="main" class="orders-admin">
-    <div class="container">
-        @if($orders->total() !== 0)
-        <h2>Всего заказов: {{$orders->total()}}</h2>
-        <div class="row">
-            @foreach($orders as $order)
-                <div class="col-12">
-                    <div class="card mb-3">
+<div id="content">
+    <section>
+        <div class="section-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card no-shadow" style="overflow: visible">
+                        <div class="card-head">
+                            <header>
+                                Заказы
+                            </header>
+                        </div>
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-5">
-                                    <h3>Информация по заказу</h3>
-                                    <p class="mb-2">ID Заказа: {{$order->id}}</p>
-                                    <p class="mb-2">Создан: {{$order->created_at}}</p>
-                                    <p class="mb-2">Обновлен: {{$order->updated_at}}</p>
-                                    <p class="mb-2">Email покупателя: {{$order->email}}</p>
-                                    <p class="mb-2">Сумма заказа: {{$order->getSum() / 100}} руб.</p>
-                                </div>
-                                <div class="col-7">
-                                    <h3>Товары:</h3>
-                                    <div>
-                                    @foreach($order->items as $item)
-                                        <div class="mr-3 mb-2">
-                                            <span class="mb-2">ID: {{$item->product_id}}</span>
-                                            <span class="mb-2">{{$item->product->name}}</span>
-                                            <span class="mb-2">{{$item->quantity}}шт</span>
-                                            <span class="mb-2">{{$item->price / 100}} руб</span>
-                                            <span class="mb-2">= {{$item->getSum() / 100}} руб</span>
-                                        </div>
+                            <div class="table-responsive" style="overflow: visible">
+                                <table id="orders" class="table table-striped table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th class="sort-numeric">№</th>
+                                        <th class="sort-alpha">Статус</th>
+                                        <th>Дата заказа</th>
+                                        <th>Краткая информация о заказе</th>
+                                        <th class="sort-numeric">Сумма</th>
+                                        <th>Дата доставки</th>
+                                        <th>Курьер</th>
+                                        <th class="sort-alpha">Данные покупателя</th>
+                                        <th class="sort-numeric">После. изменение</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($orders as $order)
+                                        <tr class="gradeX">
+                                            <td>{{ $order->id }}</td>
+                                            <td>{{ __('order_status.' . $order->status) }}</td>
+                                            <td>{{ date('d.m.Y H:i',strtotime($order->created_at)) }}</td>
+
+                                            <td class="order-hover">
+                                                Информация о заказе
+                                                <div class="card order-card-hover" style="z-index: 5">
+                                                    <div class="card-body no-padding">
+                                                        <a href="{{ route('admin_order', $order->id) }}"
+                                                           class="ink-reaction btn btn-default-bright btn-block">
+                                                            Перейти к заказу
+                                                        </a>
+                                                        <ul class="list">
+                                                            @foreach($order->items as $item)
+                                                                <li class="tile">
+                                                                    <div class="tile-content">
+                                                                        <div class="tile-icon">
+                                                                            ID: {{ $item->product_id }}
+                                                                        </div>
+                                                                        <div class="tile-text">
+                                                                            {{ $item->product->name }}
+                                                                            <small>
+                                                                                {{ $item->quantity }} шт
+                                                                                * {{ $item->price / 100 }} руб
+                                                                                = {{ $item->getSum() / 100 }} руб
+                                                                            </small>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>{{ $order->getSum() / 100 }} руб</td>
+                                            <td>Доставка</td>
+                                            <td>Назначен</td>
+                                            <td>{{ $order->full_name }}</td>
+                                            <td>{{ date('d.m.Y H:i',strtotime($order->updated_at)) }}</td>
+                                        </tr>
                                     @endforeach
-                                    </div>
-                                </div>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
-
-            @endforeach
-
+            </div>
         </div>
-        {{$orders->links()}}
-        @else
-            <h2 class="text-center pt-10 pb-10">Заказов еще не было создано</h2>
-        @endif
-    </div>
-</main>
+    </section>
+</div>
 
-<x-footer/>
+<x-admin.footer/>
