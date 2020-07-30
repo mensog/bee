@@ -1,8 +1,42 @@
 require('./bootstrap');
 require('./libs/DataTables/jquery.dataTables.min')
 require('./core/source/App.js')
+import * as FilePond from 'filepond'
+import FilePondPluginImagePreview from "filepond-plugin-image-preview";
+require('./removeItem')
+require('./parserOptions')
 
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function () {
+
+    const inputElement = document.querySelector('input[type="file"]');
+    if (typeof (inputElement) != 'undefined' && inputElement != null) {
+        FilePond.registerPlugin(FilePondPluginImagePreview);
+
+        const path = document.getElementById('productImage').dataset.path
+        const pond = FilePond.create(inputElement, {
+            files: [
+                {
+                    source: path
+                }
+            ]
+        });
+    }
+});
+
+jQuery(document).ready(function ($) {
+
+    $('.clickable-row > td:not(.remove)').on('click', function () {
+        console.log($(this))
+        window.location = $(this).parent('.clickable-row').data("href");
+    });
+
+    $('#productForm').validate()
+    $('#editOrderForm').validate()
+    $("#phone").inputmask({
+        mask: '+7 (999) 999-99-99',
+        showMaskOnHover: false,
+    })
+
     $('.date-picker').datepicker({autoclose: true, todayHighlight: true});
 
     $('.datatable1').DataTable({
@@ -85,12 +119,9 @@ $(document).ready(function () {
             }
         }
     });
-    $('#datatable1 tbody').on('click', 'tr', function () {
-        $(this).toggleClass('selected');
-    });
-    $('.datatable1 tbody').on('click', 'tr', function () {
-        $(this).toggleClass('selected');
-    });
+    // $('#datatable1 tbody').on('click', 'tr', function () {
+    //     $(this).toggleClass('selected');
+    // });
 
     $(".select2-list").select2({
         allowClear: true

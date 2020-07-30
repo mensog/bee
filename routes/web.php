@@ -20,23 +20,28 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/', 'MainController@index')->name('admin_main');
 
     Route::get('/products', 'ProductController@index')->name('admin_products');
+    Route::get('/product/log', 'LogController@index')->name('admin_products_log');
     Route::get('/product/{name}', 'ProductController@show')->name('admin_product');
     Route::post('/product/{name}', 'ProductController@changeProduct')->name('admin_product_edit_data');
 
     Route::get('/users', 'UserController@index')->name('admin_users');
+    Route::get('/user/log', 'LogController@index')->name('admin_users_log');
     Route::get('/user/{id}', 'UserController@show')->name('admin_user');
 
     Route::get('/orders', 'OrderController@index')->name('admin_orders');
+    Route::get('/order/log', 'LogController@index')->name('admin_orders_log');
     Route::get('/order/{id}', 'OrderController@show')->name('admin_order');
-    Route::post('/order/{id}', 'OrderController@changeOrderStatus')->name('admin_change_order_status');
+    Route::post('/order/{id}', 'OrderController@changeOrderStatus')->name('admin_change_order');
 
     Route::get('/couriers', 'CourierController@index')->name('admin_couriers');
+    Route::get('/log', 'LogController@index')->name('admin_couriers_log');
     Route::get('/courier/{id}', 'CourierController@show')->name('admin_courier');
 
     Route::get('/categories', 'CategoryController@index')->name('admin_categories');
     Route::get('/categories/unsorted', 'CategoryController@unsortedIndex')->name('admin_unsorted_categories');
 
     Route::get('/partners', 'PartnerController@index')->name('admin_partners');
+    Route::get('/partner/log', 'LogController@index')->name('admin_partners_log');
     Route::get('/partner/{id}', 'PartnerController@show')->name('admin_partner');
 });
 

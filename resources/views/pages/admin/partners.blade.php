@@ -27,12 +27,9 @@
                                     </thead>
                                     <tbody>
                                     @foreach($partners as $partner)
-                                        <tr class="gradeX">
-                                            <td>
-                                                <a href="{{ route('admin_partner', $partner->id) }}">
-                                                    {{ $partner->id }}
-                                                </a>
-                                            </td>
+                                        <tr class="gradeX clickable-row"
+                                            data-href="{{ route('admin_partner', $partner->id) }}">
+                                            <td>{{ $partner->id }}</td>
                                             <td>{{ $partner->company_name }}</td>
                                             <td>{{ $partner->full_name }}</td>
                                             <td>{{ $partner->phone }}</td>

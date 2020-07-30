@@ -178,8 +178,8 @@
                                         <td>{{ $product->category->name }}</td>
                                         <td>{{ date('d.m.Y H:i',strtotime($product->updated_at)) }}</td>
                                         <td>
-                                            <a href="#" class="btn ink-reaction btn-icon-toggle btn-danger">
-                                                <i class="md md-highlight-remove"></i>
+                                            <a href="#" class="btn btn-flat ink-reaction btn-icon-toggle btn-danger">
+                                                <i class="fa fa-trash"></i>
                                             </a>
                                         </td>
                                     </tr>

@@ -26,12 +26,8 @@
                                     </thead>
                                     <tbody>
                                     @foreach($users as $user)
-                                        <tr class="gradeX">
-                                            <td>
-                                                <a href="{{ route('admin_user', $user->id) }}">
-                                                    {{ $user->id }}
-                                                </a>
-                                            </td>
+                                        <tr class="gradeX clickable-row" data-href="{{ route('admin_user', $user->id) }}">
+                                            <td>{{ $user->id }}</td>
                                             <td>{{ $user->name }} {{ $user->surname }}</td>
                                             <td>Телефон</td>
                                             <td>{{ $user->email }}</td>

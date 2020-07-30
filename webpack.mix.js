@@ -27,13 +27,25 @@ mix.js(['resources/js/app.js', 'resources/js/owl.carousel.js'], 'public/js') // 
     .sass('resources/sass/app.scss', 'public/css/app-sass.css')
     .js([
         'resources/js/admin/app.js',
-        'resources/js/admin/libs/spin.js/spin.min.js', 'resources/js/admin/libs/autosize/jquery.autosize.min.js',
-        'resources/js/admin/core/source/App.js', 'resources/js/admin/libs/d3/d3.min.js', 'resources/js/admin/libs/d3/d3.v3.js',
-        'resources/js/admin/core/source/AppNavigation.js', 'resources/js/admin/core/source/AppOffcanvas.js',
-        'resources/js/admin/core/source/AppCard.js', 'resources/js/admin/core/source/AppForm.js',
-        'resources/js/admin/core/source/AppNavSearch.js', 'resources/js/admin/core/source/AppVendor.js',
-        'resources/js/admin/libs/select2/select2.min.js', 'resources/js/admin/libs/nestable/jquery.nestable.js',
+        'resources/js/admin/libs/spin.js/spin.min.js',
+        'resources/js/admin/libs/autosize/jquery.autosize.min.js',
+        'resources/js/admin/core/source/App.js',
+        'resources/js/admin/libs/d3/d3.min.js',
+        'resources/js/admin/libs/d3/d3.v3.js',
+        'resources/js/admin/core/source/AppNavigation.js',
+        'resources/js/admin/core/source/AppOffcanvas.js',
+        'resources/js/admin/core/source/AppCard.js',
+        'resources/js/admin/core/source/AppForm.js',
+        'resources/js/admin/core/source/AppNavSearch.js',
+        'resources/js/admin/core/source/AppVendor.js',
+        'resources/js/admin/libs/select2/select2.min.js',
+        'resources/js/admin/libs/nestable/jquery.nestable.js',
         'resources/js/admin/libs/bootstrap-datepicker/bootstrap-datepicker.js',
+        'resources/js/admin/libs/dropzone/dropzone.min.js',
+        'resources/js/admin/libs/jquery-validation/dist/jquery.validate.min.js',
+        'resources/js/admin/libs/jquery-validation/src/localization/messages_ru.js',
+        'resources/js/admin/libs/jquery-validation/dist/additional-methods.min.js',
+        'resources/js/admin/libs/inputmask/jquery.inputmask.bundle.min.js',
     ], 'public/js/admin') // админка
     .styles([
         'resources/css/admin/theme-4/bootstrap.css',
@@ -46,7 +58,8 @@ mix.js(['resources/js/app.js', 'resources/js/owl.carousel.js'], 'public/js') // 
         'resources/css/admin/theme-4/libs/nestable/nestable.css',
         'resources/css/admin/theme-4/libs/select2/select2.css',
         'resources/css/admin/app.css',
-        'resources/css/admin/theme-4/libs/bootstrap-datepicker/datepicker3.css'
+        'resources/css/admin/theme-4/libs/bootstrap-datepicker/datepicker3.css',
+        'resources/css/admin/theme-4/libs/dropzone/dropzone-theme.css'
     ], 'public/css/admin/app.css')
     .sass('resources/sass/admin/app.scss', 'public/css/admin/app-sass.css')
     .version();

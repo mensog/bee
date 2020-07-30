@@ -24,6 +24,7 @@
                                     <thead>
                                     <tr>
                                         <th>Артикул</th>
+                                        <th class="sort-alpha">Статус</th>
                                         <th class="sort-alpha">Название</th>
                                         <th class="sort-alpha">Поставщик</th>
                                         <th class="sort-numeric">Стоимость</th>
@@ -34,20 +35,24 @@
                                     </thead>
                                     <tbody>
                                     @foreach($products as $product)
-                                        <tr class="gradeX">
-                                            <td>
-                                                <a href="{{ route('admin_product', $product->friendly_url_name) }}">
-                                                    {{ $product->sku }}
-                                                </a>
-                                            </td>
+                                        <tr class="gradeX clickable-row"
+                                            data-href="{{ route('admin_product', $product->friendly_url_name) }}">
+                                            <td>{{ $product->sku }}</td>
+                                            <td>{{ $product->status }}</td>
                                             <td>{{ $product->name }}</td>
                                             <td>{{ $product->getStoreName() }}</td>
                                             <td>{{ $product->price / 100 }} руб</td>
                                             <td>{{ $product->category->name }}</td>
                                             <td>{{ date('d.m.Y H:i',strtotime($product->updated_at)) }}</td>
-                                            <td>
-                                                <a href="#" class="btn ink-reaction btn-icon-toggle btn-danger">
-                                                    <i class="md md-highlight-remove"></i>
+                                            <td class="remove"
+                                                data-toggle="tooltip" data-placement="bottom"
+                                                data-trigger="hover"
+                                                data-original-title="Удалить">
+                                                <a href="#" class="btn btn-flat ink-reaction btn-danger"
+                                                   data-action=""
+                                                   data-text="продукт"
+                                                   data-toggle="modal" data-target="#deleteModal">
+                                                    <i class="fa fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>

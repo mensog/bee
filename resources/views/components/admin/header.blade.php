@@ -26,32 +26,6 @@
             </ul>
         </div>
         <div class="headerbar-right">
-            <ul class="header-nav header-nav-options">
-                <li class="dropdown hidden-xs">
-                    <a href="javascript:void(0);" class="btn btn-icon-toggle btn-default" data-toggle="dropdown">
-                        <i class="fa fa-bell"></i><sup class="badge style-danger">4</sup>
-                    </a>
-                    <ul class="dropdown-menu animation-expand">
-                        <li class="dropdown-header">Today's messages</li>
-                        <li>
-                            <a class="alert alert-callout alert-warning" href="javascript:void(0);">
-                                <img class="pull-right img-circle dropdown-avatar"
-                                     src="../../assets/img/avatar2.jpg?1404026449" alt=""/>
-                                <strong>Уведомление</strong><br/>
-                                <small>пример</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="alert alert-callout alert-info" href="javascript:void(0);">
-                                <img class="pull-right img-circle dropdown-avatar"
-                                     src="../../assets/img/avatar3.jpg?1404026799" alt=""/>
-                                <strong>Уведомление</strong><br/>
-                                <small>пример</small>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
             <ul class="header-nav header-nav-profile">
                 <li class="dropdown">
                     <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
@@ -100,18 +74,35 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('admin_orders') }}" class="{{ Route::currentRouteName() == 'admin_orders' ? 'active' : '' }}">
+                    <a>
                         <div class="gui-icon"><i class="md md-storage"></i></div>
                         <span class="title">Заказы</span>
                     </a>
+                    <ul>
+                        <li class="{{ Route::currentRouteName() == 'admin_orders' ? 'active' : '' }}"><a
+                                    class="{{ Route::currentRouteName() == 'admin_orders' ? 'active' : '' }}"
+                                    href="{{ route('admin_orders') }}"><span class="title">Список заказов</span></a></li>
+                        <li class="{{ Route::currentRouteName() == 'admin_orders_log' ? 'active' : '' }}"><a
+                                    class="{{ Route::currentRouteName() == 'admin_orders_log' ? 'active' : '' }}"
+                                    href="{{ route('admin_orders_log') }}"><span
+                                        class="title">Лог заказов</span></a></li>
+                    </ul>
                 </li>
 
                 <li>
-                    <a href="{{ route('admin_users') }}"
-                       class="{{ (Route::currentRouteName() == 'admin_customers' || Route::currentRouteName() == 'admin_customer') ? 'active' : '' }}">
+                    <a>
                         <div class="gui-icon"><i class="md md-account-child"></i></div>
-                        <span class="title">Покупатели</span>
+                        <span class="title">Пользователи</span>
                     </a>
+                    <ul>
+                        <li class="{{ Route::currentRouteName() == 'admin_users' ? 'active' : '' }}"><a
+                                    class="{{ Route::currentRouteName() == 'admin_users' ? 'active' : '' }}"
+                                    href="{{ route('admin_users') }}"><span class="title">Список пользователей</span></a></li>
+                        <li class="{{ Route::currentRouteName() == 'admin_users_log' ? 'active' : '' }}"><a
+                                    class="{{ Route::currentRouteName() == 'admin_users_log' ? 'active' : '' }}"
+                                    href="{{ route('admin_users_log') }}"><span
+                                        class="title">Лог пользователей</span></a></li>
+                    </ul>
                 </li>
 
                 <li class="gui-folder {{ (Route::currentRouteName() == 'admin_categories' ||  Route::currentRouteName() == 'admin_unsorted_categories') ? 'active' : '' }}">
@@ -131,26 +122,51 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('admin_products') }}"
-                       class="{{ Route::currentRouteName() == 'admin_products' ? 'active' : '' }}">
+                    <a>
                         <div class="gui-icon"><i class="md md-collections"></i></div>
                         <span class="title">Товары</span>
                     </a>
-                </li>
-
-                <li>
-                    <a href="{{ route('admin_partners') }}"
-                       class="{{ Route::currentRouteName() == 'admin_partners' ? 'active' : '' }}">
-                        <div class="gui-icon"><span class="md md-accessibility"></span></div>
-                        <span class="title">Партнеры</span>
+                        <ul>
+                            <li class="{{ Route::currentRouteName() == 'admin_products' ? 'active' : '' }}"><a
+                                        class="{{ Route::currentRouteName() == 'admin_products' ? 'active' : '' }}"
+                                        href="{{ route('admin_products') }}"><span class="title">Список товаров</span></a></li>
+                            <li class="{{ Route::currentRouteName() == 'admin_products_log' ? 'active' : '' }}"><a
+                                        class="{{ Route::currentRouteName() == 'admin_products_log' ? 'active' : '' }}"
+                                        href="{{ route('admin_products_log') }}"><span
+                                            class="title">Лог товаров</span></a></li>
+                        </ul>
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{ route('admin_couriers') }}"
-                       class="{{ Route::currentRouteName() == 'admin_couriers' ? 'active' : '' }}">
+                    <a>
+                        <div class="gui-icon"><span class="md md-accessibility"></span></div>
+                        <span class="title">Партнеры</span>
+                    </a>
+                    <ul>
+                        <li class="{{ Route::currentRouteName() == 'admin_partners' ? 'active' : '' }}"><a
+                                    class="{{ Route::currentRouteName() == 'admin_partners' ? 'active' : '' }}"
+                                    href="{{ route('admin_partners') }}"><span class="title">Список партнеров</span></a></li>
+                        <li class="{{ Route::currentRouteName() == 'admin_partners_log' ? 'active' : '' }}"><a
+                                    class="{{ Route::currentRouteName() == 'admin_partners_log' ? 'active' : '' }}"
+                                    href="{{ route('admin_partners_log') }}"><span
+                                        class="title">Лог партнеров</span></a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a>
                         <div class="gui-icon"><i class="md md-directions-car"></i></div>
                         <span class="title">Курьеры</span>
+                        <ul>
+                            <li class="{{ Route::currentRouteName() == 'admin_couriers' ? 'active' : '' }}"><a
+                                        class="{{ Route::currentRouteName() == 'admin_couriers' ? 'active' : '' }}"
+                                        href="{{ route('admin_couriers') }}"><span class="title">Список курьеров</span></a></li>
+                            <li class="{{ Route::currentRouteName() == 'admin_couriers_log' ? 'active' : '' }}"><a
+                                        class="{{ Route::currentRouteName() == 'admin_couriers_log' ? 'active' : '' }}"
+                                        href="{{ route('admin_couriers_log') }}"><span
+                                            class="title">Лог курьеров</span></a></li>
+                        </ul>
                     </a>
                 </li>
 

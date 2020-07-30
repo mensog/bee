@@ -19,17 +19,18 @@
                                         <th class="sort-numeric">№</th>
                                         <th class="sort-alpha">Статус</th>
                                         <th>Дата заказа</th>
-                                        <th>Краткая информация о заказе</th>
+                                        <th>Информация о заказе</th>
                                         <th class="sort-numeric">Сумма</th>
                                         <th>Дата доставки</th>
                                         <th>Курьер</th>
                                         <th class="sort-alpha">Данные покупателя</th>
                                         <th class="sort-numeric">После. изменение</th>
+                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($orders as $order)
-                                        <tr class="gradeX">
+                                        <tr class="gradeX clickable-row" data-href="{{ route('admin_order', $order->id) }}">
                                             <td>{{ $order->id }}</td>
                                             <td>{{ __('order_status.' . $order->status) }}</td>
                                             <td>{{ date('d.m.Y H:i',strtotime($order->created_at)) }}</td>
@@ -38,10 +39,6 @@
                                                 Информация о заказе
                                                 <div class="card order-card-hover" style="z-index: 5">
                                                     <div class="card-body no-padding">
-                                                        <a href="{{ route('admin_order', $order->id) }}"
-                                                           class="ink-reaction btn btn-default-bright btn-block">
-                                                            Перейти к заказу
-                                                        </a>
                                                         <ul class="list">
                                                             @foreach($order->items as $item)
                                                                 <li class="tile">
@@ -69,6 +66,17 @@
                                             <td>Назначен</td>
                                             <td>{{ $order->full_name }}</td>
                                             <td>{{ date('d.m.Y H:i',strtotime($order->updated_at)) }}</td>
+                                            <td class="remove"
+                                                data-toggle="tooltip" data-placement="bottom"
+                                                data-trigger="hover"
+                                                data-original-title="Удалить">
+                                                <a href="#" class="btn btn-flat ink-reaction btn-danger"
+                                                   data-action=""
+                                                   data-text="позицию"
+                                                   data-toggle="modal" data-target="#deleteModal">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>

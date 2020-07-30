@@ -27,21 +27,19 @@
                                     </thead>
                                     <tbody>
                                     @foreach($couriers as $courier)
-                                        <tr class="gradeX">
-                                            <td><a href="{{ route('admin_courier', $courier->id) }}">
-                                                    {{ $courier->id }}
-                                                </a>
-                                            </td>
+                                        <tr class="gradeX clickable-row"
+                                            data-href="{{ route('admin_courier', $courier->id) }}">
+                                            <td>{{ $courier->id }}</td>
                                             <td>{{ $courier->full_name }}</td>
                                             <td>{{ $courier->phone }}</td>
                                             <td>{{ date('d.m.Y H:i',strtotime($courier->created_at)) }}</td>
-                                            <td class="order-hover">
+                                            <td class="order-hover order-hover-link">
                                                 Список заказов
                                                 <div class="card order-card-hover" style="z-index: 5">
                                                     <div class="card-body no-padding">
                                                         <ul class="list">
                                                             <li class="tile">
-                                                                <a href="{{ route('admin_order', 12) }}"
+                                                                <a href="{{ route('admin_order', 1) }}"
                                                                    class="ink-reaction btn btn-default-bright btn-block">
                                                                     <div class="tile-content">
                                                                         <div class="tile-icon">
