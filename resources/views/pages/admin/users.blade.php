@@ -26,12 +26,19 @@
                                     </thead>
                                     <tbody>
                                     @foreach($users as $user)
-                                        <tr class="gradeX clickable-row" data-href="{{ route('admin_user', $user->id) }}">
+                                        <tr class="gradeX clickable-row"
+                                            data-href="{{ route('admin_user', $user->id) }}">
                                             <td>{{ $user->id }}</td>
                                             <td>{{ $user->name }} {{ $user->surname }}</td>
                                             <td>Телефон</td>
                                             <td>{{ $user->email }}</td>
-                                            <td>Номер заказа</td>
+                                            <td class="remove">
+                                                @foreach($user->orders as $order)
+                                                    @if ($loop->last)
+                                                        <a href="{{ route('admin_order', $order->id) }}">№{{ $order->id }}</a>
+                                                    @endif
+                                                @endforeach
+                                            </td>
                                             <td>Личный счет</td>
                                         </tr>
                                     @endforeach
