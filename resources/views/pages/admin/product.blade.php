@@ -90,13 +90,13 @@
                                             <label class="btn ink-reaction btn-default">
                                                 <input type="radio" class="parserToggle" name="parserOn"
                                                        id="parserOn"><i
-                                                        class="md md-done "></i>
+                                                    class="md md-done "></i>
                                                 Вкл
                                             </label>
                                             <label class="btn ink-reaction btn-default">
                                                 <input type="radio" class="parserToggle" name="parserOff" checked
                                                        id="parserOff"><i
-                                                        class="md md-highlight-remove"></i> Выкл
+                                                    class="md md-highlight-remove"></i> Выкл
                                             </label>
                                         </div>
                                         <div class="checkbox checkbox-styled">
@@ -204,52 +204,6 @@
                                     <label for="description">Описание</label>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <div class="input-group-content">
-                                                    <input type="text" name="attr1" value="значение"
-                                                           class="form-control"
-                                                           id="attr1" required>
-                                                    <label for="attr1">Атрибут 1</label>
-                                                </div>
-                                                <div class="input-group-btn">
-                                                    <button class="btn btn-flat btn-danger btn-default" type="button">
-                                                        <i class="fa fa-trash"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <div class="input-group-content">
-                                                    <input type="text" name="attr1" value="значение"
-                                                           class="form-control"
-                                                           id="attr1" required>
-                                                    <label for="attr1">Атрибут 2</label>
-                                                </div>
-                                                <div class="input-group-btn">
-                                                    <button class="btn btn-flat btn-danger btn-default" type="button">
-                                                        <i class="fa fa-trash"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @if($attributes)
-                                    @foreach($attributes as $attribute)
-                                        <div class="form-group">
-                                            <input type="text" value="{{ $attribute['value'] }}"
-                                                   name="{{ $attribute['name'] }}"
-                                                   class="form-control" id="{{ $attribute['name'] }}">
-                                            <label for="{{ $attribute['name'] }}">{{ $attribute['name'] }}</label>
-                                        </div>
-                                    @endforeach
-                                @endif
                                 <div class="form-group">
                                     <input type="file" data-max-files="3" multiple data-path="{{ $product->img_url }}"
                                            id="productImage">
@@ -258,7 +212,7 @@
                             </div>
                             <div class="card-actionbar style-default-bright">
                                 <div class="card-actionbar-row" style="text-align: left">
-                                    <button class="btn btn-flex ink-reaction btn-warning">
+                                    <button type="submit" class="btn btn-flex ink-reaction btn-warning">
                                         Сохранить
                                     </button>
                                     <a class="btn btn-flex btn-danger ink-reaction"
@@ -271,6 +225,58 @@
                             </div>
                         </div>
                     </form>
+                    <div class="panel-group" id="accordion-attrs">
+                        <div class="card panel">
+                            <div class="card-head collapsed" data-toggle="collapse" data-parent="#accordion-attrs"
+                                 data-target="#accordion-attrs-1" aria-expanded="false">
+                                <header>
+                                    Редактирование атрибутов
+                                </header>
+                                <div class="tools">
+                                    <a class="btn btn-icon-toggle"><i class="fa fa-angle-down"></i></a>
+                                </div>
+                            </div>
+                            <div id="accordion-attrs-1" class="collapse" aria-expanded="false" style="height: 0px;">
+                                <form id="productAttrsForm" action="" class="form" method="">
+                                    <div class="card-body no-shadow floating-label">
+                                        <div class="row">
+                                            @if($attributes)
+                                                @foreach($attributes as $attribute)
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <div class="input-group">
+                                                                <div class="input-group-content">
+                                                                    <input type="text" value="{{ $attribute['value'] }}"
+                                                                           name="{{ $attribute['name'] }}"
+                                                                           class="form-control"
+                                                                           id="{{ $attribute['name'] }}">
+                                                                    <label
+                                                                        for="{{ $attribute['name'] }}">{{ $attribute['name'] }}</label>
+                                                                </div>
+                                                                <div class="input-group-btn">
+                                                                    <button class="btn btn-flat btn-danger btn-default"
+                                                                            type="button">
+                                                                        <i class="fa fa-trash"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="card-actionbar style-default-bright">
+                                        <div class="card-actionbar-row" style="text-align: left">
+                                            <button type="submit" class="btn btn-flex ink-reaction btn-warning">
+                                                Сохранить
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                     <div class="panel-group" id="accordion2">
                         <div class="card panel">
                             <div class="card-head collapsed" data-toggle="collapse" data-parent="#accordion2"
