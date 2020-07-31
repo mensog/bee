@@ -31,7 +31,7 @@
                                 </div>
                                 <div>
                                     Адрес доставки
-                                    <span id="mapAddress" data-address="Кутузовский проспект 24" class="pull-right">
+                                    <span id="mapAddress" data-address="{{ $order->address }}" class="pull-right">
                                      {{ $order->address }}
                                 </span>
                                 </div>
@@ -133,13 +133,13 @@
                                         <label for="phone">Телефон</label>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="email" value="{{ $order->email }}"
+                                        <input type="email" name="email" value="{{ $order->email }}"
                                                class="form-control" id="email" required>
                                         <label for="email">Email</label>
                                     </div>
                                     <div class="form-group">
                                         <input type="number" name="balance" value="{{ $order->email }}"
-                                               class="form-control" id="balance" required>
+                                               class="form-control" id="balance">
                                         <label for="balance">Личный счет</label>
                                     </div>
                                     <div>
