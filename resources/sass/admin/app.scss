@@ -21,6 +21,17 @@
         left: 100%;
         display: none;
         position: absolute;
+
+        .tile-text {
+            font-size: 12px;
+            line-height: 16px;
+
+            small {
+                font-size: 10px;
+            }
+        }
+
+
     }
 }
 
