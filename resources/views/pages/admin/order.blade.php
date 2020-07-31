@@ -81,7 +81,7 @@
                                 </div>
                             </div>
                             <div class="tab-pane floating-label" id="second1">
-                                <form id="editOrderForm" class="form" action="#"
+                                <form id="editOrderForm" class="form" action="{{ route('admin_change_order', $order->id) }}"
                                       method="post">
                                     @csrf
                                     <div class="form-group floating-label">
