@@ -19,7 +19,7 @@
                                         <th class="sort-numeric">№</th>
                                         <th class="sort-alpha">Статус</th>
                                         <th>Дата заказа</th>
-                                        <th>Информация о заказе</th>
+                                        <th>Инфо</th>
                                         <th class="sort-numeric">Сумма</th>
                                         <th>Дата доставки</th>
                                         <th>Курьер</th>
@@ -30,13 +30,14 @@
                                     </thead>
                                     <tbody>
                                     @foreach($orders as $order)
-                                        <tr class="gradeX clickable-row" data-href="{{ route('admin_order', $order->id) }}">
+                                        <tr class="gradeX clickable-row"
+                                            data-href="{{ route('admin_order', $order->id) }}">
                                             <td>{{ $order->id }}</td>
                                             <td>{{ __('order_status.' . $order->status) }}</td>
                                             <td>{{ date('d.m.Y H:i',strtotime($order->created_at)) }}</td>
 
                                             <td class="order-hover">
-                                                Информация о заказе
+                                                Инфо
                                                 <div class="card order-card-hover" style="z-index: 5">
                                                     <div class="card-body no-padding">
                                                         <ul class="list">
@@ -70,12 +71,11 @@
                                                 data-toggle="tooltip" data-placement="bottom"
                                                 data-trigger="hover"
                                                 data-original-title="Удалить">
-                                                <a href="#" class="btn btn-flat ink-reaction btn-danger"
-                                                   data-action=""
-                                                   data-text="заказ №{{ $order->id }}"
-                                                   data-toggle="modal" data-target="#deleteModal">
-                                                    <i class="fa fa-trash"></i>
-                                                </a>
+                                                <x-admin.remove-with-modal
+                                                    type="icon"
+                                                    :action="route('admin_order', $order->id)"
+                                                    :text="'заказ №' . $order->id">
+                                                </x-admin.remove-with-modal>
                                             </td>
                                         </tr>
                                     @endforeach

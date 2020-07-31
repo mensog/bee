@@ -8,16 +8,16 @@
                     <div class="panel-group" id="accordion3">
                         <div class="card panel">
                             <div class="card-head collapsed" data-toggle="collapse" data-parent="#accordion3"
-                                 data-target="#accordion3-1" aria-expanded="false">
+                                 data-target="#createAttrCollapse" aria-expanded="false">
                                 <header>Атрибуты</header>
                                 <div class="tools">
                                     <a class="btn btn-icon-toggle"><i class="fa fa-angle-down"></i></a>
                                 </div>
                             </div>
-                            <div id="accordion3-1" class="collapse" aria-expanded="false" style="height: 0px;">
-                                <div class="card-body floating-label">
-                                    <form class="form" action="" method="">
-                                        @csrf
+                            <div id="createAttrCollapse" class="collapse" aria-expanded="false" style="height: 0px;">
+                                <form id="createAttr" action="" class="form" onsubmit="event.preventDefault()">
+
+                                    <div class="card-body floating-label">
                                         <div class="form-group">
                                             <input type="text" name="attrName"
                                                    class="form-control"
@@ -27,30 +27,35 @@
                                         <div class="form-group">
                                             <input type="text" name="attrVal"
                                                    class="form-control"
-                                                   id="attrVal" required>
+                                                   id="attrVal">
                                             <label for="attrVal">Значение атрибута</label>
                                         </div>
                                         <button type="submit" class="btn btn-block ink-reaction btn-warning">
                                             Добавить атрибут
                                         </button>
-                                    </form>
-                                </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-9">
+
                     <form id="productForm" class="form"
                           action="{{ route('admin_create_product') }}"
                           method="post">
                         @csrf
                         <div class="card card-bordered style-default-light no-shadow">
+
                             <div class="card-head">
                                 <header>
                                     Название товара
                                 </header>
                             </div>
+
                             <div class="card-body style-default-bright floating-label">
+
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
@@ -77,10 +82,12 @@
                                         <div class="form-group">
                                             <select class="form-control select2-list"
                                                     data-placeholder="Выберите курьера">
-                                                <optgroup label="Одноуровневая вложенность">
-                                                    <option value="none">
-                                                        {{ $product->category->name }}
-                                                    </option>
+                                                <optgroup label="Категории">
+                                                    @foreach($categories as $category)
+                                                        <option value="none">
+                                                            {{ $category->name }}
+                                                        </option>
+                                                    @endforeach
                                                 </optgroup>
                                             </select>
                                             <label>Выберите категорию</label>
@@ -94,6 +101,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <textarea name="description" id="description" class="form-control"
                                               rows="2"></textarea>
@@ -102,10 +110,15 @@
 
                                 <div class="form-group">
                                     <input type="file" data-max-files="3" multiple
-                                           id="productImage">
+                                           id="createProductImage">
+                                </div>
+
+                                <div class="row" id="attrsContainer">
+
                                 </div>
 
                             </div>
+
                             <div class="card-actionbar style-default-bright">
                                 <div class="card-actionbar-row" style="text-align: left">
                                     <button type="submit" class="btn btn-flex ink-reaction btn-warning">
@@ -115,6 +128,7 @@
                             </div>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>

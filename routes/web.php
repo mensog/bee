@@ -34,6 +34,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/order/log', 'LogController@index')->name('admin_orders_log');
     Route::get('/order/{id}', 'OrderController@show')->name('admin_order');
     Route::post('/order/{id}', 'OrderController@changeOrderStatus')->name('admin_change_order');
+    Route::post('/order/{id}', 'OrderController@changeOrder')->name('admin_change_order');
 
     Route::get('/couriers', 'CourierController@index')->name('admin_couriers');
     Route::get('/log', 'LogController@index')->name('admin_couriers_log');

@@ -21,6 +21,17 @@
         left: 100%;
         display: none;
         position: absolute;
+
+        .tile-text {
+            font-size: 12px;
+            line-height: 16px;
+
+            small {
+                font-size: 10px;
+            }
+        }
+
+
     }
 }
 
@@ -116,8 +127,12 @@
     }
 }
 
+.filepond--item {
+    width: calc(33.33% - .5em);
+}
+
 .card-head {
-    header{
+    header {
         font-size: 18px;
         font-weight: 500;
     }

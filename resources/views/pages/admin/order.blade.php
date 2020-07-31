@@ -31,7 +31,7 @@
                                 </div>
                                 <div>
                                     Адрес доставки
-                                    <span id="mapAddress" data-address="Кутузовский проспект 24" class="pull-right">
+                                    <span id="mapAddress" data-address="{{ $order->address }}" class="pull-right">
                                      {{ $order->address }}
                                 </span>
                                 </div>
@@ -81,7 +81,7 @@
                                 </div>
                             </div>
                             <div class="tab-pane floating-label" id="second1">
-                                <form id="editOrderForm" class="form" action="#"
+                                <form id="editOrderForm" class="form" action="{{ route('admin_change_order', $order->id) }}"
                                       method="post">
                                     @csrf
                                     <div class="form-group floating-label">
@@ -133,13 +133,13 @@
                                         <label for="phone">Телефон</label>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="email" value="{{ $order->email }}"
+                                        <input type="email" name="email" value="{{ $order->email }}"
                                                class="form-control" id="email" required>
                                         <label for="email">Email</label>
                                     </div>
                                     <div class="form-group">
                                         <input type="number" name="balance" value="{{ $order->email }}"
-                                               class="form-control" id="balance" required>
+                                               class="form-control" id="balance">
                                         <label for="balance">Личный счет</label>
                                     </div>
                                     <div>
@@ -319,7 +319,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <form class="form-group" style="margin-top: 15px; max-width: 200px" action="">
+                                <form class="form floating-label" style="margin-top: 15px; max-width: 200px" action="">
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-content">
@@ -572,10 +572,15 @@
 
                                 let geocoderHome = ymaps.geocode(address, {results: 1});
                                 geocoderHome.then(res => {
-                                    myMap.geoObjects.add(res.geoObjects);
                                     const firstGeoObject = res.geoObjects.get(0);
                                     const coords = firstGeoObject.geometry.getCoordinates();
 
+                                    myMap.geoObjects.add(new ymaps.Placemark(coords, {
+                                        balloonContent: address,
+                                        iconCaption: 'Клиент'
+                                    }, {
+                                        iconColor: '#0044bb'
+                                    }))
                                     myMap.setCenter(coords, 10, [])
                                 });
 

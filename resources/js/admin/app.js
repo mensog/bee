@@ -5,6 +5,7 @@ require('./core/source/App.js')
 //Third-party
 import * as FilePond from 'filepond'
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
+
 require('./libs/DataTables/jquery.dataTables.min')
 
 //App
@@ -12,15 +13,23 @@ require('./removeItem')
 require('./parserOptions')
 require('./publishComment')
 require('./replyComment')
+require('./CreateProduct/addAttribute')
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    const inputElement = document.querySelector('input[type="file"]');
-    if (typeof (inputElement) != 'undefined' && inputElement != null) {
+    const createProductImage = document.getElementById('createProductImage')
+    const productImage = document.getElementById('productImage');
+
+    if (typeof (createProductImage) != 'undefined' && createProductImage != null) {
+        FilePond.registerPlugin(FilePondPluginImagePreview);
+
+        const pond = FilePond.create(createProductImage);
+    }
+    if (typeof (productImage) != 'undefined' && productImage != null) {
         FilePond.registerPlugin(FilePondPluginImagePreview);
 
         const path = document.getElementById('productImage').dataset.path
-        const pond = FilePond.create(inputElement, {
+        const pond = FilePond.create(productImage, {
             files: [
                 {
                     source: path
@@ -38,6 +47,7 @@ jQuery(document).ready(function ($) {
 
     $('#productForm').validate()
     $('#editOrderForm').validate()
+    $('#createAttr').validate()
     $("#phone").inputmask({
         mask: '+7 (999) 999-99-99',
         showMaskOnHover: false,
