@@ -10,6 +10,12 @@ jQuery($ => {
         }
     })
 
+    /**
+     * Create attribute by template
+     *
+     * @param name
+     * @param value
+     */
     const createAttr = (name, value) => {
         const attrsContainer = $('#attrsContainer')
 
@@ -48,6 +54,11 @@ jQuery($ => {
         $(this).parents('.col-lg-6').remove()
     })
 
+    /**
+     * Clear children fields by parent element
+     *
+     * @param parent
+     */
     const clearFields = (parent) => {
         if ($(`${parent} input`).length > 1) {
             $(`${parent} input`).each((index, item) => {
