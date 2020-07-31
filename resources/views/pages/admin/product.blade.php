@@ -296,6 +296,7 @@
                                                 <th class="sort-alpha">Статус</th>
                                                 <th class="sort-alpha">Автор</th>
                                                 <th class="sort-alpha">Отзыв</th>
+                                                {{--TODO ограничение комментария + тултип--}}
                                                 <th class="sort-numeric">Оценка</th>
                                                 <th class="sort-numeric">Ответ</th>
                                                 <th></th>

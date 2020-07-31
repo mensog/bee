@@ -23,6 +23,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/product/log', 'LogController@index')->name('admin_products_log');
     Route::get('/product/{name}', 'ProductController@show')->name('admin_product');
     Route::post('/product/{name}', 'ProductController@changeProduct')->name('admin_product_edit_data');
+    Route::post('/product/create', 'ProductController@createProduct')->name('admin_create_product');
 
     Route::get('/users', 'UserController@index')->name('admin_users');
     Route::get('/user/log', 'LogController@index')->name('admin_users_log');

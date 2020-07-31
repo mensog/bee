@@ -86,14 +86,22 @@
                                     @csrf
                                     <div class="form-group floating-label">
                                         <select id="status" name="status" class="form-control">
-                                            <option value="{{ $order->status }}">{{ __('order_status.' . $order->status) }}</option>
-                                            <option value="{{ \App\OrderStatus::CANCELED }}">{{ __('order_status.' . \App\OrderStatus::CANCELED) }}</option>
-                                            <option value="{{ \App\OrderStatus::PAID }}">{{ __('order_status.' . \App\OrderStatus::PAID) }}</option>
-                                            <option value="{{ \App\OrderStatus::READY_FOR_DELIVERY }}">{{ __('order_status.' . \App\OrderStatus::READY_FOR_DELIVERY) }}</option>
-                                            <option value="{{ \App\OrderStatus::GIVEN_TO_COURIER }}">{{ __('order_status.' . \App\OrderStatus::GIVEN_TO_COURIER) }}</option>
-                                            <option value="{{ \App\OrderStatus::RE_DELIVERY }}">{{ __('order_status.' . \App\OrderStatus::RE_DELIVERY) }}</option>
-                                            <option value="{{ \App\OrderStatus::REFUNDED }}">{{ __('order_status.' . \App\OrderStatus::REFUNDED) }}</option>
-                                            <option value="{{ \App\OrderStatus::COMPLETED }}">{{ __('order_status.' . \App\OrderStatus::COMPLETED) }}</option>
+                                            <option
+                                                value="{{ $order->status }}">{{ __('order_status.' . $order->status) }}</option>
+                                            <option
+                                                value="{{ \App\OrderStatus::CANCELED }}">{{ __('order_status.' . \App\OrderStatus::CANCELED) }}</option>
+                                            <option
+                                                value="{{ \App\OrderStatus::PAID }}">{{ __('order_status.' . \App\OrderStatus::PAID) }}</option>
+                                            <option
+                                                value="{{ \App\OrderStatus::READY_FOR_DELIVERY }}">{{ __('order_status.' . \App\OrderStatus::READY_FOR_DELIVERY) }}</option>
+                                            <option
+                                                value="{{ \App\OrderStatus::GIVEN_TO_COURIER }}">{{ __('order_status.' . \App\OrderStatus::GIVEN_TO_COURIER) }}</option>
+                                            <option
+                                                value="{{ \App\OrderStatus::RE_DELIVERY }}">{{ __('order_status.' . \App\OrderStatus::RE_DELIVERY) }}</option>
+                                            <option
+                                                value="{{ \App\OrderStatus::REFUNDED }}">{{ __('order_status.' . \App\OrderStatus::REFUNDED) }}</option>
+                                            <option
+                                                value="{{ \App\OrderStatus::COMPLETED }}">{{ __('order_status.' . \App\OrderStatus::COMPLETED) }}</option>
                                         </select>
                                         <label for="status">Статус заказа</label>
                                     </div>
@@ -350,12 +358,16 @@
                                             <tr class="gradeX clickable-row"
                                                 data-href="{{ route('admin_product', $item->product->friendly_url_name) }}">
                                                 <td>{{ $i }}</td>
-                                                <td>{{ $item->product->name }}</td>
+                                                <td data-toggle="tooltip" data-placement="bottom"
+                                                    data-trigger="hover"
+                                                    data-original-title="{{ $item->product->name }}">{{ Str::limit($item->product->name, 25) }}</td>
                                                 <td>Статус товара</td>
                                                 <td>{{ $item->price / 100 }} руб</td>
                                                 <td>{{ $item->quantity }}шт</td>
                                                 <td>{{ $item->getSum() / 100 }} руб</td>
-                                                <td class="remove"><a href="{{ $item->product->getStoreProductLink() }}">Ссылка в магазине</a></td>
+                                                <td class="remove"><a
+                                                        href="{{ $item->product->getStoreProductLink() }}">Ссылка в
+                                                        магазине</a></td>
                                                 <td class="remove"
                                                     data-toggle="tooltip" data-placement="bottom"
                                                     data-trigger="hover"
@@ -486,12 +498,15 @@
                                                 <tr class="gradeX clickable-row"
                                                     data-href="{{ route('product', $item->product->friendly_url_name) }}">
                                                     <td>{{ $i }}</td>
-                                                    <td>{{ $item->product->name }}</td>
+                                                    <td data-toggle="tooltip" data-placement="bottom"
+                                                        data-trigger="hover"
+                                                        data-original-title="{{ $item->product->name }}">{{ Str::limit($item->product->name, 25) }}</td>
                                                     <td>Статус товара</td>
                                                     <td>{{ $item->price / 100 }} руб</td>
                                                     <td>{{ $item->quantity }}шт</td>
                                                     <td>{{ $item->getSum() / 100 }} руб</td>
-                                                    <td><a href="{{ $item->product->getStoreProductLink() }}">Ссылка в магазине</a></td>
+                                                    <td><a href="{{ $item->product->getStoreProductLink() }}">Ссылка в
+                                                            магазине</a></td>
                                                     <td class="remove"
                                                         data-toggle="tooltip" data-placement="bottom"
                                                         data-trigger="hover"

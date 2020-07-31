@@ -40,7 +40,9 @@
                                             data-href="{{ route('admin_product', $product->friendly_url_name) }}">
                                             <td>{{ $product->sku }}</td>
                                             <td>{{ $product->status }}</td>
-                                            <td>{{ Str::limit($product->name, 30) }}</td>
+                                            <td data-toggle="tooltip" data-placement="bottom"
+                                                data-trigger="hover"
+                                                data-original-title="{{ $product->name }}">{{ Str::limit($product->name, 25) }}</td>
                                             <td>{{ $product->getStoreName() }}</td>
                                             <td>{{ $product->price / 100 }} руб</td>
                                             <td>{{ Str::limit($product->category->name, 30) }}</td>
