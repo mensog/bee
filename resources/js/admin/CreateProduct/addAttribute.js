@@ -5,8 +5,8 @@ jQuery($ => {
 
         if (name !== '') {
             createAttr(name, value)
-
-            clearFields('#createAttr')
+                ? clearFields('#createAttr')
+                : alert('Данное поле уже существует')
         }
     })
 
@@ -15,8 +15,12 @@ jQuery($ => {
      *
      * @param name
      * @param value
+     * @return {boolean}
      */
     const createAttr = (name, value) => {
+        if ($(`input#${name}`).length !== 0) {
+            return false
+        }
         const attrsContainer = $('#attrsContainer')
 
         let dirty = 'dirty';
@@ -47,7 +51,7 @@ jQuery($ => {
             '                                    </div>\n'
 
         attrsContainer.append(attrTemplate);
-
+        return true
     }
 
     $(document).on('click', '.delete-attr', function () {
