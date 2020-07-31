@@ -21,7 +21,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
     Route::get('/products', 'ProductController@index')->name('admin_products');
     Route::get('/product/log', 'LogController@index')->name('admin_products_log');
-    Route::post('/product/create', 'ProductController@createProduct')->name('admin_create_product');
+    Route::get('/product/create', 'ProductController@showCreatePage')->name('admin_create_product_page');
+    Route::post('/product/create', 'ProductController@create')->name('admin_create_product');
     Route::get('/product/{name}', 'ProductController@show')->name('admin_product');
     Route::post('/product/{name}', 'ProductController@changeProduct')->name('admin_product_edit_data');
 

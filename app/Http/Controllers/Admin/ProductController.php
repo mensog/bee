@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Product;
 use Illuminate\Http\Request;
@@ -55,5 +56,11 @@ class ProductController extends Controller
         $product->save();
 
         return redirect()->route('admin_product', $name);
+    }
+
+    public function showCreatePage()
+    {
+        $categories = Category::all();
+        return view('pages.admin.create-product', ['categories' => $categories]);
     }
 }
