@@ -84,10 +84,12 @@
                                 </div>
                                 <div class="btn-group" style="margin-top: 15px;" data-toggle="buttons">
                                     <label class="btn ink-reaction btn-primary">
-                                        <input type="radio" name="options" id="option1"><i class="md md-done"></i> Включен
+                                        <input type="radio" name="options" id="option1"><i class="md md-done"></i>
+                                        Включен
                                     </label>
                                     <label class="btn ink-reaction btn-primary active">
-                                        <input type="radio" name="options" id="option3"><i class="md md-highlight-remove"></i> Выключен
+                                        <input type="radio" name="options" id="option3"><i
+                                            class="md md-highlight-remove"></i> Выключен
                                     </label>
                                 </div>
                             </div>
@@ -167,20 +169,27 @@
                             <tbody>
                             @if($partner->products ?? '')
                                 @foreach($partner->products as $product)
-                                    <tr class="gradeX">
+                                    <tr class="gradeX clickable-row"
+                                        data-href="{{ route('product', $product->friendly_url_name) }}">
                                         <td>
                                             <a href="{{ route('product', $product->friendly_url_name) }}">
                                                 {{ $product->sku }}
                                             </a>
                                         </td>
-                                        <td>{{ $product->name }}</td>
+                                        <td data-toggle="tooltip" data-placement="bottom"
+                                            data-trigger="hover"
+                                            data-original-title="{{ $product->name }}">
+                                            {{ Str::limit($product->name, 25) }}
+                                        </td>
                                         <td>{{ $product->price / 100 }} руб</td>
                                         <td>{{ $product->category->name }}</td>
                                         <td>{{ date('d.m.Y H:i',strtotime($product->updated_at)) }}</td>
-                                        <td>
-                                            <a href="#" class="btn btn-flat ink-reaction btn-icon-toggle btn-danger">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
+                                        <td class="remove">
+                                            <x-admin.remove-with-modal
+                                                type="icon"
+                                                :action="route('product', $product->friendly_url_name)"
+                                                :text="$product->name">
+                                            </x-admin.remove-with-modal>
                                         </td>
                                     </tr>
                                 @endforeach

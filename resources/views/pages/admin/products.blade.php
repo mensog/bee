@@ -53,12 +53,11 @@
                                                 data-toggle="tooltip" data-placement="bottom"
                                                 data-trigger="hover"
                                                 data-original-title="Удалить">
-                                                <a href="#" class="btn btn-flat ink-reaction btn-danger"
-                                                   data-action=""
-                                                   data-text="{{ $product->name }}"
-                                                   data-toggle="modal" data-target="#deleteModal">
-                                                    <i class="fa fa-trash"></i>
-                                                </a>
+                                                <x-admin.remove-with-modal
+                                                    type="icon"
+                                                    :action="route('admin_product', $product->friendly_url_name)"
+                                                    :text="$product->name">
+                                                </x-admin.remove-with-modal>
                                             </td>
                                         </tr>
                                     @endforeach
