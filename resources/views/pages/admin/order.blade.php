@@ -572,10 +572,15 @@
 
                                 let geocoderHome = ymaps.geocode(address, {results: 1});
                                 geocoderHome.then(res => {
-                                    myMap.geoObjects.add(res.geoObjects);
                                     const firstGeoObject = res.geoObjects.get(0);
                                     const coords = firstGeoObject.geometry.getCoordinates();
 
+                                    myMap.geoObjects.add(new ymaps.Placemark(coords, {
+                                        balloonContent: address,
+                                        iconCaption: 'Клиент'
+                                    }, {
+                                        iconColor: '#0044bb'
+                                    }))
                                     myMap.setCenter(coords, 10, [])
                                 });
 
