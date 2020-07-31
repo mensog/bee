@@ -10,6 +10,14 @@
                             <header>
                                 Курьеры
                             </header>
+                            <div class="tools">
+                                <div class="btn-group">
+                                    <a href="{{ route('admin_create_courier_page') }}"
+                                       class="btn btn-block ink-reaction btn-warning">
+                                        Добавить курьера
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -51,26 +59,26 @@
                                                                     </div>
                                                                 </a>
                                                             </li>
-{{--                                                            @foreach($order->items as $item)--}}
-{{--                                                                <li class="tile">--}}
-{{--                                                                    <a href="{{ route('order', $order->id) }}"--}}
-{{--                                                                       class="ink-reaction btn btn-default-bright btn-block">--}}
-{{--                                                                        <div class="tile-content">--}}
-{{--                                                                            <div class="tile-icon">--}}
-{{--                                                                                ID: {{ $item->product_id }}--}}
-{{--                                                                            </div>--}}
-{{--                                                                            <div class="tile-text">--}}
-{{--                                                                                {{ $item->product->name }}--}}
-{{--                                                                                <small>--}}
-{{--                                                                                    {{ $item->quantity }} шт--}}
-{{--                                                                                    * {{ $item->price / 100 }} руб--}}
-{{--                                                                                    = {{ $item->getSum() / 100 }} руб--}}
-{{--                                                                                </small>--}}
-{{--                                                                            </div>--}}
-{{--                                                                        </div>--}}
-{{--                                                                    </a>--}}
-{{--                                                                </li>--}}
-{{--                                                            @endforeach--}}
+                                                            {{--                                                            @foreach($order->items as $item)--}}
+                                                            {{--                                                                <li class="tile">--}}
+                                                            {{--                                                                    <a href="{{ route('order', $order->id) }}"--}}
+                                                            {{--                                                                       class="ink-reaction btn btn-default-bright btn-block">--}}
+                                                            {{--                                                                        <div class="tile-content">--}}
+                                                            {{--                                                                            <div class="tile-icon">--}}
+                                                            {{--                                                                                ID: {{ $item->product_id }}--}}
+                                                            {{--                                                                            </div>--}}
+                                                            {{--                                                                            <div class="tile-text">--}}
+                                                            {{--                                                                                {{ $item->product->name }}--}}
+                                                            {{--                                                                                <small>--}}
+                                                            {{--                                                                                    {{ $item->quantity }} шт--}}
+                                                            {{--                                                                                    * {{ $item->price / 100 }} руб--}}
+                                                            {{--                                                                                    = {{ $item->getSum() / 100 }} руб--}}
+                                                            {{--                                                                                </small>--}}
+                                                            {{--                                                                            </div>--}}
+                                                            {{--                                                                        </div>--}}
+                                                            {{--                                                                    </a>--}}
+                                                            {{--                                                                </li>--}}
+                                                            {{--                                                            @endforeach--}}
                                                         </ul>
                                                     </div>
                                                 </div>
