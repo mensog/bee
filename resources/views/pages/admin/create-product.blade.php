@@ -8,30 +8,33 @@
                     <div class="panel-group" id="accordion3">
                         <div class="card panel">
                             <div class="card-head collapsed" data-toggle="collapse" data-parent="#accordion3"
-                                 data-target="#createAttr" aria-expanded="false">
+                                 data-target="#createAttrCollapse" aria-expanded="false">
                                 <header>Атрибуты</header>
                                 <div class="tools">
                                     <a class="btn btn-icon-toggle"><i class="fa fa-angle-down"></i></a>
                                 </div>
                             </div>
-                            <div id="createAttr" class="collapse form" aria-expanded="false" style="height: 0px;">
-                                <div class="card-body floating-label">
-                                    <div class="form-group">
-                                        <input type="text" name="attrName"
-                                               class="form-control"
-                                               id="attrName" required>
-                                        <label for="attrName">Название атрибута</label>
+                            <div id="createAttrCollapse" class="collapse" aria-expanded="false" style="height: 0px;">
+                                <form id="createAttr" action="" class="form" onsubmit="event.preventDefault()">
+
+                                    <div class="card-body floating-label">
+                                        <div class="form-group">
+                                            <input type="text" name="attrName"
+                                                   class="form-control"
+                                                   id="attrName" required>
+                                            <label for="attrName">Название атрибута</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="attrVal"
+                                                   class="form-control"
+                                                   id="attrVal">
+                                            <label for="attrVal">Значение атрибута</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-block ink-reaction btn-warning">
+                                            Добавить атрибут
+                                        </button>
                                     </div>
-                                    <div class="form-group">
-                                        <input type="text" name="attrVal"
-                                               class="form-control"
-                                               id="attrVal">
-                                        <label for="attrVal">Значение атрибута</label>
-                                    </div>
-                                    <button type="submit" class="btn btn-block ink-reaction btn-warning">
-                                        Добавить атрибут
-                                    </button>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>

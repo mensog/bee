@@ -12,9 +12,10 @@
                             </header>
                             <div class="tools">
                                 <div class="btn-group">
-                                    <button class="btn btn-block ink-reaction btn-warning">
+                                    <a href="{{ route('admin_create_product') }}"
+                                       class="btn btn-block ink-reaction btn-warning">
                                         Добавить товар
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
