@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Courier;
 use App\Http\Controllers\Controller;
 use App\Order;
+use App\Partner;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -25,7 +26,13 @@ class OrderController extends Controller
     {
         $couriers = Courier::all();
         $order = Order::with('items', 'items.product')->where('id', $id)->firstOrFail();
-        return view('pages.admin.order', ['order' => $order, 'couriers' => $couriers]);
+        $groupedOrder = $order->items->groupBy(function ($item) {
+            return $item->product->store_id;
+        });
+        $orderStores = $order->orderStores->keyBy('store_id');
+        $storeNames = Partner::whereIn('id', array_keys($orderStores->toArray()))->pluck('company_name', 'id');
+        $privateAccount = $order->user->privateAccount;
+        return view('pages.admin.order', ['order' => $order, 'groupedOrder' => $groupedOrder, 'storeNames' => $storeNames, 'orderStores' => $orderStores, 'couriers' => $couriers, 'account' => $privateAccount]);
     }
 
     public function changeOrder(Request $request, $id)

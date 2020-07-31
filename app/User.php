@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Order');
     }
+
+    public function privateAccount()
+    {
+        return $this->hasOne('App\PrivateAccount');
+    }
 }

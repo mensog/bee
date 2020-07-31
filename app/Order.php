@@ -50,8 +50,43 @@ class Order extends Model
         return $sum;
     }
 
+    public function getFinalSum() {
+        $sum = 0;
+        $items = $this->items->where('exist_status', 1);
+        foreach ($items as $item) {
+            $sum += $item->getSum();
+        }
+        return $sum;
+    }
+
     public function courier()
     {
         return $this->belongsTo('App\Courier');
+    }
+
+    public function orderStores()
+    {
+        return $this->hasMany('App\OrderStore');
+    }
+
+    public function fillOrderStores()
+    {
+        $stores = [];
+        foreach ($this->items as $item) {
+            $storeId = $item->product->store_id;
+            if (!in_array($storeId, $stores)) {
+                $stores[] = $item->product->store_id;
+                $orderStore = new OrderStore();
+                $orderStore->order_id = $this->id;
+                $orderStore->store_id = $storeId;
+                $orderStore->status = OrderStoreStatus::PAID;
+                $orderStore->save();
+            }
+        }
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
     }
 }
