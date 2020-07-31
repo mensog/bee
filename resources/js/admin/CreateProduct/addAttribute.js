@@ -18,6 +18,7 @@ jQuery($ => {
      * @return {boolean}
      */
     const createAttr = (name, value) => {
+        // if field already exist return false
         if ($(`input#${name}`).length !== 0) {
             return false
         }
