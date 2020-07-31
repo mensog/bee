@@ -54,7 +54,7 @@ class OrderController extends Controller
         $order->email = $request->input('email');
         $order->phone = $request->input('phone');
         $order->address = $request->input('address');
-        $order->status = OrderStatus::CREATED;
+        $order->status = OrderStatus::PAID;
         $order->save();
         $order->fillFromCart($cart);
         $request->session()->flash('createdOrderId', $order->id);
