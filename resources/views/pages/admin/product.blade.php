@@ -180,7 +180,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <select class="form-control select2-list"
-                                                    data-placeholder="Выберите курьера">
+                                                    data-placeholder="Выберите категорию">
                                                 <optgroup label="Одноуровневая вложенность">
                                                     <option value="none">
                                                         {{ $product->category->name }}
