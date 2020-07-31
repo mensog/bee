@@ -319,7 +319,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <form class="form-group" style="margin-top: 15px; max-width: 200px" action="">
+                                <form class="form floating-label" style="margin-top: 15px; max-width: 200px" action="">
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-content">
