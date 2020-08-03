@@ -244,7 +244,9 @@
                                  aria-expanded="true" aria-controls="accordionOrderTwo">
                                 <header>
                                     Как отследить свой заказ?
-                                    <img src="/svg/main/accordion-arrow.svg" alt="">
+                                    <div class="main-qa-card__img">
+                                        <img src="/svg/main/accordion-arrow.svg" alt="">
+                                    </div>
                                 </header>
                             </div>
                             <div id="accordionOrderTwo" class="collapse" aria-labelledby="accordionOrderTwo"

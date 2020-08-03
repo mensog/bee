@@ -298,10 +298,13 @@
 
                 img {
                     transition: 145ms ease-in-out;
-                    padding-left: 25px;
                     align-self: flex-start;
                 }
             }
+        }
+
+        &__img{
+            padding-left: 25px;
         }
 
         &__body {
