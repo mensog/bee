@@ -72,4 +72,33 @@ class OrderController extends Controller
         $order->save();
         return response('', 200);
     }
+
+    protected function courierUpdateValidator(array $data)
+    {
+        $messages = [
+            'required' => 'Поле :attribute обязательно для заполнения.',
+        ];
+
+        $names = [
+            'courierId' => 'ID курьера',
+        ];
+
+        return Validator::make($data, [
+            'comment' => ['required', 'integer'],
+        ], $messages, $names);
+    }
+
+    public function updateCourier(Request $request, $id)
+    {
+        $this->courierUpdateValidator($request->all())->validate();
+        $order = Order::where('id', $id)->firstOrFail();
+        if ($request->input('courierId') > 0) {
+            $courier = Courier::where('id', $request->input('courierId'))->firstOrFail();
+            $order->courier_id = $courier->id;
+        } else {
+            $order->courier_id = null;
+        }
+        $order->save();
+        return response('', 200);
+    }
 }
