@@ -273,7 +273,7 @@
                                         @csrf
                                         <div class="form-group floating-label">
                                             <textarea name="notes" id="notes" class="form-control" rows="2"
-                                                      placeholder=""></textarea>
+                                                      placeholder="">{{ $order->comment }}</textarea>
                                             <label for="textarea2">Заметки</label>
                                         </div>
                                         <button type="submit" class="btn btn-block ink-reaction btn-warning">

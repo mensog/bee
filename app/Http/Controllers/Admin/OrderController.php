@@ -37,7 +37,7 @@ class OrderController extends Controller
 
     public function changeOrder(Request $request, $id)
     {
-        $order = Order::with('items', 'items.product')->where('id', $id)->firstOrFail();
+        $order = Order::where('id', $id)->firstOrFail();
         $order->status = $request->input('status');
         $order->address = $request->input('address');
         $order->full_name = $request->input('fullName');
@@ -46,5 +46,30 @@ class OrderController extends Controller
         $order->save();
 
         return redirect()->route('admin_order', $id);
+    }
+
+    protected function commentUpdateValidator(array $data)
+    {
+        $messages = [
+            'required' => 'Поле :attribute обязательно для заполнения.',
+            'max' => 'Поле :attribute должно содержать не более :max символов',
+        ];
+
+        $names = [
+            'comment' => 'Заметки',
+        ];
+
+        return Validator::make($data, [
+            'comment' => ['required', 'string', 'max:2000'],
+        ], $messages, $names);
+    }
+
+    public function updateComment(Request $request, $id)
+    {
+        $this->commentUpdateValidator($request->all())->validate();
+        $order = Order::where('id', $id)->firstOrFail();
+        $order->comment = $request->input('comment');
+        $order->save();
+        return response('', 200);
     }
 }
