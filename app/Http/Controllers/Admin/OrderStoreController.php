@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\OrderStore;
 use App\OrderStoreStatus;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class OrderStoreController extends Controller
 {
@@ -36,11 +38,11 @@ class OrderStoreController extends Controller
         ];
 
         $names = [
-            'storeOrderId' => 'ID',
+            'externalStoreOrderId' => 'ID',
         ];
 
         return Validator::make($data, [
-            'storeOrderId' => ['required', 'string', 'min:0', 'max:255'],
+            'externalStoreOrderId' => ['required', 'string', 'min:0', 'max:255'],
         ], $messages, $names);
     }
 
@@ -48,7 +50,7 @@ class OrderStoreController extends Controller
     {
         $this->storeOrderIdValidator($request->all())->validate();
         $store = OrderStore::findOrFail($id);
-        $store->store_order_id = $request->input('storeOrderId');
+        $store->store_order_id = $request->input('externalStoreOrderId');
         $store->save();
         response('', 200);
     }

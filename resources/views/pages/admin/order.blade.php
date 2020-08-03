@@ -95,13 +95,13 @@
                                 <div>
                                     Итоговая сумма заказа
                                     <span class="pull-right">
-                                    {{ $order->getFinalSum() / 100 }} руб
+                                        <span id="finalSum">{{ $order->getFinalSum() / 100 }}</span> руб
                                     </span>
                                 </div>
                                 <div>
                                     К возврату
                                     <span class="pull-right">
-                                    {{ ($order->getSum() - $order->getFinalSum()) / 100 }} руб
+                                    <span id="refundSum">{{ ($order->getSum() - $order->getFinalSum()) / 100 }}</span> руб
                                     </span>
                                 </div>
                             </div>
@@ -287,7 +287,7 @@
                 </div>
                 <div class="col-lg-9">
                     @foreach($groupedOrder as $storeId => $items)
-                    <div class="card no-shadow">
+                    <div class="card no-shadow store-order" data-store-order-id="{{ $orderStores[$storeId]->id }}">
                         <div class="card-head">
                             <header>
                                 {{ $storeNames[$storeId] }}
@@ -296,8 +296,7 @@
                         <div class="card-body" style="padding-top: 0;">
                             <div>
                                 <div style="max-width: 200px">
-                                    <span class="text-default-light"
-                                          style="vertical-align: sub;">
+                                    <span class="text-default-light current-store-order-status" style="vertical-align: sub;">
                                         {{ __('order_store_status.' . $orderStores[$storeId]->status) }}
                                     </span>
                                     <div class="btn-group pull-right">
@@ -306,41 +305,30 @@
                                         <ul class="dropdown-menu animation-dock pull-right menu-card-styling"
                                             role="menu" style="text-align: left;width: fit-content;">
                                             <li>
-                                                <a onclick="event.preventDefault();document.getElementById('status-hidden').value='{{ \App\OrderStoreStatus::CANCELED }}';document.getElementById('status-form').submit();"
-                                                   href="javascript:void(0);">
+                                                <a class="store-order-status-control" href="javascript:void(0);" data-status="{{ \App\OrderStoreStatus::CANCELED }}">
                                                     {{ __('order_store_status.' . \App\OrderStoreStatus::CANCELED) }}
                                                 </a>
                                             </li>
                                             <li>
-                                                <a onclick="event.preventDefault();document.getElementById('status-hidden').value='{{ \App\OrderStoreStatus::PAID }}';document.getElementById('status-form').submit();"
-                                                   href="javascript:void(0);">
+                                                <a class="store-order-status-control" href="javascript:void(0);" data-status="{{ \App\OrderStoreStatus::PAID }}">
                                                     {{ __('order_store_status.' . \App\OrderStoreStatus::PAID) }}
                                                 </a>
                                             </li>
                                             <li>
-                                                <a onclick="event.preventDefault();document.getElementById('status-hidden').value='{{ \App\OrderStoreStatus::READY_FOR_DELIVERY }}';document.getElementById('status-form').submit();"
-                                                   href="javascript:void(0);">
+                                                <a class="store-order-status-control" href="javascript:void(0);" data-status="{{ \App\OrderStoreStatus::READY_FOR_DELIVERY }}">
                                                     {{ __('order_store_status.' . \App\OrderStoreStatus::READY_FOR_DELIVERY) }}
                                                 </a>
                                             </li>
                                             <li>
-                                                <a onclick="event.preventDefault();document.getElementById('status-hidden').value='{{\App\OrderStoreStatus::ORDERED}}';document.getElementById('status-form').submit();"
-                                                   href="javascript:void(0);">
+                                                <a class="store-order-status-control" href="javascript:void(0);" data-status="{{ \App\OrderStoreStatus::ORDERED }}">
                                                     {{ __('order_store_status.' . \App\OrderStoreStatus::ORDERED) }}
                                                 </a>
                                             </li>
                                             <li>
-                                                <a onclick="event.preventDefault();document.getElementById('status-hidden').value='{{ \App\OrderStoreStatus::CREATED }}';document.getElementById('status-form').submit();"
-                                                   href="javascript:void(0);">
+                                                <a class="store-order-status-control" href="javascript:void(0);" data-status="{{ \App\OrderStoreStatus::CREATED }}">
                                                     {{ __('order_store_status.' . \App\OrderStoreStatus::CREATED) }}
                                                 </a>
                                             </li>
-                                            <form id="status-form" action="http://localhost:8888/order/6" method="POST"
-                                                  style="display: none;">
-                                                <input type="hidden" name="status" value="OrderPending"
-                                                       id="status-hidden">
-                                                <input type="hidden" name="_token"
-                                                       value="M4EoyBOAegzHT3JIvyRGg2FGKqFfD8zzdhDES4vx"></form>
                                         </ul>
                                     </div>
                                 </div>
@@ -348,13 +336,11 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-content">
-                                                <input type="text" class="form-control" id="addId" value="{{ $orderStores[$storeId]->store_order_id }}">
-                                                <label for="addId">Привязать ID</label>
+                                                <input type="text" class="form-control" id="addId{{ $orderStores[$storeId]->id }}" value="{{ $orderStores[$storeId]->store_order_id }}">
+                                                <label for="addId{{ $orderStores[$storeId]->id }}">Привязать ID</label>
                                             </div>
                                             <div class="input-group-btn">
-                                                <button
-                                                    class="btn ink-reaction btn-icon-toggle btn-primary"
-                                                    type="button">
+                                                <button class="btn ink-reaction btn-icon-toggle btn-primary store-order-id-update" type="button" data-store-order-id="{{ $orderStores[$storeId]->id }}">
                                                     <i class="md md-check"></i>
                                                 </button>
                                             </div>
@@ -378,7 +364,7 @@
                                     </thead>
                                     <tbody>
                                     @foreach($items as $key => $item)
-                                            <tr class="gradeX clickable-row{{ ($item->stock_quantity > 0) ? '' : ' deleted-item' }}"
+                                            <tr class="gradeX {{ ($item->stock_quantity > 0) ? '' : ' deleted-item' }}"
                                                 data-href="{{ route('admin_product', $item->product->friendly_url_name) }}">
                                                 <td>{{ $key + 1 }}</td>
                                                 <td data-toggle="tooltip" data-placement="bottom"
@@ -386,8 +372,17 @@
                                                     data-original-title="{{ $item->product->name }}">{{ Str::limit($item->product->name, 25) }}</td>
                                                 <td>{{ __('order_item_status.' . $item->status) }}</td>
                                                 <td>{{ $item->price / 100 }} руб</td>
-                                                <td>{{ $item->stock_quantity }} ({{ $item->quantity }}) шт</td>
-                                                <td>{{ $item->getSum() / 100 }} руб</td>
+                                                <td><div class="dropdown show">
+                                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownQuantity{{ $item->id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <span id="itemStockQuantity{{$item->id}}">{{ $item->stock_quantity }}</span> ({{ $item->quantity }}) шт
+                                                        </a>
+
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                            <input class="form-control quantity-control" type="number" min="0" max="{{ $item->quantity }}" value="{{ $item->stock_quantity }}" data-order-item-id="{{ $item->id }}">
+                                                        </div>
+                                                    </div></td>
+{{--                                                <td>{{ $item->stock_quantity }} ({{ $item->quantity }}) шт</td>--}}
+                                                <td><span id="itemSubTotal{{$item->id}}">{{ $item->getSum() / 100 }}</span> руб</td>
                                                 <td class="remove"><a
                                                         href="{{ $item->product->getStoreProductLink() }}">Ссылка в
                                                         магазине</a></td>
@@ -521,6 +516,91 @@
         </div>
     </section>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        $('.quantity-control').change(function (e) {
+            e.preventDefault();
+            let itemId = $(this).data('order-item-id');
+            let quantity = $(this).val();
+            let data = {
+                quantity: $(this).val()
+            };
+            let url = "{{ route('admin_order_item_update_quantity', 'ITEMID') }}";
+            url = url.replace('ITEMID', itemId);
+            console.log(itemId);
+            console.log(quantity);
+            $.ajax({
+                type: 'POST',
+                url: url,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+                success: res => {
+                    $('#itemStockQuantity' + itemId).text(quantity);
+                    $('#itemSubTotal' + itemId).text(res.itemTotal / 100);
+                    $('#refundSum').text(res.refund / 100);
+                    $('#finalSum').text(res.final / 100);
+                },
+                error: e => {
+                    console.log(e)
+                }
+            });
+        });
 
+        $('.store-order-id-update').on('click', function (e) {
+            e.preventDefault();
+            let storeOrderId = $(this).data('store-order-id');
+            console.log(storeOrderId);
+            let data = {
+                externalStoreOrderId: $('#addId' + storeOrderId).val()
+            };
+            let url = "{{ route('admin_order_store_update_order_id', 'ORDERID') }}";
+            url = url.replace('ORDERID', storeOrderId);
+            console.log(url);
+            $.ajax({
+                type: 'POST',
+                url: url,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+                success: res => {
+                },
+                error: e => {
+                    console.log(e)
+                }
+            });
+        });
+
+        $('.store-order-status-control').on('click', function (e) {
+            e.preventDefault();
+            let storeOrderId = $(this).closest('.store-order').data('store-order-id');
+            let data = {
+                status: $(this).data('status')
+            };
+            let url = "{{ route('admin_order_store_update_status', 'ORDERID') }}";
+            url = url.replace('ORDERID', storeOrderId);
+            $(this).closest('.store-order').find('.current-store-order-status').text($(this).text());
+            $.ajax({
+                type: 'POST',
+                url: url,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+                success: res => {
+
+                },
+                error: e => {
+                    console.log(e)
+                }
+            });
+        })
+    })
+</script>
 <x-admin.footer/>
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\OrderItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class OrderItemController extends Controller
 {
@@ -32,7 +33,14 @@ class OrderItemController extends Controller
         $quantity = (int)$request->input('quantity');
         $item->stock_quantity = $quantity;
         $item->save();
-        return response('', 200);
+        $totalSum = $item->order->getSum();
+        $finalSum = $item->order->getFinalSum();
+        $response = [
+            'itemTotal' => $item->price * $quantity,
+            'final' => $finalSum,
+            'refund' => $totalSum - $finalSum,
+        ];
+        return response()->json($response);
     }
 
 
@@ -46,13 +54,6 @@ class OrderItemController extends Controller
         $item = OrderItem::findOrFail($id);
         $item->status = $status;
         $item->save();
-        $totalSum = $item->order->getSum();
-        $finalSum = $item->order->getFinalSum();
-        $response = [
-            'final' => $finalSum,
-            'refund' => $totalSum - $finalSum,
-        ];
-        return response()->json($response);
-
+        return response('', 200);
     }
 }
