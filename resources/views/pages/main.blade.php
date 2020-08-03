@@ -1,159 +1,307 @@
 <x-header/>
 
 <main id="content" role="main">
-    <div class="mb-4">
-        <div class="bg-img-hero" style="background-image: url(/img/1920X422/img1.jpg);">
-            <div class="container overflow-hidden">
-                <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
-                    @foreach ($bannerProducts as $key=>$bannerProduct)
-                        <div class="item">
-                            <div class="row pt-7 py-md-0">
-                                <div class="d-none d-wd-block offset-1"></div>
-                                <div class="col-xl-4 col-6 col-md-6 mt-md-8 mt-lg-10">
-                                    <div class="ml-xl-4">
-                                        <h6 class="font-size-15 font-weight-bold mb-2 text-cyan"
-                                            data-scs-animation-in="fadeInUp">
-                                            {{ $bannerProduct->category->name }}
-                                        </h6>
-                                        <h1 class="font-size-36 text-lh-50 font-weight-light mb-8"
-                                            data-scs-animation-in="fadeInUp"
-                                            data-scs-animation-delay="200">
-                                            {{ $bannerProduct->name }}
-                                        </h1>
-                                        <a href="{{ route('product', $bannerProduct->friendly_url_name) }}"
-                                           class="btn btn-primary transition-3d-hover rounded-lg font-weight-normal py-2 px-md-7 px-3 font-size-16"
-                                           data-scs-animation-in="fadeInUp"
-                                           data-scs-animation-delay="300">
-                                            Подробнее
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-xl-7 col-md-6 col-6 d-flex align-items-end ml-auto ml-md-0"
-                                     data-scs-animation-in="fadeInRight"
-                                     data-scs-animation-delay="500">
-                                    <img class="img-fluid ml-auto mr-10 mr-wd-auto"
-                                         src="{{ $key === 0 ? '/img/468X417/img1.png' : '/img/416X420/img1.png' }}"
-                                         alt="Image Description">
+
+    <div class="main-map">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 pr-0">
+                    <h2 class="main-map__header">
+                        BeeClub - единая доставка товаров из строительных магазинов
+                    </h2>
+                    <div class="main-map-shops">
+                        <div class="main-map-shops__item active">
+                            <img src="/svg/shop-icons/leroy-merlin.svg" alt="">
+                        </div>
+                        <div class="main-map-shops__item">
+                            <img src="/svg/shop-icons/petrovich.svg" alt="">
+                        </div>
+                        <div class="main-map-shops__item">
+                            <img src="/svg/shop-icons/obi.svg" alt="">
+                        </div>
+                        <div class="main-map-shops__item">
+                            <img src="/svg/shop-icons/castorama.svg" alt="">
+                        </div>
+                        <div class="main-map-shops__item">
+                            <p>Другие магазины</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <x-delivery/>
+
+    <div class="main-sales">
+        <div class="container">
+            <h3 class="main-sales__header">Акции и спецпредложения</h3>
+            <div class="main-sales-cards">
+                <div class="main-sales-cards__item">
+                    <p class="main-sales-cards__header">
+                        200 баллов
+                        <img src="/svg/main/arrow-right.svg" alt="">
+                    </p>
+                    <p class="main-sales-cards__text">
+                        за регистрацию
+                    </p>
+                </div>
+                <div class="main-sales-cards__item">
+                    <p class="main-sales-cards__header">
+                        2% баллов
+                        <img src="/svg/main/arrow-right.svg" alt="">
+                    </p>
+                    <p class="main-sales-cards__text">
+                        на второй заказ
+                    </p>
+                </div>
+                <div class="main-sales-cards__item">
+                    <p class="main-sales-cards__header">
+                        200 баллов
+                        <img src="/svg/main/arrow-right.svg" alt="">
+                    </p>
+                    <p class="main-sales-cards__text">
+                        за установку приложения
+                    </p>
+                </div>
+                <div class="main-sales-cards__item">
+                    <p class="main-sales-cards__header">
+                        200 баллов
+                        <img src="/svg/main/arrow-right.svg" alt="">
+                    </p>
+                    <p class="main-sales-cards__text">
+                        за регистрацию
+                    </p>
+                </div>
+                <div class="main-sales-cards__item">
+                    <p class="main-sales-cards__header">
+                        Еще 25 акций
+                        <img src="/svg/main/arrow-right.svg" alt="">
+                    </p>
+                    <p class="main-sales-cards__text">
+                        Скидки, бонусные предложения
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-steps">
+        <div class="container">
+            <h3 class="main-steps__header">
+                Как мы работаем?
+            </h3>
+
+            <div class="main-steps-row">
+                <div class="main-steps-row__col">
+                    <div class="main-steps-row__img">
+                        <img src="/img/main/steps/step1.jpg" alt="">
+                        <span class="main-steps-row__badge">1-й шаг</span>
+                    </div>
+                    <p class="main-steps-row__header">
+                        Вы оформляйте заказ
+                    </p>
+                    <p class="main-steps-row__text">
+                        Мы доставим ваш заказ быстро и в удобное время
+                    </p>
+                </div>
+                <div class="main-steps-row__col">
+                    <div class="main-steps-row__img">
+                        <img src="/img/main/steps/step2.jpg" alt="">
+                        <span class="main-steps-row__badge">2-й шаг</span>
+                    </div>
+                    <p class="main-steps-row__header">
+                        Мы собираем заказ
+                    </p>
+                    <p class="main-steps-row__text">
+                        Мы проверим товарный вид и целостность каждого товара в заказе
+                    </p>
+                </div>
+                <div class="main-steps-row__col">
+                    <div class="main-steps-row__img">
+                        <img src="/img/main/steps/step3.jpg" alt="">
+                        <span class="main-steps-row__badge">3-й шаг</span>
+                    </div>
+                    <p class="main-steps-row__header">
+                        Доставляем Вам в удобное время
+                    </p>
+                    <p class="main-steps-row__text">
+                        Мы доставим ваш заказ быстро и в удобное время
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-qa">
+        <div class="container">
+            <h3 class="main-qa__header">
+                Часто задаваемые вопросы
+            </h3>
+
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <p class="main-qa__small">
+                        О сервисе, доставка
+                    </p>
+                    <div class="accordion" id="accordionService">
+                        <div class="main-qa-card">
+                            <div class="main-qa-card__header" data-toggle="collapse" data-target="#accordionServiceOne"
+                                 aria-expanded="true" aria-controls="accordionServiceOne">
+                                <header>
+                                    Зачем мне пользоваться сервисом BeeClub?
+                                    <img src="/svg/main/accordion-arrow.svg" alt="">
+                                </header>
+                            </div>
+                            <div id="accordionServiceOne" class="collapse show" aria-labelledby="accordionServiceOne"
+                                 data-parent="#accordionService">
+                                <div class="main-qa-card__body">
+                                    <p>
+                                        Всё правильно. Деньги списываются, а потом возвращаются — так устроен кэшбэк.
+                                        <br>
+                                        Стоимость подписки возвращается в следующем месяце — например, если вы потратили
+                                        5000 в мае, 169 рублей поступят на счёт в июне.
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="mb-6 row border rounded-lg mx-0 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
-            <div class="media col px-6 px-xl-4 px-wd-8 flex-shrink-0 flex-xl-shrink-1 min-width-270-all py-3">
-                <div class="u-avatar mr-2">
-                    <i class="text-primary ec ec-transport font-size-46"></i>
-                </div>
-                <div class="media-body text-center">
-                    <span class="d-block font-weight-bold text-dark">Бесплатная доставка</span>
-                    <div class=" text-secondary">от 5000 рублей</div>
-                </div>
-            </div>
 
-            <div
-                class="media col px-6 px-xl-4 px-wd-8 flex-shrink-0 flex-xl-shrink-1 min-width-270-all border-left py-3">
-                <div class="u-avatar mr-2">
-                    <i class="text-primary ec ec-customers font-size-56"></i>
-                </div>
-                <div class="media-body text-center">
-                    <span class="d-block font-weight-bold text-dark">Более 7000 отзывов</span>
-                    <div class=" text-secondary">от покупателей</div>
-                </div>
-            </div>
+                        <div class="main-qa-card">
+                            <div class="main-qa-card__header collapsed" data-toggle="collapse"
+                                 data-target="#accordionServiceTwo"
+                                 aria-expanded="true" aria-controls="accordionServiceTwo">
+                                <header>
+                                    Сколько стоит доставка?
+                                    <img src="/svg/main/accordion-arrow.svg" alt="">
+                                </header>
+                            </div>
+                            <div id="accordionServiceTwo" class="collapse" aria-labelledby="accordionServiceTwo"
+                                 data-parent="#accordionService">
+                                <div class="main-qa-card__body">
+                                    <p>
+                                        Всё правильно. Деньги списываются, а потом возвращаются — так устроен кэшбэк.
+                                        <br>
+                                        Стоимость подписки возвращается в следующем месяце — например, если вы потратили
+                                        5000 в мае, 169 рублей поступят на счёт в июне.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-            <div
-                class="media col px-6 px-xl-4 px-wd-8 flex-shrink-0 flex-xl-shrink-1 min-width-270-all border-left py-3">
-                <div class="u-avatar mr-2">
-                    <i class="text-primary ec ec-payment font-size-46"></i>
+                        <div class="main-qa-card">
+                            <div class="main-qa-card__header collapsed" data-toggle="collapse"
+                                 data-target="#accordionServiceThree"
+                                 aria-expanded="true" aria-controls="accordionServiceThree">
+                                <header>
+                                    Если я закажу товары из разных магазинов, сколько раз мне платить за доставку?
+                                    <img src="/svg/main/accordion-arrow.svg" alt="">
+                                </header>
+                            </div>
+                            <div id="accordionServiceThree" class="collapse" aria-labelledby="accordionServiceThree"
+                                 data-parent="#accordionService">
+                                <div class="main-qa-card__body">
+                                    <p>
+                                        Всё правильно. Деньги списываются, а потом возвращаются — так устроен кэшбэк.
+                                        <br>
+                                        Стоимость подписки возвращается в следующем месяце — например, если вы потратили
+                                        5000 в мае, 169 рублей поступят на счёт в июне.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="media-body text-center">
-                    <span class="d-block font-weight-bold text-dark">Удобная оплата</span>
-                    <div class=" text-secondary">При получении заказа</div>
-                </div>
-            </div>
+                <div class="col-lg-6 col-12">
+                    <p class="main-qa__small">
+                        Заказ, отслеживание
+                    </p>
+                    <div class="accordion" id="accordionOrder">
+                        <div class="main-qa-card">
+                            <div class="main-qa-card__header collapsed" data-toggle="collapse"
+                                 data-target="#accordionOrderOne"
+                                 aria-expanded="true" aria-controls="accordionOrderOne">
+                                <header>
+                                    Нужно ли мне регистрироваться для оформления заказа?
+                                    <img src="/svg/main/accordion-arrow.svg" alt="">
+                                </header>
+                            </div>
+                            <div id="accordionOrderOne" class="collapse" aria-labelledby="accordionOrderOne"
+                                 data-parent="#accordionOrder">
+                                <div class="main-qa-card__body">
+                                    <p>
+                                        Всё правильно. Деньги списываются, а потом возвращаются — так устроен кэшбэк.
+                                        <br>
+                                        Стоимость подписки возвращается в следующем месяце — например, если вы потратили
+                                        5000 в мае, 169 рублей поступят на счёт в июне.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-            <div
-                class="media col px-6 px-xl-4 px-wd-8 flex-shrink-0 flex-xl-shrink-1 min-width-270-all border-left py-3">
-                <div class="u-avatar mr-2">
-                    <i class="text-primary ec ec-tag font-size-46"></i>
+                        <div class="main-qa-card">
+                            <div class="main-qa-card__header collapsed" data-toggle="collapse"
+                                 data-target="#accordionOrderTwo"
+                                 aria-expanded="true" aria-controls="accordionOrderTwo">
+                                <header>
+                                    Как отследить свой заказ?
+                                    <img src="/svg/main/accordion-arrow.svg" alt="">
+                                </header>
+                            </div>
+                            <div id="accordionOrderTwo" class="collapse" aria-labelledby="accordionOrderTwo"
+                                 data-parent="#accordionOrder">
+                                <div class="main-qa-card__body">
+                                    <p>
+                                        Всё правильно. Деньги списываются, а потом возвращаются — так устроен кэшбэк.
+                                        <br>
+                                        Стоимость подписки возвращается в следующем месяце — например, если вы потратили
+                                        5000 в мае, 169 рублей поступят на счёт в июне.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="media-body text-center">
-                    <span class="d-block font-weight-bold text-dark">Регулярные акции</span>
-                    <div class=" text-secondary">на лучшие товары</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="mb-6 position-relative">
-            <div
-                class="d-flex justify-content-between border-bottom border-color-1 flex-md-nowrap flex-wrap border-sm-bottom-0">
-                <h3 class="section-title section-title__full mb-0 pb-2 font-size-22">Последние добавления</h3>
-            </div>
-            <div class="owl-carousel owl-inner-nav owl-ui-sm">
-                <div class="item">
-                    <ul class="row list-unstyled products-group no-gutters mb-0 overflow-visible">
-                        @foreach($recentProducts as $recentProduct)
-                            <li class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                                <div class="product-item__outer h-100 w-100">
-                                    <div class="product-item__inner p-md-3 row no-gutters">
-                                        <div class="col col-lg-auto col-xl-5 col-wd-auto product-media-left">
-                                            <a href="{{ route('product', $recentProduct->friendly_url_name) }}"
-                                               class="max-width-150 d-block"><img
-                                                    class="img-fluid" src="{{ $recentProduct->img_url }}"
-                                                    alt="{{ $recentProduct->name }}"></a>
-                                        </div>
-                                        <div
-                                            class="col col-xl-7 col-wd product-item__body pl-2 pl-lg-3 pl-xl-0 pl-wd-3 mr-wd-1">
-                                            <div class="mb-4 mb-xl-2 mb-wd-6">
-                                                <div class="mb-2"><span
-                                                        class="font-size-12 text-gray-5">Добавлено {{ $recentProduct->created_at }}</span>
-                                                </div>
-                                                <h5 class="product-item__title"><a
-                                                        href="{{ route('product', $recentProduct->friendly_url_name) }}"
-                                                        class="text-blue font-weight-bold">{{ $recentProduct->name }}</a>
-                                                </h5>
-                                            </div>
-                                            <div class="flex-center-between mb-3">
-                                                <div class="prodcut-price">
-                                                    <div class="text-gray-100">{{ $recentProduct->price / 100 }}руб
-                                                    </div>
-                                                </div>
-                                                <div class="d-none d-xl-block product-add-cart">
-                                                    @if(isset($cartContent[$recentProduct->id]))
-                                                        <button data-id="{{ $recentProduct->id }}" data-quantity="1"
-                                                                class="btn-add-cart border-0 btn-primary transition-3d-hover">
-                                                            <i class="ec ec-shopping-bag"></i>
-                                                        </button>
-                                                    @else
-                                                        <button data-id="{{ $recentProduct->id }}" data-quantity="1"
-                                                                class="btn-add-cart border-0 add-to-cart btn-primary transition-3d-hover">
-                                                            <i class="ec ec-add-to-cart"></i>
-                                                        </button>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
+                <div class="col-lg-6 col-12">
+                    <p class="main-qa__small">
+                        Другое
+                    </p>
+                    <div class="accordion" id="accordionOther">
+                        <div class="main-qa-card">
+                            <div class="main-qa-card__header" data-toggle="collapse" data-target="#accordionOtherOne"
+                                 aria-expanded="true" aria-controls="accordionOtherOne">
+                                <header>
+                                    Если остались вопросы, обязательно на них ответим
+                                </header>
+                            </div>
+                            <div id="accordionOtherOne" class="collapse show" aria-labelledby="accordionOtherOne"
+                                 data-parent="#accordionOther">
+                                <div class="main-qa-card__body">
+                                    <p class="main-qa-card__contacts">
+                                        Cвяжитесь с нами любым удобным способом
+                                        <a href="tel:+7(900) 000-00-00">
+                                            +7(900) 000-00-00
+                                        </a>
+                                    </p>
+                                    <div class="main-qa-card__social">
+                                        <a href="tel:+7(900) 000-00-00">
+                                            <img src="/svg/main/phone.svg" alt="">
+                                        </a>
+                                        <a href="tel:+7(900) 000-00-00">
+                                            <img src="/svg/main/whatsapp.svg" alt="">
+                                        </a>
+                                        <a href="tel:+7(900) 000-00-00">
+                                            <img src="/svg/main/telegram.svg" alt="">
+                                        </a>
                                     </div>
                                 </div>
-                            </li>
-                            @if($loop->iteration % 6 === 0)
-                    </ul>
-                </div>
-                @if($loop->iteration !== 18)
-                    <div class="item">
-                        <ul class="row list-unstyled products-group no-gutters mb-0 overflow-visible">
-                        @endif
-                        @endif
-                        @endforeach
+                            </div>
+                        </div>
                     </div>
+                </div>
             </div>
         </div>
-</main>
+    </div>
 
+</main>
 
 <x-footer/>
