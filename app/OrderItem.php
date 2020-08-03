@@ -40,4 +40,9 @@ class OrderItem extends Model
     {
         return $this->price * $this->quantity;
     }
+
+    public function getInStockSum()
+    {
+        return $this->price * $this->stock_quantity;
+    }
 }

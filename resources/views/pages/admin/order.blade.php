@@ -306,45 +306,33 @@
                                         <ul class="dropdown-menu animation-dock pull-right menu-card-styling"
                                             role="menu" style="text-align: left;width: fit-content;">
                                             <li>
-                                                <a onclick="event.preventDefault();document.getElementById('status-hidden').value='{{\App\OrderStatus::CANCELED}}';document.getElementById('status-form').submit();"
+                                                <a onclick="event.preventDefault();document.getElementById('status-hidden').value='{{ \App\OrderStoreStatus::CANCELED }}';document.getElementById('status-form').submit();"
                                                    href="javascript:void(0);">
-                                                    {{__('order_status.' . \App\OrderStatus::CANCELED)}}
+                                                    {{ __('order_store_status.' . \App\OrderStoreStatus::CANCELED) }}
                                                 </a>
                                             </li>
                                             <li>
-                                                <a onclick="event.preventDefault();document.getElementById('status-hidden').value='{{\App\OrderStatus::PAID}}';document.getElementById('status-form').submit();"
+                                                <a onclick="event.preventDefault();document.getElementById('status-hidden').value='{{ \App\OrderStoreStatus::PAID }}';document.getElementById('status-form').submit();"
                                                    href="javascript:void(0);">
-                                                    {{__('order_status.' . \App\OrderStatus::PAID)}}
+                                                    {{ __('order_store_status.' . \App\OrderStoreStatus::PAID) }}
                                                 </a>
                                             </li>
                                             <li>
-                                                <a onclick="event.preventDefault();document.getElementById('status-hidden').value='{{\App\OrderStatus::READY_FOR_DELIVERY}}';document.getElementById('status-form').submit();"
+                                                <a onclick="event.preventDefault();document.getElementById('status-hidden').value='{{ \App\OrderStoreStatus::READY_FOR_DELIVERY }}';document.getElementById('status-form').submit();"
                                                    href="javascript:void(0);">
-                                                    {{__('order_status.' . \App\OrderStatus::READY_FOR_DELIVERY)}}
+                                                    {{ __('order_store_status.' . \App\OrderStoreStatus::READY_FOR_DELIVERY) }}
                                                 </a>
                                             </li>
                                             <li>
-                                                <a onclick="event.preventDefault();document.getElementById('status-hidden').value='{{\App\OrderStatus::GIVEN_TO_COURIER}}';document.getElementById('status-form').submit();"
+                                                <a onclick="event.preventDefault();document.getElementById('status-hidden').value='{{\App\OrderStoreStatus::ORDERED}}';document.getElementById('status-form').submit();"
                                                    href="javascript:void(0);">
-                                                    {{__('order_status.' . \App\OrderStatus::GIVEN_TO_COURIER)}}
+                                                    {{ __('order_store_status.' . \App\OrderStoreStatus::ORDERED) }}
                                                 </a>
                                             </li>
                                             <li>
-                                                <a onclick="event.preventDefault();document.getElementById('status-hidden').value='{{\App\OrderStatus::RE_DELIVERY}}';document.getElementById('status-form').submit();"
+                                                <a onclick="event.preventDefault();document.getElementById('status-hidden').value='{{ \App\OrderStoreStatus::CREATED }}';document.getElementById('status-form').submit();"
                                                    href="javascript:void(0);">
-                                                    {{__('order_status.' . \App\OrderStatus::RE_DELIVERY)}}
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a onclick="event.preventDefault();document.getElementById('status-hidden').value='{{\App\OrderStatus::REFUNDED}}';document.getElementById('status-form').submit();"
-                                                   href="javascript:void(0);">
-                                                    {{__('order_status.' . \App\OrderStatus::REFUNDED)}}
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a onclick="event.preventDefault();document.getElementById('status-hidden').value='{{\App\OrderStatus::COMPLETED}}';document.getElementById('status-form').submit();"
-                                                   href="javascript:void(0);">
-                                                    {{__('order_status.' . \App\OrderStatus::COMPLETED)}}
+                                                    {{ __('order_store_status.' . \App\OrderStoreStatus::CREATED) }}
                                                 </a>
                                             </li>
                                             <form id="status-form" action="http://localhost:8888/order/6" method="POST"
@@ -390,15 +378,15 @@
                                     </thead>
                                     <tbody>
                                     @foreach($items as $key => $item)
-                                            <tr class="gradeX clickable-row"
+                                            <tr class="gradeX clickable-row{{ ($item->stock_quantity > 0) ? '' : ' deleted-item' }}"
                                                 data-href="{{ route('admin_product', $item->product->friendly_url_name) }}">
                                                 <td>{{ $key + 1 }}</td>
                                                 <td data-toggle="tooltip" data-placement="bottom"
                                                     data-trigger="hover"
                                                     data-original-title="{{ $item->product->name }}">{{ Str::limit($item->product->name, 25) }}</td>
-                                                <td>{{ __('order_item_status.' . $item->process_status) }}</td>
+                                                <td>{{ __('order_item_status.' . $item->status) }}</td>
                                                 <td>{{ $item->price / 100 }} руб</td>
-                                                <td>{{ $item->quantity }}шт</td>
+                                                <td>{{ $item->stock_quantity }} ({{ $item->quantity }}) шт</td>
                                                 <td>{{ $item->getSum() / 100 }} руб</td>
                                                 <td class="remove"><a
                                                         href="{{ $item->product->getStoreProductLink() }}">Ссылка в

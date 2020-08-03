@@ -52,9 +52,9 @@ class Order extends Model
 
     public function getFinalSum() {
         $sum = 0;
-        $items = $this->items->where('exist_status', 1);
+        $items = $this->items;
         foreach ($items as $item) {
-            $sum += $item->getSum();
+            $sum += $item->getInStockSum();
         }
         return $sum;
     }

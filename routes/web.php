@@ -32,6 +32,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
     Route::get('/orders', 'OrderController@index')->name('admin_orders');
     Route::get('/order/log', 'LogController@index')->name('admin_orders_log');
+    Route::post('/order/item/quantity/update/{id}', 'OrderItemController@updateQuantity')->name('admin_order_item_update_quantity');
+    Route::post('/order/item/status/update/{id}', 'OrderItemController@updateStatus')->name('admin_order_item_update_status');
+    Route::post('/order/store/status/update/{id}', 'OrderStoreController@updateStatus')->name('admin_order_store_update_status');
+    Route::post('/order/store/order/update/{id}', 'OrderStoreController@updateStoreOrderId')->name('admin_order_store_update_order_id');
     Route::get('/order/{id}', 'OrderController@show')->name('admin_order');
     Route::post('/order/{id}', 'OrderController@changeOrderStatus')->name('admin_change_order');
     Route::post('/order/{id}', 'OrderController@changeOrder')->name('admin_change_order');
