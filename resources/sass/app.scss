@@ -322,3 +322,35 @@ button {
         background-color: #fed700;
     }
 }
+
+
+.product-page {
+    .btn.btn-outline-black {
+        padding: 19px;
+        font-size: 16px;
+        line-height: 14px;
+        text-align: center;
+        color: #252524;
+        border: 1px solid #252524;
+        box-sizing: border-box;
+        border-radius: 5px;
+        max-width: 255px;
+        width: 100%;
+    }
+
+    .btn.btn-outline-black:hover {
+        background-color: #fff;
+    }
+}
+
+button.btn:hover {
+    cursor: pointer;
+}
+
+.add-to-cart.btn-primary {
+    padding: 19px;
+    width: 100%;
+    border-radius: 5px;
+    background: $light-yellow;
+    margin-bottom: 16px;
+}

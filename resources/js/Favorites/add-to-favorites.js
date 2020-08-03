@@ -42,10 +42,10 @@ $('body').on('click', '.add-to-favorites:not(.loading)', function (e) {
             } else {
                 if (action === 'add') {
                     $(this).data('action', 'remove')
-                    $(this).html('<i class="ec heart mr-1 font-size-15"></i>')
+                    $(this).text('В избранном')
                 } else {
                     $(this).data('action', 'add')
-                    $(this).html('<i class="ec ec-favorites mr-1 font-size-15"></i>')
+                    $(this).text('В избранное')
                 }
                 $(this).removeClass('loading')
             }
