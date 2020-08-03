@@ -37,8 +37,8 @@
         <div class="container">
             <h3 class="main-sales__header">Акции и спецпредложения</h3>
             <div class="main-sales-cards">
-                <div class="main-sales-cards__item">
-                    <p class="main-sales-cards__header">
+                <div class="main-sales-cards__item main-sales-cards__register-card">
+                    <p class="main-sales-cards__header ">
                         200 баллов
                         <img src="/svg/main/arrow-right.svg" alt="">
                     </p>
@@ -46,7 +46,7 @@
                         за регистрацию
                     </p>
                 </div>
-                <div class="main-sales-cards__item">
+                <div class="main-sales-cards__item main-sales-cards__second">
                     <p class="main-sales-cards__header">
                         2% баллов
                         <img src="/svg/main/arrow-right.svg" alt="">
@@ -55,7 +55,7 @@
                         на второй заказ
                     </p>
                 </div>
-                <div class="main-sales-cards__item">
+                <div class="main-sales-cards__item main-sales-cards__app">
                     <p class="main-sales-cards__header">
                         200 баллов
                         <img src="/svg/main/arrow-right.svg" alt="">
@@ -64,7 +64,7 @@
                         за установку приложения
                     </p>
                 </div>
-                <div class="main-sales-cards__item">
+                <div class="main-sales-cards__item main-sales-cards__second">
                     <p class="main-sales-cards__header">
                         200 баллов
                         <img src="/svg/main/arrow-right.svg" alt="">
@@ -73,7 +73,7 @@
                         за регистрацию
                     </p>
                 </div>
-                <div class="main-sales-cards__item">
+                <div class="main-sales-cards__item main-sales-cards__sale">
                     <p class="main-sales-cards__header">
                         Еще 25 акций
                         <img src="/svg/main/arrow-right.svg" alt="">
