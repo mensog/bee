@@ -55,7 +55,7 @@ class Product extends Model
         } else if ($this->store_id == 2) {
             return 'https://www.obi.ru' . $this->parse_url;
         } else {
-            return $this->parseUrl;
+            return $this->parse_url;
         }
     }
 }
