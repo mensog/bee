@@ -14,6 +14,12 @@ class CourierController extends Controller
         return view('pages.admin.couriers', ['couriers' => $couriers]);
     }
 
+
+    public function showCreatePage()
+    {
+        return view('pages.admin.create-courier');
+    }
+
     public function show($id)
     {
         $courier = Courier::with('orders')->where('id', $id)->firstOrFail();
