@@ -27,7 +27,7 @@ class OrderController extends Controller
     public function show($id)
     {
         $couriers = Courier::all();
-        $order = Order::with('items', 'items.product')->where('id', $id)->firstOrFail();
+        $order = Order::with('items', 'items.product')->with('courier')->where('id', $id)->firstOrFail();
         $groupedOrder = $order->items->groupBy(function ($item) {
             return $item->product->store_id;
         });
@@ -104,13 +104,15 @@ class OrderController extends Controller
     {
         $this->courierUpdateValidator($request->all())->validate();
         $order = Order::where('id', $id)->firstOrFail();
+        $content = '';
         if ($request->input('courierId') > 0) {
             $courier = Courier::where('id', $request->input('courierId'))->firstOrFail();
             $order->courier_id = $courier->id;
+            $content = view('components.admin.order.courier-data', ['fullName'=> $courier->full_name, 'phone' => $courier->phone, 'carSize' => $order->car_size])->render();
         } else {
             $order->courier_id = null;
         }
         $order->save();
-        return response('', 200);
+        return response($content, 200);
     }
 }

@@ -216,50 +216,35 @@
                             </div>
                             <div id="accordion1-1" class="collapse" aria-expanded="false" style="height: 0px;">
                                 <div class="card-body">
-                                    @if(true)
-                                        <form class="form" action="" method="">
-                                            @csrf
-                                            <div class="form-group">
-                                                <select class="form-control select2-list"
-                                                        name="courier"
-                                                        data-placeholder="Выберите курьера" id="couriers">
-                                                    <optgroup label="Курьеры">
-                                                        <option value="0">
-                                                            Не выбран
-                                                        </option>
-                                                        @foreach($couriers as $courier)
-                                                            <option value="{{ $courier->id }}"{{ ($courier->id == $order->courier_id) ? ' selected' : '' }}>
-                                                                {{ $courier->full_name }}
-                                                            </option>
-                                                        @endforeach
-                                                    </optgroup>
-                                                </select>
-                                                <label>Выберите курьера</label>
-                                            </div>
-                                            <button class="btn btn-block ink-reaction btn-warning" id="chooseCourier">
-                                                Применить
-                                            </button>
-                                        </form>
-                                    @else
-                                        <div>
-                                            Курьер
-                                            <span class="pull-right">
-                                                {{ $courier->full_name }}
-                                            </span>
-                                        </div>
-                                        <div>
-                                            Телефон
-                                            <span class="pull-right">
-                                                {{ $courier->phone }}
-                                            </span>
-                                        </div>
-                                        <div>
-                                            Габариты автомобиля
-                                            <span class="pull-right">
-                                                {{ $courier->car_size }}
-                                            </span>
-                                        </div>
+                                    <div id="courierData">
+                                    @if($order->courier_id > 0)
+                                        <x-admin.order.courier-data
+                                                fullName="{{$order->courier->full_name}}"
+                                                phone="{{$order->courier->phone}}"
+                                                carSize="{{$order->courier->car_size}}"
+                                        />
                                     @endif
+                                    </div>
+                                        <div class="form-group">
+                                            <select class="form-control select2-list"
+                                                    name="courier"
+                                                    data-placeholder="Выберите курьера" id="couriers">
+                                                <optgroup label="Курьеры">
+                                                    <option value="0">
+                                                        Не выбран
+                                                    </option>
+                                                    @foreach($couriers as $courier)
+                                                        <option value="{{ $courier->id }}"{{ ($courier->id == $order->courier_id) ? ' selected' : '' }}>
+                                                            {{ $courier->full_name }}
+                                                        </option>
+                                                    @endforeach
+                                                </optgroup>
+                                            </select>
+                                            <label>Выберите курьера</label>
+                                        </div>
+                                        <button class="btn btn-block ink-reaction btn-warning" id="chooseCourier">
+                                            Применить
+                                        </button>
                                 </div>
                             </div>
                         </div>
@@ -643,7 +628,7 @@
                 data: JSON.stringify(data),
                 contentType: 'application/json',
                 success: res => {
-
+                    $('#courierData').html(res);
                 },
                 error: e => {
                     console.log(e)
