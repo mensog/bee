@@ -104,6 +104,12 @@
                                     <span id="refundSum">{{ ($order->getSum() - $order->getFinalSum()) / 100 }}</span> руб
                                     </span>
                                 </div>
+                                <div>
+                                    Из неё возвращено
+                                    <span class="pull-right">
+                                    <span id="refundSum">{{ $order->refunded_amount / 100 }}</span> руб
+                                    </span>
+                                </div>
                             </div>
                             <div class="tab-pane floating-label" id="second1">
                                 <form id="editOrderForm" class="form" action="{{ route('admin_change_order', $order->id) }}"

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Courier;
 use App\Http\Controllers\Controller;
 use App\Order;
+use App\OrderStatus;
 use App\Partner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -45,6 +46,15 @@ class OrderController extends Controller
         $order->full_name = $request->input('fullName');
         $order->phone = $request->input('phone');
         $order->email = $request->input('email');
+        if ($request->input('status') == OrderStatus::COMPLETED) {
+            $amountToRefund = $order->getSum() - $order->getFinalSum() - $order->refunded_amount;
+            if ($amountToRefund > 0 ) {
+                $privateAccount = $order->user->privateAccount;
+                $privateAccount->refund_amount += $amountToRefund;
+                $privateAccount->save();
+                $order->refunded_amount += $amountToRefund;
+            }
+        }
         $order->save();
 
         return redirect()->route('admin_order', $id);
