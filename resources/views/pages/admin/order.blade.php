@@ -269,14 +269,12 @@
                             </div>
                             <div id="accordion2-1" class="collapse" aria-expanded="false" style="height: 0px;">
                                 <div class="card-body">
-                                    <form action="" class="form" method="">
-                                        @csrf
                                         <div class="form-group floating-label">
-                                            <textarea name="notes" id="notes" class="form-control" rows="2"
+                                            <textarea name="notes" id="orderComment" class="form-control" rows="2"
                                                       placeholder="">{{ $order->comment }}</textarea>
                                             <label for="textarea2">Заметки</label>
                                         </div>
-                                        <button type="submit" class="btn btn-block ink-reaction btn-warning">
+                                        <button class="btn btn-block ink-reaction btn-warning" id="saveOrderComment">
                                             Сохранить
                                         </button>
                                     </form>
@@ -584,6 +582,29 @@
             let url = "{{ route('admin_order_store_update_status', 'ORDERID') }}";
             url = url.replace('ORDERID', storeOrderId);
             $(this).closest('.store-order').find('.current-store-order-status').text($(this).text());
+            $.ajax({
+                type: 'POST',
+                url: url,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+                success: res => {
+
+                },
+                error: e => {
+                    console.log(e)
+                }
+            });
+        });
+
+        $('#saveOrderComment').on('click', function (e) {
+            e.preventDefault();
+            let data = {
+                comment: $('#orderComment').val()
+            };
+            let url = "{{ route('admin_order_update_comment', $order->id) }}";
             $.ajax({
                 type: 'POST',
                 url: url,
