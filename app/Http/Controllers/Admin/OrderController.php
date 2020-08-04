@@ -30,8 +30,9 @@ class OrderController extends Controller
         $groupedOrder = $order->items->groupBy(function ($item) {
             return $item->product->store_id;
         });
+        $stores = Partner::whereIn('id', array_keys($groupedOrder->toArray()))->get();
         $orderStores = $order->orderStores->keyBy('store_id');
-        $storeNames = Partner::whereIn('id', array_keys($orderStores->toArray()))->pluck('company_name', 'id');
+        $storeNames = $stores->pluck('company_name', 'id');
         $privateAccount = $order->user->privateAccount;
         return view('pages.admin.order', ['order' => $order, 'groupedOrder' => $groupedOrder, 'storeNames' => $storeNames, 'orderStores' => $orderStores, 'couriers' => $couriers, 'account' => $privateAccount]);
     }

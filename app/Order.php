@@ -31,6 +31,7 @@ class Order extends Model
             $orderItem->product_id = $productId;
             $orderItem->price = $price;
             $orderItem->quantity = $cartContent[$productId];
+            $orderItem->stock_quantity = $cartContent[$productId];
             $orderItem->save();
         });
     }

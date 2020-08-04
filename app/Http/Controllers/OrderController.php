@@ -58,6 +58,8 @@ class OrderController extends Controller
         $order->amount_paid = $order->getSum();
         $order->save();
         $order->fillFromCart($cart);
+        $order = Order::where('id', $order->id)->with('items')->first();
+        $order->fillOrderStores();
         $request->session()->flash('createdOrderId', $order->id);
         $cart->clear();
         return redirect()->route('lk_orders');
