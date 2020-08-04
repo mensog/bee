@@ -388,7 +388,7 @@
 {{--                                                <td>{{ $item->stock_quantity }} ({{ $item->quantity }}) шт</td>--}}
                                                 <td><span id="itemSubTotal{{$item->id}}">{{ $item->getSum() / 100 }}</span> руб</td>
                                                 <td class="remove"><a
-                                                        href="{{ $item->product->getStoreProductLink() }}">Ссылка в
+                                                        href="{{ $item->product->getStoreProductLink() }}" target="_blank">Ссылка в
                                                         магазине</a></td>
                                                 <td class="remove"
                                                     data-toggle="tooltip" data-placement="bottom"
