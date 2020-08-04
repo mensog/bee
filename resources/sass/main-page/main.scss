@@ -1,7 +1,52 @@
 
 .main-map {
-    background: url("/svg/main/main-map.svg"), right, no-repeat;
+    background: url("/svg/main/main-map.svg") no-repeat right;
     background-size: contain;
+
+    .main-map-points {
+        position: relative;
+
+        &__item {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            z-index: 0;
+        }
+
+        &__item#lm.active {
+            z-index: 1;
+
+            circle {
+                stroke: $green;
+            }
+        }
+
+        &__item#petr.active {
+            z-index: 1;
+
+            circle {
+                stroke: #EB5757;
+            }
+        }
+
+        &__item#obi.active {
+            z-index: 1;
+
+            circle {
+                stroke: #F2994A;
+            }
+        }
+
+        &__item#cr.active {
+            z-index: 1;
+
+            circle {
+                stroke: #2D9CDB;
+            }
+        }
+    }
 
     .container {
         padding-top: 64px;
@@ -18,8 +63,24 @@
         flex-direction: row;
         flex-wrap: wrap;
 
-        &__item.active {
+        &__item.border-lm.active {
             border-bottom: 3px solid $green;
+        }
+
+        &__item.border-petr.active {
+            border-bottom: 3px solid #EB5757;
+        }
+
+        &__item.border-obi.active {
+            border-bottom: 3px solid #F2994A;
+        }
+
+        &__item.border-cr.active {
+            border-bottom: 3px solid #2D9CDB;
+        }
+
+        &__item:hover {
+            cursor: pointer;
         }
 
         &__item {

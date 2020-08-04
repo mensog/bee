@@ -10,22 +10,68 @@
                         BeeClub - единая доставка товаров из строительных магазинов
                     </h2>
                     <div class="main-map-shops">
-                        <div class="main-map-shops__item active">
+                        <div class="main-map-shops__item active border-lm main-map-toggle" data-map="lm">
                             <img src="/svg/shop-icons/leroy-merlin.svg" alt="">
                         </div>
-                        <div class="main-map-shops__item">
+                        <div class="main-map-shops__item border-petr main-map-toggle" data-map="petr">
                             <img src="/svg/shop-icons/petrovich.svg" alt="">
                         </div>
-                        <div class="main-map-shops__item">
+                        <div class="main-map-shops__item border-obi main-map-toggle" data-map="obi">
                             <img src="/svg/shop-icons/obi.svg" alt="">
                         </div>
-                        <div class="main-map-shops__item">
+                        <div class="main-map-shops__item border-cr main-map-toggle" data-map="cr">
                             <img src="/svg/shop-icons/castorama.svg" alt="">
                         </div>
                         <div class="main-map-shops__item">
                             <p>Другие магазины</p>
                         </div>
                     </div>
+                </div>
+                <div class="col-lg-6 main-map-points">
+                    <svg id="lm" class="active main-map-points__item" width="412" height="430" viewBox="0 0 412 430"
+                         fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="252" cy="30" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="57" cy="136" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="119" cy="128" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="186" cy="8" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="82" cy="18" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="392" cy="299" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="404" cy="236" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="280" cy="204" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="294" cy="230" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="212" cy="422" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="39" cy="370" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="8" cy="132" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="227" cy="278" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="249" cy="165" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                    </svg>
+                    <svg id="petr" class="main-map-points__item" width="474" height="446" viewBox="0 0 474 446" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="230" cy="8" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="8" cy="144" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="466" cy="125" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="449" cy="293" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="269" cy="438" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="271" cy="326" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                    </svg>
+                    <svg id="obi" class="main-map-points__item" width="418" height="390" viewBox="0 0 418 390" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="167" cy="193" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="180" cy="132" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="102" cy="284" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="163" cy="382" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="258" cy="327" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="410" cy="294" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="41" cy="26" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="8" cy="147" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="102" cy="8" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                    </svg>
+                    <svg id="cr" class="main-map-points__item" width="413" height="175" viewBox="0 0 413 175" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="8" cy="8" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="233" cy="167" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                        <circle cx="405" cy="27" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
+                    </svg>
                 </div>
             </div>
         </div>
