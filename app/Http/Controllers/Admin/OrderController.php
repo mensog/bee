@@ -86,7 +86,7 @@ class OrderController extends Controller
         ];
 
         return Validator::make($data, [
-            'comment' => ['required', 'integer'],
+            'courierId' => ['required', 'integer'],
         ], $messages, $names);
     }
 

@@ -216,13 +216,13 @@
                                             <div class="form-group">
                                                 <select class="form-control select2-list"
                                                         name="courier"
-                                                        data-placeholder="Выберите курьера">
+                                                        data-placeholder="Выберите курьера" id="couriers">
                                                     <optgroup label="Курьеры">
-                                                        <option value="none">
+                                                        <option value="0">
                                                             Не выбран
                                                         </option>
                                                         @foreach($couriers as $courier)
-                                                            <option value="{{ $courier->id }}">
+                                                            <option value="{{ $courier->id }}"{{ ($courier->id == $order->courier_id) ? ' selected' : '' }}>
                                                                 {{ $courier->full_name }}
                                                             </option>
                                                         @endforeach
@@ -230,7 +230,7 @@
                                                 </select>
                                                 <label>Выберите курьера</label>
                                             </div>
-                                            <button class="btn btn-block ink-reaction btn-warning">
+                                            <button class="btn btn-block ink-reaction btn-warning" id="chooseCourier">
                                                 Применить
                                             </button>
                                         </form>
@@ -620,7 +620,30 @@
                     console.log(e)
                 }
             });
-        })
+        });
+
+        $('#chooseCourier').on('click', function (e) {
+            e.preventDefault();
+            let data = {
+                courierId: parseInt($('#couriers').val())
+            };
+            let url = "{{ route('admin_order_update_courier', $order->id) }}";
+            $.ajax({
+                type: 'POST',
+                url: url,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+                success: res => {
+
+                },
+                error: e => {
+                    console.log(e)
+                }
+            });
+        });
     })
 </script>
 <x-admin.footer/>

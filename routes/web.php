@@ -45,7 +45,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/couriers', 'CourierController@index')->name('admin_couriers');
     Route::get('/log', 'LogController@index')->name('admin_couriers_log');
     Route::get('/courier/create', 'CourierController@showCreatePage')->name('admin_create_courier_page');
-    Route::post('/courier/create', 'CourierController@createCourier')->name('admin_create_courier');
+    Route::post('/courier/create', 'CourierController@create')->name('admin_create_courier');
     Route::get('/courier/{id}', 'CourierController@show')->name('admin_courier');
 
     Route::get('/categories', 'CategoryController@index')->name('admin_categories');
