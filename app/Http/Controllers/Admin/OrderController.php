@@ -21,7 +21,7 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::with('items', 'items.product')->paginate(50);
-        return view('pages.admin.orders', ['orders' => $orders]);
+        return view('pages.admin.order.index', ['orders' => $orders]);
     }
 
     public function show($id)
@@ -35,7 +35,7 @@ class OrderController extends Controller
         $orderStores = $order->orderStores->keyBy('store_id');
         $storeNames = $stores->pluck('company_name', 'id');
         $privateAccount = $order->user->privateAccount;
-        return view('pages.admin.order', ['order' => $order, 'groupedOrder' => $groupedOrder, 'storeNames' => $storeNames, 'orderStores' => $orderStores, 'couriers' => $couriers, 'account' => $privateAccount]);
+        return view('pages.admin.order.show', ['order' => $order, 'groupedOrder' => $groupedOrder, 'storeNames' => $storeNames, 'orderStores' => $orderStores, 'couriers' => $couriers, 'account' => $privateAccount]);
     }
 
     public function changeOrder(Request $request, $id)

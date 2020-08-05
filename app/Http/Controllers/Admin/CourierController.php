@@ -12,19 +12,19 @@ class CourierController extends Controller
     public function index()
     {
         $couriers = Courier::all();
-        return view('pages.admin.couriers', ['couriers' => $couriers]);
+        return view('pages.admin.courier.index', ['couriers' => $couriers]);
     }
 
 
     public function showCreatePage()
     {
-        return view('pages.admin.create-courier');
+        return view('pages.admin.courier.create');
     }
 
     public function show($id)
     {
         $courier = Courier::with('orders')->where('id', $id)->firstOrFail();
-        return view('pages.admin.courier', ['courier' => $courier]);
+        return view('pages.admin.courier.show', ['courier' => $courier]);
     }
 
     protected function courierCreateOrUpdateValidator(array $data)
@@ -61,10 +61,16 @@ class CourierController extends Controller
         return redirect()->route('admin_courier', $courier->id);
     }
 
+    public function showUpdatePage(Request $request, $id)
+    {
+        $courier = Courier::findOrFail($id);
+        return view('pages.admin.courier.edit', ['courier' => $courier]);
+    }
+
     public function update(Request $request, $id)
     {
         $this->courierCreateOrUpdateValidator($request->all())->validate();
-        $courier = Courier::where('id', $id)->findOrFail();
+        $courier = Courier::findOrFail($id);
         $courier->full_name = $request->input('fullName');
         $courier->phone = $request->input('phone');
         $courier->car_size = $request->input('carSize');
