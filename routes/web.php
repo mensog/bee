@@ -43,13 +43,21 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::post('/order/{id}', 'OrderController@changeOrder')->name('admin_change_order');
 
     Route::get('/couriers', 'CourierController@index')->name('admin_couriers');
-    Route::get('/log', 'LogController@index')->name('admin_couriers_log');
+    Route::get('/courier/log', 'LogController@index')->name('admin_couriers_log');
     Route::get('/courier/create', 'CourierController@showCreatePage')->name('admin_create_courier_page');
     Route::post('/courier/create', 'CourierController@create')->name('admin_create_courier');
+    Route::get('/courier/update/{id}', 'CourierController@showUpdatePage')->name('admin_update_courier_page');
+    Route::post('/courier/update/{id}', 'CourierController@update')->name('admin_update_courier');
     Route::get('/courier/{id}', 'CourierController@show')->name('admin_courier');
 
     Route::get('/categories', 'CategoryController@index')->name('admin_categories');
     Route::get('/categories/unsorted', 'CategoryController@unsortedIndex')->name('admin_unsorted_categories');
+    Route::get('/category/create', 'CategoryController@showCreatePage')->name('admin_create_category_page');
+    Route::post('/category/create', 'CategoryController@create')->name('admin_create_category');
+    Route::post('/category/unsorted/move/{id}', 'CategoryController@moveCategory')->name('admin_category_move_unsorted');
+    Route::post('/category/update/parent/{id}', 'CategoryController@setParent')->name('admin_category_update_parent');
+    Route::post('/category/update/{id}', 'CategoryController@update')->name('admin_category_edit_data');
+    Route::get('/category/{id}', 'CategoryController@showEditPage')->name('admin_edit_category_page');
 
     Route::get('/partners', 'PartnerController@index')->name('admin_partners');
     Route::get('/partner/log', 'LogController@index')->name('admin_partners_log');

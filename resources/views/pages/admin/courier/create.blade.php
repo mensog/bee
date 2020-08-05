@@ -12,7 +12,7 @@
 
                     <div class="card-head">
                         <header>
-                            Название товара
+                            Новый курьер
                         </header>
                     </div>
 

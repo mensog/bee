@@ -31,6 +31,9 @@
                                 </span>
                             </div>
                         </div>
+                        <div class="card-footer text-center">
+                            <a href="{{route('admin_update_courier_page', $courier->id)}}" class="btn btn-primary">Редактировать</a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-9">
