@@ -57,6 +57,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::post('/category/unsorted/move/{id}', 'CategoryController@moveCategory')->name('admin_category_move_unsorted');
     Route::post('/category/update/parent/{id}', 'CategoryController@setParent')->name('admin_category_update_parent');
     Route::post('/category/update/{id}', 'CategoryController@update')->name('admin_category_edit_data');
+    Route::post('/category/delete/{id}', 'CategoryController@delete')->name('admin_category_delete');
     Route::get('/category/{id}', 'CategoryController@showEditPage')->name('admin_edit_category_page');
 
     Route::get('/partners', 'PartnerController@index')->name('admin_partners');

@@ -89,6 +89,47 @@
                 </div>
             </form>
 
+            <form id="deleteCategory" class="form"
+                  action="{{ route('admin_category_delete', $category->id) }}" method="post">
+                @csrf
+                <div class="card card-bordered style-default-light no-shadow">
+                    <div class="card-head">
+                        <header>
+                            Удаление категории "{{ $category->name }}"
+                        </header>
+                    </div>
+
+                    <div class="card-body style-default-bright floating-label">
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <select class="form-control select2-delete-category" id="moveToCategoryId" name="moveToCategoryId" required>
+
+                                    @foreach($categories as $listCategory)
+                                            @if($listCategory->id == $category->id)
+                                            @continue
+                                            @endif
+                                        <option value="{{ $listCategory->id }}">{{ $listCategory->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    <label for="moveToCategoryId">В какую категорию перенести товары из текущей категории</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="card-actionbar style-default-bright">
+                        <div class="card-actionbar-row" style="text-align: left">
+                            <button type="submit" onclick="return confirm('Удаление категории - Вы уверены? Восстановить будет невозможно')" class="btn btn-flex ink-reaction btn-warning">
+                                Удалить категорию
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
         </div>
     </section>
 </div>
@@ -99,6 +140,10 @@
         });
 
         $('.select2-category').select2({
+            allowClear: true,
+        });
+
+        $('.select2-delete-category').select2({
             allowClear: true,
         });
     })

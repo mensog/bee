@@ -121,4 +121,13 @@ class CategoryController extends Controller
         $category->save();
         return redirect()->route('admin_edit_category_page', $category->id);
     }
+
+    public function delete(Request $request, $id)
+    {
+        $category = Category::findOrFail($id);
+        $newCategory = Category::findOrFail($request->input('moveToCategoryId'));
+        Product::where('category_id', $category->id)->update(['category_id' => $newCategory->id]);
+        $category->delete();
+        return redirect()->route('admin_categories');
+    }
 }
