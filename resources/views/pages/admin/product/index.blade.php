@@ -38,7 +38,7 @@
                                     <tbody>
                                     @foreach($products as $product)
                                         <tr class="gradeX clickable-row"
-                                            data-href="{{ route('admin_product', $product->friendly_url_name) }}">
+                                            data-href="{{ route('admin_product', $product->id) }}">
                                             <td>{{ $product->sku }}</td>
                                             <td>{{ $product->status }}</td>
                                             <td data-toggle="tooltip" data-placement="bottom"

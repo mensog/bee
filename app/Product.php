@@ -58,4 +58,9 @@ class Product extends Model
             return $this->parse_url;
         }
     }
+
+    public function store()
+    {
+        return $this->belongsTo('App\Partner','store_id', 'id');
+    }
 }

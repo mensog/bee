@@ -23,7 +23,7 @@ class Category extends Model
 
     public function parentCategory()
     {
-        return $this->belongsTo('App\Category', 'id', 'parent');
+        return $this->belongsTo('App\Category', 'parent', 'id');
     }
 
     public function childCategories()
@@ -38,6 +38,23 @@ class Category extends Model
         } else {
             Category::findOrFail($parentId);
             $this->parent = $parentId;
+        }
+    }
+
+    public function getBreadcrumbs()
+    {
+        $result = [];
+        $parent = $this->parentCategory;
+        if ($parent) {
+            $parentBreadcrumbs = $parent->getBreadcrumbs();
+            if ($parentBreadcrumbs) {
+                $result = array_merge($parentBreadcrumbs, [$this->name]);
+                return $result;
+            } else {
+                return [$this->name];
+            }
+        } else {
+            return [$this->name];
         }
     }
 }

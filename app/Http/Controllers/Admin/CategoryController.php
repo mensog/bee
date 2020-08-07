@@ -130,4 +130,11 @@ class CategoryController extends Controller
         $category->delete();
         return redirect()->route('admin_categories');
     }
+
+    public function breadcrumbs(Request $request, $id)
+    {
+        $category = Category::findOrFail($id);
+        $breadcrumbs = $category->getBreadcrumbs();
+        return response()->json($breadcrumbs);
+    }
 }

@@ -19,12 +19,16 @@ Route::get('/', 'MainController@index')->name('main');
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/', 'MainController@index')->name('admin_main');
 
+    Route::get('/api/attributes/search', 'ProductAttributeController@search')->name('admin_product_attributes_search');
+    Route::post('/api/product/{id}/attribute/add', 'ProductAttributeController@search')->name('admin_product_attributes_add');
+    Route::get('/api/category/{id}/breadcrumbs', 'CategoryController@breadcrumbs')->name('admin_category_breadcrumbs');
+
     Route::get('/products', 'ProductController@index')->name('admin_products');
     Route::get('/product/log', 'LogController@index')->name('admin_products_log');
     Route::get('/product/create', 'ProductController@showCreatePage')->name('admin_create_product_page');
-    Route::post('/product/create', 'ProductController@create')->name('admin_create_product');
-    Route::get('/product/{name}', 'ProductController@show')->name('admin_product');
-    Route::post('/product/{name}', 'ProductController@changeProduct')->name('admin_product_edit_data');
+    Route::post('/product/create', 'ProductController@createOrUpdate')->name('admin_create_product');
+    Route::get('/product/{id}', 'ProductController@show')->name('admin_product');
+    Route::post('/product/update/{id}', 'ProductController@createOrUpdate')->name('admin_product_update');
 
     Route::get('/users', 'UserController@index')->name('admin_users');
     Route::get('/user/log', 'LogController@index')->name('admin_users_log');
