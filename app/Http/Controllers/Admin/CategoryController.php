@@ -12,8 +12,13 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::orderBy('parent')->orderBy('name')->get()->groupBy('parent')->toArray();
-        return view('pages.admin.category.index', ['rootCategory' => $categories[''], 'categories' => $categories]);
+        $categories = Category::whereNull('parse_url')->orderBy('parent')->orderBy('name')->get()->groupBy('parent')->toArray();
+        if (isset($categories[''])) {
+            $rootCategory = $categories[''];
+        } else {
+            $rootCategory = [];
+        }
+        return view('pages.admin.category.index', ['rootCategory' => $rootCategory, 'categories' => $categories]);
     }
 
     public function unsortedIndex()
