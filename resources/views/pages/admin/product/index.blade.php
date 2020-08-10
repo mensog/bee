@@ -62,7 +62,8 @@
                 "search": '<i class="fa fa-search"></i>',
                 "zeroRecords": "Результаты не найдены",
                 "infoEmpty": "Сейчас тут пусто",
-                "info": "Показана _PAGE_-я из _PAGES_ страниц",
+                "info": "Страница _PAGE_ из _PAGES_ ",
+                "infoFiltered": " - выбрано из _MAX_ товаров",
                 "paginate": {
                     "previous": '<i class="fa fa-angle-left"></i>',
                     "next": '<i class="fa fa-angle-right"></i>'
