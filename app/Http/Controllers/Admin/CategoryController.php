@@ -24,7 +24,7 @@ class CategoryController extends Controller
     public function unsortedIndex()
     {
         $parsedCategories = Category::whereNotNull('parse_url')->whereNull('move_to')->with('partner')->get();
-        $categories = Category::all();
+        $categories = Category::whereNull('parse_url')->get();
         return view('pages.admin.category.unsorted', ['parsedCategories' => $parsedCategories, 'categories' => $categories]);
     }
 
@@ -76,7 +76,7 @@ class CategoryController extends Controller
     public function showEditPage(Request $request, $id)
     {
         $category = Category::findOrFail($id);
-        $categories = Category::orderBy('name')->get();
+        $categories = Category::whereNull('parse_url')->orderBy('name')->get();
         return view('pages.admin.category.edit', ['category' => $category, 'categories' => $categories]);
     }
 
@@ -86,7 +86,7 @@ class CategoryController extends Controller
         $this->categoryCreateOrUpdateValidator($request->all(), $id)->validate();
         $category->name = $request->input('name');
         $category->friendly_url_name = $request->input('friendlyUrlName');
-        if($request->input('visible')) {
+        if($request->has('visible')) {
             $category->visible = 1;
         } else {
             $category->visible = 0;
@@ -111,7 +111,7 @@ class CategoryController extends Controller
 
     public function showCreatePage()
     {
-        $categories = Category::orderBy('name')->get();
+        $categories = Category::whereNull('parse_url')->orderBy('name')->get();
         return view('pages.admin.category.create', ['categories' => $categories]);
     }
 
@@ -121,7 +121,11 @@ class CategoryController extends Controller
         $category = new Category();
         $category->name = $request->input('name');
         $category->friendly_url_name = $request->input('friendlyUrlName');
-        $category->visible = $request->input('visible');
+        if($request->has('visible')) {
+            $category->visible = 1;
+        } else {
+            $category->visible = 0;
+        }
         $category->setParent($request->input('parent'));
         $category->save();
         return redirect()->route('admin_edit_category_page', $category->id);
