@@ -113,6 +113,9 @@
         $('#datatableProducts').on('draw.dt', function () {
             $('[data-toggle="tooltip"]').tooltip();
         });
+        $('#datatableProducts').on('click', '.clickable-row', function () {
+            window.location = $(this).data('href');
+        });
     })
 </script>
 <x-admin.footer/>
