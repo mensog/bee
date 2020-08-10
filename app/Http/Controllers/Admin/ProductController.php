@@ -39,7 +39,7 @@ class ProductController extends Controller
                 'value' => $attributeValue->value,
             ];
         }
-        $categories = Category::whereNull('parse_url')->orWhereNull('move_to');
+        $categories = Category::whereNull('parse_url')->orWhereNull('move_to')->get();
         $storeLink = $product->getStoreProductLink();
         $partners = Partner::all();
         $categoryBreadcrumbs = implode(' / ', $product->category->getBreadcrumbs());
@@ -68,7 +68,7 @@ class ProductController extends Controller
 
     public function showCreatePage()
     {
-        $categories = Category::whereNull('parse_url')->orWhereNull('move_to');
+        $categories = Category::whereNull('parse_url')->get();
         $partners = Partner::all();
         return view('pages.admin.product.create', ['categories' => $categories, 'partners' => $partners]);
     }
