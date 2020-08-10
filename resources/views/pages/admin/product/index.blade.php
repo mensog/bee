@@ -21,47 +21,21 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="datatable1" class="table table-striped table-hover">
+                                <table id="datatableProducts" class="table table-striped table-hover">
                                     <thead>
                                     <tr>
                                         <th>Артикул</th>
-                                        <th class="sort-alpha">Статус</th>
+                                        <th class="sort-alpha">Модерация</th>
+                                        <th class="sort-alpha">Видимость</th>
                                         <th class="sort-alpha">Название</th>
                                         <th class="sort-alpha">Поставщик</th>
                                         <th class="sort-numeric">Стоимость</th>
                                         <th class="sort-alpha">Категория</th>
-                                        <th class="sort-alpha">Ссылка в магазине</th>
-                                        <th>Посл. изменение</th>
-                                        <th></th>
+                                        <th>Ссылка в магазине</th>
+                                        <th class="sort-alpha">Посл. изменение</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($products as $product)
-                                        <tr class="gradeX clickable-row"
-                                            data-href="{{ route('admin_product', $product->id) }}">
-                                            <td>{{ $product->sku }}</td>
-                                            <td>{{ $product->status }}</td>
-                                            <td data-toggle="tooltip" data-placement="bottom"
-                                                data-trigger="hover"
-                                                data-original-title="{{ $product->name }}">{{ Str::limit($product->name, 25) }}</td>
-                                            <td>{{ $product->getStoreName() }}</td>
-                                            <td>{{ $product->price / 100 }} руб</td>
-                                            <td>{{ Str::limit($product->category->name, 30) }}</td>
-                                            <td class="remove"><a
-                                                    href="{{ $product->getStoreProductLink() }}">Ссылка</a></td>
-                                            <td>{{ date('d.m.Y H:i',strtotime($product->updated_at)) }}</td>
-                                            <td class="remove"
-                                                data-toggle="tooltip" data-placement="bottom"
-                                                data-trigger="hover"
-                                                data-original-title="Удалить">
-                                                <x-admin.remove-with-modal
-                                                    type="icon"
-                                                    :action="route('admin_product', $product->friendly_url_name)"
-                                                    :text="$product->name">
-                                                </x-admin.remove-with-modal>
-                                            </td>
-                                        </tr>
-                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -72,5 +46,72 @@
         </div>
     </section>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
 
+        $('#datatableProducts').DataTable({
+            "dom": 'lCfrtip',
+            "order": [],
+            "colVis": {
+                "buttonText": "Columns",
+                "overlayFade": 0,
+                "align": "right"
+            },
+            "language": {
+                "lengthMenu": '_MENU_ кол-во на страницу',
+                "search": '<i class="fa fa-search"></i>',
+                "zeroRecords": "Результаты не найдены",
+                "infoEmpty": "Сейчас тут пусто",
+                "info": "Показана _PAGE_-я из _PAGES_ страниц",
+                "paginate": {
+                    "previous": '<i class="fa fa-angle-left"></i>',
+                    "next": '<i class="fa fa-angle-right"></i>'
+                }
+            },
+            serverSide: true,
+            ajax: {
+                url: '{{ route('admin_products_api') }}',
+                type: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            },
+            "createdRow": function ( row, data, index ) {
+                $(row).attr('data-href',data['editLink']);
+                let nameCell = $(row).find('td:eq(3)');
+                nameCell.attr('data-toggle', 'tooltip');
+                nameCell.attr('data-placement', 'bottom');
+                nameCell.attr('data-trigger', 'hover');
+                nameCell.attr('data-original-title', data['name']);
+            },
+            columns: [
+                { data: 'sku' },
+                { data: 'moderation' },
+                { data: 'visible' },
+                {
+                    data: 'name',
+                    render: function (data, type, row) {
+                        return data.substr(0, 25);
+                    }
+                },
+                { data: 'partner' },
+                { data: 'price' },
+                { data: 'category' },
+                {
+                    data: 'storeLink',
+                    render: function (data, type, row) {
+                        return '<a href="' + data + '">Ссылка</a>'
+                    }
+                },
+                { data: 'updatedAt' }
+            ],
+            "columnDefs": [
+                { "orderable": false, "targets": 7 }
+            ]
+        });
+        $('#datatableProducts').on('draw.dt', function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    })
+</script>
 <x-admin.footer/>

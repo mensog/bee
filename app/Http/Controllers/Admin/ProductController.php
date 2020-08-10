@@ -9,6 +9,7 @@ use App\Product;
 use App\ProductAttribute;
 use App\ProductAttributeValue;
 use App\View\Components\Admin\Product\Attribute;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,8 +18,7 @@ class ProductController extends Controller
     const MAX_ATTRIBUTE_VALUE_LENGTH = 255;
     public function index()
     {
-        $products = Product::limit(5000)->get(); // TODO ЛИМИТ ВРЕМЕННО, ПОКА НЕ СДЕЛАЕМ AJAX
-        return view('pages.admin.product.index', ['products' => $products]);
+        return view('pages.admin.product.index');
     }
 
 
@@ -161,5 +161,73 @@ class ProductController extends Controller
             $product->productAttributeValues()->whereNotIn('product_attribute_id', array_keys($request->input('attr')))->delete();
         }
         return redirect(route('admin_product', $product->id));
+    }
+
+    public function indexApi(Request $request)
+    {
+        $offset = 0;
+        $limit = 10;
+        $draw = 1;
+        if ($request->has('start')) {
+            $offset = (int)$request->input('start');
+        }
+        if ($request->has('length')) {
+            $limit = (int) $request->input('length');
+        }
+        if ($request->has('draw')) {
+            $draw = $request->input('draw');
+        }
+        $productQuery = Product::with('store')->with('category');
+        if ($request->has('search') && $request->input('search')['value'] != '') {
+            $productQuery = $productQuery->where('sku', 'like', '%' . $request->input('search')['value'] . '%')
+                ->orWhere('name', 'like', '%' . $request->input('search')['value'] . '%');
+        }
+        if ($request->has('order')) {
+            foreach ($request->input('order') as $key => $value) {
+                if ($value['column'] == 0) {
+                    $productQuery = $productQuery->orderBy('sku', $value['dir']);
+                }
+                if ($value['column'] == 1) {
+                    $productQuery = $productQuery->orderBy('moderation', $value['dir']);
+                }
+                if ($value['column'] == 2) {
+                    $productQuery = $productQuery->orderBy('visible', $value['dir']);
+                }
+                if ($value['column'] == 3) {
+                    $productQuery = $productQuery->orderBy('name', $value['dir']);
+                }
+                if ($value['column'] == 5) {
+                    $productQuery = $productQuery->orderBy('price', $value['dir']);
+                }
+                if ($value['column'] == 8) {
+                    $productQuery = $productQuery->orderBy('updated_at', $value['dir']);
+                }
+            }
+        }
+        $productsTotal = Product::count();
+        $productsFiltered = $productQuery->count();
+        $products = $productQuery->limit($limit)->offset($offset)->get();
+        $result = [
+            'draw' => $draw,
+            'recordsTotal' => $productsTotal,
+            'recordsFiltered' => $productsFiltered,
+            'data' => [],
+        ];
+        foreach ($products as $product) {
+            $result['data'][] = [
+                'DT_RowClass' => 'gradeX clickable-row',
+                'sku' => $product->sku,
+                'moderation' => __('product_moderation_status_short.' . $product->moderation),
+                'visible' => ($product->visible) ? 'да' : 'нет',
+                'name' => $product->name,
+                'partner' => $product->store->company_name,
+                'price' => $product->price / 100,
+                'category' => $product->category->name,
+                'editLink' => route('admin_product', $product->id),
+                'storeLink' => $product->getStoreProductLink(),
+                'updatedAt' => Carbon::parse($product->updated_at)->format('d.m.Y H:i:s'),
+            ];
+        }
+        return response()->json($result);
     }
 }

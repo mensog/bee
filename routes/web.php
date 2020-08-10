@@ -20,6 +20,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/', 'MainController@index')->name('admin_main');
 
     Route::get('/api/attributes/search', 'ProductAttributeController@search')->name('admin_product_attributes_search');
+    Route::post('/api/products', 'ProductController@indexApi')->name('admin_products_api');
     Route::post('/api/product/{id}/attribute/add', 'ProductAttributeController@search')->name('admin_product_attributes_add');
     Route::get('/api/category/{id}/breadcrumbs', 'CategoryController@breadcrumbs')->name('admin_category_breadcrumbs');
 
