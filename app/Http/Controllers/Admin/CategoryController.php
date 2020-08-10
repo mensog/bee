@@ -136,6 +136,7 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $newCategory = Category::findOrFail($request->input('moveToCategoryId'));
         Product::where('category_id', $category->id)->update(['category_id' => $newCategory->id]);
+        Category::where('parent', $category->id)->update(['category_id' => (is_null($category->parent)) ? null : $category->parent]);
         $category->delete();
         return redirect()->route('admin_categories');
     }
