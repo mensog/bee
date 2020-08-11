@@ -350,6 +350,37 @@
         </div>
     </div>
 
+    <div class="contact">
+        <div class="container">
+            <div class="contact__inner">
+                <h2 class="contact__title">Если остались вопросы - <br> обязательно ответим</h2>
+                <div class="contact__wrap">
+                    <form action="#" class="contact__form">
+                        <div class="contact__form-group">
+                            <input class="contact__form-input" type="text" name="name" placeholder="Имя">
+                            <input class="contact__form-input" type="text" name="phone" placeholder="Телефон">
+                        </div>
+                        <textarea class="contact__form-textarea" name="questions" placeholder="Ваш вопрос"></textarea>
+                        <button class="contact__form-btn btn" type="submit">Отправить</button>
+                        <span class="contact__form-send">Отправляя свои данные, вы соглашаетесь на обработку персональных данных</span>
+                    </form>
+                    <div class="contact__box">
+                        <div class="contact__box-descr">Или свяжитесь с нами любым удобным способом</div>
+                        <a class="contact__box-phone" href="tel:+79000000000">+7(900) 000-00-00</a>
+                        <div class="contact__social">
+                            <a href="#" class="contact__social-item">WhatsApp</a>
+                            <a href="#" class="contact__social-item">Telegram</a>
+                            <a href="#" class="contact__social-item">Viber</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="contact__improve">
+                <div class="contact__improve-text">Что можно улучшить на этой странице?</div>
+            </a>
+        </div>
+    </div>
+
 </main>
 
 <x-footer/>
