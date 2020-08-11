@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Order;
 use App\OrderStatus;
 use App\Partner;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -20,7 +21,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::with('items', 'items.product')->paginate(50);
+        $orders = Order::with('items', 'items.product')->with('courier')->get();
         return view('pages.admin.order.index', ['orders' => $orders]);
     }
 
@@ -46,6 +47,9 @@ class OrderController extends Controller
         $order->full_name = $request->input('fullName');
         $order->phone = $request->input('phone');
         $order->email = $request->input('email');
+        $order->delivery_date = Carbon::createFromFormat('m/d/Y', $request->input('date'))->format('Y-m-d');
+        $order->delivery_start_time = Carbon::createFromFormat('H:i', $request->input('timeFrom'))->format('H:i:s');
+        $order->delivery_end_time = Carbon::createFromFormat('H:i', $request->input('timeTo'))->format('H:i:s');
         if ($request->input('status') == OrderStatus::COMPLETED) {
             $amountToRefund = $order->getSum() - $order->getFinalSum() - $order->refunded_amount;
             if ($amountToRefund > 0 ) {

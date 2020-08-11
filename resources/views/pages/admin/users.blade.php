@@ -39,7 +39,7 @@
                                                     @endif
                                                 @endforeach
                                             </td>
-                                            <td>Личный счет</td>
+                                            <td>{{ ($user->privateAccount->refund_amount + $user->privateAccount->bonus_amount) / 100 }}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>

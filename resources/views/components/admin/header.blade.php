@@ -32,15 +32,20 @@
                     <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
                         <img src="../../assets/img/avatar1.jpg?1403934956" alt=""/>
                         <span class="profile-info">
-									Имя фамилия
-									<small>Администратор</small>
+									{{auth()->user()->name}} {{ auth()->user()->surname }}
+									<small>{{ Str::ucfirst(__('user_role.' . auth()->user()->role)) }}</small>
 								</span>
                     </a>
                     <ul class="dropdown-menu animation-dock">
                         <li><a href="#">Настройки</a></li>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-fw fa-power-off text-danger"></i>
-                                Выйти</a></li>
+                        <li>
+                            <a onclick="event.preventDefault();document.getElementById('logout-form').submit();"
+                               href="{{ route('logout') }}"><i class="fa fa-fw fa-power-off text-danger"></i>Выйти</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                  style="display: none;">
+                                @csrf
+                            </form>
                     </ul>
                 </li>
             </ul>

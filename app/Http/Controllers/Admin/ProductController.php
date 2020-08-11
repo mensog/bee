@@ -8,6 +8,7 @@ use App\Partner;
 use App\Product;
 use App\ProductAttribute;
 use App\ProductAttributeValue;
+use App\UserRole;
 use App\View\Components\Admin\Product\Attribute;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -30,7 +31,11 @@ class ProductController extends Controller
      */
     public function show(Request $request, $id)
     {
-        $product = Product::with('category')->with('productAttributeValues')->with('productAttributeValues.productAttribute')->with('store')->findOrFail($id);
+        if (auth()->user()->hasRole(UserRole::ADMIN)) {
+            $product = Product::with('category')->with('productAttributeValues')->with('productAttributeValues.productAttribute')->with('store')->findOrFail($id);
+        } else {
+            $product = auth()->user()->products->with('category')->with('productAttributeValues')->with('productAttributeValues.productAttribute')->with('store')->findOrFail($id);
+        }
         $attributes = [];
         foreach ($product->productAttributeValues as $attributeValue) {
             $attributes[] = [
@@ -177,7 +182,13 @@ class ProductController extends Controller
         if ($request->has('draw')) {
             $draw = $request->input('draw');
         }
-        $productQuery = Product::with('store')->with('category');
+        if (auth()->user()->hasRole([UserRole::ADMIN, UserRole::MANAGER])) {
+            $productQuery = Product::with('store')->with('category');
+            $productsTotal = Product::count();
+        } else {
+            $productQuery = auth()->user()->products()->with('store')->with('category');
+            $productsTotal = auth()->user()->products()->count();
+        }
         if ($request->has('search') && $request->input('search')['value'] != '') {
             $productQuery = $productQuery->where('sku', 'like', '%' . $request->input('search')['value'] . '%')
                 ->orWhere('name', 'like', '%' . $request->input('search')['value'] . '%');
@@ -204,7 +215,6 @@ class ProductController extends Controller
                 }
             }
         }
-        $productsTotal = Product::count();
         $productsFiltered = $productQuery->count();
         $products = $productQuery->limit($limit)->offset($offset)->get();
         $result = [

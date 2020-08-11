@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'MainController@index')->name('main');
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => 'can:accessAdminPanel'], function () {
     Route::get('/', 'MainController@index')->name('admin_main');
 
     Route::get('/api/attributes/search', 'ProductAttributeController@search')->name('admin_product_attributes_search');

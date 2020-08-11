@@ -63,8 +63,8 @@
                                                 </div>
                                             </td>
                                             <td>{{ $order->getSum() / 100 }} руб</td>
-                                            <td>Доставка</td>
-                                            <td>Назначен</td>
+                                            <td>{{ date('d.m.Y H:i',strtotime($order->delivery_date)) }} {{ date('H:i',strtotime($order->delivery_start_time)) }} - {{ date('H:i',strtotime($order->delivery_end_time)) }}</td>
+                                            <td>{{ $order->courier->full_name ?? 'Не назначен'}}</td>
                                             <td>{{ $order->full_name }}</td>
                                             <td>{{ date('d.m.Y H:i',strtotime($order->updated_at)) }}</td>
                                             <td class="remove"

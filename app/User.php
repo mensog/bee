@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'surname', 'email', 'password',
+        'name', 'surname', 'email', 'password', 'role'
     ];
 
     /**
@@ -52,5 +52,39 @@ class User extends Authenticatable
     public function privateAccount()
     {
         return $this->hasOne('App\PrivateAccount');
+    }
+
+    public function hasRole($role)
+    {
+        $role = (array) $role;
+        return in_array($this->role, $role);
+    }
+
+    public function products()
+    {
+        return $this->hasMany('App\Product', 'store_id', 'partner_id');
+    }
+
+    public function lastOrder()
+    {
+        return $this->orders()->orderBy('id', 'desc')->first();
+    }
+
+    public function getAddress()
+    {
+        $lastOrder = $this->lastOrder();
+        if ($lastOrder) {
+            return $lastOrder->address;
+        }
+        return '';
+    }
+
+    public function getPhone()
+    {
+        $lastOrder = $this->lastOrder();
+        if ($lastOrder) {
+            return $lastOrder->phone;
+        }
+        return '';
     }
 }

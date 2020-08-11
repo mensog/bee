@@ -26,7 +26,7 @@
                                 <div>
                                     Дата заказа
                                     <span class="pull-right">
-                                    {{ date('d.m.Y H:i',strtotime($order->created_at)) }}
+                                    {{ date('d.m.Y',strtotime($order->created_at)) }}
                                 </span>
                                 </div>
                                 <div>
@@ -39,6 +39,12 @@
                                     Дата Доставки
                                     <span class="pull-right">
                                     {{ date('d.m.Y',strtotime($order->delivery_date)) }}
+                                </span>
+                                </div>
+                                <div>
+                                    Интервал доставки
+                                    <span class="pull-right">
+                                    {{ date('H:i',strtotime($order->delivery_start_time)) }} - {{ date('H:i',strtotime($order->delivery_end_time)) }}
                                 </span>
                                 </div>
                                 <hr>
@@ -152,6 +158,21 @@
                                                     class="fa fa-calendar"></i></span>
                                         </div>
                                         <label for="date">Дата доставки</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-content">
+                                                <input type="time" name="timeFrom"
+                                                       value="{{ date('H:i',strtotime($order->delivery_start_time)) }}"
+                                                       class="form-control" required>
+                                            </div>
+                                            <div class="input-group-content">
+                                                <input type="time" name="timeTo"
+                                                       value="{{ date('H:i',strtotime($order->delivery_end_time)) }}"
+                                                       class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <label for="date">Интервал доставки</label>
                                     </div>
                                     <div class="form-group">
                                         <input type="text" name="fullName" value="{{ $order->full_name }}"
@@ -359,7 +380,19 @@
                                                 <td data-toggle="tooltip" data-placement="bottom"
                                                     data-trigger="hover"
                                                     data-original-title="{{ $item->product->name }}">{{ Str::limit($item->product->name, 25) }}</td>
-                                                <td>{{ __('order_item_status.' . $item->status) }}</td>
+                                                <td>
+                                                    <div class="form-group floating-label">
+                                                        <select name="status" class="form-control order-item-status" data-order-item-id="{{ $item->id }}">
+                                                            <option value="{{ \App\OrderItemStatus::CANCELED }}"{{ ($item->status == \App\OrderItemStatus::CANCELED) ? ' selected' : ''}}>{{ __('order_item_status.' . \App\OrderItemStatus::CANCELED) }}</option>
+                                                            <option value="{{ \App\OrderItemStatus::PAID }}"{{ ($item->status == \App\OrderItemStatus::PAID) ? ' selected' : ''}}>{{ __('order_item_status.' . \App\OrderItemStatus::PAID) }}</option>
+                                                            <option value="{{ \App\OrderItemStatus::READY_FOR_DELIVERY }}"{{ ($item->status == \App\OrderItemStatus::READY_FOR_DELIVERY) ? ' selected' : ''}}>{{ __('order_item_status.' . \App\OrderItemStatus::READY_FOR_DELIVERY) }}</option>
+                                                            <option value="{{ \App\OrderItemStatus::GIVEN_TO_COURIER }}"{{ ($item->status == \App\OrderItemStatus::GIVEN_TO_COURIER) ? ' selected' : ''}}>{{ __('order_item_status.' . \App\OrderItemStatus::GIVEN_TO_COURIER) }}</option>
+                                                            <option value="{{ \App\OrderItemStatus::RE_DELIVERY }}"{{ ($item->status == \App\OrderItemStatus::RE_DELIVERY) ? ' selected' : ''}}>{{ __('order_item_status.' . \App\OrderItemStatus::RE_DELIVERY) }}</option>
+                                                            <option value="{{ \App\OrderItemStatus::REFUNDED }}"{{ ($item->status == \App\OrderItemStatus::REFUNDED) ? ' selected' : ''}}>{{ __('order_item_status.' . \App\OrderItemStatus::REFUNDED) }}</option>
+                                                            <option value="{{ \App\OrderItemStatus::COMPLETED }}"{{ ($item->status == \App\OrderItemStatus::COMPLETED) ? ' selected' : ''}}>{{ __('order_item_status.' . \App\OrderItemStatus::COMPLETED) }}</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
                                                 <td>{{ $item->price / 100 }} руб</td>
                                                 <td><div class="dropdown show">
                                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownQuantity{{ $item->id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -531,6 +564,32 @@
                     $('#itemSubTotal' + itemId).text(res.itemTotal / 100);
                     $('#refundSum').text(res.refund / 100);
                     $('#finalSum').text(res.final / 100);
+                },
+                error: e => {
+                    console.log(e)
+                }
+            });
+        });
+
+        $('.order-item-status').change(function (e) {
+            e.preventDefault();
+            let itemId = $(this).data('order-item-id');
+            let status = $(this).val();
+            let data = {
+                status: $(this).val()
+            };
+            let url = "{{ route('admin_order_item_update_status', 'ITEMID') }}";
+            url = url.replace('ITEMID', itemId);
+            $.ajax({
+                type: 'POST',
+                url: url,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+                success: res => {
+
                 },
                 error: e => {
                     console.log(e)
