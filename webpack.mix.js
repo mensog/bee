@@ -19,3 +19,5 @@ mix.js(['resources/js/app.js', 'resources/js/owl.carousel.js'], 'public/js')
         'resources/css/font-beeclub.css', 'resources/css/owl.carousel.min.css', 'resources/css/owl.theme.default.min.css',
     ], 'public/css/app.css')
     .sass('resources/sass/app.scss', 'public/css/app-sass.css').version();
+
+mix.browserSync('http://localhost:8888/')
