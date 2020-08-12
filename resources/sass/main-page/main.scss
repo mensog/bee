@@ -1,6 +1,6 @@
 .main-map {
     background: url("/svg/main/main-map.svg") no-repeat right;
-    background-size: contain;
+    background-size: cover;
 
     .main-map-points {
         position: relative;
@@ -898,7 +898,7 @@
             background-color: #00C20A;
 
             &::before {
-                background: url(../../../public/svg/main/whatsapp.svg) center no-repeat;
+                background: url(/svg/main/whatsapp.svg) center no-repeat;
             }
         }
 
@@ -906,7 +906,7 @@
             background-color: #2CA5E0;
 
             &::before {
-                background: url(../../../public/svg/main/telegram.svg) center no-repeat;
+                background: url(/svg/main/telegram.svg) center no-repeat;
             }
         }
 
@@ -916,7 +916,7 @@
             background-color: #7B519C;
 
             &::before {
-                background: url(../../../public/svg/main/phone.svg) center no-repeat;
+                background: url(/svg/main/phone.svg) center no-repeat;
             }
         }
     }
@@ -947,7 +947,7 @@
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background: #FDD900 url(../../../public/svg/main/question.svg) center no-repeat;
+            background: #FDD900 url(/svg/main/question.svg) center no-repeat;
         }
 
         &::after {
@@ -957,7 +957,7 @@
             right: 0;
             width: 18px;
             height: 18px;
-            background: url(../../../public/svg/main/arrow-right.svg) center no-repeat;
+            background: url(/svg/main/arrow-right.svg) center no-repeat;
         }
     }
 }
