@@ -2,11 +2,19 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap');
 
 // Variables
-//@import 'variables';
+@import 'variables';
+@import "typography";
+
+// Buttons
+@import "buttons";
 
 // Bootstrap
-//@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/bootstrap-grid';
 
+//App
+@import "main-page/main";
+@import "product-page/product";
+@import "catalog/catalog";
 
 .pagination {
     justify-content: center;
@@ -317,4 +325,36 @@ button {
         right: -13px;
         background-color: #fed700;
     }
+}
+
+
+.product-page {
+    .btn.btn-outline-black {
+        padding: 19px;
+        font-size: 16px;
+        line-height: 14px;
+        text-align: center;
+        color: #252524;
+        border: 1px solid #252524;
+        box-sizing: border-box;
+        border-radius: 5px;
+        max-width: 255px;
+        width: 100%;
+    }
+
+    .btn.btn-outline-black:hover {
+        background-color: #fff;
+    }
+}
+
+button.btn:hover {
+    cursor: pointer;
+}
+
+.add-to-cart.btn-primary {
+    padding: 19px;
+    width: 100%;
+    border-radius: 5px;
+    background: $light-yellow;
+    margin-bottom: 16px;
 }
