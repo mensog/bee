@@ -75,9 +75,11 @@
         color: $black;
     }
 
-    &__aside {}
+    &__aside {
+    }
 
-    &__list {}
+    &__list {
+    }
 
     &__list-item {
         position: relative;
@@ -89,7 +91,7 @@
             right: 0;
             width: 14px;
             height: 14px;
-            background: url(../../../public/svg/catalog/chevron-down.svg) center no-repeat;
+            background: url(/svg/catalog/chevron-down.svg) center no-repeat;
         }
 
         &:hover {
@@ -113,7 +115,8 @@
         display: none;
     }
 
-    &__sublist-item {}
+    &__sublist-item {
+    }
 
     &__sublist-link {
         padding: 8px 0 8px 16px;
@@ -124,9 +127,11 @@
         color: $black;
     }
 
-    &__dropdown {}
+    &__dropdown {
+    }
 
-    &__dropdown-item {}
+    &__dropdown-item {
+    }
 
     &__dropdown-link {
         max-width: 233px;
@@ -226,12 +231,16 @@
             left: 19px;
             width: 30px;
             height: 30px;
-            background: url(../../../public/svg/catalog/heart.svg) center no-repeat;
+            background: url(/svg/catalog/heart.svg) center no-repeat;
         }
     }
 
     &__content-img {
         margin: 0 0 20px;
+
+        img {
+            max-width: 100%;
+        }
     }
 
     &__content-descr {
