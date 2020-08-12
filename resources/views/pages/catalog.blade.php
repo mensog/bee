@@ -2,7 +2,127 @@
 
 <main id="content" role="main">
 
-    <div class="container mt-3">
+    <div class="delivery">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Главная</a></li>
+                <li class="breadcrumb__item">/</li>
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Леруа Мерлен</a></li>
+                <li class="breadcrumb__item">/</li>
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Каталог</a></li>
+                <li class="breadcrumb__item">/</li>
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Строительство и ремонт</a></li>
+            </ul>
+            <div class="delivery__box">
+                <img class="delivery__box-img" src="../img/catalog/leroy-merlin-logo.png" alt="">
+                <h3 class="delivery__box-title"><span>Доставка из</span>Леруа Мерлен</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="catalog">
+        <div class="container">
+            <h3 class="catalog__title">Строительство и ремонт</h3>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="catalog__aside">
+                        <div class="catalog__subtitle">Категории</div>
+                        <ul class="catalog__list">
+                            <li class="catalog__list-item"><a class="catalog__list-link" href="#">Строительство и ремонт</a>
+                                <ul class="catalog__sublist">
+                                    <li class="catalog__sublist-item"><a class="catalog__sublist-link" href="#">Расходные материалы</a>
+                                        <ul class="catalog__dropdown">
+                                            <li class="catalog__dropdown-item"><a class="catalog__dropdown-link" href="#">Сухие смеси и грунтовка</a></li>
+                                            <li class="catalog__dropdown-item"><a class="catalog__dropdown-link" href="#">Листовые материалы</a></li>
+                                            <li class="catalog__dropdown-item"><a class="catalog__dropdown-link" href="#">Блоки для строительства</a></li>
+                                            <li class="catalog__dropdown-item"><a class="catalog__dropdown-link" href="#">Водосточные и дренажные системы</a></li>
+                                            <li class="catalog__dropdown-item"><a class="catalog__dropdown-link" href="#">Металлопрокат</a></li>
+                                            <li class="catalog__dropdown-item"><a class="catalog__dropdown-link" href="#">Изоляционные материалы</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="catalog__list-item"><a class="catalog__list-link" href="#">Столярные изделия</a>
+                                <ul class="catalog__sublist">
+                                    <li class="catalog__sublist-item"><a class="catalog__sublist-link" href="#">Расходные материалы</a>
+                                        <ul class="catalog__dropdown">
+                                            <li class="catalog__dropdown-item"><a class="catalog__dropdown-link" href="#">Сухие смеси и грунтовка</a></li>
+                                            <li class="catalog__dropdown-item"><a class="catalog__dropdown-link" href="#">Листовые материалы</a></li>
+                                            <li class="catalog__dropdown-item"><a class="catalog__dropdown-link" href="#">Блоки для строительства</a></li>
+                                            <li class="catalog__dropdown-item"><a class="catalog__dropdown-link" href="#">Водосточные и дренажные системы</a></li>
+                                            <li class="catalog__dropdown-item"><a class="catalog__dropdown-link" href="#">Металлопрокат</a></li>
+                                            <li class="catalog__dropdown-item"><a class="catalog__dropdown-link" href="#">Изоляционные материалы</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="tabs">
+                        <div class="tabs__control">
+                            <button class="tabs__control-btn">Расходные материалы</button>
+                            <button class="tabs__control-btn">Бензокосилки</button>
+                            <button class="tabs__control-btn">Краски</button>
+                            <button class="tabs__control-btn">Напольные покрытие</button>
+                            <button class="tabs__control-btn">Освещение</button>
+                            <button class="tabs__control-btn">Хранение и хозтовары</button>
+                            <button class="tabs__control-btn">Отопление, охлаждение, водоснабжение и вентиляция</button>
+                        </div>
+                        <div class="tabs__sort">
+                            <div class="tabs__sort-quantity">39 товаров</div>
+                            <div class="tabs__sort-filter">
+                                Сортировать: <span>по популярности</span>
+                                <img src="svg/catalog/sort-icon.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="tabs__content">
+                            <div class="tabs__content-item">
+                                <div class="tabs__content-img">
+                                    <img src="img/catalog/product/img-1.png" alt="">
+                                </div>
+                                <div class="tabs__content-descr">Штукатурка гипсовая Axton 5 <br> кг</div>
+                                <div class="tabs__content-article">81946334</div>
+                                <div class="tabs__content-price"><span>416 ₽</span>/ за 1 шт</div>
+                                <button class="tabs__content-btn btn">В корзину</button>
+                            </div>
+                            <div class="tabs__content-item">
+                                <div class="tabs__content-img">
+                                    <img src="img/catalog/product/img-2.png" alt="">
+                                </div>
+                                <div class="tabs__content-descr">Штукатурка гипсовая Axton 5 <br> кг</div>
+                                <div class="tabs__content-article">81946334</div>
+                                <div class="tabs__content-price"><span>416 ₽</span>/ за 1 шт</div>
+                                <button class="tabs__content-btn btn">В корзину</button>
+                            </div>
+                            <div class="tabs__content-item">
+                                <div class="tabs__content-img">
+                                    <img src="img/catalog/product/img-1.png" alt="">
+                                </div>
+                                <div class="tabs__content-descr">Штукатурка гипсовая Axton 5 <br> кг</div>
+                                <div class="tabs__content-article">81946334</div>
+                                <div class="tabs__content-price"><span>416 ₽</span>/ за 1 шт</div>
+                                <button class="tabs__content-btn btn">В корзину</button>
+                            </div>
+                            <div class="tabs__content-item">
+                                <div class="tabs__content-img">
+                                    <img src="img/catalog/product/img-2.png" alt="">
+                                </div>
+                                <div class="tabs__content-descr">Штукатурка гипсовая Axton 5 <br> кг</div>
+                                <div class="tabs__content-article">81946334</div>
+                                <div class="tabs__content-price"><span>416 ₽</span>/ за 1 шт</div>
+                                <button class="tabs__content-btn btn">В корзину</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- <div class="container mt-3">
         <div class="row mb-8">
             <div class="d-none d-xl-block col-xl-3 col-wd-2gdot5">
                 <div class="mb-6 border border-width-2 border-color-3 borders-radius-6">
@@ -98,7 +218,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
+
+
+    
 
 </main>
 
