@@ -228,16 +228,12 @@
         &:hover {
             border: 1px solid $light-yellow;
         }
+    }
 
-        &::before {
-            content: '';
-            position: absolute;
-            top: 229px;
-            left: 19px;
-            width: 30px;
-            height: 30px;
-            background: url(/svg/catalog/heart.svg) center no-repeat;
-        }
+    &__item-favorite {
+        position: absolute;
+        top: 229px;
+        left: 19px;
     }
 
     &__item-img {
