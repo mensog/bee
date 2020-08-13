@@ -1,12 +1,5 @@
 <div class="main-delivery">
     <div class="container">
-        <h3 class="main-delivery__header">
-            Доставка от 2 часов по Москве
-        </h3>
-        <p class="main-delivery__after-header">
-            Выбирая BeeClub вы выбираете:
-        </p>
-
         <div class="row">
             <div class="col-lg-4 col-12">
                 <div class="main-delivery-card main-delivery-card-grey">
