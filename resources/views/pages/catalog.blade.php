@@ -236,6 +236,8 @@
         </div>
     </div>
 
+    <x-delivery/>
+
 </main>
 
 <x-footer />
