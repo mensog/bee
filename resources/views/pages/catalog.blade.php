@@ -1,4 +1,4 @@
-<x-header/>
+<x-header />
 
 <main id="content" role="main">
 
@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="catalog__aside">
-                        <div class="catalog__subtitle">Категории</div>
+                        <div class="catalog__subtitle subtitle">Категории</div>
                         <ul class="catalog__list">
                             <li class="catalog__list-item">
                                 <a class="catalog__list-link" href="#">Строительство и ремонт</a>
@@ -43,8 +43,8 @@
                                                 <a class="catalog__dropdown-link" href="#">Блоки для строительства</a>
                                             </li>
                                             <li class="catalog__dropdown-item">
-                                                <a class="catalog__dropdown-link"
-                                                   href="#">Водосточные и дренажные системы
+                                                <a class="catalog__dropdown-link" href="#">Водосточные и дренажные
+                                                    системы
                                                 </a>
                                             </li>
                                             <li class="catalog__dropdown-item">
@@ -58,6 +58,70 @@
                                 </ul>
                             </li>
                         </ul>
+                        <div class="price-filter">
+                            <h4 class="price-filter__title subtitle">Цена</h4>
+                            <div class="price-filter__wrap">
+                                <div class="price-filter__box">
+                                    <span>от</span>
+                                    <input type="text" placeholder="0 ₽">
+                                </div>
+                                <div class="price-filter__box">
+                                    <span>до</span>
+                                    <input type="text" placeholder="112 220 ₽">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checkboxes">
+                            <h4 class="checkboxes__subtitle subtitle">Материал</h4>
+                            <div class="checkboxes__wrap">
+                                <div class="checkboxes__item">
+                                    <input type="checkbox" id="gypsum">
+                                    <label for="gypsum">Гипс</label>
+                                </div>
+                                <div class="checkboxes__item">
+                                    <input type="checkbox" id="сoncrete">
+                                    <label for="сoncrete">Бетон</label>
+                                </div>
+                                <div class="checkboxes__item">
+                                    <input type="checkbox" id="steel">
+                                    <label for="steel">Сталь</label>
+                                </div>
+                                <div class="checkboxes__item">
+                                    <input type="checkbox" id="aluminum">
+                                    <label for="aluminum">Алюминий</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checkboxes">
+                            <h4 class="checkboxes__subtitle subtitle">Материал</h4>
+                            <div class="checkboxes__wrap">
+                                <div class="checkboxes__item">
+                                    <input type="checkbox" id="axton">
+                                    <label for="axton">AXTON</label>
+                                </div>
+                                <div class="checkboxes__item">
+                                    <input type="checkbox" id="knauf">
+                                    <label for="knauf">Knauf</label>
+                                </div>
+                                <div class="checkboxes__item">
+                                    <input type="checkbox" id="ceresit">
+                                    <label for="ceresit">Ceresit</label>
+                                </div>
+                                <div class="checkboxes__item">
+                                    <input type="checkbox" id="moment">
+                                    <label for="moment">Момент</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checkboxes">
+                            <h4 class="checkboxes__subtitle subtitle">Специальные условия</h4>
+                            <div class="checkboxes__wrap">
+                                <div class="checkboxes__item">
+                                    <input type="checkbox" id="discounts">
+                                    <label for="discounts">Скидки</label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-9">
@@ -78,60 +142,79 @@
                                 <img src="svg/catalog/sort-icon.svg" alt="">
                             </div>
                         </div>
-                        <div class="tabs__content">
+                    </div>
+                    <div class="product">
+                        <div class="row">
                             @foreach ($products as $key => $product)
-                                <div id="product_{{ $product->id }}" class="tabs__content-item">
-                                    <a href="{{ route('product', $product->friendly_url_name) }}">
-                                        <div class="tabs__content-img">
-                                            <img src="{{ $product->img_url }}" alt="{{ $product->name }}">
-                                        </div>
-                                    </a>
-                                    <a href="{{ route('product', $product->friendly_url_name) }}">
-                                        <div class="tabs__content-descr">{{ $product->name }}</div>
-                                        <div class="tabs__content-article">{{ $product->sku }}</div>
-                                        <div class="tabs__content-price">
-                                            <span>{{ $product->price / 100 }} ₽</span>/ за 1 шт
-                                        </div>
-                                    </a>
-                                    @if(isset($cartContent[$product->id]))
-                                        <button data-id="{{ $product->id }}" data-quantity="1"
-                                                class="tabs__content-btn btn">
-                                            В корзине
-                                        </button>
-                                    @else
-                                        <button data-id="{{ $product->id }}" data-quantity="1"
-                                                class="tabs__content-btn btn add-to-cart">
-                                            В корзине
-                                        </button>
-                                    @endif
+                                <div class="col-lg-4">
+                                    <div id="product_{{ $product->id }}" class="product__item">
+                                        <a href="#">
+                                            <a href="{{ route('product', $product->friendly_url_name) }}">
+                                                <div class="product__item-img">
+                                                    <img src="{{ $product->img_url }}" alt="{{ $product->name }}">
+                                                </div>
+                                            </a>
+                                            <a href="{{ route('product', $product->friendly_url_name) }}">
+                                                <div class="product__item-descr">{{ $product->name }}</div>
+                                                <div class="product__item-article">{{ $product->sku }}</div>
+                                                <div class="product__item-price">
+                                                    <span>{{ $product->price / 100 }} ₽</span>/ за 1 шт
+                                                </div>
+                                            </a>
+                                            @if (isset($cartContent[$product->id]))
+                                                <button data-id="{{ $product->id }}" data-quantity="1"
+                                                    class="product__item-btn btn">
+                                                    В корзине
+                                                </button>
+                                            @else
+                                                <button data-id="{{ $product->id }}" data-quantity="1"
+                                                    class="product__item-btn btn add-to-cart">
+                                                    В корзине
+                                                </button>
+                                            @endif
+                                        </a>
+                                    </div>
                                 </div>
                             @endforeach
-                            <div class="tabs__content-item">
-                                <div class="tabs__content-img">
-                                    <img src="img/catalog/product/img-2.png" alt="">
+
+                            <div class="col-lg-4">
+                                <div class="product__item">
+                                    <a href="#">
+                                        <div class="product__item-img">
+                                            <img src="img/catalog/product/img-2.png" alt="">
+                                        </div>
+                                        <div class="product__item-descr">Штукатурка гипсовая Axton 5 <br> кг</div>
+                                        <div class="product__item-article">81946334</div>
+                                        <div class="product__item-price"><span>416 ₽</span>/ за 1 шт</div>
+                                        <button class="product__item-btn btn">В корзину</button>
+                                    </a>
                                 </div>
-                                <div class="tabs__content-descr">Штукатурка гипсовая Axton 5 <br> кг</div>
-                                <div class="tabs__content-article">81946334</div>
-                                <div class="tabs__content-price"><span>416 ₽</span>/ за 1 шт</div>
-                                <button class="tabs__content-btn btn">В корзину</button>
                             </div>
-                            <div class="tabs__content-item">
-                                <div class="tabs__content-img">
-                                    <img src="img/catalog/product/img-1.png" alt="">
+                            <div class="col-lg-4">
+                                <div class="product__item">
+                                    <a href="#">
+                                        <div class="product__item-img">
+                                            <img src="img/catalog/product/img-1.png" alt="">
+                                        </div>
+                                        <div class="product__item-descr">Штукатурка гипсовая Axton 5 <br> кг</div>
+                                        <div class="product__item-article">81946334</div>
+                                        <div class="product__item-price"><span>416 ₽</span>/ за 1 шт</div>
+                                        <button class="product__item-btn btn">В корзину</button>
+                                    </a>
                                 </div>
-                                <div class="tabs__content-descr">Штукатурка гипсовая Axton 5 <br> кг</div>
-                                <div class="tabs__content-article">81946334</div>
-                                <div class="tabs__content-price"><span>416 ₽</span>/ за 1 шт</div>
-                                <button class="tabs__content-btn btn">В корзину</button>
                             </div>
-                            <div class="tabs__content-item">
-                                <div class="tabs__content-img">
-                                    <img src="img/catalog/product/img-2.png" alt="">
+                            <div class="col-lg-4">
+                                <div class="product__item">
+                                    <a href="#">
+                                        <div class="product__item-img">
+                                            <img src="img/catalog/product/img-2.png" alt="">
+                                        </div>
+                                        <div class="product__item-descr">Штукатурка гипсовая Axton 5 <br> кг</div>
+                                        <div class="product__item-article">81946334</div>
+                                        <div class="product__item-price"><span>416 ₽</span>/ за 1 шт</div>
+                                        <button class="product__item-btn btn">В корзину</button>
+                                    </a>
                                 </div>
-                                <div class="tabs__content-descr">Штукатурка гипсовая Axton 5 <br> кг</div>
-                                <div class="tabs__content-article">81946334</div>
-                                <div class="tabs__content-price"><span>416 ₽</span>/ за 1 шт</div>
-                                <button class="tabs__content-btn btn">В корзину</button>
                             </div>
                         </div>
                         {{ $products->links() }}
@@ -143,4 +226,4 @@
 
 </main>
 
-<x-footer/>
+<x-footer />

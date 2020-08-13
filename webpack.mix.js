@@ -63,3 +63,4 @@ mix.js(['resources/js/app.js', 'resources/js/owl.carousel.js'], 'public/js') // 
     ], 'public/css/admin/app.css')
     .sass('resources/sass/admin/app.scss', 'public/css/admin/app-sass.css')
     .version();
+mix.browserSync()
