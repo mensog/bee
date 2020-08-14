@@ -1,0 +1,51 @@
+
+.menubar-fixed-panel {
+    background: #373736;
+    border: 0;
+}
+
+.menubar-inverse .gui-controls li > a:hover .title {
+    color: #EDEDED;
+}
+
+.menubar-pin .menubar-inverse .gui-controls > li:not(.gui-folder) > a:hover {
+    background: #2E2E2E;
+}
+
+.menubar-inverse .gui-controls li > a:hover .gui-icon, .menubar-pin .menubar-inverse .gui-folder:hover:not(.active) .gui-icon {
+    color: #EDEDED;
+}
+
+.gui-controls li.gui-folder:hover > a {
+    background: #2E2E2E;
+}
+
+.card {
+    background: #FFFFFF;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+}
+
+.gui-controls li .title, .menubar-inverse .gui-controls li.gui-folder > a .title {
+    color: #9F9F9F;
+}
+
+.menubar-inverse .gui-controls li.active > a .title, .menubar-inverse .gui-controls li.gui-folder.expanded > a .title, .menubar-inverse .gui-controls li.gui-folder.active > a .title, .menubar-inverse .gui-controls li.gui-folder.expanded > a .title, .menubar-inverse .gui-controls li.gui-folder.active > a .title {
+    color: #EDEDED;
+}
+
+.menubar-inverse .gui-controls a.expanded .gui-icon, .menubar-inverse .gui-controls li.active .gui-icon, .menubar-inverse .gui-controls li.active .gui-icon:hover {
+    background: #FDD900;
+}
+
+.menubar-inverse .gui-controls > li ul > li > a:hover, .menubar-inverse .gui-controls > li ul > li > a:focus {
+    background: #2E2E2E;
+}
+
+.menubar-visible .menubar-inverse .gui-folder:hover:not(.active) .gui-icon {
+    background: #FDD900;
+}
+
+#menubar.menubar-inverse {
+    color: #fff;
+}

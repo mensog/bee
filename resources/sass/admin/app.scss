@@ -10,6 +10,20 @@
 // Bootstrap
 //@import '~bootstrap/scss/bootstrap';
 
+#base {
+    background-color: #F4F4F4;
+}
+
+#header {
+    background: #FFFFFF;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+#menubar {
+    .menubar-scroll-panel {
+        background: #373736;
+    }
+}
 
 .order-hover {
     position: relative;
