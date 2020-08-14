@@ -102,38 +102,38 @@
        </div>
     </section>
 
-    <section class="income">
-       <div class="container">
-          <div class="row">
-             <div class="col-8">
-                <div class="choice">
-                  <h2 class="choice__title"></h2>
-                  <h3 class="choice__subtitle"></h3>
-                  <div class="choice__box">
-                     <div class="choice__box-item">
-                        <div class="choice__box-title"></div>
-                        <input type="text" class="choice__box-input">
-                     </div>
-                     <div class="choice__box-item">
-                        <div class="choice__box-title"></div>
-                        <input type="text" class="choice__box-input">
-                     </div>
-                  </div>
-                  <h3 class="choice__subtitle"></h3>
-                  <div class="choice__box">
-                     <div class="choice__box-item">
-                        <input type="text" class="choice__box-input">
-                     </div>
-                     <div class="choice__box-item">
-                        <input type="text" class="choice__box-input">
-                     </div>
-                  </div>
-                </div>
-             </div>
-             <div class="col-4"></div>
-          </div>
-       </div>
-    </section>
+{{--    <section class="income">--}}
+{{--       <div class="container">--}}
+{{--          <div class="row">--}}
+{{--             <div class="col-8">--}}
+{{--                <div class="choice">--}}
+{{--                  <h2 class="choice__title"></h2>--}}
+{{--                  <h3 class="choice__subtitle"></h3>--}}
+{{--                  <div class="choice__box">--}}
+{{--                     <div class="choice__box-item">--}}
+{{--                        <div class="choice__box-title"></div>--}}
+{{--                        <input type="text" class="choice__box-input">--}}
+{{--                     </div>--}}
+{{--                     <div class="choice__box-item">--}}
+{{--                        <div class="choice__box-title"></div>--}}
+{{--                        <input type="text" class="choice__box-input">--}}
+{{--                     </div>--}}
+{{--                  </div>--}}
+{{--                  <h3 class="choice__subtitle"></h3>--}}
+{{--                  <div class="choice__box">--}}
+{{--                     <div class="choice__box-item">--}}
+{{--                        <input type="text" class="choice__box-input">--}}
+{{--                     </div>--}}
+{{--                     <div class="choice__box-item">--}}
+{{--                        <input type="text" class="choice__box-input">--}}
+{{--                     </div>--}}
+{{--                  </div>--}}
+{{--                </div>--}}
+{{--             </div>--}}
+{{--             <div class="col-4"></div>--}}
+{{--          </div>--}}
+{{--       </div>--}}
+{{--    </section>--}}
 
 </main>
 
