@@ -15,6 +15,7 @@
 @import "main-page/main";
 @import "product-page/product";
 @import "catalog/catalog";
+@import "header/header";
 
 .pagination {
     justify-content: center;
@@ -349,12 +350,4 @@ button {
 
 button.btn:hover {
     cursor: pointer;
-}
-
-.add-to-cart.btn-primary {
-    padding: 19px;
-    width: 100%;
-    border-radius: 5px;
-    background: $light-yellow;
-    margin-bottom: 16px;
 }

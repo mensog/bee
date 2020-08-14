@@ -51,12 +51,12 @@
                 </div>
                 <div class="col-lg-5 card-cart-total">
                     <div class="row">
-                        <div class="col-lg-6 col-12 card-cart-total__price">
+                        <div class="col-lg-5 col-12 card-cart-total__price">
                             <p class="card-cart-total__title">Итого:</p>
                             <p>{{ $cartTotal / 100 }} ₽</p>
                         </div>
-                        <div class="col-lg-6 col-12 card-cart-total__delete">
-                            <a href="{{ route('checkout_page') }}" type="button" class="btn text-white btn-success">
+                        <div class="col-lg-7 col-12 card-cart-total__delete">
+                            <a href="{{ route('checkout_page') }}" type="button" class="btn btn-primary">
                                 @guest
                                     Войти для оформления
                                 @else

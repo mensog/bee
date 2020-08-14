@@ -361,7 +361,7 @@
                             <input class="contact__form-input" type="text" name="phone" placeholder="Телефон">
                         </div>
                         <textarea class="contact__form-textarea" name="questions" placeholder="Ваш вопрос"></textarea>
-                        <button class="contact__form-btn btn" type="submit">Отправить</button>
+                        <button class="contact__form-btn btn btn-primary" type="submit">Отправить</button>
                         <span class="contact__form-send">Отправляя свои данные, вы соглашаетесь на обработку персональных данных</span>
                     </form>
                     <div class="contact__box">
