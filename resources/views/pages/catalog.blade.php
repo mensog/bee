@@ -95,12 +95,12 @@
                                     </a>
                                     @if(isset($cartContent[$product->id]))
                                         <button data-id="{{ $product->id }}" data-quantity="1"
-                                                class="tabs__content-btn btn">
+                                                class="tabs__content-btn btn btn-primary">
                                             В корзине
                                         </button>
                                     @else
                                         <button data-id="{{ $product->id }}" data-quantity="1"
-                                                class="tabs__content-btn btn add-to-cart">
+                                                class="tabs__content-btn btn btn-primary add-to-cart">
                                             В корзине
                                         </button>
                                     @endif
@@ -113,7 +113,7 @@
                                 <div class="tabs__content-descr">Штукатурка гипсовая Axton 5 <br> кг</div>
                                 <div class="tabs__content-article">81946334</div>
                                 <div class="tabs__content-price"><span>416 ₽</span>/ за 1 шт</div>
-                                <button class="tabs__content-btn btn">В корзину</button>
+                                <button class="tabs__content-btn btn btn-primary">В корзину</button>
                             </div>
                             <div class="tabs__content-item">
                                 <div class="tabs__content-img">
@@ -122,7 +122,7 @@
                                 <div class="tabs__content-descr">Штукатурка гипсовая Axton 5 <br> кг</div>
                                 <div class="tabs__content-article">81946334</div>
                                 <div class="tabs__content-price"><span>416 ₽</span>/ за 1 шт</div>
-                                <button class="tabs__content-btn btn">В корзину</button>
+                                <button class="tabs__content-btn btn btn-primary">В корзину</button>
                             </div>
                             <div class="tabs__content-item">
                                 <div class="tabs__content-img">
@@ -131,7 +131,7 @@
                                 <div class="tabs__content-descr">Штукатурка гипсовая Axton 5 <br> кг</div>
                                 <div class="tabs__content-article">81946334</div>
                                 <div class="tabs__content-price"><span>416 ₽</span>/ за 1 шт</div>
-                                <button class="tabs__content-btn btn">В корзину</button>
+                                <button class="tabs__content-btn btn btn-primary">В корзину</button>
                             </div>
                         </div>
                         {{ $products->links() }}
