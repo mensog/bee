@@ -143,7 +143,7 @@
                     </ul>
                 </li>
 
-                <li class="gui-folder {{ (Route::currentRouteName() === 'admin_products' ||  Route::currentRouteName() === 'admin_create_product' ||  Route::currentRouteName() === 'admin_products_log') ? 'active' : '' }}">
+                <li class="gui-folder {{ (Route::currentRouteName() === 'admin_products' ||  Route::currentRouteName() === 'admin_create_product_page' ||  Route::currentRouteName() === 'admin_products_log') ? 'active' : '' }}">
                     <a>
                         <div class="gui-icon"><i class="md md-collections"></i></div>
                         <span class="title">Товары</span>
@@ -155,8 +155,8 @@
                                 <span class="title">Список товаров</span>
                             </a>
                         </li>
-                        <li class="{{ Route::currentRouteName() === 'admin_create_product' ? 'active' : '' }}">
-                            <a class="{{ Route::currentRouteName() === 'admin_create_product' ? 'active' : '' }}"
+                        <li class="{{ Route::currentRouteName() === 'admin_create_product_page' ? 'active' : '' }}">
+                            <a class="{{ Route::currentRouteName() === 'admin_create_product_page' ? 'active' : '' }}"
                                href="{{ route('admin_create_product') }}">
                                 <span class="title">Добавить товар</span>
                             </a>
@@ -213,11 +213,5 @@
                 </li>
 
             </ul>
-
-            <div class="menubar-foot-panel">
-                <a class="btn btn-icon-toggle menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
-                    <i class="fa fa-arrow-left"></i>
-                </a>
-            </div>
         </div>
     </div>
