@@ -57,12 +57,9 @@
             </nav>
             <div class="row">
                 <div class="col-lg-2">
-                    {{-- <a class="catalog-btn" href="{{ route('catalog') }}">
-                        Каталог <img src="/svg/main/catalog.svg" alt="">
-                    </a> --}}
 
                     <div class="dropdown">
-                        <a href="{{ route('catalog') }}" class="catalog-btn btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                        <a class="catalog-btn btn dropdown-toggle" type="button" id="dropdownMenuButton"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Каталог <img src="/svg/main/catalog.svg" alt="">
                         </a>
@@ -158,84 +155,6 @@
                         </div>
                     </div>
 
-
-                    {{-- <div class="dropdown">
-                        <button class="dropdown__toggle">
-                            <img class="dropdown__toggle-img" src="/svg/shop-icons/leroy-mini.svg" alt="">
-                            Леруа Мерлен
-                            <img class="dropdown__toggle-icon" src="/svg/main/accordion-arrow.svg" alt="">
-                        </button>
-                        <ul class="dropdown__mainmenu">
-                            <li class="dropdown__mainmenu-item"><a class="dropdown__mainmenu-link"
-                                    href="#">Стройматериалы</a>
-                                <ul class="dropdown__menu">
-                                    <li class="dropdown__menu-item"><a class="dropdown__menu-link" href="#">Сухие смеси
-                                            и грунтовки</a>
-                                        <ul class="dropdown__submenu">
-                                            <li class="dropdown__submenu-item"><a class="dropdown__submenu-link"
-                                                    href="#">Блоки строительные</a></li>
-                                            <li class="dropdown__submenu-item"><a class="dropdown__submenu-link"
-                                                    href="#">Плиты пазогребные</a></li>
-                                            <li class="dropdown__submenu-item"><a class="dropdown__submenu-link"
-                                                    href="#">Кирпич</a></li>
-                                            <li class="dropdown__submenu-item"><a class="dropdown__submenu-link"
-                                                    href="#">Стеклоблоки</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown__menu-item"><a class="dropdown__menu-link" href="#">Листовые
-                                            материалы</a></li>
-                                    <li class="dropdown__menu-item"><a class="dropdown__menu-link" href="#">Блоки для
-                                            строительства</a></li>
-                                    <li class="dropdown__menu-item"><a class="dropdown__menu-link" href="#">Изоляционные
-                                            материалы</a></li>
-                                    <li class="dropdown__menu-item"><a class="dropdown__menu-link" href="#">Кровля</a>
-                                    </li>
-                                    <li class="dropdown__menu-item"><a class="dropdown__menu-link"
-                                            href="#">Металлопрокат</a></li>
-                                    <li class="dropdown__menu-item"><a class="dropdown__menu-link" href="#">Наружная
-                                            канализация</a></li>
-                                    <li class="dropdown__menu-item"><a class="dropdown__menu-link" href="#">Облицовочные
-                                            материалы</a></li>
-                                    <li class="dropdown__menu-item"><a class="dropdown__menu-link" href="#">Камины</a>
-                                    </li>
-                                    <li class="dropdown__menu-item"><a class="dropdown__menu-link" href="#">Строительное
-                                            оборудование</a></li>
-                                    <li class="dropdown__menu-item"><a class="dropdown__menu-link" href="#">Дорожные
-                                            покрытия</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown__mainmenu-item"><a class="dropdown__mainmenu-link" href="#">Столярные
-                                    изделия</a></li>
-                            <li class="dropdown__mainmenu-item"><a class="dropdown__mainmenu-link" href="#">Окна и
-                                    двери</a></li>
-                            <li class="dropdown__mainmenu-item"><a class="dropdown__mainmenu-link"
-                                    href="#">Электротовары</a></li>
-                            <li class="dropdown__mainmenu-item"><a class="dropdown__mainmenu-link"
-                                    href="#">Инструменты</a></li>
-                            <li class="dropdown__mainmenu-item"><a class="dropdown__mainmenu-link" href="#">Напольные
-                                    покрытия</a></li>
-                            <li class="dropdown__mainmenu-item"><a class="dropdown__mainmenu-link" href="#">Плитка</a>
-                            </li>
-                            <li class="dropdown__mainmenu-item"><a class="dropdown__mainmenu-link"
-                                    href="#">Сантехника</a></li>
-                            <li class="dropdown__mainmenu-item"><a class="dropdown__mainmenu-link"
-                                    href="#">Водоснабжения</a></li>
-                            <li class="dropdown__mainmenu-item"><a class="dropdown__mainmenu-link" href="#">Сад</a></li>
-                            <li class="dropdown__mainmenu-item"><a class="dropdown__mainmenu-link" href="#">Скобяные
-                                    изделия</a></li>
-                            <li class="dropdown__mainmenu-item"><a class="dropdown__mainmenu-link" href="#">Краски</a>
-                            </li>
-                            <li class="dropdown__mainmenu-item"><a class="dropdown__mainmenu-link" href="#">Декор</a>
-                            </li>
-                            <li class="dropdown__mainmenu-item"><a class="dropdown__mainmenu-link"
-                                    href="#">Освещение</a></li>
-                            <li class="dropdown__mainmenu-item"><a class="dropdown__mainmenu-link" href="#">Хранение</a>
-                            </li>
-                            <li class="dropdown__mainmenu-item"><a class="dropdown__mainmenu-link" href="#">Кухни</a>
-                            </li>
-                        </ul>
-                    </div> --}}
-
                 </div>
                 <div class="col-lg-4">
                     <form action="" class="form-inline">
@@ -254,7 +173,7 @@
                         </a>
                         <a href="{{ route('favorites') }}">
                             <span id="favoritesCounter" class="{{ $headerFavoritesCount ? 'd-block' : 'd-none' }}">
-                                {{ $headerFavoritesCount ? $headerFavoritesCount : '' }}
+                                {{ $headerFavoritesCount ?: '' }}
                             </span>
                             <img src="/svg/main/favorite.svg" alt="">
                         </a>
@@ -265,7 +184,7 @@
                             </span>
                             <a href="{{ route('cart') }}">
                                 <span id="cartCounter" class="{{ $headerCartCount ? 'd-block' : 'd-none' }}">
-                                    {{ $headerCartCount ? $headerCartCount : '' }}
+                                    {{ $headerCartCount ?: '' }}
                                 </span>
                                 <img src="/svg/main/cart.svg" alt="">
                             </a>
