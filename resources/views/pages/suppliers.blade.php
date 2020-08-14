@@ -1,7 +1,7 @@
-<x-header/>
+<x-header />
 
-<main id="content" role="main" class="cart-page">
+<main id="content" role="main">
 
 </main>
 
-<x-footer/>
+<x-footer />

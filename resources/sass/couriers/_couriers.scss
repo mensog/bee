@@ -1,0 +1,234 @@
+.main-screen {
+    padding: 31px 0 63px;
+    min-height: 520px;
+    background: $light-grey url(/img/couriers/main-screen-bg.png) right bottom no-repeat;
+
+    .breadcrumb {
+        margin: 0 0 66px;
+    }
+
+    &__title {
+        margin: 0 0 20px;
+        font-weight: bold;
+        font-size: 42px;
+        line-height: 48px;
+        color: $black;
+    }
+
+    &__subtitle {
+        margin: 0 0 32px;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 18px;
+        color: $black;
+    }
+
+    &__benefits {
+        margin: 0 0 38px;
+        max-width: 600px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__benefits-item {}
+
+    &__benefits-title {
+        margin: 0 0 16px;
+        font-weight: normal;
+        font-size: 36px;
+        line-height: 26px;
+        color: $black;
+
+        span {
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 14px;
+        }
+    }
+
+    &__benefits-descr {
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        color: #818181;
+    }
+
+    &__benefits-add {
+        margin-top: 6px;
+        position: relative;
+        display: block;
+        padding-left: 26px;
+        font-weight: bold;
+        font-size: 11px;
+        line-height: 12px;
+        color: #00A454;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 0;
+            width: 18px;
+            height: 18px;
+            background: url(/svg/couriers/petrol.svg) center no-repeat;
+        }
+    }
+
+    &__btn {
+        max-width: 290px;
+        min-height: 52px;
+    }
+}
+
+
+.expectations {
+    padding: 64px 0;
+    background-color: $white;
+
+    &__title {
+        margin: 0 0 48px;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 32px;
+        color: $black;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        width: 350px;
+        height: 350px;
+        padding: 30px;
+
+        &_dark-gray {
+            background-color: $dark-grey;
+        }
+
+        &_gray {
+            background-color: $light-grey;
+        }
+
+        &_yellow {
+            background-color: #FDD900;
+        }
+    }
+
+    &__item-title {
+        margin: 0 0 16px;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 26px;
+        color: $black;
+
+        &_white {
+            color: $white;
+        }
+    }
+
+    &__item-text {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        color: $black;
+
+        &_white {
+            color: $white;
+        }
+
+        span {
+            display: block;
+            margin: 0 0 10px;
+        }
+    }
+
+    &__item-img {
+        margin-left: auto;
+        margin-top: auto;
+    }
+}
+
+.terms {
+    padding: 64px 0;
+    background-color: #FFF6CB;
+
+    .col-6 {
+       &:nth-child(1) {
+          .terms__item {
+             &::before {
+               background: #FDD900 url(/svg/couriers/curve.svg) center no-repeat;
+             }
+          }
+       }
+    }
+
+    .col-6 {
+      &:nth-child(2) {
+         .terms__item {
+            &::before {
+              background: #FDD900 url(/svg/couriers/ruble.svg) center no-repeat;
+            }
+         }
+      }
+   }
+
+   .col-6 {
+      &:nth-child(3) {
+         .terms__item {
+            &::before {
+              background: #FDD900 url(/svg/couriers/double.svg) center no-repeat;
+            }
+         }
+      }
+   }
+
+   .col-6 {
+      &:nth-child(4) {
+         .terms__item {
+            &::before {
+              background: #FDD900 url(/svg/couriers/percent.svg) center no-repeat;
+            }
+         }
+      }
+   }
+
+    &__title {
+        margin: 0 0 52px;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 32px;
+        color: $black;
+    }
+
+    &__item {
+       position: relative;
+       margin: 0 0 48px;
+       padding-left: 95px;
+
+       &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 65px;
+          height: 65px;
+          border-radius: 50%;
+         //  background: #FDD900;
+       }
+    }
+
+    &__item-title {
+        margin: 0 0 24px;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 16px;
+        color: $black;
+    }
+
+    &__item-text {
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 16px;
+      color: $black;
+    }
+}
