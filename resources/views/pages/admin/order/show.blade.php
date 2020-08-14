@@ -3,73 +3,73 @@
 <div id="content">
     <section>
         <div class="section-body order">
-            <div class="card-title">
-                <header>
-                    Заказ № {{ $order->id }}
-                </header>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <div class="order-status">
-                        <div>
-                            Cтатус:
-                            <p>{{ __('order_status.' . $order->status) }}</p>
-                        </div>
-                        <div>
-                            <button class="btn btn-warning">Редактировать</button>
-                        </div>
-                    </div>
-                    <div class="order-props">
-                        <div>
-                            <p>{{ $order->full_name }}</p>
-                            <p>{{ $order->phone }}</p>
-                            <p>{{ $order->email }}</p>
+{{--            <div class="card-title">--}}
+{{--                <header>--}}
+{{--                    Заказ № {{ $order->id }}--}}
+{{--                </header>--}}
+{{--            </div>--}}
+{{--            <div class="card">--}}
+{{--                <div class="card-body">--}}
+{{--                    <div class="order-status">--}}
+{{--                        <div>--}}
+{{--                            Cтатус:--}}
+{{--                            <p>{{ __('order_status.' . $order->status) }}</p>--}}
+{{--                        </div>--}}
+{{--                        <div>--}}
+{{--                            <button class="btn btn-warning">Редактировать</button>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="order-props">--}}
+{{--                        <div>--}}
+{{--                            <p>{{ $order->full_name }}</p>--}}
+{{--                            <p>{{ $order->phone }}</p>--}}
+{{--                            <p>{{ $order->email }}</p>--}}
 
-                            <p>Информация по личному счету</p>
-                        </div>
-                        <div>
-                            <p>
-                                <span>Дата заказа</span><span>{{ date('d.m.Y',strtotime($order->created_at)) }}</span>
-                            </p>
-                            <div class="order-props-list">
-                                <p class="order-props-list__item">
-                                    <span class="order-props-list__item--label">Кол-во позиций</span>
-                                    <span class="order-props-list__item--value">{{ count($order->items) }}</span>
-                                </p>
-                                <p class="order-props-list__item">
-                                    <span class="order-props-list__item--label">Оплаченная сумма</span>
-                                    <span class="order-props-list__item--value">{{ $order->getSum() / 100 }} руб</span>
-                                </p>
-                                <p class="order-props-list__item">
-                                    <span class="order-props-list__item--label">К возврату</span>
-                                    <span class="order-props-list__item--value">
-                                        {{ ($order->getSum() - $order->getFinalSum()) / 100 }} руб
-                                    </span>
-                                </p>
-                                <p class="order-props-list__item">
-                                    <span class="order-props-list__item--label">Из нее возвращено</span>
-                                    <span class="order-props-list__item--value">
-                                        {{ $order->refunded_amount / 100 }} руб
-                                    </span>
-                                </p>
-                            </div>
+{{--                            <p>Информация по личному счету</p>--}}
+{{--                        </div>--}}
+{{--                        <div>--}}
+{{--                            <p>--}}
+{{--                                <span>Дата заказа</span><span>{{ date('d.m.Y',strtotime($order->created_at)) }}</span>--}}
+{{--                            </p>--}}
+{{--                            <div class="order-props-list">--}}
+{{--                                <p class="order-props-list__item">--}}
+{{--                                    <span class="order-props-list__item--label">Кол-во позиций</span>--}}
+{{--                                    <span class="order-props-list__item--value">{{ count($order->items) }}</span>--}}
+{{--                                </p>--}}
+{{--                                <p class="order-props-list__item">--}}
+{{--                                    <span class="order-props-list__item--label">Оплаченная сумма</span>--}}
+{{--                                    <span class="order-props-list__item--value">{{ $order->getSum() / 100 }} руб</span>--}}
+{{--                                </p>--}}
+{{--                                <p class="order-props-list__item">--}}
+{{--                                    <span class="order-props-list__item--label">К возврату</span>--}}
+{{--                                    <span class="order-props-list__item--value">--}}
+{{--                                        {{ ($order->getSum() - $order->getFinalSum()) / 100 }} руб--}}
+{{--                                    </span>--}}
+{{--                                </p>--}}
+{{--                                <p class="order-props-list__item">--}}
+{{--                                    <span class="order-props-list__item--label">Из нее возвращено</span>--}}
+{{--                                    <span class="order-props-list__item--value">--}}
+{{--                                        {{ $order->refunded_amount / 100 }} руб--}}
+{{--                                    </span>--}}
+{{--                                </p>--}}
+{{--                            </div>--}}
 
-                        </div>
-                        <div>
-                            <p>Детали доставки до клиента</p>
-                            <p id="mapAddress" data-address="{{ $order->address }}">
-                                {{ $order->address }}
-                                <span>Показать на карте</span>
-                            </p>
-                            <p>
-                                {{ date('H:i',strtotime($order->delivery_start_time)) }}
-                                <span>в интервале </span>
-                                {{ date('H:i',strtotime($order->delivery_end_time)) }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+{{--                        </div>--}}
+{{--                        <div>--}}
+{{--                            <p>Детали доставки до клиента</p>--}}
+{{--                            <p id="mapAddress" data-address="{{ $order->address }}">--}}
+{{--                                {{ $order->address }}--}}
+{{--                                <span>Показать на карте</span>--}}
+{{--                            </p>--}}
+{{--                            <p>--}}
+{{--                                {{ date('H:i',strtotime($order->delivery_start_time)) }}--}}
+{{--                                <span>в интервале </span>--}}
+{{--                                {{ date('H:i',strtotime($order->delivery_end_time)) }}--}}
+{{--                            </p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
             <div class="row">
                 <div class="col-lg-3">
                     <div class="card card-bordered style-default-light no-shadow order-info">
