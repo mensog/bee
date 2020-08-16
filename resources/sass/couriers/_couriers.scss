@@ -61,7 +61,7 @@
         font-weight: bold;
         font-size: 11px;
         line-height: 12px;
-        color: #00A454;
+        color: $green;
 
         &::before {
             content: '';
@@ -109,7 +109,7 @@
         }
 
         &_yellow {
-            background-color: #FDD900;
+            background-color: $yellow1;
         }
     }
 
@@ -156,7 +156,7 @@
         &:nth-child(1) {
             .terms__item {
                 &::before {
-                    background: #FDD900 url(/svg/couriers/curve.svg) center no-repeat;
+                    background: $yellow1 url(/svg/couriers/curve.svg) center no-repeat;
                 }
             }
         }
@@ -166,7 +166,7 @@
         &:nth-child(2) {
             .terms__item {
                 &::before {
-                    background: #FDD900 url(/svg/couriers/ruble.svg) center no-repeat;
+                    background: $yellow1 url(/svg/couriers/ruble.svg) center no-repeat;
                 }
             }
         }
@@ -176,7 +176,7 @@
         &:nth-child(3) {
             .terms__item {
                 &::before {
-                    background: #FDD900 url(/svg/couriers/double.svg) center no-repeat;
+                    background: $yellow1 url(/svg/couriers/double.svg) center no-repeat;
                 }
             }
         }
@@ -186,7 +186,7 @@
         &:nth-child(4) {
             .terms__item {
                 &::before {
-                    background: #FDD900 url(/svg/couriers/percent.svg) center no-repeat;
+                    background: $yellow1 url(/svg/couriers/percent.svg) center no-repeat;
                 }
             }
         }
@@ -259,7 +259,7 @@
         font-size: 36px;
         line-height: 26px;
         color: $black;
-        border-bottom: 1px solid #E3E3E3;
+        border-bottom: 1px solid $gray2;
     }
 
     &__subtitle {
@@ -286,7 +286,7 @@
         max-width: 260px;
         margin: 0 20px 0 0;
         padding: 24px 24px 34px;
-        border: 1px solid #E3E3E3;
+        border: 1px solid $gray3;
         transition: all .3s linear;
 
         &:last-child {
@@ -294,7 +294,7 @@
         }
 
         &:hover {
-            border: 1px solid #FDD900;
+            border: 1px solid $yellow1;
         }
 
         &:nth-of-type(2) {
@@ -330,16 +330,16 @@
         width: 100%;
         padding: 20px;
         background: $light-grey;
-        border: 1px solid #E3E3E3;
+        border: 1px solid $gray3;
         border-radius: 5px;
         font-size: 14px;
         line-height: 12px;
-        color: #9F9F9F;
+        color: $gray2;
 
         &::placeholder {
             font-size: 14px;
             line-height: 12px;
-            color: #9F9F9F;
+            color: $gray2;
         }
 
         &_mr {
@@ -352,7 +352,7 @@
         padding-left: 53px;
         font-size: 14px;
         line-height: 12px;
-        color: #9F9F9F;
+        color: $gray2;
 
         &::before,
         &::after {
@@ -363,6 +363,7 @@
             width: 18px;
             height: 18px;
         }
+
         &::before {
             background: url(/svg/couriers/truck.svg) center no-repeat;
         }
@@ -385,22 +386,90 @@
 }
 
 .request {
+    min-height: 590px;
 
-    &__header {}
+    &__header {
+        padding: 30px;
+        background: $yellow1;
+    }
 
-    &__header-title {}
+    &__header-title {
+        margin: 0 0 14px;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 26px;
+        color: $black;
 
-    &__header-descr {}
+        span {
+            margin: 0 0 16px;
+            display: block;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 14px;
+        }
 
-    &__form {}
 
-    &__form-title {}
+    }
 
-    &__form-text {}
+    &__header-descr {
+        font-weight: normal;
+        font-size: 11px;
+        line-height: 12px;
+        color: $black;
+    }
 
-    &__form-input {}
+    &__form {
+        min-height: 435px;
+        padding: 30px;
+        background: $white;
+    }
 
-    &__form-btn {}
+    &__form-title {
+        margin: 0 0 21px;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 16px;
+        color: $black;
+    }
 
-    &__form-descr {}
+    &__form-text {
+        margin: 0 0 18px;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        color: $gray2;
+
+        span {
+            font-weight: bold;
+            color: $black;
+        }
+    }
+
+    &__form-input {
+        width: 100%;
+        padding: 20px;
+        margin: 0 0 20px;
+        background: $gray4;
+        border: 1px solid $gray3;
+        border-radius: 5px;
+        font-size: 14px;
+        line-height: 12px;
+        color: $gray2;
+
+        &::placeholder {
+            font-size: 14px;
+            line-height: 12px;
+            color: $gray2;
+        }
+    }
+
+    &__form-btn {
+        margin: 20px 0 8px;
+    }
+
+    &__form-descr {
+        font-size: 11px;
+        line-height: 12px;
+        color: $gray2;
+    }
 }

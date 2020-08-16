@@ -140,11 +140,11 @@
                     <div class="request">
                         <div class="request__header">
                             <h2 class="request__header-title"><span>Я заработаю за месяц*</span> ~ 35 023 ₽</h2>
-                            <div class="request__header-descr">*За расчет берется средний месяц, в котором 30.5 дней</div>
+                            <div class="request__header-descr">*За расчет берется средний месяц, <br> в котором 30.5 дней</div>
                         </div>
                         <form action="#" class="request__form">
                             <h3 class="request__form-title">Заявка на вакансию</h3>
-                            <div class="request__form-text">Оставьте контактные данные и мы вышлем информацию о вакансии курьера с зарплатой <span>42 200 ₽</span></div>
+                            <div class="request__form-text">Оставьте контактные данные и мы вышлем информацию о вакансии <br> курьера с зарплатой <span>42 200 ₽</span></div>
                             <input class="request__form-input" type="text" placeholder="Имя">
                             <input class="request__form-input" type="text" placeholder="Телефон">
                             <button class="request__form-btn btn btn-primary" type="submit">Получить вакансию</button>
