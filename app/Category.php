@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Category extends Model
 {
@@ -48,13 +49,61 @@ class Category extends Model
         if ($parent) {
             $parentBreadcrumbs = $parent->getBreadcrumbs();
             if ($parentBreadcrumbs) {
-                $result = array_merge($parentBreadcrumbs, [$this->name]);
+                $result = array_merge($parentBreadcrumbs, [$this->friendly_url_name => $this->name]);
                 return $result;
             } else {
-                return [$this->name];
+                return [$this->friendly_url_name => $this->name];
             }
         } else {
-            return [$this->name];
+            return [$this->friendly_url_name => $this->name];
         }
+    }
+
+    public static function getCatalog($storeId)
+    {
+        $categoriesToDisplay = self::getNonEmptyCategoryIds($storeId);
+        $groupedCategories = Category::/*whereNull('parse_url')->*/whereIn('id', $categoriesToDisplay)->orderBy('parent')->orderBy('name')->get()->groupBy('parent');
+        return $groupedCategories;
+    }
+
+    public static function getNonEmptyCategoryIds($storeId)
+    {
+        $categoryParents = Category::/*whereNull('parse_url')->*/get()->pluck('parent', 'id')->toArray();
+        $productsInCategory = DB::table('products')
+            ->select(DB::raw('count(*) as count, category_id'))
+            ->where('store_id', $storeId)
+            ->groupBy('category_id')
+            ->get()
+            ->pluck('count', 'category_id')
+            ->toArray();
+
+        function getParentIds($parentCategoryId, $allCategories) {
+            if (is_null($allCategories[$parentCategoryId])) {
+                return [$parentCategoryId];
+            } else {
+                return array_merge([$parentCategoryId], getParentIds($allCategories[$parentCategoryId], $allCategories));
+            }
+        }
+        $categoriesToDisplay = [];
+        foreach ($productsInCategory as $categoryId => $count) {
+            $categoriesToDisplay = array_merge($categoriesToDisplay, getParentIds($categoryId, $categoryParents));
+        }
+        return $categoriesToDisplay;
+    }
+
+    public function getChildCategoryIds()
+    {
+        $categoryIds = [];
+        $childCategories = $this->childCategories;
+        foreach ($childCategories as $child) {
+            $categoryIds = array_merge([$child->id], $child->getChildCategoryIds());
+        }
+        return $categoryIds;
+    }
+
+    public function productsWithChildQuery($storeId)
+    {
+        $childCategories = $this->getChildCategoryIds();
+        return Product::whereIn('category_id', array_merge([$this->id], $childCategories));
     }
 }

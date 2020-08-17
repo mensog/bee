@@ -5,15 +5,19 @@
     <div class="breadcrumbs">
         <div class="container">
             <p class="breadcrumbs-block">
-                <a class="breadcrumbs-block__link" href="{{ route('main') }}">Главная</a>
+                <a class="breadcrumbs-block__link" href="{{ route('main', ['storeSlug' => $product->store->slug]) }}">Главная</a>
                 /
-                <a class="breadcrumbs-block__link" href="{{ route('catalog') }}">Каталог</a>
+                <a class="breadcrumbs-block__link" href="{{ route('store_main', ['storeSlug' => $product->store->slug]) }}">{{ $product->store->company_name }}</a>
                 /
+                <a class="breadcrumbs-block__link" href="{{ route('catalog', ['storeSlug' => $product->store->slug]) }}">Каталог</a>
+                /
+                @foreach($categoryBreadcrumbs as $url => $catName)
                 <a class="breadcrumbs-block__link"
-                   href="{{ route('category', $product->category->friendly_url_name) }}">
-                    {{$product->category->name}}
+                   href="{{ route('category', ['name' => $url, 'storeSlug' => $product->store->slug]) }}">
+                    {{ $catName }}
                 </a>
                 /
+                @endforeach
                 {{ $product->name }}
             </p>
         </div>

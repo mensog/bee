@@ -81,10 +81,6 @@ Route::group(['prefix' => 'lk', 'namespace' => 'Lk', 'middleware' => 'auth'], fu
     Route::get('/profile/changepass', 'ProfileController@showChangePasswordForm')->name('lk_profile_change_password_form');
     Route::post('/profile/changepass', 'ProfileController@changePassword')->name('lk_profile_change_password');
 });
-
-Route::get('/catalog', 'CategoryController@index')->name('catalog');
-Route::get('/category/{name}', 'CategoryController@show')->name('category');
-Route::get('/product/{name}', 'ProductController@show')->name('product');
 Route::get('/cart', 'CartController@show')->name('cart');
 Route::get('/addtocart', 'CartController@addProduct')->name('add_to_cart');
 Route::get('/removefromcart', 'CartController@removeProduct')->name('remove_from_cart');
@@ -101,3 +97,9 @@ Auth::routes();
 Route::get('/personal-data-agreement', 'StaticPageController@personalDataAgreement')->name('personal-data-agreement');
 Route::get('/personal-data-policy', 'StaticPageController@personalDataPolicy')->name('personal-data-policy');
 Route::get('/sale-regulations', 'StaticPageController@saleRegulations')->name('sale-regulations');
+
+Route::get('/{storeSlug}/catalog', 'CategoryController@index')->name('catalog');
+Route::get('/{storeSlug}/category/{name}', 'CategoryController@show')->name('category');
+Route::get('/{storeSlug}/product/{name}', 'ProductController@show')->name('product');
+
+Route::get('/{storeSlug}', 'MainController@showStore')->name('store_main');

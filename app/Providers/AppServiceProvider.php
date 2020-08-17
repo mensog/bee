@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Cart;
 use App\FavoriteList;
 use App\Observers\CartObserver;
+use App\Partner;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -38,6 +39,19 @@ class AppServiceProvider extends ServiceProvider
 
             $favorites = $this->app->make('FavoriteList');
             view()->share('headerFavoritesCount', $favorites->countTotalQuantity());
+            $store = null;
+            $currentRoute = \Route::current();
+            if (!is_null($currentRoute)) {
+                $currentStoreSlug = \Route::current()->parameter('storeSlug');
+                if (!is_null($currentStoreSlug)) {
+                    $store = Partner::where('slug', $currentStoreSlug)->first();
+                }
+            }
+            view()->share('currentStore', $store);
+
+            $stores = Partner::all();
+            view()->share('headerAllStores', $stores);
+
         });
     }
 }

@@ -72,7 +72,19 @@
                                             и грунтовки</a>
                                         <ul class="dropdown__submenu">
                                             <li class="dropdown__submenu-item"><a class="dropdown__submenu-link"
-                                                                                  href="#">Блоки строительные</a></li>
+                                                                                  href="#">Блоки строительные</a> <li class="dropdown__menu-item"><a class="dropdown__menu-link" href="#">Сухие смеси
+                                                    и грунтовки</a>
+                                                <ul class="dropdown__submenu">
+                                                    <li class="dropdown__submenu-item"><a class="dropdown__submenu-link"
+                                                                                          href="#">Блоки строительные</a></li>
+                                                    <li class="dropdown__submenu-item"><a class="dropdown__submenu-link"
+                                                                                          href="#">Плиты пазогребные</a></li>
+                                                    <li class="dropdown__submenu-item"><a class="dropdown__submenu-link"
+                                                                                          href="#">Кирпич</a></li>
+                                                    <li class="dropdown__submenu-item"><a class="dropdown__submenu-link"
+                                                                                          href="#">Стеклоблоки</a></li>
+                                                </ul>
+                                            </li></li>
                                             <li class="dropdown__submenu-item"><a class="dropdown__submenu-link"
                                                                                   href="#">Плиты пазогребные</a></li>
                                             <li class="dropdown__submenu-item"><a class="dropdown__submenu-link"
@@ -142,16 +154,16 @@
                     <a class="nav-link dropdown-toggle dropdown-btn" href="#" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div>
-                            <img src="/svg/shop-icons/leroy-mini.svg" alt="">
-                            Леруа Мерлен
+                            <img src="{{ $currentStore->image_path ?? '' }}" alt="">
+                            {{ $currentStore->company_name ?? 'Выберите магазин' }}
                         </div>
                         <img src="/svg/main/accordion-arrow.svg" alt="">
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Текст</a>
-                        <a class="dropdown-item" href="#">Текст</a>
+                        @foreach($headerAllStores as $store)
+                        <a class="dropdown-item" href="{{ route('store_main', $store->slug) }}">{{ $store->company_name }}</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Текст</a>
+                        @endforeach
                     </div>
                 </div>
 

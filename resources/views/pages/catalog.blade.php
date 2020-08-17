@@ -27,37 +27,7 @@
                 <div class="col-lg-3">
                     <div class="catalog__aside">
                         <div class="catalog__subtitle subtitle">Категории</div>
-                        <ul class="catalog__list">
-                            <li class="catalog__list-item">
-                                <a class="catalog__list-link" href="#">Строительство и ремонт</a>
-                                <ul class="catalog__sublist">
-                                    <li class="catalog__sublist-item">
-                                        <a class="catalog__sublist-link" href="#">Расходные материалы</a>
-                                        <ul class="catalog__dropdown">
-                                            <li class="catalog__dropdown-item">
-                                                <a class="catalog__dropdown-link" href="#">Сухие смеси и грунтовка</a>
-                                            </li>
-                                            <li class="catalog__dropdown-item">
-                                                <a class="catalog__dropdown-link" href="#">Листовые материалы</a></li>
-                                            <li class="catalog__dropdown-item">
-                                                <a class="catalog__dropdown-link" href="#">Блоки для строительства</a>
-                                            </li>
-                                            <li class="catalog__dropdown-item">
-                                                <a class="catalog__dropdown-link" href="#">Водосточные и дренажные
-                                                    системы
-                                                </a>
-                                            </li>
-                                            <li class="catalog__dropdown-item">
-                                                <a class="catalog__dropdown-link" href="#">Металлопрокат</a>
-                                            </li>
-                                            <li class="catalog__dropdown-item">
-                                                <a class="catalog__dropdown-link" href="#">Изоляционные материалы</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <x-category-sidebar :categories=$categories :store=$store />
                         <div class="price-filter">
                             <h4 class="price-filter__title subtitle">Цена</h4>
                             <div class="price-filter__wrap">
@@ -148,7 +118,7 @@
                             @foreach ($products as $key => $product)
                                 <div class="col-lg-4">
                                     <div id="product_{{ $product->id }}" class="product__item">
-                                        <a href="{{ route('product', $product->friendly_url_name) }}">
+                                        <a href="{{ route('product', ['storeSlug' => $product->store->slug, 'name' => $product->friendly_url_name]) }}">
                                             <div class="product__item-img">
                                                 <img src="{{ $product->img_url }}" alt="{{ $product->name }}">
                                             </div>
@@ -164,7 +134,7 @@
                                                 <i class="ec ec-favorites font-size-15"></i>
                                             </button>
                                         @endif
-                                        <a href="{{ route('product', $product->friendly_url_name) }}">
+                                        <a href="{{ route('product', ['storeSlug' => $product->store->slug, 'name' => $product->friendly_url_name]) }}">
                                             <div class="product__item-descr">{{ $product->name }}</div>
                                             <div class="product__item-article">{{ $product->sku }}</div>
                                             <div class="product__item-price">
