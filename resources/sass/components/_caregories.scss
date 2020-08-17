@@ -19,6 +19,7 @@
         width: 206px;
         height: 206px;
         background-color: $tertiary-gray;
+        transition: all .3s linear;
 
         &:hover {
             box-shadow: 0 4px 11px rgba($primary-gray, 0.35);
