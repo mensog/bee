@@ -54,24 +54,24 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <div class="col-md-6">
-                                        <div class="form-control-container">
+{{--                                    <div class="col-md-6">--}}
+{{--                                        <div class="form-control-container">--}}
 
-                                            <input id="phone" type="phone"
-                                                   placeholder=" "
-                                                   class="form-control @error('phone') is-invalid @enderror"
-                                                   name="phone"
-                                                   value="{{ old('phone') }}" required autocomplete="phone">
-                                            <label for="phone">Телефон</label>
+{{--                                            <input id="phone" type="phone"--}}
+{{--                                                   placeholder=" "--}}
+{{--                                                   class="form-control @error('phone') is-invalid @enderror"--}}
+{{--                                                   name="phone"--}}
+{{--                                                   value="{{ old('phone') }}" required autocomplete="phone">--}}
+{{--                                            <label for="phone">Телефон</label>--}}
 
-                                            @error('phone')
-                                            <span class="invalid-feedback" role="alert">
-                                                {{ $message }}
-                                            </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
+{{--                                            @error('phone')--}}
+{{--                                            <span class="invalid-feedback" role="alert">--}}
+{{--                                                {{ $message }}--}}
+{{--                                            </span>--}}
+{{--                                            @enderror--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+                                    <div class="col-md-12">
                                         <div class="form-control-container">
 
                                             <input id="email" type="email"

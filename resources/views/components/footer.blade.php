@@ -96,24 +96,5 @@
         $('#passwordChanged').modal('show')
     </script>
 @endif
-
-<script>
-    $('.owl-carousel').owlCarousel({
-        animateOut: 'fadeOut',
-        autoplay: true,
-        autoplayTimeout: 5000,
-        autoplayHoverPause: false,
-        stopOnHover: true,
-        nav: false,
-        lazyLoad: true,
-        stagePadding: 0,
-        dots: true,
-        responsive: {
-            0: {
-                items: 1
-            }
-        }
-    })
-</script>
 </body>
 </html>
