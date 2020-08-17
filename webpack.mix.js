@@ -11,7 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js(['resources/js/app.js', 'resources/js/owl.carousel.js'], 'public/js') // внешний сайт
+mix.js(['resources/js/app.js'], 'public/js') // внешний сайт
     .styles([
         'resources/css/app.css', 'resources/css/animate.css/animate.css',
         'resources/css/font-awesome/fontawesome-all.min.css',

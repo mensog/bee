@@ -19,6 +19,12 @@
 @import "couriers/couriers";
 @import "services/services";
 @import "suppliers/suppliers";
+@import "auth/auth";
+@import "inputs";
+
+#content {
+    background: #F4F4F4;
+}
 
 .pagination {
     justify-content: center;
@@ -173,25 +179,6 @@ button {
 .cart-qty, .product-qty {
     padding: 5px;
     -moz-appearance: textfield;
-}
-
-.card-auth {
-    position: relative;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    margin-bottom: 40px;
-
-    .card-auth__body {
-        padding: 45px 70px;
-    }
-
-    label {
-        padding-left: 16px;
-    }
-
-    .invalid-feedback {
-        padding-left: 16px;
-    }
 }
 
 .checkout {
