@@ -7,10 +7,16 @@
     color: #000000;
     background: #FDD900;
     border-radius: 5px;
+
+    &:hover {
+        cursor: pointer;
+    box-shadow: 0 4px 11px rgba(254, 215, 0, 0.35);
+    }
 }
 
 .btn:hover {
     cursor: pointer;
+    box-shadow: 0 4px 11px rgba(254, 215, 0, 0.35);
 }
 
 .btn {
