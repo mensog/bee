@@ -9,8 +9,8 @@
     border-radius: 5px;
 
     &:hover {
-        background: $light-yellow;
         cursor: pointer;
+    box-shadow: 0 4px 11px rgba(254, 215, 0, 0.35);
     }
 }
 
