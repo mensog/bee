@@ -20,12 +20,16 @@
         height: 206px;
         background-color: $tertiary-gray;
 
+        &:hover {
+            box-shadow: 0 4px 11px rgba($primary-gray, 0.35);
+        }
+
         &_empty {
             justify-content: center;
             align-items: center;
             background-color: $primary-yellow;
 
-            a {
+            span {
                 padding-right: 0;
                 font-weight: bold;
                 font-size: 20px;
@@ -39,7 +43,7 @@
         }
     }
 
-    &__item-link {
+    &__item-descr {
         position: relative;
         display: block;
         width: 100%;

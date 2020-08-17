@@ -2,25 +2,25 @@
     <div class="container">
         <h2 class="categories__heading">Категории</h2>
         <div class="categories__items">
-            <div class="categories__item">
-                <a class="categories__item-link" href="#">Скобяные <br> изделия</a>
+            <a href="#" class="categories__item">
+                <span class="categories__item-descr">Скобяные <br> изделия</span>
                 <img class="categories__item-img" src="/svg/components/categories/hardware.svg" alt="">
-            </div>
-            <div class="categories__item">
-                <a class="categories__item-link" href="#">Плитка</a>
+            </a>
+            <a href="#" class="categories__item">
+                <span class="categories__item-descr">Плитка</span>
                 <img class="categories__item-img" src="/svg/components/categories/tile.svg" alt="">
-            </div>
-            <div class="categories__item">
-                <a class="categories__item-link" href="#">Окна и двери</a>
+            </a>
+            <a href="#" class="categories__item">
+                <span class="categories__item-descr">Окна и двери</span>
                 <img class="categories__item-img" src="/svg/components/categories/window.svg" alt="">
-            </div>
-            <div class="categories__item">
-                <a class="categories__item-link" href="#">Электротовары</a>
+            </a>
+            <a href="#" class="categories__item">
+                <span class="categories__item-descr">Электротовары</span>
                 <img class="categories__item-img" src="/svg/components/categories/electrical.svg" alt="">
-            </div>
-            <div class="categories__item categories__item_empty">
-                <a class="categories__item-link" href="#">Ещё 15 категорий</a>
-            </div>
+            </a>
+            <a href="#" class="categories__item categories__item_empty">
+                <span class="categories__item-descr">Ещё 15 категорий</span>
+            </a>
         </div>
     </div>
 </div>
