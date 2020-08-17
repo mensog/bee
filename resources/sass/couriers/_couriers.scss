@@ -2,6 +2,7 @@
     padding: 31px 0 63px;
     min-height: 520px;
     background: $light-grey url(/img/couriers/main-screen-bg.png) 85% bottom no-repeat;
+    background-size: contain;
 
     .breadcrumb {
         margin: 0 0 66px;
@@ -117,6 +118,10 @@
 
         &_yellow {
             background-color: #FDD900;
+        }
+
+        img {
+            max-width: 100%;
         }
     }
 
