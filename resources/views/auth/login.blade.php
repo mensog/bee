@@ -7,7 +7,7 @@
                 <div class="col-md-4">
                     <div class="card-auth">
                         <div class="card-auth__body">
-                            <h2>Войти</h2>
+                            <h3>Войти</h3>
                             <form method="POST" class="form floating-label" action="{{ route('login') }}">
                                 @csrf
 
