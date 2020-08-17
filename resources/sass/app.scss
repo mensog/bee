@@ -20,6 +20,11 @@
 @import "services/services";
 @import "suppliers/suppliers";
 
+// Components
+@import "components/caregories";
+@import "components/liked";
+
+
 .pagination {
     justify-content: center;
 }
