@@ -32,25 +32,35 @@
             </div>
           </div>
           <div class="delivery__pros">
-             <div class="delivery__pros-item">
-               <img src="/img/store/notebook.png" alt="">
-               <div class="delivery__pros-title">Экономим время</div>
-               <div class="delivery__pros-descr">Выбирайте товары из разных магазинов - получайте все вместе</div>
-             </div>
-             <div class="delivery__pros-item">
-               <img src="/img/store/delivery.png" alt="">
-               <div class="delivery__pros-title">Доставка BeeClub</div>
-               <div class="delivery__pros-descr">599-999 ₽. Мы соберем и привезем общий заказ. Вы платите за доставку 1 раз</div>
-             </div>
-             <div class="delivery__pros-item">
-               <img src="/img/store/box.png" alt="">
-               <div class="delivery__pros-title">Бесплатно доставим</div>
-               <div class="delivery__pros-descr">При заказе от 10 000 ₽ </div>
-             </div>
-             <div class="delivery__pros-item">
-               <img src="/img/store/phone.png" alt="">
-               <div class="delivery__pros-title">Как мы работаем</div>
-               <div class="delivery__pros-descr">О работе нашего сервиса в трех простых шагах</div>
+             <div class="row">
+                <div class="col-3">
+                   <div class="delivery__pros-item">
+                     <img src="/img/store/notebook.png" alt="">
+                     <div class="delivery__pros-title">Экономим время</div>
+                     <div class="delivery__pros-descr">Выбирайте товары из разных магазинов - получайте все вместе</div>
+                   </div>
+                </div>
+                <div class="col-3">
+                   <div class="delivery__pros-item">
+                     <img src="/img/store/delivery.png" alt="">
+                     <div class="delivery__pros-title">Доставка BeeClub</div>
+                     <div class="delivery__pros-descr">599-999 ₽. Мы соберем и привезем общий заказ. Вы платите за доставку 1 раз</div>
+                   </div>
+                </div>
+                <div class="col-3">
+                   <div class="delivery__pros-item">
+                     <img src="/img/store/box.png" alt="">
+                     <div class="delivery__pros-title">Бесплатно доставим</div>
+                     <div class="delivery__pros-descr">При заказе от 10 000 ₽ </div>
+                   </div>
+                </div>
+                <div class="col-3">
+                   <div class="delivery__pros-item">
+                     <img src="/img/store/phone.png" alt="">
+                     <div class="delivery__pros-title">Как мы работаем</div>
+                     <div class="delivery__pros-descr">О работе нашего сервиса в трех простых шагах</div>
+                   </div>
+                </div>
              </div>
           </div>
       </div>
@@ -58,6 +68,7 @@
 
    <x-categories/>
    <x-liked/>
+   <x-delivery/>
 </main>
 
 <x-footer/>
