@@ -21,6 +21,11 @@
 @import "suppliers/suppliers";
 @import "auth/auth";
 @import "inputs";
+@import "store/store";
+
+// Components
+@import "components/caregories";
+@import "components/liked";
 
 #content {
     background: #F4F4F4;
