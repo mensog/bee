@@ -75,3 +75,4 @@
         <p class="text-center font-size-36">Перейти в <a href="{{ route('catalog') }}">каталог</a></p>
     </div>
 @endif
+<x-services/>

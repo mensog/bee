@@ -109,7 +109,7 @@
         }
 
         &_yellow {
-            background-color: $yellow1;
+            background-color: $primary-yellow;
         }
     }
 
@@ -156,7 +156,7 @@
         &:nth-child(1) {
             .terms__item {
                 &::before {
-                    background: $yellow1 url(/svg/couriers/curve.svg) center no-repeat;
+                    background: $primary-yellow url(/svg/couriers/curve.svg) center no-repeat;
                 }
             }
         }
@@ -166,7 +166,7 @@
         &:nth-child(2) {
             .terms__item {
                 &::before {
-                    background: $yellow1 url(/svg/couriers/ruble.svg) center no-repeat;
+                    background: $primary-yellow url(/svg/couriers/ruble.svg) center no-repeat;
                 }
             }
         }
@@ -176,7 +176,7 @@
         &:nth-child(3) {
             .terms__item {
                 &::before {
-                    background: $yellow1 url(/svg/couriers/double.svg) center no-repeat;
+                    background: $primary-yellow url(/svg/couriers/double.svg) center no-repeat;
                 }
             }
         }
@@ -186,7 +186,7 @@
         &:nth-child(4) {
             .terms__item {
                 &::before {
-                    background: $yellow1 url(/svg/couriers/percent.svg) center no-repeat;
+                    background: $primary-yellow url(/svg/couriers/percent.svg) center no-repeat;
                 }
             }
         }
@@ -259,7 +259,7 @@
         font-size: 36px;
         line-height: 26px;
         color: $black;
-        border-bottom: 1px solid $gray2;
+        border-bottom: 1px solid $secondary-gray;
     }
 
     &__subtitle {
@@ -286,7 +286,7 @@
         max-width: 260px;
         margin: 0 20px 0 0;
         padding: 24px 24px 34px;
-        border: 1px solid $gray3;
+        border: 1px solid $tertiary-gray;
         transition: all .3s linear;
 
         &:last-child {
@@ -294,7 +294,7 @@
         }
 
         &:hover {
-            border: 1px solid $yellow1;
+            border: 1px solid $primary-yellow;
         }
 
         &:nth-of-type(2) {
@@ -330,16 +330,16 @@
         width: 100%;
         padding: 20px;
         background: $light-grey;
-        border: 1px solid $gray3;
+        border: 1px solid $tertiary-gray;
         border-radius: 5px;
         font-size: 14px;
         line-height: 12px;
-        color: $gray2;
+        color: $secondary-gray;
 
         &::placeholder {
             font-size: 14px;
             line-height: 12px;
-            color: $gray2;
+            color: $secondary-gray;
         }
 
         &_mr {
@@ -352,7 +352,7 @@
         padding-left: 53px;
         font-size: 14px;
         line-height: 12px;
-        color: $gray2;
+        color: $secondary-gray;
 
         &::before,
         &::after {
@@ -390,7 +390,7 @@
 
     &__header {
         padding: 30px;
-        background: $yellow1;
+        background: $primary-yellow;
     }
 
     &__header-title {
@@ -437,7 +437,7 @@
         font-weight: normal;
         font-size: 14px;
         line-height: 16px;
-        color: $gray2;
+        color: $secondary-gray;
 
         span {
             font-weight: bold;
@@ -449,17 +449,17 @@
         width: 100%;
         padding: 20px;
         margin: 0 0 20px;
-        background: $gray4;
-        border: 1px solid $gray3;
+        background: $quaternary-gray;
+        border: 1px solid $tertiary-gray;
         border-radius: 5px;
         font-size: 14px;
         line-height: 12px;
-        color: $gray2;
+        color: $secondary-gray;
 
         &::placeholder {
             font-size: 14px;
             line-height: 12px;
-            color: $gray2;
+            color: $secondary-gray;
         }
     }
 
@@ -470,6 +470,6 @@
     &__form-descr {
         font-size: 11px;
         line-height: 12px;
-        color: $gray2;
+        color: $secondary-gray;
     }
 }
