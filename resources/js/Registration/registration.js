@@ -75,6 +75,14 @@ jQuery($ => {
 //     checkRegistrationForm(false, $(this), 'registration')
 // })
 
+    /**
+     *  Validate inputs by page
+     *
+     * @param load
+     * @param $this
+     * @param page
+     * @param ignoreID
+     */
     const checkRegistrationForm = (load, $this, page, ignoreID) => {
         if (load) {
             $(`.${page} input`).each(function () {
