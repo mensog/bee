@@ -54,23 +54,23 @@
                                 </div>
 
                                 <div class="form-group row">
-{{--                                    <div class="col-md-6">--}}
-{{--                                        <div class="form-control-container">--}}
+                                    {{--                                    <div class="col-md-6">--}}
+                                    {{--                                        <div class="form-control-container">--}}
 
-{{--                                            <input id="phone" type="phone"--}}
-{{--                                                   placeholder=" "--}}
-{{--                                                   class="form-control @error('phone') is-invalid @enderror"--}}
-{{--                                                   name="phone"--}}
-{{--                                                   value="{{ old('phone') }}" required autocomplete="phone">--}}
-{{--                                            <label for="phone">Телефон</label>--}}
+                                    {{--                                            <input id="phone" type="phone"--}}
+                                    {{--                                                   placeholder=" "--}}
+                                    {{--                                                   class="form-control @error('phone') is-invalid @enderror"--}}
+                                    {{--                                                   name="phone"--}}
+                                    {{--                                                   value="{{ old('phone') }}" required autocomplete="phone">--}}
+                                    {{--                                            <label for="phone">Телефон</label>--}}
 
-{{--                                            @error('phone')--}}
-{{--                                            <span class="invalid-feedback" role="alert">--}}
-{{--                                                {{ $message }}--}}
-{{--                                            </span>--}}
-{{--                                            @enderror--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                                    {{--                                            @error('phone')--}}
+                                    {{--                                            <span class="invalid-feedback" role="alert">--}}
+                                    {{--                                                {{ $message }}--}}
+                                    {{--                                            </span>--}}
+                                    {{--                                            @enderror--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </div>--}}
                                     <div class="col-md-12">
                                         <div class="form-control-container">
 
@@ -133,9 +133,11 @@
                                         </button>
                                     </div>
                                     <div class="col-md-12">
-                                        <p class="auth-page__agreement">Нажимая на кнопку «Зарегистрироваться» вы соглашаетесь с <a href="">условиями
+                                        <p class="auth-page__agreement">Нажимая на кнопку «Зарегистрироваться» вы
+                                            соглашаетесь с <a href="">условиями
                                                 использования</a></p>
-                                       <p class="auth-page__registered">Уже есть аккаунт? <a href="{{ route('login') }}">Войти</a></p>
+                                        <p class="auth-page__registered">Уже есть аккаунт? <a
+                                                href="{{ route('login') }}">Войти</a></p>
                                     </div>
                                 </div>
                             </form>

@@ -67,6 +67,10 @@ jQuery($ => {
         checkRegistrationForm(false, $(this), 'checkout')
     })
 
+    $('.show-password').on('click', function () {
+        showPassword($(this));
+    })
+
 // $('.registration #personal-data-agreement').on('change', function () {
 //     checkRegistrationForm(false, $(this), 'registration')
 // })
@@ -325,6 +329,20 @@ jQuery($ => {
             $(`.${page} button[type=submit]`).prop('disabled', false)
         } else {
             $(`.${page} button[type=submit]`).prop('disabled', true)
+        }
+    }
+
+    /**
+     * Toggle show password in password field
+     *
+     * @param $this
+     */
+    const showPassword = ($this) => {
+        let input = $($this.parent('.form-control-container').find('input'));
+        if (input.attr("type") === "password") {
+            input.attr("type", "text");
+        } else {
+            input.attr("type", "password");
         }
     }
 
