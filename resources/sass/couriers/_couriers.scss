@@ -1,7 +1,7 @@
 .main-screen {
     padding: 31px 0 63px;
     min-height: 520px;
-    background: $light-grey url(/img/couriers/main-screen-bg.png) right bottom no-repeat;
+    background: $light-grey url(/img/couriers/main-screen-bg.png) 85% bottom no-repeat;
 
     .breadcrumb {
         margin: 0 0 66px;
@@ -30,7 +30,14 @@
         justify-content: space-between;
     }
 
-    &__benefits-item {}
+    &__benefits-item {
+        min-width: 190px;
+        margin-right: 30px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
 
     &__benefits-title {
         margin: 0 0 16px;
