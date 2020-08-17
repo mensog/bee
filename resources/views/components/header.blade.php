@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a href="" class="nav-link">
+                        <a href="{{ route('promotions') }}" class="nav-link">
                             Акции
                         </a>
                     </li>
