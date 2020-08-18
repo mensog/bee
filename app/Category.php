@@ -86,7 +86,7 @@ class Category extends Model
 
     public static function getParentIds($parentCategoryId, $allCategories)
     {
-        if (is_null($allCategories[$parentCategoryId])) {
+        if (!isset($allCategories[$parentCategoryId]) || is_null($allCategories[$parentCategoryId])) {
             return [$parentCategoryId];
         } else {
             return array_merge([$parentCategoryId], self::getParentIds($allCategories[$parentCategoryId], $allCategories));
