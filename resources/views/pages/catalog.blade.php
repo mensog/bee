@@ -5,17 +5,40 @@
     <div class="delivery">
         <div class="container">
             <ul class="breadcrumb">
-                <li class="breadcrumb__item"><a class="breadcrumb__link" href="{{ route('main') }}">Главная</a></li>
+                <li class="breadcrumb__item">
+                    <a class="breadcrumb__link" href="{{ route('main') }}">Главная</a>
+                </li>
                 <li class="breadcrumb__item">/</li>
-                <li class="breadcrumb__item"><a class="breadcrumb__link" href="{{ route('store_main', ['storeSlug' => $store->slug]) }}">{{ $store->company_name }}</a></li>
+                <li class="breadcrumb__item">
+                    <a class="breadcrumb__link"
+                       href="{{ route('store_main', ['storeSlug' => $store->slug]) }}">{{ $store->company_name }}
+                    </a>
+                </li>
                 <li class="breadcrumb__item">/</li>
-                <li class="breadcrumb__item"><a class="breadcrumb__link" href="{{ route('catalog', ['storeSlug' => $store->slug]) }}">Каталог</a></li>
+                <li class="breadcrumb__item">
+                    <a class="breadcrumb__link" href="{{ route('catalog', ['storeSlug' => $store->slug]) }}">
+                        Каталог
+                    </a>
+                </li>
                 @foreach($breadcrumbs as $key => $crumb)
-                    @if($loop->last)
+                    @if($loop->last && !$loop->first)
                         @break
+                    @else
+                        @if($loop->first)
+                            <li class="breadcrumb__item">/</li>
+                            <li class="breadcrumb__item">
+                                {{ $crumb }}
+                            </li>
+                        @else
+                            <li class="breadcrumb__item">/</li>
+                            <li class="breadcrumb__item">
+                                <a class="breadcrumb__link"
+                                   href="{{ route('category',['storeSlug' => $store->slug , 'name'=> $key]) }}">
+                                    {{ $crumb }}
+                                </a>
+                            </li>
+                        @endif
                     @endif
-                    <li class="breadcrumb__item">/</li>
-                    <li class="breadcrumb__item"><a class="breadcrumb__link" href="{{ route('category',['storeSlug' => $store->slug , 'name'=> $key]) }}">{{ $crumb }}</a></li>
                 @endforeach
             </ul>
             <div class="delivery__box">
@@ -34,7 +57,8 @@
                         <div class="catalog__subtitle subtitle">Категории</div>
 
                         @isset($storeCatalog)
-                            <x-category-sidebar :categories="$storeCatalog" :store="$store" :activeCategorySlugs="$activeCategorySlugs"/>
+                            <x-category-sidebar :categories="$storeCatalog" :store="$store"
+                                                :activeCategorySlugs="$activeCategorySlugs"/>
                         @endisset
                         <div class="price-filter">
                             <h4 class="price-filter__title subtitle">Цена</h4>
@@ -108,19 +132,22 @@
                             @isset($currentCategory)
                                 @isset($storeCatalog[$currentCategory->id])
                                     @foreach($storeCatalog[$currentCategory->id] as $cat)
-                                        <button class="tabs__control-btn">{{  $cat->name }}</button>
+                                        <a href="{{ route('category', ['name' => $cat->friendly_url_name, 'storeSlug' => $currentStore->slug]) }}"
+                                           class="tabs__control-btn">{{  $cat->name }}</a>
                                     @endforeach
                                 @endisset
                             @else
                                 @isset($storeCatalog[''])
                                     @foreach($storeCatalog[''] as $cat)
-                                        <button class="tabs__control-btn">{{  $cat->name }}</button>
+                                        <a href="{{ route('category', ['name' => $cat->friendly_url_name, 'storeSlug' => $currentStore->slug]) }}"
+                                           class="tabs__control-btn">{{  $cat->name }}</a>
                                     @endforeach
                                 @endisset
                             @endisset
                         </div>
                         <div class="tabs__sort">
-                            <div class="tabs__sort-quantity">{{ $products->total() }} {{ Lang::choice('товар|товара|товаров', $products->total(), [], 'ru') }}</div>
+                            <div
+                                class="tabs__sort-quantity">{{ $products->total() }} {{ Lang::choice('товар|товара|товаров', $products->total(), [], 'ru') }}</div>
                             <div class="tabs__sort-filter">
                                 Сортировать: <span>по популярности</span>
                                 <img src="/svg/catalog/sort-icon.svg" alt="">
