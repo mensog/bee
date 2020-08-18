@@ -78,10 +78,12 @@
                                                         <a class="dropdown__menu-link" href="#">Блоки строительные</a>
                                                         <ul class="dropdown__menu">
                                                             <li class="dropdown__menu-item">
-                                                                <a class="dropdown__menu-link" href="#">Блоки строительные</a>
+                                                                <a class="dropdown__menu-link" href="#">Блоки
+                                                                    строительные</a>
                                                             </li>
                                                             <li class="dropdown__menu-item">
-                                                                <a class="dropdown__menu-link" href="#">Плиты пазогребные</a>
+                                                                <a class="dropdown__menu-link" href="#">Плиты
+                                                                    пазогребные</a>
                                                             </li>
                                                             <li class="dropdown__menu-item">
                                                                 <a class="dropdown__menu-link" href="#">Кирпич</a>
@@ -121,20 +123,24 @@
                 </div>
             </div>
             <div class="col-lg-3">
-                <div class="dropdown">
+                <div class="dropdown dropdown-stores">
                     <a class="nav-link dropdown-toggle dropdown-btn" href="#" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div>
-                            <img src="{{ $currentStore->image_path ?? '' }}" alt="">
-                            {{ $currentStore->company_name ?? 'Выберите магазин' }}
+                            <img class="dropdown-stores__img" src="{{ $currentStore->image_path ?? '' }}" alt="">
+                            <span>{{ $currentStore->company_name ?? 'Выберите магазин' }}</span>
                         </div>
                         <img src="/svg/main/accordion-arrow.svg" alt="">
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        @foreach($headerAllStores as $store)
-                        <a class="dropdown-item" href="{{ route('store_main', $store->slug) }}">{{ $store->company_name }}</a>
-                        <div class="dropdown-divider"></div>
-                        @endforeach
+                        <ul class="dropdown__mainmenu">
+                            @foreach($headerAllStores as $store)
+                                <li class="dropdown__mainmenu-item">
+                                    <a class="dropdown__mainmenu-link"
+                                       href="{{ route('store_main', $store->slug) }}">{{ $store->company_name }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
 

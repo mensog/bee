@@ -89,7 +89,6 @@ Route::post('/order', 'OrderController@create')->middleware('auth')->name('place
 Route::get('/favorites', 'FavoriteListController@show')->name('favorites');
 Route::get('/couriers', 'CouriersController@index')->name('couriers');
 Route::get('/suppliers', 'SuppliersController@index')->name('suppliers');
-Route::get('/store', 'StoreController@index')->name('store');
 
 Route::post('/api/cart', 'CartController@api')->name('api_cart');
 Route::post('/api/favorites', 'FavoriteListController@api')->name('api_favorites');
