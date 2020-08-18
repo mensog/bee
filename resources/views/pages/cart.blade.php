@@ -1,5 +1,7 @@
 <x-header/>
 
+<x-empty-list/>
+
 <main id="content" role="main" class="cart-page">
     <div class="container mt-3">
         <div class="mb-4">
