@@ -62,13 +62,13 @@ class Category extends Model
     public static function getCatalog($storeId)
     {
         $categoriesToDisplay = self::getNonEmptyCategoryIds($storeId);
-        $groupedCategories = Category::/*whereNull('parse_url')->*/whereIn('id', $categoriesToDisplay)->orderBy('parent')->orderBy('name')->get()->groupBy('parent');
+        $groupedCategories = Category::whereNull('parse_url')->whereIn('id', $categoriesToDisplay)->orderBy('parent')->orderBy('name')->get()->groupBy('parent');
         return $groupedCategories;
     }
 
     public static function getNonEmptyCategoryIds($storeId)
     {
-        $categoryParents = Category::/*whereNull('parse_url')->*/get()->pluck('parent', 'id')->toArray();
+        $categoryParents = Category::whereNull('parse_url')->get()->pluck('parent', 'id')->toArray();
         $productsInCategory = DB::table('products')
             ->select(DB::raw('count(*) as count, category_id'))
             ->where('store_id', $storeId)
