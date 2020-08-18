@@ -70,89 +70,50 @@
                                 <ul class="dropdown__menu">
                                     <li class="dropdown__menu-item">
                                         <a class="dropdown__menu-link" href="#">Сухие смеси и грунтовки</a>
-                                        <ul class="dropdown__submenu">
-                                            <li class="dropdown__submenu-item">
-                                                <a class="dropdown__submenu-link" href="#">Блоки строительные</a>
+                                        <ul class="dropdown__menu">
+                                            <li class="dropdown__menu-item">
+                                                <a class="dropdown__menu-link" href="#">Блоки строительные</a>
+                                                <ul class="dropdown__menu">
+                                                    <li class="dropdown__menu-item">
+                                                        <a class="dropdown__menu-link" href="#">Блоки строительные</a>
+                                                        <ul class="dropdown__menu">
+                                                            <li class="dropdown__menu-item">
+                                                                <a class="dropdown__menu-link" href="#">Блоки строительные</a>
+                                                            </li>
+                                                            <li class="dropdown__menu-item">
+                                                                <a class="dropdown__menu-link" href="#">Плиты пазогребные</a>
+                                                            </li>
+                                                            <li class="dropdown__menu-item">
+                                                                <a class="dropdown__menu-link" href="#">Кирпич</a>
+                                                            </li>
+                                                            <li class="dropdown__menu-item">
+                                                                <a class="dropdown__menu-link" href="#">Стеклоблоки</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="dropdown__menu-item">
+                                                        <a class="dropdown__menu-link" href="#">Плиты пазогребные</a>
+                                                    </li>
+                                                    <li class="dropdown__menu-item">
+                                                        <a class="dropdown__menu-link" href="#">Кирпич</a>
+                                                    </li>
+                                                    <li class="dropdown__menu-item">
+                                                        <a class="dropdown__menu-link" href="#">Стеклоблоки</a>
+                                                    </li>
+                                                </ul>
                                             </li>
-                                            <li class="dropdown__submenu-item">
-                                                <a class="dropdown__submenu-link" href="#">Плиты пазогребные</a>
+                                            <li class="dropdown__menu-item">
+                                                <a class="dropdown__menu-link" href="#">Плиты пазогребные</a>
                                             </li>
-                                            <li class="dropdown__submenu-item">
-                                                <a class="dropdown__submenu-link" href="#">Кирпич</a>
+                                            <li class="dropdown__menu-item">
+                                                <a class="dropdown__menu-link" href="#">Кирпич</a>
                                             </li>
-                                            <li class="dropdown__submenu-item">
-                                                <a class="dropdown__submenu-link" href="#">Стеклоблоки</a>
+                                            <li class="dropdown__menu-item">
+                                                <a class="dropdown__menu-link" href="#">Стеклоблоки</a>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="dropdown__menu-item">
-                                        <a class="dropdown__menu-link" href="#">Листовые материалы</a></li>
-                                    <li class="dropdown__menu-item">
-                                        <a class="dropdown__menu-link" href="#">Блоки для строительства</a></li>
-                                    <li class="dropdown__menu-item">
-                                        <a class="dropdown__menu-link" href="#">Изоляционные материалы</a></li>
-                                    <li class="dropdown__menu-item">
-                                        <a class="dropdown__menu-link" href="#">Кровля</a>
-                                    </li>
-                                    <li class="dropdown__menu-item">
-                                        <a class="dropdown__menu-link" href="#">Металлопрокат</a></li>
-                                    <li class="dropdown__menu-item">
-                                        <a class="dropdown__menu-link" href="#">Наружная канализация</a></li>
-                                    <li class="dropdown__menu-item">
-                                        <a class="dropdown__menu-link" href="#">Облицовочные материалы</a></li>
-                                    <li class="dropdown__menu-item">
-                                        <a class="dropdown__menu-link" href="#">Камины</a>
-                                    </li>
-                                    <li class="dropdown__menu-item">
-                                        <a class="dropdown__menu-link" href="#">Строительное оборудование</a></li>
-                                    <li class="dropdown__menu-item">
-                                        <a class="dropdown__menu-link" href="#">Дорожные покрытия</a></li>
                                 </ul>
-                            </li>
-                            <li class="dropdown__mainmenu-item">
-                                <a class="dropdown__mainmenu-link" href="#">Столярные изделия</a>
-                            </li>
-                            <li class="dropdown__mainmenu-item">
-                                <a class="dropdown__mainmenu-link" href="#">Окна и двери</a>
-                            </li>
-                            <li class="dropdown__mainmenu-item">
-                                <a class="dropdown__mainmenu-link" href="#">Электротовары</a>
-                            </li>
-                            <li class="dropdown__mainmenu-item">
-                                <a class="dropdown__mainmenu-link" href="#">Инструменты</a>
-                            </li>
-                            <li class="dropdown__mainmenu-item">
-                                <a class="dropdown__mainmenu-link" href="#">Напольные покрытия</a>
-                            </li>
-                            <li class="dropdown__mainmenu-item">
-                                <a class="dropdown__mainmenu-link" href="#">Плитка</a>
-                            </li>
-                            <li class="dropdown__mainmenu-item">
-                                <a class="dropdown__mainmenu-link" href="#">Сантехника</a>
-                            </li>
-                            <li class="dropdown__mainmenu-item">
-                                <a class="dropdown__mainmenu-link" href="#">Водоснабжения</a>
-                            </li>
-                            <li class="dropdown__mainmenu-item">
-                                <a class="dropdown__mainmenu-link" href="#">Сад</a>
-                            </li>
-                            <li class="dropdown__mainmenu-item">
-                                <a class="dropdown__mainmenu-link" href="#">Скобяные изделия</a>
-                            </li>
-                            <li class="dropdown__mainmenu-item">
-                                <a class="dropdown__mainmenu-link" href="#">Краски</a>
-                            </li>
-                            <li class="dropdown__mainmenu-item">
-                                <a class="dropdown__mainmenu-link" href="#">Декор</a>
-                            </li>
-                            <li class="dropdown__mainmenu-item">
-                                <a class="dropdown__mainmenu-link" href="#">Освещение</a>
-                            </li>
-                            <li class="dropdown__mainmenu-item">
-                                <a class="dropdown__mainmenu-link" href="#">Хранение</a>
-                            </li>
-                            <li class="dropdown__mainmenu-item">
-                                <a class="dropdown__mainmenu-link" href="#">Кухни</a>
                             </li>
                         </ul>
                     </div>
