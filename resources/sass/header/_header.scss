@@ -48,10 +48,12 @@
 
     &__mainmenu-item:hover > .dropdown__menu {
         display: block;
+        height: 100%;
     }
 
     &__menu-item:hover > .dropdown__menu {
         display: block;
+        height: 100%;
     }
 
     &__mainmenu-link {
