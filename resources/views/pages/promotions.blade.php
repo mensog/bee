@@ -42,6 +42,7 @@
                     </a>
                 </div>
             </div>
+            <h2 class="promotions__heading">От партнеров</h2>
             <div class="promotions__shop">
                 <img class="promotions__shop-logo" src="/svg/shop-icons/leroy-mini.svg" alt="">
                 <div class="promotions__shop-wrap">
@@ -74,7 +75,7 @@
                     </a>
                 </div>
             </div>
-            <div class="promotions__shop">
+            <div class="promotions__shop pt-0">
                 <img class="promotions__shop-logo" src="/svg/shop-icons/obi-mini.svg" alt="">
                 <div class="promotions__shop-wrap">
                     <h3 class="promotions__shop-name">OBI</h3>
@@ -95,7 +96,7 @@
                     </a>
                 </div>
             </div>
-            <div class="promotions__shop">
+            <div class="promotions__shop pt-0">
                 <img class="promotions__shop-logo" src="/svg/shop-icons/castorama-mini.svg" alt="">
                 <div class="promotions__shop-wrap">
                     <h3 class="promotions__shop-name">Castorama</h3>
