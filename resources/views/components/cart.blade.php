@@ -5,13 +5,13 @@
             @foreach ($products as $product)
                 <div class="row">
                     <div class="col-lg-2">
-                        <a href="{{ route('product', $product->friendly_url_name) }}"><img
+                        <a href="{{ route('product', ['name' => $product->friendly_url_name, 'storeSlug' => $product->store->slug]) }}"><img
                                 class="img-fluid card-cart__img max-width-100"
                                 src="{{ $product->img_url }}" alt="{{ $product->description }}"></a>
                     </div>
                     <div class="col-lg-5">
                         <p class="card-cart__title">
-                            <a href="{{ route('product', $product->friendly_url_name) }}"
+                            <a href="{{ route('product', ['name' => $product->friendly_url_name, 'storeSlug' => $product->store->slug]) }}"
                                class="text-gray-90">{{ $product->name }}</a>
                         </p>
                         <p class="card-cart__sku">Артикул: {{ $product-> sku }}</p>
@@ -72,6 +72,6 @@
 @else
     <div>
         <p class="text-center font-size-36">Сейчас корзина пуста</p>
-        <p class="text-center font-size-36">Перейти в <a href="{{ route('catalog') }}">каталог</a></p>
+        <p class="text-center font-size-36">Перейти к <a href="{{ route('main') }}">покупкам</a></p>
     </div>
 @endif

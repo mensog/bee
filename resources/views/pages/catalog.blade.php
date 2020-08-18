@@ -27,7 +27,9 @@
                 <div class="col-lg-3">
                     <div class="catalog__aside">
                         <div class="catalog__subtitle subtitle">Категории</div>
-                        <x-category-sidebar :categories=$categories :store=$store />
+                        @isset($storeCatalog)
+                        <x-category-sidebar :categories=$storeCatalog :store=$store />
+                        @endisset
                         <div class="price-filter">
                             <h4 class="price-filter__title subtitle">Цена</h4>
                             <div class="price-filter__wrap">

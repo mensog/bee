@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Cart;
+use App\Category;
 use App\FavoriteList;
 use App\Observers\CartObserver;
 use App\Partner;
@@ -45,12 +46,16 @@ class AppServiceProvider extends ServiceProvider
                 $currentStoreSlug = \Route::current()->parameter('storeSlug');
                 if (!is_null($currentStoreSlug)) {
                     $store = Partner::where('slug', $currentStoreSlug)->first();
+                    if ($store) {
+                        $storeCatalog = Category::getCatalog($store->id);
+                    }
                 }
             }
             view()->share('currentStore', $store);
 
             $stores = Partner::all();
             view()->share('headerAllStores', $stores);
+
 
         });
     }

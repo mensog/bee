@@ -25,7 +25,6 @@ class CategoryController extends Controller
         $favoritesList = app('FavoriteList');
         $favoritesListContent = $favoritesList->content;
         return view('pages.catalog', [
-            'categories' => $categories,
             'products' => $productsPaginator,
             'cartContent' => $cartContent,
             'favoritesListContent' => $favoritesListContent,
@@ -45,7 +44,6 @@ class CategoryController extends Controller
         $favoritesList = app('FavoriteList');
         $favoritesListContent = $favoritesList->content;
         return view('pages.category', [
-            'categories' => $categories,
             'products' => $productsPaginator,
             'cartContent' => $cartContent,
             'favoritesListContent' => $favoritesListContent,

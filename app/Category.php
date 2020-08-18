@@ -77,18 +77,20 @@ class Category extends Model
             ->pluck('count', 'category_id')
             ->toArray();
 
-        function getParentIds($parentCategoryId, $allCategories) {
-            if (is_null($allCategories[$parentCategoryId])) {
-                return [$parentCategoryId];
-            } else {
-                return array_merge([$parentCategoryId], getParentIds($allCategories[$parentCategoryId], $allCategories));
-            }
-        }
         $categoriesToDisplay = [];
         foreach ($productsInCategory as $categoryId => $count) {
-            $categoriesToDisplay = array_merge($categoriesToDisplay, getParentIds($categoryId, $categoryParents));
+            $categoriesToDisplay = array_merge($categoriesToDisplay, self::getParentIds($categoryId, $categoryParents));
         }
         return $categoriesToDisplay;
+    }
+
+    public static function getParentIds($parentCategoryId, $allCategories)
+    {
+        if (is_null($allCategories[$parentCategoryId])) {
+            return [$parentCategoryId];
+        } else {
+            return array_merge([$parentCategoryId], self::getParentIds($allCategories[$parentCategoryId], $allCategories));
+        }
     }
 
     public function getChildCategoryIds()

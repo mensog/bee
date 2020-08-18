@@ -55,7 +55,7 @@
             </div>
         @else
             <h2 class="text-center pt-10 pb-5">Вы еще ничего не заказывали</h2>
-            <p class="text-center font-size-32">Перейти в <a href="<?php echo e(route('catalog')); ?>">каталог</a></p>
+            <p class="text-center font-size-32">Перейти к <a href="{{ route('main') }}">покупкам</a></p>
         @endif
     </div>
 @endsection

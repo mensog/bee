@@ -10,7 +10,9 @@
                         <li>
                             <div class="dropdown-title">Категории товаров</div>
                         </li>
-                        <x-category-sidebar :categories=$categories :store=$store />
+                        @isset($storeCatalog)
+                        <x-category-sidebar :categories=$storeCatalog :store=$store />
+                        @endisset
                     </ul>
                 </div>
             </div>
