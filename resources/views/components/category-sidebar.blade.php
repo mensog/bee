@@ -7,7 +7,7 @@
                 @php
                     $childCategories = $categories[$category->id];
                 @endphp
-                <x-category-sidebar-item :categories=$categories :childCategories=$childCategories :store=$store/>
+                <x-category-sidebar-item :categories="$categories" :childCategories="$childCategories" :store="$store"/>
             @endisset
         </li>
     @endforeach
