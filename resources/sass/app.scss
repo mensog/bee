@@ -22,6 +22,7 @@
 @import "auth/auth";
 @import "inputs";
 @import "store/store";
+@import "lk/lk";
 
 // Components
 @import "components/caregories";
@@ -229,72 +230,6 @@ button {
     .checkout__agreement {
         font-size: 0.775rem;
     }
-}
-
-.lk-sidebar {
-    padding: 20px 30px 20px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-
-    ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-
-        li:last-of-type {
-            margin-bottom: 0;
-
-        }
-
-        li {
-            margin-bottom: 10px;
-
-            a {
-                font-size: 1rem;
-                font-weight: normal;
-                color: #333e48;
-                transition: 145ms ease-in-out;
-            }
-
-            a:hover {
-                color: #000;
-            }
-
-            a.active {
-                font-weight: 700;
-            }
-        }
-    }
-}
-
-.card-lk {
-    position: relative;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    transition: 145ms ease-in-out;
-
-    .card-lk__body {
-        padding: 20px 30px 20px;
-    }
-
-    label {
-        padding-left: 16px;
-    }
-
-    .card-lk__title {
-        font-size: 1rem;
-        font-weight: 700;
-        color: #333e48;
-        margin-bottom: 0;
-    }
-
-    .invalid-feedback {
-        padding-left: 16px;
-    }
-}
-
-.card-lk.card-lk-hover:hover {
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
 }
 
 .btn-link.text-gray-6:hover {
