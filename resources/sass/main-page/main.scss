@@ -376,7 +376,7 @@
 }
 
 .main-qa {
-    background: #fff;
+    background: $quaternary-gray;
 
     .accordion {
         margin-bottom: 30px;
@@ -400,7 +400,7 @@
     }
 
     .main-qa-card {
-        background: $light-grey;
+        background: $white;
         margin-bottom: 4px;
 
         &__header:not(.collapsed) {
@@ -801,6 +801,7 @@
 
 .contact {
     padding: 64px 0;
+    background-color: $white;
 
     &__title {
         margin: 0 0 30px;
