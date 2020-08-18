@@ -63,7 +63,7 @@
                         </ul>
 
                         @isset($storeCatalog)
-                            <x-category-sidebar :categories=$storeCatalog :store=$store/>
+                            <x-category-sidebar :categories=$storeCatalog :store=$store />
                                 @endisset
                                 <div class="price-filter">
                                     <h4 class="price-filter__title subtitle">Цена</h4>
