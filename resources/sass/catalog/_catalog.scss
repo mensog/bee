@@ -94,12 +94,6 @@
             height: 14px;
             background: url(/svg/catalog/chevron-down.svg) center no-repeat;
         }
-
-        &:hover {
-            .catalog__sublist {
-                display: block;
-            }
-        }
     }
 
     &__list-link {
@@ -115,7 +109,23 @@
     &__sublist {
         display: none;
         margin: 0;
-        padding: 0;
+        padding-left: 7px;
+    }
+
+    &__list-item.active > .catalog__sublist {
+        display: block;
+    }
+
+    &__sublist-item.active &__sublist-link {
+        background-color: #FFF6CB;
+    }
+
+    &__sublist-link:hover {
+        background-color: #FFF6CB;
+    }
+
+    &__sublist-item.active > .catalog__sublist {
+        display: block;
     }
 
     &__sublist-link {
@@ -207,7 +217,6 @@
 }
 
 
-
 .product {
     display: flex;
     justify-content: space-between;
@@ -294,7 +303,8 @@
 
 .price-filter {
 
-    &__title {}
+    &__title {
+    }
 
     &__wrap {
         margin: 0 0 32px;
@@ -347,7 +357,8 @@
         border-bottom: 0;
     }
 
-    &__subtitle {}
+    &__subtitle {
+    }
 
     &__wrap {
         display: flex;
