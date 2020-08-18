@@ -1,108 +1,147 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <h1 class="text-center mb-4">Регистрация</h1>
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card-auth">
-                    <div class="card-auth__body">
-                        <form class="registration" method="POST" action="{{ route('register') }}">
-                            @csrf
+    <div class="auth-page registration-page">
 
-                            <div class="form-group row">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 p-0">
+                    <div class="card-auth">
+                        <div class="card-auth__body">
+                            <h2>Регистрация</h2>
+                            <p class="auth-page__after-title">Полные фамилия, имя и отчество потребуются при получении
+                                заказа</p>
+                            <form id="registration" class="registration form floating-label" method="POST"
+                                  action="{{ route('register') }}">
+                                @csrf
 
-                                <div class="col-md-6">
-                                    <label for="name">Имя</label>
-                                    <input id="name" type="text"
-                                           placeholder="Введите имя"
-                                           class="form-control @error('name') is-invalid @enderror" name="name"
-                                           value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <div class="form-group row">
 
-                                    @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                                    <div class="col-md-6">
+                                        <div class="form-control-container">
+
+                                            <input id="name" type="text"
+                                                   placeholder=" "
+                                                   class="form-control @error('name') is-invalid @enderror" name="name"
+                                                   value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                            <label for="name">Имя</label>
+
+                                            @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                                {{ $message }}
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-control-container">
+
+                                            <input id="surname" type="text"
+                                                   placeholder=" "
+                                                   class="form-control @error('surname') is-invalid @enderror"
+                                                   name="surname"
+                                                   value="{{ old('surname') }}" required autocomplete="surname"
+                                                   autofocus>
+                                            <label for="surname">Фамилия</label>
+
+                                            @error('surname')
+                                            <span class="invalid-feedback" role="alert">
+                                                {{ $message }}
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="surname">Фамилия</label>
-                                    <input id="surname" type="text"
-                                           placeholder="Введите фамилию"
-                                           class="form-control @error('surname') is-invalid @enderror" name="surname"
-                                           value="{{ old('surname') }}" required autocomplete="surname" autofocus>
 
-                                    @error('surname')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                                <div class="form-group row">
+                                    {{--                                    <div class="col-md-6">--}}
+                                    {{--                                        <div class="form-control-container">--}}
+
+                                    {{--                                            <input id="phone" type="phone"--}}
+                                    {{--                                                   placeholder=" "--}}
+                                    {{--                                                   class="form-control @error('phone') is-invalid @enderror"--}}
+                                    {{--                                                   name="phone"--}}
+                                    {{--                                                   value="{{ old('phone') }}" required autocomplete="phone">--}}
+                                    {{--                                            <label for="phone">Телефон</label>--}}
+
+                                    {{--                                            @error('phone')--}}
+                                    {{--                                            <span class="invalid-feedback" role="alert">--}}
+                                    {{--                                                {{ $message }}--}}
+                                    {{--                                            </span>--}}
+                                    {{--                                            @enderror--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </div>--}}
+                                    <div class="col-md-12">
+                                        <div class="form-control-container">
+
+                                            <input id="email" type="email"
+                                                   placeholder=" "
+                                                   class="form-control @error('email') is-invalid @enderror"
+                                                   name="email"
+                                                   value="{{ old('email') }}" required autocomplete="email">
+                                            <label for="email">E-mail</label>
+
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                {{ $message }}
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group row">
-                                <div class="col-md-12">
-                                    <label for="email">e-mail</label>
-                                    <input id="email" type="email"
-                                           placeholder="Введите e-mail"
-                                           class="form-control @error('email') is-invalid @enderror" name="email"
-                                           value="{{ old('email') }}" required autocomplete="email">
+                                <div class="form-group row">
 
-                                    @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                                    <div class="col-md-6">
+                                        <div class="form-control-container">
+
+                                            <input id="password" type="password"
+                                                   placeholder=" "
+                                                   class="form-control @error('password') is-invalid @enderror"
+                                                   name="password"
+                                                   required autocomplete="new-password">
+                                            <label for="password">Пароль</label>
+                                            <span class="show-password">
+                                                <img src="/svg/auth/show-password.svg" alt="show-password">
+                                            </span>
+                                            @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                {{ $message }}
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-control-container">
+                                            <input id="password-confirm" type="password" class="form-control"
+                                                   placeholder=" "
+                                                   name="password_confirmation" required autocomplete="new-password">
+                                            <label for="password-confirm">Повторите пароль</label>
+                                            <span class="show-password">
+                                                <img src="/svg/auth/show-password.svg" alt="show-password">
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="form-group row">
-
-                                <div class="col-md-12">
-                                    <label for="password">Пароль <span class="text-secondary small">(не менее 8 символов)</span></label>
-                                    <input id="password" type="password"
-                                           placeholder="Введите пароль"
-                                           class="form-control @error('password') is-invalid @enderror" name="password"
-                                           required autocomplete="new-password">
-
-                                    @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                                <input id="personal-data-agreement" type="checkbox" checked
+                                       class="form-control hidden d-none"
+                                       name="personal-data-agree" required>
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <button disabled type="submit" class="btn btn-primary">
+                                            Зарегистрироваться
+                                        </button>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <p class="auth-page__agreement">Нажимая на кнопку «Зарегистрироваться» вы
+                                            соглашаетесь с <a href="">условиями
+                                                использования</a></p>
+                                        <p class="auth-page__registered">Уже есть аккаунт? <a
+                                                href="{{ route('login') }}">Войти</a></p>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-md-12">
-                                    <label for="password-confirm">Повторите пароль</label>
-                                    <input id="password-confirm" type="password" class="form-control"
-                                           placeholder="Повторите пароль"
-                                           name="password_confirmation" required autocomplete="new-password">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-md-1 pr-0">
-                                    <input id="personal-data-agreement" type="checkbox" class="form-control"
-                                           name="personal-data-agree" required>
-                                </div>
-                                <div class="col-md-10 align-self-end">
-                                    <label class="pl-0" for="personal-data-agreement">Я согласен на <a href="{{ route('personal-data-agreement') }}">обработку моих данных</a></label>
-                                </div>
-                            </div>
-
-                            <div class="form-group row mb-0">
-                                <div class="col-md-12 text-center">
-                                    <button disabled type="submit" class="btn btn-primary">
-                                        Зарегистрироваться
-                                    </button>
-                                </div>
-                                <div class="col-md-12 text-center">
-                                    <a class="btn btn-link" href="{{ route('login') }}">Уже зарегистрированы?</a>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

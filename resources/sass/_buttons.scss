@@ -4,12 +4,18 @@
     font-size: 16px;
     line-height: 14px;
     text-align: center;
-    color: #000000;
-    background: #FDD900;
+    color: $black;
+    background: $primary-yellow;
     border-radius: 5px;
+
+    &:hover {
+        cursor: pointer;
+    box-shadow: 0 4px 11px rgba(254, 215, 0, 0.35);
+    }
 }
 
 .btn:hover {
+    background: $light-yellow;
     cursor: pointer;
 }
 

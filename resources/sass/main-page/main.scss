@@ -623,7 +623,7 @@
     }
 
     .catalog-btn {
-        background: $light-yellow;
+        background: $primary-yellow;
         border-radius: 5px;
         width: 100%;
         padding: 15px 18px;
@@ -637,6 +637,10 @@
         box-sizing: border-box;
         height: 42px;
         border: 0;
+
+        &:hover {
+            box-shadow: none;
+        }
     }
 
     .dropdown-btn {
@@ -692,7 +696,7 @@
         }
 
         .btn-search {
-            background: $light-yellow;
+            background: $primary-yellow;
             border-radius: 0 5px 5px 0;
             padding: 9px 19px;
             height: 42px;

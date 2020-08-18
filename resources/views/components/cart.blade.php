@@ -75,3 +75,4 @@
         <p class="text-center font-size-36">Перейти к <a href="{{ route('main') }}">покупкам</a></p>
     </div>
 @endif
+<x-services/>

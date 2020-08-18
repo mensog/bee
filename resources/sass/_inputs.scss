@@ -1,0 +1,94 @@
+main {
+    .floating-label {
+        .form-control-container {
+            .form-control {
+                padding-top: 29px;
+                padding-bottom: 11px;
+            }
+
+            label {
+                -webkit-transition: 0.2s ease all;
+                -o-transition: 0.2s ease all;
+                transition: 0.2s ease all;
+                position: absolute;
+                left: 20px;
+                bottom: 0;
+                width: 100%;
+                pointer-events: none;
+                top: 15px;
+            }
+
+            .form-control:focus ~ label {
+                top: 9px;
+                font-size: 11px !important;
+
+            }
+
+            input:not(:placeholder-shown) ~ label {
+                top: 9px;
+                font-size: 11px !important;
+
+            }
+
+            .form-control.dirty ~ label {
+                top: 9px;
+                font-size: 11px !important;
+            }
+
+            .form-control.is-invalid {
+                border-color: $red;
+            }
+
+            .form-control.is-invalid ~ label {
+                color: $red;
+            }
+
+            .form-control.is-invalid:focus, .form-control.is-valid:focus {
+                box-shadow: none;
+            }
+
+            .form-control.is-valid ~ label {
+                color: $green;
+            }
+
+            .form-control.is-valid {
+                border-color: $green;
+            }
+        }
+    }
+
+    .form {
+        .form-control {
+
+            background: #F4F4F4;
+            border: 1px solid #E3E3E3;
+            box-sizing: border-box;
+            border-radius: 5px;
+            padding: 20px;
+            height: 52px;
+            font-size: 14px;
+
+            ::placeholder {
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 12px;
+                color: #9F9F9F;
+            }
+        }
+
+        .form-control-container {
+            position: relative;
+        }
+
+        .show-password {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+
+            :hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
