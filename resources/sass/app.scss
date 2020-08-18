@@ -22,10 +22,12 @@
 @import "auth/auth";
 @import "inputs";
 @import "store/store";
+@import "promotions/promotions";
 
 // Components
 @import "components/caregories";
 @import "components/liked";
+@import "components/empty-list";
 
 #content {
     background: #F4F4F4;

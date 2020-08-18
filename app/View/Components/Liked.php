@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class services extends Component
+class Liked extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class services extends Component
      */
     public function render()
     {
-        return view('components.services');
+        return view('components.liked');
     }
 }
