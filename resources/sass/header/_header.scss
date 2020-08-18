@@ -1,6 +1,14 @@
 .dropdown {
     position: relative;
 
+    .catalog-btn.dropdown-empty {
+        cursor: not-allowed;
+
+        &:hover {
+            cursor: not-allowed;
+        }
+    }
+
     .dropdown-menu {
         margin: 0;
         padding: 0;
@@ -68,7 +76,13 @@
         transition: all .3s linear;
 
         &:hover {
-            background: #FFF6CB url(/svg/header/chevron-right-black.svg) 95% 10px no-repeat;
+            background-image: url(/svg/header/chevron-right-black.svg) 95% 10px no-repeat;
+            background-color: #FFF6CB;
+        }
+
+        img {
+            max-width: 28px;
+            margin-right: 12px;
         }
     }
 
@@ -97,13 +111,30 @@
         transition: all .3s linear;
 
         &:hover {
-            background: #FFF6CB url(/svg/header/chevron-right-black.svg) 95% 10px no-repeat;
+            background-image: url(/svg/header/chevron-right-black.svg) 95% 10px no-repeat;
+            background-color: #FFF6CB;
         }
     }
 
 }
 
 .dropdown-stores {
+
+    .dropdown-btn {
+        transition: all 0.2s ease-in-out;
+    }
+
+    .dropdown__mainmenu-link {
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 12px;
+        color: #000000;
+        padding: 7px 18px;
+
+        img {
+
+        }
+    }
 
     a {
         div {
@@ -120,11 +151,21 @@
         font-size: 14px;
         line-height: 12px;
         color: #000000;
-        vertical-align: text-bottom;
     }
 
     &__img {
-        max-height: 28px;
+        max-width: 28px;
+        height: 28px;
+        background: #FFFFFF;
+        margin-right: 12px;
+        display: inline-flex;
+        align-items: center;
+        vertical-align: middle;
+
+        img {
+            margin-right: 0 !important;
+            max-width: 28px;
+        }
     }
 
     .dropdown-menu {

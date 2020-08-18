@@ -1,7 +1,6 @@
 <x-header/>
 
 <main id="content" role="main">
-
     <div class="main-map">
         <div class="container">
             <div class="row">

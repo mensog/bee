@@ -59,7 +59,7 @@
             <div class="col-lg-2">
 
                 <div class="dropdown">
-                    <a class="catalog-btn btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    <a class="catalog-btn btn btn-primary dropdown-toggle {{ (isset($storeCatalog) && $storeCatalog) ? '' : 'dropdown-empty' }}" type="button" id="dropdownMenuButton"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Каталог <img src="/svg/main/catalog.svg" alt="">
                     </a>
@@ -75,7 +75,11 @@
                     <a class="nav-link dropdown-toggle dropdown-btn" href="#" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div>
-                            <img class="dropdown-stores__img" src="{{ $currentStore->image_path ?? '' }}" alt="">
+                            @if($currentStore->image_path ?? '')
+                                <span class="dropdown-stores__img">
+                                    <img src="{{ $currentStore->image_path ?? '' }}" alt="">
+                                </span>
+                            @endif
                             <span>{{ $currentStore->company_name ?? 'Выберите магазин' }}</span>
                         </div>
                         <img src="/svg/main/accordion-arrow.svg" alt="">
@@ -83,9 +87,14 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <ul class="dropdown__mainmenu">
                             @foreach($headerAllStores as $store)
-                                <li class="dropdown__mainmenu-item">
+                                <li class="dropdown__mainmenu-item menu-last">
                                     <a class="dropdown__mainmenu-link"
-                                       href="{{ route('store_main', $store->slug) }}">{{ $store->company_name }}</a>
+                                       href="{{ route('store_main', $store->slug) }}">
+                                        <span class="dropdown-stores__img">
+                                            <img src="{{ $store->image_path ?? '' }}" alt="">
+                                        </span>
+                                        {{ $store->company_name }}
+                                    </a>
                                 </li>
                             @endforeach
                         </ul>

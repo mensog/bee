@@ -44,3 +44,21 @@ export const clean = obj => {
     Object.keys(obj).forEach(key => (obj[key] == null || undefined) && delete obj[key]);
     return obj
 };
+
+jQuery($ => {
+    const storeDropdown = $('#navbarDropdown')
+
+    $('.dropdown-empty ').on('click', function () {
+        storeDropdown.css({
+            borderColor: '#fdd900',
+            boxShadow: '0px 1px 3px rgba(253, 217, 0, 1)'
+        })
+    })
+
+    storeDropdown.on('click', function () {
+        storeDropdown.css({
+            borderColor: '#E3E3E3',
+            boxShadow: 'none'
+        })
+    })
+})
