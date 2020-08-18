@@ -63,72 +63,72 @@
                         </ul>
 
                         @isset($storeCatalog)
-                            <x-category-sidebar :categories=$storeCatalog :store=$store />
-                                @endisset
-                                <div class="price-filter">
-                                    <h4 class="price-filter__title subtitle">Цена</h4>
-                                    <div class="price-filter__wrap">
-                                        <div class="price-filter__box">
-                                            <span>от</span>
-                                            <input type="text" placeholder="0 ₽">
-                                        </div>
-                                        <div class="price-filter__box">
-                                            <span>до</span>
-                                            <input type="text" placeholder="112 220 ₽">
-                                        </div>
-                                    </div>
+                            <x-category-sidebar :categories="$storeCatalog" :store="$store"/>
+                        @endisset
+                        <div class="price-filter">
+                            <h4 class="price-filter__title subtitle">Цена</h4>
+                            <div class="price-filter__wrap">
+                                <div class="price-filter__box">
+                                    <span>от</span>
+                                    <input type="text" placeholder="0 ₽">
                                 </div>
-                                <div class="checkboxes">
-                                    <h4 class="checkboxes__subtitle subtitle">Материал</h4>
-                                    <div class="checkboxes__wrap">
-                                        <div class="checkboxes__item">
-                                            <input type="checkbox" id="gypsum">
-                                            <label for="gypsum">Гипс</label>
-                                        </div>
-                                        <div class="checkboxes__item">
-                                            <input type="checkbox" id="сoncrete">
-                                            <label for="сoncrete">Бетон</label>
-                                        </div>
-                                        <div class="checkboxes__item">
-                                            <input type="checkbox" id="steel">
-                                            <label for="steel">Сталь</label>
-                                        </div>
-                                        <div class="checkboxes__item">
-                                            <input type="checkbox" id="aluminum">
-                                            <label for="aluminum">Алюминий</label>
-                                        </div>
-                                    </div>
+                                <div class="price-filter__box">
+                                    <span>до</span>
+                                    <input type="text" placeholder="112 220 ₽">
                                 </div>
-                                <div class="checkboxes">
-                                    <h4 class="checkboxes__subtitle subtitle">Материал</h4>
-                                    <div class="checkboxes__wrap">
-                                        <div class="checkboxes__item">
-                                            <input type="checkbox" id="axton">
-                                            <label for="axton">AXTON</label>
-                                        </div>
-                                        <div class="checkboxes__item">
-                                            <input type="checkbox" id="knauf">
-                                            <label for="knauf">Knauf</label>
-                                        </div>
-                                        <div class="checkboxes__item">
-                                            <input type="checkbox" id="ceresit">
-                                            <label for="ceresit">Ceresit</label>
-                                        </div>
-                                        <div class="checkboxes__item">
-                                            <input type="checkbox" id="moment">
-                                            <label for="moment">Момент</label>
-                                        </div>
-                                    </div>
+                            </div>
+                        </div>
+                        <div class="checkboxes">
+                            <h4 class="checkboxes__subtitle subtitle">Материал</h4>
+                            <div class="checkboxes__wrap">
+                                <div class="checkboxes__item">
+                                    <input type="checkbox" id="gypsum">
+                                    <label for="gypsum">Гипс</label>
                                 </div>
-                                <div class="checkboxes">
-                                    <h4 class="checkboxes__subtitle subtitle">Специальные условия</h4>
-                                    <div class="checkboxes__wrap">
-                                        <div class="checkboxes__item">
-                                            <input type="checkbox" id="discounts">
-                                            <label for="discounts">Скидки</label>
-                                        </div>
-                                    </div>
+                                <div class="checkboxes__item">
+                                    <input type="checkbox" id="сoncrete">
+                                    <label for="сoncrete">Бетон</label>
                                 </div>
+                                <div class="checkboxes__item">
+                                    <input type="checkbox" id="steel">
+                                    <label for="steel">Сталь</label>
+                                </div>
+                                <div class="checkboxes__item">
+                                    <input type="checkbox" id="aluminum">
+                                    <label for="aluminum">Алюминий</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checkboxes">
+                            <h4 class="checkboxes__subtitle subtitle">Материал</h4>
+                            <div class="checkboxes__wrap">
+                                <div class="checkboxes__item">
+                                    <input type="checkbox" id="axton">
+                                    <label for="axton">AXTON</label>
+                                </div>
+                                <div class="checkboxes__item">
+                                    <input type="checkbox" id="knauf">
+                                    <label for="knauf">Knauf</label>
+                                </div>
+                                <div class="checkboxes__item">
+                                    <input type="checkbox" id="ceresit">
+                                    <label for="ceresit">Ceresit</label>
+                                </div>
+                                <div class="checkboxes__item">
+                                    <input type="checkbox" id="moment">
+                                    <label for="moment">Момент</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checkboxes">
+                            <h4 class="checkboxes__subtitle subtitle">Специальные условия</h4>
+                            <div class="checkboxes__wrap">
+                                <div class="checkboxes__item">
+                                    <input type="checkbox" id="discounts">
+                                    <label for="discounts">Скидки</label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-9">
