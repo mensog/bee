@@ -116,7 +116,7 @@
         display: block;
     }
 
-    &__sublist-item.active &__sublist-link {
+    &__sublist-item.active > &__sublist-link {
         background-color: #FFF6CB;
     }
 
