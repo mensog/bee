@@ -7,8 +7,76 @@
             <div class="row">
                 <div class="col-lg-6 pr-0">
                     <h2 class="main-map__header">
-                        BeeClub - единая доставка товаров из строительных магазинов
+                        BeeClub - единая доставка <br> товаров из строительных <br> магазинов
                     </h2>
+                    <div class="main-map__descr">Выберите магазин, закажите нужные стройматериалы и <br>
+                        мы доставим их уже сегодня</div>
+                    
+                </div>
+                <div class="col-lg-6 main-map-points">
+                    <svg id="lm" class="active main-map-points__item" width="412" height="430" viewBox="0 0 412 430"
+                         fill="none" xmlns="http://www.w3.org/2000/svg">
+                         
+                            <circle cx="179" cy="42" r="5" fill="#00A454"/>
+                            
+                            <circle cx="56" cy="111" r="5" fill="#00A454"/>
+                            
+                            <circle cx="91" cy="94" r="5" fill="#00A454"/>
+                           
+                            <circle cx="136" cy="17" r="5" fill="#00A454"/>
+                            
+                            <circle cx="73" cy="28" r="5" fill="#00A454"/>
+                            
+                            <circle cx="275" cy="214" r="5" fill="#00A454"/>
+                            
+                            <circle cx="280.229" cy="175.778" r="5" fill="#00A454"/>
+                            
+                            <circle cx="200" cy="159" r="5" fill="#00A454"/>
+                            
+                            <circle cx="207.622" cy="171.817" r="5" fill="#00A454"/>
+                            
+                            <circle cx="156" cy="300" r="5" fill="#00A454"/>
+                            
+                            <circle cx="40" cy="268" r="5" fill="#00A454"/>
+                            
+                            <circle cx="17" cy="103" r="5" fill="#00A454"/>
+                           
+                            <circle cx="163.397" cy="203.501" r="5" fill="#00A454"/>
+
+                            <circle cx="175" cy="133" r="5" fill="#00A454"/>
+                          
+                    </svg>
+                    <svg id="petr" class="main-map-points__item" width="474" height="446" viewBox="0 0 474 446" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                         <circle cx="149" cy="5" r="5" fill="#E3E3E3"/>
+                         <circle cx="5" cy="91" r="5" fill="#E3E3E3"/>
+                         <circle cx="308.827" cy="79.9536" r="5" fill="#E3E3E3"/>
+                         <circle cx="297.607" cy="190.844" r="5" fill="#E3E3E3"/>
+                         <circle cx="178.796" cy="286.554" r="5" fill="#E3E3E3"/>
+                         <circle cx="180.115" cy="212.626" r="5" fill="#E3E3E3"/>
+                    </svg>
+                    <svg id="obi" class="main-map-points__item" width="418" height="390" viewBox="0 0 418 390" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                         <circle cx="112.03" cy="127.957" r="5" fill="#E3E3E3"/>
+                         <circle cx="120.611" cy="87.6934" r="5" fill="#E3E3E3"/>
+                         <circle cx="71" cy="187" r="5" fill="#E3E3E3"/>
+                         <circle cx="109.391" cy="252.708" r="5" fill="#E3E3E3"/>
+                         <circle cx="172.095" cy="216.405" r="5" fill="#E3E3E3"/>
+                         <circle cx="272.426" cy="194.624" r="5" fill="#E3E3E3"/>
+                         <circle cx="26" cy="21" r="5" fill="#E3E3E3"/>
+                         <circle cx="5" cy="96" r="5" fill="#E3E3E3"/>
+                         <circle cx="72" cy="5" r="5" fill="#E3E3E3"/>
+                    </svg>
+                    <svg id="cr" class="main-map-points__item" width="413" height="175" viewBox="0 0 413 175" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                         <circle cx="5.41992" cy="5.30273" r="5" fill="#E3E3E3"/>
+                         <circle cx="153.936" cy="110.253" r="5" fill="#E3E3E3"/>
+                         <circle cx="269" cy="20" r="5" fill="#E3E3E3"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
                     <div class="main-map-shops">
                         <div class="main-map-shops__item active border-lm main-map-toggle" data-map="lm">
                             <img src="/svg/shop-icons/leroy-merlin.svg" alt="">
@@ -27,51 +95,52 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 main-map-points">
-                    <svg id="lm" class="active main-map-points__item" width="412" height="430" viewBox="0 0 412 430"
-                         fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="252" cy="30" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="57" cy="136" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="119" cy="128" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="186" cy="8" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="82" cy="18" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="392" cy="299" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="404" cy="236" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="280" cy="204" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="294" cy="230" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="212" cy="422" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="39" cy="370" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="8" cy="132" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="227" cy="278" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="249" cy="165" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                    </svg>
-                    <svg id="petr" class="main-map-points__item" width="474" height="446" viewBox="0 0 474 446" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="230" cy="8" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="8" cy="144" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="466" cy="125" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="449" cy="293" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="269" cy="438" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="271" cy="326" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                    </svg>
-                    <svg id="obi" class="main-map-points__item" width="418" height="390" viewBox="0 0 418 390" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="167" cy="193" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="180" cy="132" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="102" cy="284" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="163" cy="382" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="258" cy="327" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="410" cy="294" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="41" cy="26" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="8" cy="147" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="102" cy="8" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                    </svg>
-                    <svg id="cr" class="main-map-points__item" width="413" height="175" viewBox="0 0 413 175" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="8" cy="8" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="233" cy="167" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                        <circle cx="405" cy="27" r="5.5" stroke="#E3E3E3" stroke-width="5"/>
-                    </svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-steps">
+        <div class="container">
+            <h3 class="main-steps__header">
+                Доставка от 2 часов по Москве
+            </h3>
+
+            <div class="main-steps-row">
+                <div class="main-steps-row__col">
+                    <div class="main-steps-row__img">
+                        <img src="/img/main/steps/step1.jpg" alt="">
+                        <span class="main-steps-row__badge">1-й шаг</span>
+                    </div>
+                    <p class="main-steps-row__header">
+                        Вы оформляйте заказ
+                    </p>
+                    <p class="main-steps-row__text">
+                        Мы доставим ваш заказ быстро и в удобное время
+                    </p>
+                </div>
+                <div class="main-steps-row__col">
+                    <div class="main-steps-row__img">
+                        <img src="/img/main/steps/step2.jpg" alt="">
+                        <span class="main-steps-row__badge">2-й шаг</span>
+                    </div>
+                    <p class="main-steps-row__header">
+                        Мы собираем заказ
+                    </p>
+                    <p class="main-steps-row__text">
+                        Мы проверим товарный вид и целостность каждого товара в заказе
+                    </p>
+                </div>
+                <div class="main-steps-row__col">
+                    <div class="main-steps-row__img">
+                        <img src="/img/main/steps/step3.jpg" alt="">
+                        <span class="main-steps-row__badge">3-й шаг</span>
+                    </div>
+                    <p class="main-steps-row__header">
+                        Доставляем Вам в удобное время
+                    </p>
+                    <p class="main-steps-row__text">
+                        Мы доставим ваш заказ быстро и в удобное время
+                    </p>
                 </div>
             </div>
         </div>
@@ -79,7 +148,7 @@
 
     <x-delivery/>
 
-    <div class="main-sales">
+    {{-- <div class="main-sales">
         <div class="container">
             <h3 class="main-sales__header">Акции и спецпредложения</h3>
             <div class="main-sales-cards">
@@ -130,54 +199,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
-    <div class="main-steps">
-        <div class="container">
-            <h3 class="main-steps__header">
-                Как мы работаем?
-            </h3>
-
-            <div class="main-steps-row">
-                <div class="main-steps-row__col">
-                    <div class="main-steps-row__img">
-                        <img src="/img/main/steps/step1.jpg" alt="">
-                        <span class="main-steps-row__badge">1-й шаг</span>
-                    </div>
-                    <p class="main-steps-row__header">
-                        Вы оформляйте заказ
-                    </p>
-                    <p class="main-steps-row__text">
-                        Мы доставим ваш заказ быстро и в удобное время
-                    </p>
-                </div>
-                <div class="main-steps-row__col">
-                    <div class="main-steps-row__img">
-                        <img src="/img/main/steps/step2.jpg" alt="">
-                        <span class="main-steps-row__badge">2-й шаг</span>
-                    </div>
-                    <p class="main-steps-row__header">
-                        Мы собираем заказ
-                    </p>
-                    <p class="main-steps-row__text">
-                        Мы проверим товарный вид и целостность каждого товара в заказе
-                    </p>
-                </div>
-                <div class="main-steps-row__col">
-                    <div class="main-steps-row__img">
-                        <img src="/img/main/steps/step3.jpg" alt="">
-                        <span class="main-steps-row__badge">3-й шаг</span>
-                    </div>
-                    <p class="main-steps-row__header">
-                        Доставляем Вам в удобное время
-                    </p>
-                    <p class="main-steps-row__text">
-                        Мы доставим ваш заказ быстро и в удобное время
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
     <div class="main-qa">
         <div class="container">

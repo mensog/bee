@@ -1,5 +1,5 @@
 jQuery($ => {
-    $('.main-map-toggle').on('click', function () {
+    $('.main-map-toggle').hover( function () {
 
         const dataMap = $(this).data('map')
 

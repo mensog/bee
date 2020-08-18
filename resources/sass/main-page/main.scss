@@ -1,5 +1,5 @@
 .main-map {
-    background: url("/svg/main/main-map.svg") no-repeat right;
+    background: url("/svg/main/map.svg") no-repeat right;
     background-size: cover;
 
     .main-map-points {
@@ -10,57 +10,84 @@
             top: 0;
             right: 0;
             bottom: 0;
-            margin: auto;
+            // margin: auto;
             z-index: 0;
+            fill: $tertiary-gray;
+            transition: all .3s linear;
         }
 
         &__item#lm.active {
             z-index: 1;
+            filter: drop-shadow(0px 0px 12px rgba($green, 0.4));
 
             circle {
-                stroke: $green;
+                // stroke: $green;
+                fill: $green;
+                transition: all .3s linear;
             }
         }
 
         &__item#petr.active {
             z-index: 1;
+            filter: drop-shadow(0px 0px 12px rgba($red, 0.4));
 
             circle {
-                stroke: #EB5757;
+                // stroke: $red;
+                fill: $red;
+                transition: all .3s linear;
             }
         }
 
         &__item#obi.active {
             z-index: 1;
+            filter: drop-shadow(0px 0px 12px rgba($orange, 0.4));
 
             circle {
-                stroke: #F2994A;
+                // stroke: $orange;
+                fill: $orange;
+                transition: all .3s linear;
             }
         }
 
         &__item#cr.active {
             z-index: 1;
+            filter: drop-shadow(0px 0px 12px rgba($blue, 0.4));
 
             circle {
-                stroke: #2D9CDB;
+                // stroke: $blue;
+                fill: $blue;
+                transition: all .3s linear;
             }
         }
     }
 
     .container {
+        min-height: 520px;
         padding-top: 64px;
-        padding-bottom: 44px;
+        padding-bottom: 64px;
     }
 
     &__header {
-        margin-bottom: 48px;
+        margin: 0 0 20px;
+        font-weight: bold;
         font-size: 40px;
+        line-height: 48px;
+    }
+
+    &__descr {
+        margin: 0 0 64px;
+        font-size: 16px;
+        line-height: 20px;
+        color: $black;
     }
 
     .main-map-shops {
+        position: relative;
         display: flex;
+        justify-content: space-between;
         flex-direction: row;
         flex-wrap: wrap;
+        z-index: 12;
 
         &__item.border-lm.active {
             border-bottom: 3px solid $green;
@@ -84,16 +111,18 @@
 
         &__item {
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 171px;
+            max-width: 206px;
             display: flex;
-            height: 97px;
+            height: 122px;
             box-sizing: border-box;
             width: 100%;
             padding: 20px 10px;
             background: #fff;
-            margin-right: 20px;
-            margin-bottom: 20px;
+            // margin-right: 20px;
+            // margin-bottom: 20px;
             text-align: center;
+            border-bottom: 3px solid transparent;
+            transition: all .3s linear;
 
             img {
                 display: table;
