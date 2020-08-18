@@ -27,7 +27,6 @@
                         Покупки удобнее с приложением BeeClub
                     </p>
                     <p class="app-banner__text">
-                        <span>%</span>
                         Еще больше скидок и акций
                     </p>
                     <div class="app-banner-links">

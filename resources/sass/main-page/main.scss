@@ -15,7 +15,7 @@
             fill: $tertiary-gray;
             transition: all .3s linear;
 
-            circle{
+            circle {
                 fill: $tertiary-gray;
             }
         }
@@ -427,6 +427,7 @@
         &__header {
 
             padding: 29px 32px;
+            cursor: pointer;
 
             header {
                 font-weight: bold;
@@ -501,10 +502,11 @@
     }
 
     &__badge {
-        font-size: 22px;
+        font-weight: bold;
+        font-size: 20px;
         line-height: 12px;
-        text-align: center;
-        color: #FFDB4D;
+        color: #FDD900;
+        text-transform: uppercase;
         padding: 15px 22px;
         max-width: 120px;
         width: 100%;
@@ -518,7 +520,7 @@
         font-weight: bold;
         font-size: 42px;
         line-height: 48px;
-        color: #FFFFFF;
+        color: #000000;
         margin-bottom: 16px;
     }
 
@@ -526,7 +528,7 @@
         font-weight: normal;
         font-size: 16px;
         line-height: 14px;
-        color: #FFFFFF;
+        color: #000000;
         margin-bottom: 36px;
 
         span {
@@ -547,6 +549,11 @@
         &__item {
             max-width: 176px;
             margin-right: 14px;
+            transition: 0.2s ease-in-out;
+
+            &:hover {
+                transform: scale(1.05);
+            }
 
             img {
                 max-width: 176px;

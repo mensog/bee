@@ -333,43 +333,6 @@
                         </div>
                     </div>
                 </div>
-{{--                 <div class="col-lg-6 col-12">
-                    <p class="main-qa__small">
-                        Другое
-                    </p>
-                    <div class="accordion" id="accordionOther">
-                        <div class="main-qa-card">
-                            <div class="main-qa-card__header" data-toggle="collapse" data-target="#accordionOtherOne"
-                                 aria-expanded="true" aria-controls="accordionOtherOne">
-                                <header>
-                                    Если остались вопросы, обязательно на них ответим
-                                </header>
-                            </div>
-                            <div id="accordionOtherOne" class="collapse show" aria-labelledby="accordionOtherOne"
-                                 data-parent="#accordionOther">
-                                <div class="main-qa-card__body">
-                                    <p class="main-qa-card__contacts">
-                                        Cвяжитесь с нами любым удобным способом
-                                        <a href="tel:+7(900) 000-00-00">
-                                            +7(900) 000-00-00
-                                        </a>
-                                    </p>
-                                    <div class="main-qa-card__social">
-                                        <a href="tel:+7(900) 000-00-00">
-                                            <img src="/svg/main/phone.svg" alt="">
-                                        </a>
-                                        <a href="tel:+7(900) 000-00-00">
-                                            <img src="/svg/main/whatsapp.svg" alt="">
-                                        </a>
-                                        <a href="tel:+7(900) 000-00-00">
-                                            <img src="/svg/main/telegram.svg" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </div>
