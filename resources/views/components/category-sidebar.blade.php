@@ -1,4 +1,5 @@
 <ul class="catalog__list">
+    @isset($categories[''])
     @foreach($categories[''] as $category)
     <li class="catalog__list-item{{ in_array($category->friendly_url_name, $activeCategorySlugs) ? ' active' : '' }}">
         <a class="catalog__list-link" href="{{ route('category', ['name' => $category->friendly_url_name, 'storeSlug' => $currentStore->slug]) }}">{{ $category->name }}</a>
@@ -10,4 +11,5 @@
         @endisset
     </li>
     @endforeach
+    @endisset
 </ul>
