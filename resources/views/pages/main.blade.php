@@ -11,40 +11,40 @@
                     </h2>
                     <div class="main-map__descr">Выберите магазин, закажите нужные стройматериалы и <br>
                         мы доставим их уже сегодня</div>
-                    
+
                 </div>
                 <div class="col-lg-6 main-map-points">
-                    <svg id="lm" class="active main-map-points__item" width="412" height="430" viewBox="0 0 412 430"
+                    <svg id="lm" class="main-map-points__item active" width="412" height="430" viewBox="0 0 412 430"
                          fill="none" xmlns="http://www.w3.org/2000/svg">
-                         
+
                             <circle cx="179" cy="42" r="5" fill="#00A454"/>
-                            
+
                             <circle cx="56" cy="111" r="5" fill="#00A454"/>
-                            
+
                             <circle cx="91" cy="94" r="5" fill="#00A454"/>
-                           
+
                             <circle cx="136" cy="17" r="5" fill="#00A454"/>
-                            
+
                             <circle cx="73" cy="28" r="5" fill="#00A454"/>
-                            
+
                             <circle cx="275" cy="214" r="5" fill="#00A454"/>
-                            
+
                             <circle cx="280.229" cy="175.778" r="5" fill="#00A454"/>
-                            
+
                             <circle cx="200" cy="159" r="5" fill="#00A454"/>
-                            
+
                             <circle cx="207.622" cy="171.817" r="5" fill="#00A454"/>
-                            
+
                             <circle cx="156" cy="300" r="5" fill="#00A454"/>
-                            
+
                             <circle cx="40" cy="268" r="5" fill="#00A454"/>
-                            
+
                             <circle cx="17" cy="103" r="5" fill="#00A454"/>
-                           
+
                             <circle cx="163.397" cy="203.501" r="5" fill="#00A454"/>
 
                             <circle cx="175" cy="133" r="5" fill="#00A454"/>
-                          
+
                     </svg>
                     <svg id="petr" class="main-map-points__item" width="474" height="446" viewBox="0 0 474 446" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
@@ -201,7 +201,7 @@
         </div>
     </div> --}}
 
-    
+
 
     <div class="main-qa">
         <div class="container">

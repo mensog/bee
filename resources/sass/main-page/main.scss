@@ -14,14 +14,23 @@
             z-index: 0;
             fill: $tertiary-gray;
             transition: all .3s linear;
+
+            circle{
+                fill: $tertiary-gray;
+            }
+        }
+
+        &__item#lm {
+            top: -3.4rem;
+            right: 0.7rem;
         }
 
         &__item#lm.active {
             z-index: 1;
-            filter: drop-shadow(0px 0px 12px rgba($green, 0.4));
 
             circle {
                 // stroke: $green;
+                box-shadow: 0 0 12px rgba($green, 0.4);
                 fill: $green;
                 transition: all .3s linear;
             }
@@ -29,10 +38,10 @@
 
         &__item#petr.active {
             z-index: 1;
-            filter: drop-shadow(0px 0px 12px rgba($red, 0.4));
 
             circle {
                 // stroke: $red;
+                box-shadow: 0 0 12px rgba($red, 0.4);
                 fill: $red;
                 transition: all .3s linear;
             }
@@ -40,10 +49,10 @@
 
         &__item#obi.active {
             z-index: 1;
-            filter: drop-shadow(0px 0px 12px rgba($orange, 0.4));
 
             circle {
                 // stroke: $orange;
+                box-shadow: 0 0 12px rgba($orange, 0.4);
                 fill: $orange;
                 transition: all .3s linear;
             }
@@ -51,10 +60,10 @@
 
         &__item#cr.active {
             z-index: 1;
-            filter: drop-shadow(0px 0px 12px rgba($blue, 0.4));
 
             circle {
                 // stroke: $blue;
+                box-shadow: 0 0 12px rgba($blue, 0.4);
                 fill: $blue;
                 transition: all .3s linear;
             }
@@ -886,7 +895,8 @@
         color: #9F9F9F;
     }
 
-    &__box {}
+    &__box {
+    }
 
     &__box-descr {
         margin: 0 0 16px;
