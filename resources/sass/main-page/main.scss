@@ -1,5 +1,5 @@
 .main-map {
-    background: url("/svg/main/main-map.svg") no-repeat right;
+    background: url("/svg/main/map.svg") no-repeat right;
     background-size: cover;
 
     .main-map-points {
@@ -10,15 +10,29 @@
             top: 0;
             right: 0;
             bottom: 0;
-            margin: auto;
+            // margin: auto;
             z-index: 0;
+            fill: $tertiary-gray;
+            transition: all .3s linear;
+
+            circle {
+                fill: $tertiary-gray;
+            }
+        }
+
+        &__item#lm {
+            top: -3.4rem;
+            right: 0.7rem;
         }
 
         &__item#lm.active {
             z-index: 1;
 
             circle {
-                stroke: $green;
+                // stroke: $green;
+                box-shadow: 0 0 12px rgba($green, 0.4);
+                fill: $green;
+                transition: all .3s linear;
             }
         }
 
@@ -26,7 +40,10 @@
             z-index: 1;
 
             circle {
-                stroke: #EB5757;
+                // stroke: $red;
+                box-shadow: 0 0 12px rgba($red, 0.4);
+                fill: $red;
+                transition: all .3s linear;
             }
         }
 
@@ -34,7 +51,10 @@
             z-index: 1;
 
             circle {
-                stroke: #F2994A;
+                // stroke: $orange;
+                box-shadow: 0 0 12px rgba($orange, 0.4);
+                fill: $orange;
+                transition: all .3s linear;
             }
         }
 
@@ -42,25 +62,41 @@
             z-index: 1;
 
             circle {
-                stroke: #2D9CDB;
+                // stroke: $blue;
+                box-shadow: 0 0 12px rgba($blue, 0.4);
+                fill: $blue;
+                transition: all .3s linear;
             }
         }
     }
 
     .container {
+        min-height: 520px;
         padding-top: 64px;
-        padding-bottom: 44px;
+        padding-bottom: 64px;
     }
 
     &__header {
-        margin-bottom: 48px;
+        margin: 0 0 20px;
+        font-weight: bold;
         font-size: 40px;
+        line-height: 48px;
+    }
+
+    &__descr {
+        margin: 0 0 64px;
+        font-size: 16px;
+        line-height: 20px;
+        color: $black;
     }
 
     .main-map-shops {
+        position: relative;
         display: flex;
+        justify-content: space-between;
         flex-direction: row;
         flex-wrap: wrap;
+        z-index: 12;
 
         &__item.border-lm.active {
             border-bottom: 3px solid $green;
@@ -84,16 +120,18 @@
 
         &__item {
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 171px;
+            max-width: 206px;
             display: flex;
-            height: 97px;
+            height: 122px;
             box-sizing: border-box;
             width: 100%;
             padding: 20px 10px;
             background: #fff;
-            margin-right: 20px;
-            margin-bottom: 20px;
+            // margin-right: 20px;
+            // margin-bottom: 20px;
             text-align: center;
+            border-bottom: 3px solid transparent;
+            transition: all .3s linear;
 
             img {
                 display: table;
@@ -347,7 +385,7 @@
 }
 
 .main-qa {
-    background: #fff;
+    background: $quaternary-gray;
 
     .accordion {
         margin-bottom: 30px;
@@ -371,7 +409,7 @@
     }
 
     .main-qa-card {
-        background: $light-grey;
+        background: $white;
         margin-bottom: 4px;
 
         &__header:not(.collapsed) {
@@ -389,6 +427,7 @@
         &__header {
 
             padding: 29px 32px;
+            cursor: pointer;
 
             header {
                 font-weight: bold;
@@ -463,10 +502,11 @@
     }
 
     &__badge {
-        font-size: 22px;
+        font-weight: bold;
+        font-size: 20px;
         line-height: 12px;
-        text-align: center;
-        color: #FFDB4D;
+        color: #FDD900;
+        text-transform: uppercase;
         padding: 15px 22px;
         max-width: 120px;
         width: 100%;
@@ -480,7 +520,7 @@
         font-weight: bold;
         font-size: 42px;
         line-height: 48px;
-        color: #FFFFFF;
+        color: #000000;
         margin-bottom: 16px;
     }
 
@@ -488,7 +528,7 @@
         font-weight: normal;
         font-size: 16px;
         line-height: 14px;
-        color: #FFFFFF;
+        color: #000000;
         margin-bottom: 36px;
 
         span {
@@ -509,6 +549,11 @@
         &__item {
             max-width: 176px;
             margin-right: 14px;
+            transition: 0.2s ease-in-out;
+
+            &:hover {
+                transform: scale(1.05);
+            }
 
             img {
                 max-width: 176px;
@@ -772,6 +817,7 @@
 
 .contact {
     padding: 64px 0;
+    background-color: $white;
 
     &__title {
         margin: 0 0 30px;
@@ -856,7 +902,8 @@
         color: #9F9F9F;
     }
 
-    &__box {}
+    &__box {
+    }
 
     &__box-descr {
         margin: 0 0 16px;
