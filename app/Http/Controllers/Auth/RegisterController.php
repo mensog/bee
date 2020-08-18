@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\PrivateAccount;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\UserRole;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -56,23 +57,20 @@ class RegisterController extends Controller
             'email.unique' => 'Пользователь с таким e-mail уже существует',
             'max' => 'Поле :attribute должно содержать не более :max символов',
             'password.confirmed' => 'Пароли не совпадают',
-            'personal-data-agree.accepted' => 'Необходимо согласиться на обработку персональных данных',
         ];
 
         $names = [
-            'name' => 'имя',
-            'surname' => 'фамилия',
+            'fullName' => 'ФИО',
             'email' => 'e-mail',
             'password' => 'пароль',
-            'personal-data-agree' => 'согласие на обработку персональных данных',
+            'phone' => 'телефон'
         ];
 
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'surname' => ['required', 'string', 'max:255'],
+            'fullName' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'personal-data-agree' => ['required', 'accepted'],
+            'phone' => ['required', 'string', 'min:11', 'max:11'],
         ], $messages, $names);
     }
 
@@ -85,9 +83,10 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $user = User::create([
-            'name' => $data['name'],
-            'surname' => $data['surname'],
+            'full_name' => $data['fullName'],
             'email' => $data['email'],
+            'role' => UserRole::CUSTOMER,
+            'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
         ]);
         $account = new PrivateAccount();
