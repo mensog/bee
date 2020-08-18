@@ -16,35 +16,14 @@
                                 @csrf
 
                                 <div class="form-group row">
-
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="form-control-container">
-
                                             <input id="name" type="text"
                                                    placeholder=" "
-                                                   class="form-control @error('name') is-invalid @enderror" name="name"
-                                                   value="{{ old('name') }}" required autocomplete="name" autofocus>
-                                            <label for="name">Имя</label>
-
-                                            @error('name')
-                                            <span class="invalid-feedback" role="alert">
-                                                {{ $message }}
-                                            </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-control-container">
-
-                                            <input id="surname" type="text"
-                                                   placeholder=" "
-                                                   class="form-control @error('surname') is-invalid @enderror"
-                                                   name="surname"
-                                                   value="{{ old('surname') }}" required autocomplete="surname"
-                                                   autofocus>
-                                            <label for="surname">Фамилия</label>
-
-                                            @error('surname')
+                                                   class="form-control @error('name') is-invalid @enderror" name="fullName"
+                                                   value="{{ old('fullName') }}" required autocomplete="name" autofocus>
+                                            <label for="name">ФИО</label>
+                                            @error('fullName')
                                             <span class="invalid-feedback" role="alert">
                                                 {{ $message }}
                                             </span>
@@ -52,26 +31,24 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
-                                    {{--                                    <div class="col-md-6">--}}
-                                    {{--                                        <div class="form-control-container">--}}
+                                    <div class="col-md-6">
+                                        <div class="form-control-container">
+                                            <input id="phone" type="phone"
+                                                   placeholder=" "
+                                                   class="form-control @error('phone') is-invalid @enderror"
+                                                   name="phone"
+                                                   value="{{ old('phone') }}" required autocomplete="phone">
+                                            <label for="phone">Телефон</label>
 
-                                    {{--                                            <input id="phone" type="phone"--}}
-                                    {{--                                                   placeholder=" "--}}
-                                    {{--                                                   class="form-control @error('phone') is-invalid @enderror"--}}
-                                    {{--                                                   name="phone"--}}
-                                    {{--                                                   value="{{ old('phone') }}" required autocomplete="phone">--}}
-                                    {{--                                            <label for="phone">Телефон</label>--}}
-
-                                    {{--                                            @error('phone')--}}
-                                    {{--                                            <span class="invalid-feedback" role="alert">--}}
-                                    {{--                                                {{ $message }}--}}
-                                    {{--                                            </span>--}}
-                                    {{--                                            @enderror--}}
-                                    {{--                                        </div>--}}
-                                    {{--                                    </div>--}}
-                                    <div class="col-md-12">
+                                            @error('phone')
+                                            <span class="invalid-feedback" role="alert">
+                                                {{ $message }}
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
                                         <div class="form-control-container">
 
                                             <input id="email" type="email"
