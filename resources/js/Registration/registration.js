@@ -4,7 +4,7 @@ import IMask from '../../../node_modules/imask/dist/imask.min'
 const element = document.getElementById('phone');
 
 const checkout = document.getElementById('checkout')
-// const registration = document.getElementById('registration')
+const registration = document.getElementById('registration')
 
 let mask
 
@@ -23,20 +23,20 @@ if (document.body.contains(checkout)) {
     }
 }
 
-// if (document.body.contains(registration)) {
-//     const maskOptions = {
-//         mask: '+{7} (000) 000-00-00'
-//     };
-//     mask = IMask(element, maskOptions);
-//
-//     let registrationFormObject = document.forms['registration']
-//
-//     let registrationFormElement = registrationFormObject.elements["phone"];
-//
-//     registration.onsubmit = () => {
-//         registrationFormElement.value = mask.unmaskedValue
-//     }
-// }
+if (document.body.contains(registration)) {
+    const maskOptions = {
+        mask: '+{7} (000) 000-00-00'
+    };
+    mask = IMask(element, maskOptions);
+
+    let registrationFormObject = document.forms['registration']
+
+    let registrationFormElement = registrationFormObject.elements["phone"];
+
+    registration.onsubmit = () => {
+        registrationFormElement.value = mask.unmaskedValue
+    }
+}
 
 let isValid = [];
 
