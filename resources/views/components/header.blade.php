@@ -64,62 +64,10 @@
                         Каталог <img src="/svg/main/catalog.svg" alt="">
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <ul class="dropdown__mainmenu">
-                            <li class="dropdown__mainmenu-item">
-                                <a class="dropdown__mainmenu-link" href="#">Стройматериалы</a>
-                                <ul class="dropdown__menu">
-                                    <li class="dropdown__menu-item">
-                                        <a class="dropdown__menu-link" href="#">Сухие смеси и грунтовки</a>
-                                        <ul class="dropdown__menu">
-                                            <li class="dropdown__menu-item">
-                                                <a class="dropdown__menu-link" href="#">Блоки строительные</a>
-                                                <ul class="dropdown__menu">
-                                                    <li class="dropdown__menu-item">
-                                                        <a class="dropdown__menu-link" href="#">Блоки строительные</a>
-                                                        <ul class="dropdown__menu">
-                                                            <li class="dropdown__menu-item">
-                                                                <a class="dropdown__menu-link" href="#">Блоки
-                                                                    строительные</a>
-                                                            </li>
-                                                            <li class="dropdown__menu-item">
-                                                                <a class="dropdown__menu-link" href="#">Плиты
-                                                                    пазогребные</a>
-                                                            </li>
-                                                            <li class="dropdown__menu-item">
-                                                                <a class="dropdown__menu-link" href="#">Кирпич</a>
-                                                            </li>
-                                                            <li class="dropdown__menu-item">
-                                                                <a class="dropdown__menu-link" href="#">Стеклоблоки</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="dropdown__menu-item">
-                                                        <a class="dropdown__menu-link" href="#">Плиты пазогребные</a>
-                                                    </li>
-                                                    <li class="dropdown__menu-item">
-                                                        <a class="dropdown__menu-link" href="#">Кирпич</a>
-                                                    </li>
-                                                    <li class="dropdown__menu-item">
-                                                        <a class="dropdown__menu-link" href="#">Стеклоблоки</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="dropdown__menu-item">
-                                                <a class="dropdown__menu-link" href="#">Плиты пазогребные</a>
-                                            </li>
-                                            <li class="dropdown__menu-item">
-                                                <a class="dropdown__menu-link" href="#">Кирпич</a>
-                                            </li>
-                                            <li class="dropdown__menu-item">
-                                                <a class="dropdown__menu-link" href="#">Стеклоблоки</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                        @isset($storeCatalog)
+                            <x-category-header :categories="$storeCatalog" :store="$currentStore"/>
+                        @endisset
                     </div>
-
                 </div>
             </div>
             <div class="col-lg-3">

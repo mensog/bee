@@ -99,7 +99,7 @@ Route::get('/personal-data-policy', 'StaticPageController@personalDataPolicy')->
 Route::get('/sale-regulations', 'StaticPageController@saleRegulations')->name('sale-regulations');
 
 Route::get('/{storeSlug}/catalog', 'CategoryController@index')->name('catalog');
-Route::get('/{storeSlug}/category/{name}', 'CategoryController@show')->name('category');
+Route::get('/{storeSlug}/category/{name}', 'CategoryController@index')->name('category');
 Route::get('/{storeSlug}/product/{name}', 'ProductController@show')->name('product');
 
 Route::get('/{storeSlug}', 'MainController@showStore')->name('store_main');

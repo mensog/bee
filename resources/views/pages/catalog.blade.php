@@ -5,65 +5,36 @@
     <div class="delivery">
         <div class="container">
             <ul class="breadcrumb">
-                <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Главная</a></li>
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="{{ route('main') }}">Главная</a></li>
                 <li class="breadcrumb__item">/</li>
-                <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Леруа Мерлен</a></li>
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="{{ route('store_main', ['storeSlug' => $store->slug]) }}">{{ $store->company_name }}</a></li>
                 <li class="breadcrumb__item">/</li>
-                <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Каталог</a></li>
-                <li class="breadcrumb__item">/</li>
-                <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Строительство и ремонт</a></li>
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="{{ route('catalog', ['storeSlug' => $store->slug]) }}">Каталог</a></li>
+                @foreach($breadcrumbs as $key => $crumb)
+                    @if($loop->last)
+                        @break
+                    @endif
+                    <li class="breadcrumb__item">/</li>
+                    <li class="breadcrumb__item"><a class="breadcrumb__link" href="{{ route('category',['storeSlug' => $store->slug , 'name'=> $key]) }}">{{ $crumb }}</a></li>
+                @endforeach
             </ul>
             <div class="delivery__box">
-                <img class="delivery__box-img" src="/img/catalog/leroy-merlin-logo.png" alt="">
-                <h3 class="delivery__box-title"><span>Доставка из</span>Леруа Мерлен</h3>
+                <img class="delivery__box-img" src="{{ $store->image_path }}" alt="">
+                <h3 class="delivery__box-title"><span>Доставка из</span>{{ $store->company_name }}</h3>
             </div>
         </div>
     </div>
 
     <div class="catalog">
         <div class="container">
-            <h3 class="catalog__title">Строительство и ремонт</h3>
+            <h3 class="catalog__title">{{ (is_null($currentCategory)) ? 'Каталог' : $currentCategory->name }}</h3>
             <div class="row">
                 <div class="col-lg-3">
                     <div class="catalog__aside">
                         <div class="catalog__subtitle subtitle">Категории</div>
-                        <ul class="catalog__list">
-                            <li class="catalog__list-item active">
-                                <a class="catalog__list-link"
-                                   href="#">item1</a>
-                                <ul class="catalog__sublist">
-                                    <li class="catalog__sublist-item active">
-                                        <a class="catalog__sublist-link" href="#">item2</a>
-                                        <ul class="catalog__sublist">
-                                            <li class="catalog__sublist-item ">
-                                                <a class="catalog__sublist-link" href="#">item3</a>
-                                                <ul class="catalog__sublist">
-                                                    <li class="catalog__sublist-item">
-                                                        <a class="catalog__sublist-link" href="#">item4</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="catalog__sublist-item ">
-                                        <a class="catalog__sublist-link" href="#">item2</a>
-                                        <ul class="catalog__sublist">
-                                            <li class="catalog__sublist-item ">
-                                                <a class="catalog__sublist-link" href="#">item3</a>
-                                                <ul class="catalog__sublist">
-                                                    <li class="catalog__sublist-item">
-                                                        <a class="catalog__sublist-link" href="#">item4</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
 
                         @isset($storeCatalog)
-                            <x-category-sidebar :categories="$storeCatalog" :store="$store"/>
+                            <x-category-sidebar :categories="$storeCatalog" :store="$store" :activeCategorySlugs="$activeCategorySlugs"/>
                         @endisset
                         <div class="price-filter">
                             <h4 class="price-filter__title subtitle">Цена</h4>
@@ -134,16 +105,22 @@
                 <div class="col-lg-9">
                     <div class="tabs">
                         <div class="tabs__control">
-                            <button class="tabs__control-btn">Расходные материалы</button>
-                            <button class="tabs__control-btn">Бензокосилки</button>
-                            <button class="tabs__control-btn">Краски</button>
-                            <button class="tabs__control-btn">Напольные покрытие</button>
-                            <button class="tabs__control-btn">Освещение</button>
-                            <button class="tabs__control-btn">Хранение и хозтовары</button>
-                            <button class="tabs__control-btn">Отопление, охлаждение, водоснабжение и вентиляция</button>
+                            @isset($currentCategory)
+                                @isset($storeCatalog[$currentCategory->id])
+                                    @foreach($storeCatalog[$currentCategory->id] as $cat)
+                                        <button class="tabs__control-btn">{{  $cat->name }}</button>
+                                    @endforeach
+                                @endisset
+                            @else
+                                @isset($storeCatalog[''])
+                                    @foreach($storeCatalog[''] as $cat)
+                                        <button class="tabs__control-btn">{{  $cat->name }}</button>
+                                    @endforeach
+                                @endisset
+                            @endisset
                         </div>
                         <div class="tabs__sort">
-                            <div class="tabs__sort-quantity">39 товаров</div>
+                            <div class="tabs__sort-quantity">{{ $products->total() }} {{ Lang::choice('товар|товара|товаров', $products->total(), [], 'ru') }}</div>
                             <div class="tabs__sort-filter">
                                 Сортировать: <span>по популярности</span>
                                 <img src="/svg/catalog/sort-icon.svg" alt="">

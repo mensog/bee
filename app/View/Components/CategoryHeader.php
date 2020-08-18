@@ -4,21 +4,19 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class CategorySidebar extends Component
+class CategoryHeader extends Component
 {
     protected $categories;
     protected $store;
-    protected $activeCategorySlugs;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($categories, $store, $activeCategorySlugs)
+    public function __construct($categories, $store)
     {
         $this->categories = $categories;
         $this->store = $store;
-        $this->activeCategorySlugs = $activeCategorySlugs;
     }
 
     /**
@@ -28,10 +26,6 @@ class CategorySidebar extends Component
      */
     public function render()
     {
-        return view('components.category-sidebar', [
-            'categories' => $this->categories,
-            'store' => $this->store,
-            'activeCategorySlugs' => $this->activeCategorySlugs,
-            ]);
+        return view('components.category-header', ['categories' => $this->categories, 'store' => $this->store]);
     }
 }
