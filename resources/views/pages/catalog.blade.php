@@ -21,23 +21,19 @@
                     </a>
                 </li>
                 @foreach($breadcrumbs as $key => $crumb)
-                    @if($loop->last && !$loop->first)
-                        @break
+                    @if($loop->last)
+                        <li class="breadcrumb__item">/</li>
+                        <li class="breadcrumb__item">
+                            {{ $crumb }}
+                        </li>
                     @else
-                        @if($loop->first)
-                            <li class="breadcrumb__item">/</li>
-                            <li class="breadcrumb__item">
+                        <li class="breadcrumb__item">/</li>
+                        <li class="breadcrumb__item">
+                            <a class="breadcrumb__link"
+                               href="{{ route('category',['storeSlug' => $store->slug , 'name'=> $key]) }}">
                                 {{ $crumb }}
-                            </li>
-                        @else
-                            <li class="breadcrumb__item">/</li>
-                            <li class="breadcrumb__item">
-                                <a class="breadcrumb__link"
-                                   href="{{ route('category',['storeSlug' => $store->slug , 'name'=> $key]) }}">
-                                    {{ $crumb }}
-                                </a>
-                            </li>
-                        @endif
+                            </a>
+                        </li>
                     @endif
                 @endforeach
             </ul>
