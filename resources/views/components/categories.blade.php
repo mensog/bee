@@ -18,7 +18,7 @@
                 <span class="categories__item-descr">Электротовары</span>
                 <img class="categories__item-img" src="/svg/components/categories/electrical.svg" alt="">
             </a>
-            <a href="#" class="categories__item categories__item_empty">
+            <a href="{{ route('catalog',['storeSlug' => $currentStore->slug]) }}" class="categories__item categories__item_empty">
                 <span class="categories__item-descr">Ещё 15 категорий</span>
             </a>
         </div>
