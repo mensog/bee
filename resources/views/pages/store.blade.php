@@ -5,17 +5,14 @@
    <div class="delivery">
       <div class="container">
           <ul class="breadcrumb">
-              <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Главная</a></li>
+              <li class="breadcrumb__item"><a class="breadcrumb__link" href="{{ route('main') }}">Главная</a></li>
               <li class="breadcrumb__item">/</li>
-              <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Леруа Мерлен</a></li>
-              <li class="breadcrumb__item">/</li>
-              <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Каталог</a></li>
-              <li class="breadcrumb__item">/</li>
-              <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Строительство и ремонт</a></li>
+              <li class="breadcrumb__item">{{ $currentStore->full_name }}</li>
+
           </ul>
           <div class="delivery__box">
-              <img class="delivery__box-img" src="/img/catalog/leroy-merlin-logo.png" alt="">
-              <h3 class="delivery__box-title"><span>Доставка из</span>Леруа Мерлен</h3>
+              <img class="delivery__box-img" src="{{ $currentStore->image_path }}" alt="">
+              <h3 class="delivery__box-title"><span>Доставка из</span>{{ $currentStore->full_name }}</h3>
           </div>
           <div class="delivery__items">
              <div class="delivery__item">

@@ -26,6 +26,6 @@ class MainController extends Controller
         $cartContent = $cart->content;
         $favoritesList = app('FavoriteList');
         $favoritesListContent = $favoritesList->content;
-        return view('pages.main', ['cartContent' => $cartContent, 'favoritesListContent' => $favoritesListContent]);
+        return view('pages.store', ['cartContent' => $cartContent, 'favoritesListContent' => $favoritesListContent]);
     }
 }

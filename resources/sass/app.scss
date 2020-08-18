@@ -233,6 +233,19 @@ button {
     }
 }
 
+html {
+    .menu-last {
+
+        &::before {
+            content: none !important;
+        }
+
+        a {
+            background-image: none !important;
+        }
+    }
+}
+
 .lk-sidebar {
     padding: 20px 30px 20px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);

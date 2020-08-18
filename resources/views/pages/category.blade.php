@@ -11,7 +11,7 @@
                             <div class="dropdown-title">Категории товаров</div>
                         </li>
                         @isset($storeCatalog)
-                        <x-category-sidebar :categories=$storeCatalog :store=$store />
+                            <x-category-sidebar :categories="$storeCatalog" :store="$store"/>
                         @endisset
                     </ul>
                 </div>

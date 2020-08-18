@@ -48,6 +48,7 @@ class AppServiceProvider extends ServiceProvider
                     $store = Partner::where('slug', $currentStoreSlug)->first();
                     if ($store) {
                         $storeCatalog = Category::getCatalog($store->id);
+                        view()->share('storeCatalog', $storeCatalog);
                     }
                 }
             }

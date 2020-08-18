@@ -14,11 +14,12 @@ class CategorySidebarItem extends Component
      *
      * @return void
      */
-    public function __construct($categories, $childCategories, $store)
+    public function __construct($categories, $childCategories, $store, $activeCategorySlugs)
     {
         $this->categories = $categories;
         $this->childCategories = $childCategories;
         $this->store= $store;
+        $this->activeCategorySlugs = $activeCategorySlugs;
     }
 
     /**
@@ -32,6 +33,7 @@ class CategorySidebarItem extends Component
             'categories' => $this->categories,
             'childCategories' => $this->childCategories,
             'store' => $this->store,
+            'activeCategorySlugs' => $this->activeCategorySlugs,
         ]);
     }
 }
