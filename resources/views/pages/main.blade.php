@@ -78,21 +78,21 @@
             <div class="row">
                 <div class="col-12">
                     <div class="main-map-shops">
-                        <div class="main-map-shops__item active border-lm main-map-toggle" data-map="lm">
+                        <a href="#" class="main-map-shops__item active border-lm main-map-toggle" data-map="lm">
                             <img src="/svg/shop-icons/leroy-merlin.svg" alt="">
-                        </div>
-                        <div class="main-map-shops__item border-petr main-map-toggle" data-map="petr">
+                        </a>
+                        <a href="#" class="main-map-shops__item border-petr main-map-toggle" data-map="petr">
                             <img src="/svg/shop-icons/petrovich.svg" alt="">
-                        </div>
-                        <div class="main-map-shops__item border-obi main-map-toggle" data-map="obi">
+                        </a>
+                        <a href="#" class="main-map-shops__item border-obi main-map-toggle" data-map="obi">
                             <img src="/svg/shop-icons/obi.svg" alt="">
-                        </div>
-                        <div class="main-map-shops__item border-cr main-map-toggle" data-map="cr">
+                        </a>
+                        <a href="#" class="main-map-shops__item border-cr main-map-toggle" data-map="cr">
                             <img src="/svg/shop-icons/castorama.svg" alt="">
-                        </div>
-                        <div class="main-map-shops__item">
+                        </a>
+                        <a href="#" class="main-map-shops__item">
                             <p>Другие магазины</p>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
