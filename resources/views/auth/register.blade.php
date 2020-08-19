@@ -20,7 +20,7 @@
                                         <div class="form-control-container">
                                             <input id="name" type="text"
                                                    placeholder=" "
-                                                   class="form-control @error('name') is-invalid @enderror" name="fullName"
+                                                   class="form-control @error('fullName') is-invalid @enderror" name="fullName"
                                                    value="{{ old('fullName') }}" required autocomplete="name" autofocus>
                                             <label for="name">ФИО</label>
                                             @error('fullName')

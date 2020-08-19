@@ -63,7 +63,7 @@ jQuery($ => {
         checkRegistrationForm(false, $(this), 'change-password', 'password')
     })
 
-    $('.checkout #email, .checkout #name-n-surname, .checkout #phone, .checkout #address').on('keyup', function () {
+    $('#checkout #city, #checkout #email, #checkout #name-n-surname, #checkout #phone, #checkout #address').on('keyup', function () {
         checkRegistrationForm(false, $(this), 'checkout')
     })
 
@@ -325,6 +325,11 @@ jQuery($ => {
             num = $(`.${page} input:not([type="hidden"])`).length;
         }
 
+        if (page === 'checkout') {
+            num = $(`#${page} input:required`).length;
+        }
+        console.log(num)
+        console.log(isValid)
         if (isValid.length === num) {
             $(`.${page} button[type=submit]`).prop('disabled', false)
         } else {
