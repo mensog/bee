@@ -180,13 +180,13 @@
                                         </a>
                                         @if (isset($cartContent[$product->id]))
                                             <button data-id="{{ $product->id }}" data-quantity="1"
-                                                    class="product__item-btn btn">
+                                                    class="product__item-btn btn btn-primary btn-inactive">
                                                 В корзине
                                             </button>
                                         @else
                                             <button data-id="{{ $product->id }}" data-quantity="1"
-                                                    class="product__item-btn btn add-to-cart">
-                                                В корзине
+                                                    class="product__item-btn btn btn-primary add-to-cart">
+                                                В корзину
                                             </button>
                                         @endif
                                     </div>

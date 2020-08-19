@@ -7,10 +7,29 @@
     color: $black;
     background: $primary-yellow;
     border-radius: 5px;
+    position: relative;
 
     &:hover {
         cursor: pointer;
         box-shadow: 0 4px 11px rgba(254, 215, 0, 0.35);
+    }
+}
+
+.btn.btn-primary.loading {
+    &:before {
+        content: '';
+        background: url("/svg/preloaders/loading.svg");
+        background-size: contain;
+        max-width: 20px;
+        height: 20px;
+        width: 100%;
+        position: absolute;
+        left: 10%;
+        top: 25%;
+        margin-right: 10px;
+        vertical-align: text-bottom;
+        display: inline-block;
+        z-index: 3;
     }
 }
 
@@ -47,6 +66,7 @@
     color: $secondary-gray;
     background: #fef099;
     border-radius: 5px;
+    cursor: not-allowed;
 }
 
 .btn.btn-empty {
