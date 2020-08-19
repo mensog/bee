@@ -10,7 +10,7 @@
 
     &:hover {
         cursor: pointer;
-    box-shadow: 0 4px 11px rgba(254, 215, 0, 0.35);
+        box-shadow: 0 4px 11px rgba(254, 215, 0, 0.35);
     }
 }
 
@@ -36,4 +36,27 @@
     line-height: 1.5;
     border-radius: 1.4rem;
     transition: all 0.2s ease-in-out;
+}
+
+.btn.btn-inactive {
+    width: 100%;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 14px;
+    text-align: center;
+    color: $secondary-gray;
+    background: #fef099;
+    border-radius: 5px;
+}
+
+.btn.btn-empty {
+    border: 1px solid #242424;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #242424;
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 4px 11px rgba($dark-grey, 0.35);
+    }
 }

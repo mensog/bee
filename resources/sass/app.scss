@@ -23,6 +23,7 @@
 @import "inputs";
 @import "store/store";
 @import "promotions/promotions";
+@import "cart/cart";
 
 // Components
 @import "components/caregories";
@@ -60,7 +61,7 @@ button {
     }
 }
 
-.card-cart.loading:before {
+.cart.loading:before {
     content: url("/svg/preloaders/loading-primary.svg");
     position: absolute;
     left: 0;
@@ -71,98 +72,11 @@ button {
     max-width: 70px;
     max-height: 70px;
     display: block;
+    z-index: 3;
 }
 
-.card-cart.loading {
+.cart.loading {
     opacity: 0.5;
-}
-
-.card-cart {
-    position: relative;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-
-    .card-cart__body {
-        padding: 45px 30px 20px;
-        position: relative;
-    }
-
-    .card-cart__footer {
-        padding: 20px 30px 45px;
-    }
-
-    .card-cart__title {
-        margin-top: 10px;
-        font-size: 18px;
-    }
-
-    .card-cart__delete {
-        button {
-            background: #fff;
-            border: 0;
-            max-width: 40px;
-        }
-
-        button:hover {
-            cursor: pointer;
-        }
-    }
-
-    .card-cart__props, .card-cart__delete {
-        align-self: center;
-    }
-
-    .card-cart__sku {
-        font-size: 14px;
-        margin-bottom: 0;
-    }
-
-    .card-cart__price {
-        align-self: center;
-
-        .card-cart__price-total {
-            font-size: 18px;
-            color: #333e48;
-        }
-
-        p {
-            margin-bottom: 0;
-            text-align: right;
-        }
-    }
-}
-
-.card-cart-total {
-    align-self: center;
-
-    .card-cart-total__delete {
-        align-self: center;
-
-        p {
-            color: #000;
-            font-size: 14px;
-            margin-bottom: 0;
-        }
-    }
-
-    .card-cart-total__price {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-self: center;
-
-        p {
-            color: #000;
-            font-size: 20px;
-            margin-bottom: 0;
-        }
-
-        .card-cart-total__title {
-            color: #000;
-            font-size: 20px;
-            margin-bottom: 0;
-        }
-    }
 }
 
 .product-in-cart {
