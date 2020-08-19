@@ -7,16 +7,18 @@
             <p class="breadcrumbs-block">
                 <a class="breadcrumbs-block__link" href="{{ route('main', ['storeSlug' => $product->store->slug]) }}">Главная</a>
                 /
-                <a class="breadcrumbs-block__link" href="{{ route('store_main', ['storeSlug' => $product->store->slug]) }}">{{ $product->store->company_name }}</a>
+                <a class="breadcrumbs-block__link"
+                   href="{{ route('store_main', ['storeSlug' => $product->store->slug]) }}">{{ $product->store->company_name }}</a>
                 /
-                <a class="breadcrumbs-block__link" href="{{ route('catalog', ['storeSlug' => $product->store->slug]) }}">Каталог</a>
+                <a class="breadcrumbs-block__link"
+                   href="{{ route('catalog', ['storeSlug' => $product->store->slug]) }}">Каталог</a>
                 /
                 @foreach($categoryBreadcrumbs as $url => $catName)
-                <a class="breadcrumbs-block__link"
-                   href="{{ route('category', ['name' => $url, 'storeSlug' => $product->store->slug]) }}">
-                    {{ $catName }}
-                </a>
-                /
+                    <a class="breadcrumbs-block__link"
+                       href="{{ route('category', ['name' => $url, 'storeSlug' => $product->store->slug]) }}">
+                        {{ $catName }}
+                    </a>
+                    /
                 @endforeach
                 {{ $product->name }}
             </p>
@@ -111,17 +113,15 @@
                                 </header>
 
                                 <ul class="props-list">
-                                    @php $i = 0; @endphp
                                     @if(isset($attributes) && is_array($attributes) && count($attributes) > 0)
-                                        @if($i <=5)
-                                            @foreach($attributes as $attribute)
+                                        @foreach($attributes as $attribute)
+                                            @if ($loop->index <= 5)
                                                 <li>
                                                     <p>{{ $attribute['name'] }}</p>
                                                     <p>{{ $attribute['value'] }}</p>
                                                 </li>
-                                                @php $i ++; @endphp
-                                            @endforeach
-                                        @endif
+                                            @endif
+                                        @endforeach
                                     @endif
                                 </ul>
 
@@ -133,7 +133,7 @@
                             <div class="product-card-info-body-cart">
                                 <div class="product-card-info-body-cart__price">
                                     <p>{{ $product->price / 100 }} ₽ <span>/за шт</span></p>
-                                    <a href=""><img src="/svg/product/search.svg" alt=""> Проверить цену в Леруа Мерлен</a>
+                                    <a href="{{ $product->getStoreProductLink() }}"><img src="/svg/product/search.svg" alt=""> Проверить цену в Леруа Мерлен</a>
                                 </div>
                                 <x-product-add-to-cart :inCartQuantity="$inCartQuantity" :productId="$product->id"/>
                                 @if($inFavoritesList)
@@ -161,7 +161,7 @@
                             <img src="/svg/shop-icons/leroy-merlin.svg" alt="">
                             <p>
                                 <small>Доставка из:</small>
-                                Леруа Мерлен
+                                {{ $product->getStoreName() }}
                             </p>
                         </div>
                         <div class="product-card-requirements__item">
@@ -207,7 +207,7 @@
                                         <p>{{ $attribute['value'] }}</p>
 
                                     </li>
-                                    @if($key + 1 === intval(round(count($attributes) / 2)))
+                                    @if($key + 1 === (int) round(count($attributes) / 2))
                             </ul>
                         </div>
                         <div class="col-lg-6 col-12">
