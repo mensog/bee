@@ -65,11 +65,11 @@ class Category extends Model
         $cacheKey = 'catalog:' . $storeId;
         $cachedCatalog = Redis::get($cacheKey);
         if ($cachedCatalog) {
-            return $cachedCatalog;
+            return unserialize($cachedCatalog);
         }
         $categoriesToDisplay = self::getNonEmptyCategoryIds($storeId);
         $groupedCategories = Category::whereNull('parse_url')->whereIn('id', $categoriesToDisplay)->orderBy('parent')->orderBy('name')->get()->groupBy('parent');
-        Redis::set($cacheKey, $groupedCategories, 'EX', 60 * 10);
+        Redis::set($cacheKey, serialize($groupedCategories), 'EX', 60 * 10);
         return $groupedCategories;
     }
 
