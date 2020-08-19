@@ -1,4 +1,4 @@
-<x-header />
+<x-header/>
 
 <main id="content" role="main" class="about">
 
@@ -15,7 +15,8 @@
                 <div class="main-screen__benefits-item">
                     <div class="main-screen__benefits-title">24/7</div>
                     <div class="main-screen__benefits-descr">работаем без выходных и <br> перерывов, чтобы <br>
-                        сократить время доставки</div>
+                        сократить время доставки
+                    </div>
                 </div>
                 <div class="main-screen__benefits-item">
                     <div class="main-screen__benefits-title">72 <span>машины</span></div>
@@ -32,47 +33,52 @@
     <section class="shops">
         <div class="container">
             <div class="shops__heading">Наши магазины</div>
-            <div class="row">
-                <div class="col-4">
-                    <div class="shops__item">
-                        <div class="shops__item-wrap">
-                            <img src="/svg/shop-icons/leroy-medium.svg" alt="leroy-merlin">
-                            <div class="shops__item-title">Леруа Мерлен</div>
-                            <div class="shops__item-descr">Сеть магазинов для дома и дачи</div>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="shops__item">
+                            <div class="shops__item-wrap">
+                                <img src="/svg/shop-icons/leroy-medium.svg" alt="leroy-merlin">
+                                <div class="shops__item-title">Леруа Мерлен</div>
+                                <div class="shops__item-descr">Сеть магазинов для дома и дачи</div>
+                            </div>
+                            <a class="shops__item-link" href="#">Смотреть каталог</a>
                         </div>
-                        <a class="shops__item-link" href="#">Смотреть каталог</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="shops__item">
+                            <div class="shops__item-wrap">
+                                <img src="/svg/shop-icons/petrovich-medium.svg" alt="petrovich">
+                                <div class="shops__item-title">Петрович</div>
+                                <div class="shops__item-descr">Сеть магазинов строительных <br> материалов</div>
+                            </div>
+                            <a class="shops__item-link" href="#">Смотреть каталог</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="shops__item">
+                            <div class="shops__item-wrap">
+                                <img src="/svg/shop-icons/obi-medium.svg" alt="obi">
+                                <div class="shops__item-title">OBI</div>
+                                <div class="shops__item-descr">Сеть магазинов для дома и сада</div>
+                            </div>
+                            <a class="shops__item-link" href="#">Смотреть каталог</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="shops__item">
+                            <div class="shops__item-wrap">
+                                <img src="/svg/shop-icons/castorama-medium.svg" alt="castorama">
+                                <div class="shops__item-title">Castorama</div>
+                                <div class="shops__item-descr">Гипермаркет товаров для дома</div>
+                            </div>
+                            <a class="shops__item-link" href="#">Смотреть каталог</a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="shops__item">
-                        <div class="shops__item-wrap">
-                            <img src="/svg/shop-icons/petrovich-medium.svg" alt="petrovich">
-                            <div class="shops__item-title">Петрович</div>
-                            <div class="shops__item-descr">Сеть магазинов строительных <br> материалов</div>
-                        </div>
-                        <a class="shops__item-link" href="#">Смотреть каталог</a>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="shops__item">
-                        <div class="shops__item-wrap">
-                            <img src="/svg/shop-icons/obi-medium.svg" alt="obi">
-                            <div class="shops__item-title">OBI</div>
-                            <div class="shops__item-descr">Сеть магазинов для дома и сада</div>
-                        </div>
-                        <a class="shops__item-link" href="#">Смотреть каталог</a>
-                    </div>
-                </div>
-                {{-- <div class="col-4">
-                    <div class="shops__item">
-                        <div class="shops__item-wrap">
-                            <img src="/svg/shop-icons/castorama-medium.svg" alt="castorama">
-                            <div class="shops__item-title">Castorama</div>
-                            <div class="shops__item-descr">Гипермаркет товаров для дома</div>
-                        </div>
-                        <a class="shops__item-link" href="#">Смотреть каталог</a>
-                    </div>
-                </div> --}}
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
         </div>
     </section>
@@ -104,7 +110,8 @@
                         <img class="delivery-cost__item-icon" src="/svg/about/night.svg" alt="">
                         <div class="delivery-cost__item-heading">Ночной тариф</div>
                         <div class="delivery-cost__item-descr">Ночная доставка с 22.00 до <br> 06.00 без пробок и
-                            опозданий</div>
+                            опозданий
+                        </div>
                         <div class="delivery-cost__item-time">с 22:00 27.07</div>
                         <div class="delivery-cost__item-price">549 ₽</div>
                     </div>
@@ -127,14 +134,14 @@
                     <div class="accordion" id="accordionAbout">
                         <div class="main-qa-card">
                             <div class="main-qa-card__header" data-toggle="collapse" data-target="#accordionAboutOne"
-                                aria-expanded="true" aria-controls="accordionAboutOne">
+                                 aria-expanded="true" aria-controls="accordionAboutOne">
                                 <header>
                                     Какими способами я могу оплатить заказ?
                                     <img src="/svg/main/accordion-arrow.svg" alt="">
                                 </header>
                             </div>
                             <div id="accordionAboutOne" class="collapse" aria-labelledby="accordionAboutOne"
-                                data-parent="#accordionAbout">
+                                 data-parent="#accordionAbout">
                                 <div class="main-qa-card__body">
                                     <p>
                                         Всё правильно. Деньги списываются, а потом возвращаются — так устроен кэшбэк.
@@ -148,14 +155,15 @@
 
                         <div class="main-qa-card">
                             <div class="main-qa-card__header collapsed" data-toggle="collapse"
-                                data-target="#accordionAboutTwo" aria-expanded="true" aria-controls="accordionAboutTwo">
+                                 data-target="#accordionAboutTwo" aria-expanded="true"
+                                 aria-controls="accordionAboutTwo">
                                 <header>
                                     Что входит в доставку?
                                     <img src="/svg/main/accordion-arrow.svg" alt="">
                                 </header>
                             </div>
                             <div id="accordionAboutTwo" class="collapse" aria-labelledby="accordionAboutTwo"
-                                data-parent="#accordionAbout">
+                                 data-parent="#accordionAbout">
                                 <div class="main-qa-card__body">
                                     <p>
                                         Всё правильно. Деньги списываются, а потом возвращаются — так устроен кэшбэк.
@@ -169,15 +177,15 @@
 
                         <div class="main-qa-card">
                             <div class="main-qa-card__header collapsed" data-toggle="collapse"
-                                data-target="#accordionAboutThree" aria-expanded="true"
-                                aria-controls="accordionAboutThree">
+                                 data-target="#accordionAboutThree" aria-expanded="true"
+                                 aria-controls="accordionAboutThree">
                                 <header>
                                     Какие правила доставки?
                                     <img src="/svg/main/accordion-arrow.svg" alt="">
                                 </header>
                             </div>
                             <div id="accordionAboutThree" class="collapse" aria-labelledby="accordionAboutThree"
-                                data-parent="#accordionAbout">
+                                 data-parent="#accordionAbout">
                                 <div class="main-qa-card__body">
                                     <p>
                                         Всё правильно. Деньги списываются, а потом возвращаются — так устроен кэшбэк.
@@ -191,8 +199,8 @@
 
                         <div class="main-qa-card">
                             <div class="main-qa-card__header collapsed" data-toggle="collapse"
-                                data-target="#accordionAboutFour" aria-expanded="true"
-                                aria-controls="accordionOrderTwo">
+                                 data-target="#accordionAboutFour" aria-expanded="true"
+                                 aria-controls="accordionOrderTwo">
                                 <header>
                                     Нужно ли мне отдельно платить за разгрузку и <br> подъем?
                                     <div class="main-qa-card__img">
@@ -201,7 +209,7 @@
                                 </header>
                             </div>
                             <div id="accordionAboutFour" class="collapse" aria-labelledby="accordionAboutFour"
-                                data-parent="#accordionAbout">
+                                 data-parent="#accordionAbout">
                                 <div class="main-qa-card__body">
                                     <p>
                                         Всё правильно. Деньги списываются, а потом возвращаются — так устроен кэшбэк.
@@ -221,14 +229,15 @@
                     <div class="accordion" id="accordionOrder">
                         <div class="main-qa-card">
                             <div class="main-qa-card__header collapsed" data-toggle="collapse"
-                                data-target="#accordionOrderOne" aria-expanded="true" aria-controls="accordionOrderOne">
+                                 data-target="#accordionOrderOne" aria-expanded="true"
+                                 aria-controls="accordionOrderOne">
                                 <header>
                                     Как отследить мой заказ?
                                     <img src="/svg/main/accordion-arrow.svg" alt="">
                                 </header>
                             </div>
                             <div id="accordionOrderOne" class="collapse" aria-labelledby="accordionOrderOne"
-                                data-parent="#accordionOrder">
+                                 data-parent="#accordionOrder">
                                 <div class="main-qa-card__body">
                                     <p>
                                         Всё правильно. Деньги списываются, а потом возвращаются — так устроен кэшбэк.
@@ -242,7 +251,8 @@
 
                         <div class="main-qa-card">
                             <div class="main-qa-card__header collapsed" data-toggle="collapse"
-                                data-target="#accordionOrderTwo" aria-expanded="true" aria-controls="accordionOrderTwo">
+                                 data-target="#accordionOrderTwo" aria-expanded="true"
+                                 aria-controls="accordionOrderTwo">
                                 <header>
                                     Как вернуть товар?
                                     <div class="main-qa-card__img">
@@ -251,7 +261,7 @@
                                 </header>
                             </div>
                             <div id="accordionOrderTwo" class="collapse" aria-labelledby="accordionOrderTwo"
-                                data-parent="#accordionOrder">
+                                 data-parent="#accordionOrder">
                                 <div class="main-qa-card__body">
                                     <p>
                                         Всё правильно. Деньги списываются, а потом возвращаются — так устроен кэшбэк.
@@ -265,8 +275,8 @@
 
                         <div class="main-qa-card">
                             <div class="main-qa-card__header collapsed" data-toggle="collapse"
-                                data-target="#accordionOrderThree" aria-expanded="true"
-                                aria-controls="accordionOrderThree">
+                                 data-target="#accordionOrderThree" aria-expanded="true"
+                                 aria-controls="accordionOrderThree">
                                 <header>
                                     Какие товары принимаются к возврату?
                                     <div class="main-qa-card__img">
@@ -275,7 +285,7 @@
                                 </header>
                             </div>
                             <div id="accordionOrderThree" class="collapse" aria-labelledby="accordionOrderThree"
-                                data-parent="#accordionOrder">
+                                 data-parent="#accordionOrder">
                                 <div class="main-qa-card__body">
                                     <p>
                                         Всё правильно. Деньги списываются, а потом возвращаются — так устроен кэшбэк.
@@ -289,8 +299,8 @@
 
                         <div class="main-qa-card">
                             <div class="main-qa-card__header collapsed" data-toggle="collapse"
-                                data-target="#accordionOrderFour" aria-expanded="true"
-                                aria-controls="accordionOrderFour">
+                                 data-target="#accordionOrderFour" aria-expanded="true"
+                                 aria-controls="accordionOrderFour">
                                 <header>
                                     Что такое личный счет?
                                     <div class="main-qa-card__img">
@@ -299,7 +309,7 @@
                                 </header>
                             </div>
                             <div id="accordionOrderFour" class="collapse" aria-labelledby="accordionOrderFour"
-                                data-parent="#accordionOrder">
+                                 data-parent="#accordionOrder">
                                 <div class="main-qa-card__body">
                                     <p>
                                         Всё правильно. Деньги списываются, а потом возвращаются — так устроен кэшбэк.
@@ -416,4 +426,4 @@
 
 </main>
 
-<x-footer />
+<x-footer/>

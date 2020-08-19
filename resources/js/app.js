@@ -14,6 +14,7 @@ require('./Product/change-cart');
 require('./Product/product-change-cart');
 require('./Registration/registration');
 require('./Main/toggle-map')
+require('./Main/swiper')
 
 // window.Vue = require('vue');
 
