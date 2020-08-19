@@ -91,6 +91,7 @@ Route::get('/couriers', 'CouriersController@index')->name('couriers');
 Route::get('/suppliers', 'SuppliersController@index')->name('suppliers');
 Route::get('/store', 'StoreController@index')->name('store');
 Route::get('/promotions', 'PromotionsController@index')->name('promotions');
+Route::get('/about', 'AboutController@index')->name('about');
 
 Route::post('/api/cart', 'CartController@api')->name('api_cart');
 Route::post('/api/favorites', 'FavoriteListController@api')->name('api_favorites');
