@@ -5,7 +5,9 @@
             <p class="breadcrumbs-block">
                 <a class="breadcrumbs-block__link" href="{{ route('main') }}">Главная</a>
                 /
-                Корзина
+                <a class="breadcrumbs-block__link" href="{{ route('cart') }}">Корзина</a>
+                /
+                Оформление заказа
             </p>
         </div>
     </div>
