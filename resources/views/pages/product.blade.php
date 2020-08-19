@@ -158,10 +158,10 @@
                 <div class="product-card__footer">
                     <div class="product-card-requirements">
                         <div class="product-card-requirements__item  product-card-requirements__delivery">
-                            <img src="/svg/shop-icons/leroy-merlin.svg" alt="">
+                            <img src="{{ $product->store->image_path }}" alt="">
                             <p>
                                 <small>Доставка из:</small>
-                                {{ $product->getStoreName() }}
+                                {{ $product->store->company_name }}
                             </p>
                         </div>
                         <div class="product-card-requirements__item">

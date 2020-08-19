@@ -16,6 +16,10 @@ main {
                 width: 100%;
                 pointer-events: none;
                 top: 15px;
+
+                font-weight: normal;
+                font-size: 14px;
+                color: $secondary-gray;
             }
 
             .form-control:focus ~ label {
@@ -24,10 +28,9 @@ main {
 
             }
 
-            input:not(:placeholder-shown) ~ label {
+            .form-control:not(:placeholder-shown) ~ label {
                 top: 9px;
                 font-size: 11px !important;
-
             }
 
             .form-control.dirty ~ label {
@@ -58,8 +61,11 @@ main {
     }
 
     .form {
-        .form-control {
+        textarea.form-control {
+            height: auto;
+        }
 
+        .form-control {
             background: #F4F4F4;
             border: 1px solid #E3E3E3;
             box-sizing: border-box;

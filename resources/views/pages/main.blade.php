@@ -14,7 +14,8 @@
 
                 </div>
                 <div class="col-lg-6 main-map-points">
-                    <svg id="leroy-merlin" class="main-map-points__item active" width="412" height="430" viewBox="0 0 412 430"
+                    <svg id="leroy-merlin" class="main-map-points__item active" width="412" height="430"
+                         viewBox="0 0 412 430"
                          fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="179" cy="42" r="5" fill="#00A454"/>
                         <circle cx="56" cy="111" r="5" fill="#00A454"/>
@@ -324,12 +325,33 @@
             <div class="contact__inner">
                 <h2 class="contact__title">Если остались вопросы - <br> обязательно ответим</h2>
                 <div class="contact__wrap">
-                    <form action="#" class="contact__form">
+                    <form action="#" class="contact__form form floating-label">
                         <div class="contact__form-group">
-                            <input class="contact__form-input" type="text" name="name" placeholder="Имя">
-                            <input class="contact__form-input" type="text" name="phone" placeholder="Телефон">
+                            <div class="form-group row">
+                                <div class="col-lg-6">
+                                    <div class="form-control-container">
+                                        <input class="form-control bg-white" id="name" placeholder=" " type="text" name="name">
+                                        <label for="name">Имя</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-control-container">
+                                        <input class="form-control bg-white" placeholder=" " id="phone"
+                                               type="text" name="phone">
+                                        <label for="phone">Телефон</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-lg-12">
+                                    <div class="form-control-container">
+                                        <textarea class="form-control bg-white" rows="3" id="questions" name="questions" placeholder=" "></textarea>
+                                        <label for="questions">Ваш вопрос</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <textarea class="contact__form-textarea" name="questions" placeholder="Ваш вопрос"></textarea>
+
                         <button class="contact__form-btn btn btn-primary" type="submit">Отправить</button>
                         <span class="contact__form-send">Отправляя свои данные, вы соглашаетесь на обработку персональных данных</span>
                     </form>
