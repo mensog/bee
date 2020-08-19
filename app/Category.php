@@ -62,25 +62,14 @@ class Category extends Model
 
     public static function getCatalog($storeId)
     {
-        try {
-            $redis = Redis::connection();
-            $isRedisReady = true;
-        } catch (\LogicException $exception) {
-            $isRedisReady = false;
-        }
-        if ($isRedisReady) {
-            $cacheKey = 'catalog:' . $storeId;
-            $cachedCatalog = Redis::get($cacheKey);
-            if ($cachedCatalog) {
-                return $cachedCatalog;
-            }
-            $categoriesToDisplay = self::getNonEmptyCategoryIds($storeId);
-            $groupedCategories = Category::whereNull('parse_url')->whereIn('id', $categoriesToDisplay)->orderBy('parent')->orderBy('name')->get()->groupBy('parent');
-            Redis::set($cacheKey, $groupedCategories);
-            return $groupedCategories;
+        $cacheKey = 'catalog:' . $storeId;
+        $cachedCatalog = Redis::get($cacheKey);
+        if ($cachedCatalog) {
+            return $cachedCatalog;
         }
         $categoriesToDisplay = self::getNonEmptyCategoryIds($storeId);
         $groupedCategories = Category::whereNull('parse_url')->whereIn('id', $categoriesToDisplay)->orderBy('parent')->orderBy('name')->get()->groupBy('parent');
+        Redis::set($cacheKey, $groupedCategories, 'EX', 60 * 10);
         return $groupedCategories;
     }
 
