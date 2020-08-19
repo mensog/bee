@@ -1,6 +1,6 @@
 @if(count($products) !== 0)
 
-    <div class="cart">
+    <div id="cart" class="cart">
         <div class="container">
             <div class="row">
                 <div class="col-8">
