@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
-use App\Product;
+use App\Partner;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -49,7 +49,16 @@ class CartController extends Controller
         $products = $cart->getProducts();
         $itemsSubTotal = $cart->getItemsSubTotal();
         $cartTotal = $cart->getTotal();
-        return view('pages.cart', ['products' => $products, 'quantity' => $cartContent, 'itemsSubTotal' => $itemsSubTotal, 'cartTotal' => $cartTotal]);
+        $groupedCartContent = $products->groupBy('store_id');
+        $stores = Partner::whereIn('id', array_keys($groupedCartContent->toArray()))->get()->keyBy('id');
+        return view('pages.cart', [
+            'products' => $products,
+            'quantity' => $cartContent,
+            'itemsSubTotal' => $itemsSubTotal,
+            'cartTotal' => $cartTotal,
+            'groupedCartContent' => $groupedCartContent,
+            'stores' => $stores,
+            ]);
     }
 
     /**
