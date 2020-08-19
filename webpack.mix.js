@@ -63,3 +63,4 @@ mix.js(['resources/js/app.js'], 'public/js') // внешний сайт
     ], 'public/css/admin/app.css')
     .sass('resources/sass/admin/app.scss', 'public/css/admin/app-sass.css')
     .version();
+mix.browserSync('http://localhost:8888/')

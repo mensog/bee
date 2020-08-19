@@ -3,7 +3,7 @@
 @section('content')
     <div>
         @if($orders->total() !== 0)
-            <h2>@choice('У вас :count заказ|У вас :count заказа|У вас :count заказов|{0}', $orders->total(), [':count' => $orders->total()])</h2>
+            <h2>Заказы {{ $orders->total() }}</h2>
             <div class="card-lk">
                 <div class="card-lk__body">
                     <div class="row">
@@ -54,8 +54,7 @@
                 </div>
             </div>
         @else
-            <h2 class="text-center pt-10 pb-5">Вы еще ничего не заказывали</h2>
-            <p class="text-center font-size-32">Перейти в <a href="<?php echo e(route('catalog')); ?>">каталог</a></p>
+{{--            <x-empty-list page="orders"/>--}}
         @endif
 
         <div class="lk-orders">
