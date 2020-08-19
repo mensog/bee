@@ -1,5 +1,6 @@
 .cart {
     background-color: $quaternary-gray;
+    position: relative;
 
     .container {
         padding-bottom: 64px;
@@ -100,7 +101,7 @@
     &__product-link {
         font-size: 14px;
         line-height: 12px;
-        color: #9F9F9F;
+        color: $secondary-gray;
         text-decoration: underline;
         transition: all .3s linear;
         border: 0;
@@ -131,7 +132,7 @@
 
         .cart__product-icon #favorite {
             path {
-                fill: $tertiary-gray;
+                fill: $secondary-gray;
                 transition: all .3s linear;
             }
         }
@@ -139,7 +140,7 @@
 
         .cart__product-icon #delete {
             path {
-                fill: $tertiary-gray;
+                fill: $secondary-gray;
                 transition: all .3s linear;
             }
         }
@@ -207,6 +208,7 @@
         font-weight: bold;
         font-size: 14px;
         line-height: 12px;
+        align-self: center;
         color: $black;
     }
 
