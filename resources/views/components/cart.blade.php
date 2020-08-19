@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-8">
                     <div class="cart__wrap">
-                        <h2 class="cart__heading">Корзина</h2>
+                        <h2 class="cart__heading">Корзина ({{ count($quantity) }})</h2>
                         @csrf
                         @foreach($groupedCartContent as $storeId => $items)
                             <h3 class="cart__subheading">{{ $stores[$storeId]->full_name }} ({{ count($items) }})</h3>
@@ -87,7 +87,7 @@
                 <div class="col-4">
                     <div class="cart-aside">
                         <div class="checkout">
-                            <h4 class="checkout__heading">Ваша корзина ({{ count($groupedCartContent) }})</h4>
+                            <h4 class="checkout__heading">Ваша корзина ({{ count($quantity) }})</h4>
                             <div class="checkout__wrap">
                                 <span class="checkout__products">Товары:</span>
                                 <span class="checkout__products-price">{{ $cartTotal / 100 }} ₽</span>
