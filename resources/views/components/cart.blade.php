@@ -1,44 +1,46 @@
-@if(count($products) !== 0)
-
+@if(count($groupedCartContent) !== 0)
     <div id="cart" class="cart">
         <div class="container">
             <div class="row">
                 <div class="col-8">
                     <div class="cart__wrap">
-                        <h2 class="cart__heading">Корзина ({{ count($products) }})</h2>
-                        <h3 class="cart__subheading">Леруа Мерлен (3)</h3>
+                        <h2 class="cart__heading">Корзина</h2>
                         @csrf
-                        @foreach ($products as $product)
-                            <div class="cart__inner">
-                                <div class="cart__product">
-                                    <div class="cart__product-wrapper">
-                                        <div class="cart__product-img">
-                                            <a href="{{ route('product', ['name' => $product->friendly_url_name, 'storeSlug' => $product->store->slug]) }}">
-                                                <img src="{{ $product->img_url }}" alt="{{ $product->name }}">
-                                            </a>
-                                        </div>
-                                        <div class="cart__product-wrap">
-                                            <div class="cart__product-descr">
-                                                <a href="{{ route('product', ['name' => $product->friendly_url_name, 'storeSlug' => $product->store->slug]) }}">
-                                                    {{ $product->name }}
+                        @foreach($groupedCartContent as $storeId => $items)
+                            <h3 class="cart__subheading">{{ $stores[$storeId]->full_name }} ({{ count($items) }})</h3>
+                            @foreach($items as $key => $item)
+                                <div class="cart__inner">
+                                    <div class="cart__product">
+                                        <div class="cart__product-wrapper">
+                                            <div class="cart__product-img">
+                                                <a href="{{ route('product', ['name' => $item->friendly_url_name, 'storeSlug' => $item->store->slug]) }}">
+                                                    <img src="{{ $item->img_url ?? '/img/cart/placeholder150.png' }}"
+                                                         alt="{{ $item->name }}">
                                                 </a>
                                             </div>
-                                            <div class="cart__product-shop">{{ $product->weight/1000 }} кг |
-                                                из {{ $product->getStoreName() }}</div>
-                                        </div>
-                                    </div>
-                                    <div class="cart__product-wrapper">
-                                        <div class="cart__product-wrap">
-                                            <div class="cart__product-box">
-                                                <input data-quantity="{{ $quantity[$product->id] }}"
-                                                       min="0" oninput="validity.valid||(value='')"
-                                                       data-id="{{ $product->id }}" data-action="updateQuantity"
-                                                       data-page="cart" class="cart-qty cart__product-input"
-                                                       type="number"
-                                                       value="{{ $quantity[$product->id] }}">
+                                            <div class="cart__product-wrap">
+                                                <div class="cart__product-descr">
+                                                    <a href="{{ route('product', ['name' => $item->friendly_url_name, 'storeSlug' => $item->store->slug]) }}">
+                                                        {{ $item->name }}
+                                                    </a>
+                                                </div>
+                                                <div
+                                                    class="cart__product-shop">{{ $item->weight ? $item->weight/1000 . ' кг |' : '' }}
+                                                    из {{ $item->getStoreName() }}</div>
                                             </div>
-                                            <div class="cart__product-box">
-                                                <a href="#" class="cart__product-link">
+                                        </div>
+                                        <div class="cart__product-wrapper">
+                                            <div class="cart__product-wrap">
+                                                <div class="cart__product-box">
+                                                    <input data-quantity="{{ $quantity[$item->id] }}"
+                                                           min="0" oninput="validity.valid||(value='')"
+                                                           data-id="{{ $item->id }}" data-action="updateQuantity"
+                                                           data-page="cart" class="cart-qty cart__product-input"
+                                                           type="number"
+                                                           value="{{ $quantity[$item->id] }}">
+                                                </div>
+                                                <div class="cart__product-box">
+                                                    <a href="#" class="cart__product-link">
                                                     <span class="cart__product-icon">
                                                         <svg id="favorite" width="14" height="14" viewBox="0 0 14 14"
                                                              fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,22 +49,22 @@
                                                                   fill="none"/>
                                                         </svg>
                                                     </span>
-                                                    В избранное
-                                                </a>
+                                                        В избранное
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="cart__product-wrap">
-                                            <div class="cart__product-price">
-                                                {{ $itemsSubTotal[$product->id] / 100 }} ₽
-                                                @if($quantity[$product->id] > 1)
-                                                    <p>{{ $product->price / 100 }} ₽/ за шт</p>
-                                                @endif
-                                            </div>
-                                            <div class="cart__product-box">
+                                            <div class="cart__product-wrap">
+                                                <div class="cart__product-price">
+                                                    {{ $itemsSubTotal[$item->id] / 100 }} ₽
+                                                    @if($quantity[$item->id] > 1)
+                                                        <p>{{ $item->price / 100 }} ₽/ за шт</p>
+                                                    @endif
+                                                </div>
+                                                <div class="cart__product-box">
 
-                                                <button type="button" data-id="{{ $product->id }}" data-quantity="0"
-                                                        data-action="updateQuantity" data-page="cart"
-                                                        class="change-cart cart__product-link">
+                                                    <button type="button" data-id="{{ $item->id }}" data-quantity="0"
+                                                            data-action="updateQuantity" data-page="cart"
+                                                            class="change-cart cart__product-link">
                                                     <span class="cart__product-icon">
                                                         <svg id="delete" width="12" height="14" viewBox="0 0 12 14"
                                                              fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -71,21 +73,21 @@
                                                                   fill="none"/>
                                                         </svg>
                                                     </span>
-                                                    Удалить
-                                                </button>
+                                                        Удалить
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
                         @endforeach
-
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="cart-aside">
                         <div class="checkout">
-                            <h4 class="checkout__heading">Ваша корзина ({{ count($products) }})</h4>
+                            <h4 class="checkout__heading">Ваша корзина ({{ count($groupedCartContent) }})</h4>
                             <div class="checkout__wrap">
                                 <span class="checkout__products">Товары:</span>
                                 <span class="checkout__products-price">{{ $cartTotal / 100 }} ₽</span>
@@ -105,7 +107,7 @@
                                 <span class="checkout__total">Общая сумма:</span>
                                 <span class="checkout__total-price">{{ $cartTotal / 100 }} ₽</span>
                             </div>
-                            <a class="checkout__btn btn btn-inactive">
+                            <a href="{{ route('checkout_page') }}" class="checkout__btn btn btn-primary">
                                 @guest
                                     Войти для оформления
                                 @else

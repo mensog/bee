@@ -40277,13 +40277,6 @@ blockquote:not(.blockquote) p {
     }
 }
 
-@media (min-width: 1480px) {
-    .cart-page .container,
-    .checkout-page .container {
-        max-width: 1200px;
-    }
-}
-
 /*------------------------------------
   Range Slider
 ------------------------------------*/

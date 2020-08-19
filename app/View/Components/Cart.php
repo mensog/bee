@@ -7,11 +7,17 @@ use Illuminate\View\Component;
 class Cart extends Component
 {
     /**
-     * Array of products.
+     * Grouped cart content.
      *
      * @var array
      */
-    public $products;
+    public $groupedCartContent;
+    /**
+     * Array of stores.
+     *
+     * @var array
+     */
+    public $stores;
     /**
      * Array of quantity.
      *
@@ -35,14 +41,16 @@ class Cart extends Component
     /**
      * Create a new cart component instance.
      *
-     * @param $products
+     * @param $groupedCartContent
+     * @param $stores
      * @param $quantity
      * @param $itemsSubTotal
      * @param $cartTotal
      */
-    public function __construct($products, $quantity, $itemsSubTotal, $cartTotal)
+    public function __construct($groupedCartContent, $stores, $quantity, $itemsSubTotal, $cartTotal)
     {
-        $this->products = $products;
+        $this->groupedCartContent = $groupedCartContent;
+        $this->stores = $stores;
         $this->quantity = $quantity;
         $this->itemsSubTotal = $itemsSubTotal;
         $this->cartTotal = $cartTotal;
