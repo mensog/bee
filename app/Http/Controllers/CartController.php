@@ -27,9 +27,19 @@ class CartController extends Controller
         ];
         if ($request->input('fromPage') === 'cart') {
             $products = $cart->getProducts();
+            $groupedCartContent = $products->groupBy('store_id');
+            $stores = Partner::whereIn('id', array_keys ($groupedCartContent->toArray()))->get()->keyBy('id');
             $itemsSubTotal = $cart->getItemsSubTotal();
             $cartTotal = $cart->getTotal();
-            $response['html'] = view('components.cart', ['products' => $products, 'quantity' => $cartContent, 'itemsSubTotal' => $itemsSubTotal, 'cartTotal' => $cartTotal])->render();
+
+            $response['html'] = view('components.cart', [
+                'products' => $products,
+                'quantity' => $cartContent,
+                'itemsSubTotal' => $itemsSubTotal,
+                'cartTotal' => $cartTotal,
+                'groupedCartContent' => $groupedCartContent,
+                'stores' => $stores,
+            ])->render();
         } elseif ($request->input('fromPage') === 'product') {
             $response['html'] = view('components.product-add-to-cart', ['productId'=> $productId, 'inCartQuantity' => $quantity])->render();
         }
@@ -50,7 +60,7 @@ class CartController extends Controller
         $itemsSubTotal = $cart->getItemsSubTotal();
         $cartTotal = $cart->getTotal();
         $groupedCartContent = $products->groupBy('store_id');
-        $stores = Partner::whereIn('id', array_keys($groupedCartContent->toArray()))->get()->keyBy('id');
+        $stores = Partner::whereIn('id', array_keys ($groupedCartContent->toArray()))->get()->keyBy('id');
         return view('pages.cart', [
             'products' => $products,
             'quantity' => $cartContent,
@@ -82,7 +92,16 @@ class CartController extends Controller
             $products = $cart->getProducts();
             $itemsSubTotal = $cart->getItemsSubTotal();
             $cartTotal = $cart->getTotal();
-            $response['html'] = view('components.cart', ['products' => $products, 'quantity' => $cartContent, 'itemsSubTotal' => $itemsSubTotal, 'cartTotal' => $cartTotal])->render();
+            $groupedCartContent = $products->groupBy('store_id');
+            $stores = Partner::whereIn('id', array_keys ($groupedCartContent->toArray()))->get()->keyBy('id');
+            $response['html'] = view('components.cart', [
+                'products' => $products,
+                'quantity' => $cartContent,
+                'itemsSubTotal' => $itemsSubTotal,
+                'cartTotal' => $cartTotal,
+                'groupedCartContent' => $groupedCartContent,
+                'stores' => $stores,
+            ])->render();
         } elseif ($request->input('fromPage') === 'product') {
             $response['html'] = view('components.product-add-to-cart', ['productId'=> $productId, 'inCartQuantity' => $quantity])->render();
         } elseif ($request->input('fromPage') === 'favorites') {
