@@ -1,25 +1,50 @@
 @extends('layouts.lk')
 
 @section('content')
-    <h2>Главная</h2>
-    <div class="row">
-        <div class="col-lg-4">
-            <a href="{{ route('lk_orders') }}">
-                <div class="card-lk card-lk-hover">
-                    <div class="card-lk__body">
-                        <p class="card-lk__title">История покупок</p>
-                    </div>
-                </div>
-            </a>
+    <div class="card-lk">
+        <div class="card-lk__header">
+            <h3 class="card-lk__title">Мой счет</h3>
         </div>
-        <div class="col-lg-4">
-            <a href="{{ route('lk_profile') }}">
-                <div class="card-lk card-lk-hover">
-                    <div class="card-lk__body">
-                        <p class="card-lk__title">Личные данные</p>
-                    </div>
+        <div class="card-lk__body">
+            <div>
+                <p>Сколько сейчас баллов</p>
+                <p class="card-lk__score">200 ₽</p>
+                <p class="card-lk__link"><a href="">Как заработать баллы?</a></p>
+                <p class="card-lk__link"><a href="">Как потратить баллы</a></p>
+            </div>
+            <div class="card-lk__img">
+                <img src="/img/lk/card.jpg" alt="">
+            </div>
+        </div>
+        <div class="card-lk__footer">
+            <h4>История операций</h4>
+            @if(true)
+            <div class="card-log">
+                <div>
+                    <p class="card-log__title">Возврат клиенту за задержку по заказу <a href="#">№123123123</a></p>
+                    <span class="card-log__date">27.07.2020</span>
                 </div>
-            </a>
+                <div>
+                    <p class="card-log__value green">+ 300 ₽</p>
+                    <p class="card-log__payment">Оплачено, картой онлайн</p>
+                </div>
+            </div>
+            <div class="card-log">
+                <div>
+                    <p class="card-log__title">Оплата по заказу <a href="#">№123123123</a></p>
+                    <span class="card-log__date">27.07.2020</span>
+                </div>
+                <div>
+                    <p class="card-log__value">+ 300 ₽</p>
+                    <p class="card-log__payment">Оплачено, картой онлайн</p>
+                </div>
+            </div>
+            @else
+                <p class="card-log-empty">
+                    У вас пока нет ни одной операции. <br>
+                    Вернитесь в каталог, чтобы сделать свою первую покупку
+                </p>
+            @endif
         </div>
     </div>
 @endsection
