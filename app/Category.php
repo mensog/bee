@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redis;
 
 class Category extends Model
 {
@@ -61,6 +62,23 @@ class Category extends Model
 
     public static function getCatalog($storeId)
     {
+        try {
+            $redis = Redis::connection();
+            $isRedisReady = true;
+        } catch (\LogicException $exception) {
+            $isRedisReady = false;
+        }
+        if ($isRedisReady) {
+            $cacheKey = 'catalog:' . $storeId;
+            $cachedCatalog = Redis::get($cacheKey);
+            if ($cachedCatalog) {
+                return $cachedCatalog;
+            }
+            $categoriesToDisplay = self::getNonEmptyCategoryIds($storeId);
+            $groupedCategories = Category::whereNull('parse_url')->whereIn('id', $categoriesToDisplay)->orderBy('parent')->orderBy('name')->get()->groupBy('parent');
+            Redis::set($cacheKey, $groupedCategories);
+            return $groupedCategories;
+        }
         $categoriesToDisplay = self::getNonEmptyCategoryIds($storeId);
         $groupedCategories = Category::whereNull('parse_url')->whereIn('id', $categoriesToDisplay)->orderBy('parent')->orderBy('name')->get()->groupBy('parent');
         return $groupedCategories;

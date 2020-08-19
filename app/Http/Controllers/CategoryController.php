@@ -20,7 +20,7 @@ class CategoryController extends Controller
         $store = Partner::where('slug', $storeSlug)->firstOrFail();
         $categories = Category::getCatalog($store->id);
         if ($name === '') {
-            $productsPaginator = Product::paginate(50);
+            $productsPaginator = Product::where('store_id', $store->id)->paginate(50);
             $breadcrumbs = [];
             $category = null;
             $activeCategorySlugs = [];
