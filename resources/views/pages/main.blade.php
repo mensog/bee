@@ -9,86 +9,70 @@
                         BeeClub - единая доставка <br> товаров из строительных <br> магазинов
                     </h2>
                     <div class="main-map__descr">Выберите магазин, закажите нужные стройматериалы и <br>
-                        мы доставим их уже сегодня</div>
+                        мы доставим их уже сегодня
+                    </div>
 
                 </div>
                 <div class="col-lg-6 main-map-points">
-                    <svg id="lm" class="main-map-points__item active" width="412" height="430" viewBox="0 0 412 430"
+                    <svg id="leroy-merlin" class="main-map-points__item active" width="412" height="430" viewBox="0 0 412 430"
                          fill="none" xmlns="http://www.w3.org/2000/svg">
-
-                            <circle cx="179" cy="42" r="5" fill="#00A454"/>
-
-                            <circle cx="56" cy="111" r="5" fill="#00A454"/>
-
-                            <circle cx="91" cy="94" r="5" fill="#00A454"/>
-
-                            <circle cx="136" cy="17" r="5" fill="#00A454"/>
-
-                            <circle cx="73" cy="28" r="5" fill="#00A454"/>
-
-                            <circle cx="275" cy="214" r="5" fill="#00A454"/>
-
-                            <circle cx="280.229" cy="175.778" r="5" fill="#00A454"/>
-
-                            <circle cx="200" cy="159" r="5" fill="#00A454"/>
-
-                            <circle cx="207.622" cy="171.817" r="5" fill="#00A454"/>
-
-                            <circle cx="156" cy="300" r="5" fill="#00A454"/>
-
-                            <circle cx="40" cy="268" r="5" fill="#00A454"/>
-
-                            <circle cx="17" cy="103" r="5" fill="#00A454"/>
-
-                            <circle cx="163.397" cy="203.501" r="5" fill="#00A454"/>
-
-                            <circle cx="175" cy="133" r="5" fill="#00A454"/>
-
+                        <circle cx="179" cy="42" r="5" fill="#00A454"/>
+                        <circle cx="56" cy="111" r="5" fill="#00A454"/>
+                        <circle cx="91" cy="94" r="5" fill="#00A454"/>
+                        <circle cx="136" cy="17" r="5" fill="#00A454"/>
+                        <circle cx="73" cy="28" r="5" fill="#00A454"/>
+                        <circle cx="275" cy="214" r="5" fill="#00A454"/>
+                        <circle cx="280.229" cy="175.778" r="5" fill="#00A454"/>
+                        <circle cx="200" cy="159" r="5" fill="#00A454"/>
+                        <circle cx="207.622" cy="171.817" r="5" fill="#00A454"/>
+                        <circle cx="156" cy="300" r="5" fill="#00A454"/>
+                        <circle cx="40" cy="268" r="5" fill="#00A454"/>
+                        <circle cx="17" cy="103" r="5" fill="#00A454"/>
+                        <circle cx="163.397" cy="203.501" r="5" fill="#00A454"/>
+                        <circle cx="175" cy="133" r="5" fill="#00A454"/>
                     </svg>
-                    <svg id="petr" class="main-map-points__item" width="474" height="446" viewBox="0 0 474 446" fill="none"
+                    <svg id="petrovich" class="main-map-points__item" width="474" height="446" viewBox="0 0 474 446"
+                         fill="none"
                          xmlns="http://www.w3.org/2000/svg">
-                         <circle cx="149" cy="5" r="5" fill="#E3E3E3"/>
-                         <circle cx="5" cy="91" r="5" fill="#E3E3E3"/>
-                         <circle cx="308.827" cy="79.9536" r="5" fill="#E3E3E3"/>
-                         <circle cx="297.607" cy="190.844" r="5" fill="#E3E3E3"/>
-                         <circle cx="178.796" cy="286.554" r="5" fill="#E3E3E3"/>
-                         <circle cx="180.115" cy="212.626" r="5" fill="#E3E3E3"/>
+                        <circle cx="149" cy="5" r="5" fill="#E3E3E3"/>
+                        <circle cx="5" cy="91" r="5" fill="#E3E3E3"/>
+                        <circle cx="308.827" cy="79.9536" r="5" fill="#E3E3E3"/>
+                        <circle cx="297.607" cy="190.844" r="5" fill="#E3E3E3"/>
+                        <circle cx="178.796" cy="286.554" r="5" fill="#E3E3E3"/>
+                        <circle cx="180.115" cy="212.626" r="5" fill="#E3E3E3"/>
                     </svg>
-                    <svg id="obi" class="main-map-points__item" width="418" height="390" viewBox="0 0 418 390" fill="none"
+                    <svg id="obi" class="main-map-points__item" width="418" height="390" viewBox="0 0 418 390"
+                         fill="none"
                          xmlns="http://www.w3.org/2000/svg">
-                         <circle cx="112.03" cy="127.957" r="5" fill="#E3E3E3"/>
-                         <circle cx="120.611" cy="87.6934" r="5" fill="#E3E3E3"/>
-                         <circle cx="71" cy="187" r="5" fill="#E3E3E3"/>
-                         <circle cx="109.391" cy="252.708" r="5" fill="#E3E3E3"/>
-                         <circle cx="172.095" cy="216.405" r="5" fill="#E3E3E3"/>
-                         <circle cx="272.426" cy="194.624" r="5" fill="#E3E3E3"/>
-                         <circle cx="26" cy="21" r="5" fill="#E3E3E3"/>
-                         <circle cx="5" cy="96" r="5" fill="#E3E3E3"/>
-                         <circle cx="72" cy="5" r="5" fill="#E3E3E3"/>
+                        <circle cx="112.03" cy="127.957" r="5" fill="#E3E3E3"/>
+                        <circle cx="120.611" cy="87.6934" r="5" fill="#E3E3E3"/>
+                        <circle cx="71" cy="187" r="5" fill="#E3E3E3"/>
+                        <circle cx="109.391" cy="252.708" r="5" fill="#E3E3E3"/>
+                        <circle cx="172.095" cy="216.405" r="5" fill="#E3E3E3"/>
+                        <circle cx="272.426" cy="194.624" r="5" fill="#E3E3E3"/>
+                        <circle cx="26" cy="21" r="5" fill="#E3E3E3"/>
+                        <circle cx="5" cy="96" r="5" fill="#E3E3E3"/>
+                        <circle cx="72" cy="5" r="5" fill="#E3E3E3"/>
                     </svg>
-                    <svg id="cr" class="main-map-points__item" width="413" height="175" viewBox="0 0 413 175" fill="none"
+                    <svg id="castorama" class="main-map-points__item" width="413" height="175" viewBox="0 0 413 175"
+                         fill="none"
                          xmlns="http://www.w3.org/2000/svg">
-                         <circle cx="5.41992" cy="5.30273" r="5" fill="#E3E3E3"/>
-                         <circle cx="153.936" cy="110.253" r="5" fill="#E3E3E3"/>
-                         <circle cx="269" cy="20" r="5" fill="#E3E3E3"/>
+                        <circle cx="5.41992" cy="5.30273" r="5" fill="#E3E3E3"/>
+                        <circle cx="153.936" cy="110.253" r="5" fill="#E3E3E3"/>
+                        <circle cx="269" cy="20" r="5" fill="#E3E3E3"/>
                     </svg>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="main-map-shops">
-                        <a href="#" class="main-map-shops__item active border-lm main-map-toggle" data-map="lm">
-                            <img src="/svg/shop-icons/leroy-merlin.svg" alt="">
-                        </a>
-                        <a href="#" class="main-map-shops__item border-petr main-map-toggle" data-map="petr">
-                            <img src="/svg/shop-icons/petrovich.svg" alt="">
-                        </a>
-                        <a href="#" class="main-map-shops__item border-obi main-map-toggle" data-map="obi">
-                            <img src="/svg/shop-icons/obi.svg" alt="">
-                        </a>
-                        <a href="#" class="main-map-shops__item border-cr main-map-toggle" data-map="cr">
-                            <img src="/svg/shop-icons/castorama.svg" alt="">
-                        </a>
+                        @foreach($headerAllStores as $store)
+                            <a class="main-map-shops__item {{ $loop->first ? 'active' : '' }} {{ $store->slug }} main-map-toggle"
+                               data-map="{{ $store->slug }}"
+                               href="{{ route('store_main', $store->slug) }}">
+                                <img src="{{ $store->image_path ?? '' }}" alt="$store->slug">
+                            </a>
+                        @endforeach
                         <a href="#" class="main-map-shops__item">
                             <p>Другие магазины</p>
                         </a>
@@ -199,7 +183,6 @@
             </div>
         </div>
     </div> --}}
-
 
 
     <div class="main-qa">
