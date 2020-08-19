@@ -156,7 +156,7 @@ class Cart extends Model
     protected function initProducts()
     {
         $productIds = $this->getProductIds();
-        $this->products = Product::find($productIds);
+        $this->products = Product::with('store')->find($productIds);
     }
 
     public function getProducts()
