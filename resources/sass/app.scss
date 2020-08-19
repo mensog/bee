@@ -11,6 +11,9 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap-grid';
 
+// Swiper
+@import '~swiper/swiper';
+
 //App
 @import "main-page/main";
 @import "product-page/product";
@@ -24,6 +27,7 @@
 @import "store/store";
 @import "promotions/promotions";
 @import "cart/cart";
+@import "about/about";
 
 // Components
 @import "components/caregories";
