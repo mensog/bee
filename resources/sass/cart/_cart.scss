@@ -38,6 +38,12 @@
       border-top: 1px solid $tertiary-gray;
    }
 
+   &__product-wrapper {
+      width: 50%;
+      display: flex;
+      // justify-content: space-between;
+   }
+
    &__product-img {
       margin-right: 16px;
    }
@@ -49,7 +55,7 @@
    }
 
    &__product-descr {
-      margin-right: 31px;
+      // margin-right: 31px;
       font-size: 14px;
       line-height: 16px;
       color: $black;
@@ -157,5 +163,139 @@
       font-size: 20px;
       line-height: 16px;
       color: #242424;
+   }
+}
+
+.checkout {
+   margin: 0 0 20px;
+   padding: 30px;
+   background-color: $white;
+
+   &__heading {
+      margin: 0 0 30px;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 16px;
+      color: $black;
+   }
+
+   &__wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 11px 0;
+      border-top: 1px solid $tertiary-gray;
+
+      &:last-of-type {
+         padding: 27px 0;
+      }
+
+      span {
+         width: 50%;
+         display: block;
+      }
+   }
+
+   &__products {
+      font-size: 14px;
+      line-height: 20px;
+      color: $black;
+   }
+
+   &__products-price {
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 12px;
+      color: $black;
+   }
+
+   &__box {
+      width: 100%;
+      max-width: 50%;
+      display: flex;
+      flex-direction: column;
+   }
+
+   &__weight {
+      margin: 0 0 5px;
+      font-size: 14px;
+      line-height: 20px;
+      color: $black;
+   }
+
+   &__weight-limit {
+      white-space: nowrap;
+      font-size: 11px;
+      line-height: 12px;
+      color: #e21a1a;
+   }
+
+   &__weight-total {
+      font-weight: bold;
+      font-size: 14px;
+      color: #e21a1a;
+   }
+
+   &__discount {
+      font-size: 14px;
+      line-height: 20px;
+      color: $black;
+   }
+
+   &__discount-price {
+      font-weight: bold;
+      font-size: 14px;
+      color: $green;
+   }
+
+   &__total {
+      font-size: 16px;
+      line-height: 14px;
+      color: $black;
+   }
+
+   &__total-price {
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 16px;
+      color: $black;
+   }
+}
+
+.promocode {
+   padding: 30px;
+   display: flex;
+   flex-direction: column;
+   border: 1px solid $tertiary-gray;
+
+   &__heading {
+      margin: 0 0 30px;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 16px;
+      color: $black;
+   }
+
+   &__input {
+      margin: 0 0 24px;
+      padding: 14px;
+      font-size: 14px;
+      line-height: 12px;
+      color: $secondary-gray;
+      background: $white;
+      border: 1px solid $tertiary-gray;
+      border-radius: 5px;
+
+      &::placeholder {
+         font-size: 14px;
+         line-height: 12px;
+         color: $secondary-gray;
+      }
+   }
+
+   &__btn {
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 12px;
    }
 }
