@@ -328,8 +328,6 @@ jQuery($ => {
         if (page === 'checkout') {
             num = $(`#${page} input:required`).length;
         }
-        console.log(num)
-        console.log(isValid)
         if (isValid.length === num) {
             $(`.${page} button[type=submit]`).prop('disabled', false)
         } else {
