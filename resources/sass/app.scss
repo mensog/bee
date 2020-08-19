@@ -54,7 +54,7 @@ button {
 }
 
 .add-to-favorites.loading {
-    position: relative;
+    //position: relative;
 
     i:before {
         content: url("/svg/preloaders/loading-btn-primary.svg");

@@ -235,7 +235,7 @@
     }
 
     &__item-favorite {
-        position: absolute;
+        position: absolute !important;
         top: 229px;
         left: 19px;
         max-width: 30px;
