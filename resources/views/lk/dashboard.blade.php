@@ -8,7 +8,7 @@
         <div class="card-lk__body">
             <div>
                 <p>Сколько сейчас баллов</p>
-                <p class="card-lk__score">200 ₽</p>
+                <p class="card-lk__score">{{ (auth()->user()->privateAccount->getTotalAmount()) / 100 }} ₽</p>
                 <p class="card-lk__link"><a href="">Как заработать баллы?</a></p>
                 <p class="card-lk__link"><a href="">Как потратить баллы</a></p>
             </div>

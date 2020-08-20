@@ -34,7 +34,7 @@
                                     <a class="{{ Route::currentRouteName() === 'lk' ? 'active' : '' }}"
                                        href="{{ route('lk') }}">
                                         <img src="/svg/lk/main.svg" alt="">
-                                        Личный счет (200 ₽)
+                                        Личный счет ({{ (auth()->user()->privateAccount->getTotalAmount()) / 100 }} ₽)
                                     </a>
                                 </li>
                                 <li>

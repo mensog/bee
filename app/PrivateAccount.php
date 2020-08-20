@@ -10,4 +10,9 @@ class PrivateAccount extends Model
     {
         return $this->hasOne('App\User');
     }
+
+    public function getTotalAmount()
+    {
+        return $this->refund_amount + $this->bonus_amount;
+    }
 }
