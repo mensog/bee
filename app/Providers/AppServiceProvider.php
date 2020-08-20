@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function ($view) {
             $cart = $this->app->make('Cart');
             view()->share('headerCartCount', $cart->countTotalQuantity());
-
+            view()->share('headerCartTotal', $cart->getTotal());
             $favorites = $this->app->make('FavoriteList');
             view()->share('headerFavoritesCount', $favorites->countTotalQuantity());
             $store = null;

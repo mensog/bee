@@ -24,6 +24,7 @@ class CartController extends Controller
         $cartContent = $cart->content;
         $response = [
             'count' => $cart->countTotalQuantity(),
+            'cartTotal' => number_format($cart->getTotal() / 100, 0, ',', ' ') . ' ₽',
         ];
         if ($request->input('fromPage') === 'cart') {
             $products = $cart->getProducts();
@@ -92,6 +93,7 @@ class CartController extends Controller
         $cartContent = $cart->content;
         $response = [
             'count' => $cart->countTotalQuantity(),
+            'cartTotal' => number_format($cart->getTotal() / 100, 0, ',', ' ') . ' ₽',
         ];
         if ($request->input('fromPage') === 'cart') {
             $products = $cart->getProducts();

@@ -55,6 +55,7 @@ const sendRequest = (productId, action, fromPage, quantity) => {
     }
     const productQty = $('#productQty')
     const counter = $('#cartCounter')
+    const cartTotal = $('#cartTotal')
     data = clean(data)
     $.ajax({
         type: 'POST',
@@ -71,6 +72,7 @@ const sendRequest = (productId, action, fromPage, quantity) => {
                 counter.addClass('d-xl-block')
             }
             counter.html(data['count'])
+            cartTotal.html(data['cartTotal'])
             if (Number(quantity) === 0) {
                 productQty.replaceWith(data['html'])
             }

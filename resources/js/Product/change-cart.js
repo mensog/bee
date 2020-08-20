@@ -32,6 +32,7 @@ jQuery($ => {
         data = clean(data)
         const cart = $('#cart')
         const counter = $('#cartCounter')
+        const cartTotal = $('#cartTotal')
         $.ajax({
             type: 'POST',
             url: "/api/cart",
@@ -50,6 +51,7 @@ jQuery($ => {
                     counter.addClass('d-xl-block')
                 }
                 counter.html(data['count'])
+                cartTotal.html(data['cartTotal'])
                 cart.replaceWith(data['html'])
                 cart.removeClass('loading')
             },

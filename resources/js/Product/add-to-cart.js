@@ -7,7 +7,8 @@ jQuery($ => {
         const quantity = $(this).data('quantity');
         const fromPage = $(this).data('page');
         const action = 'add';
-        const counter = $('#cartCounter')
+        const counter = $('#cartCounter');
+        const cartTotal = $('#cartTotal');
         let data = {
             productId,
             fromPage,
@@ -33,6 +34,7 @@ jQuery($ => {
                     counter.addClass('d-xl-block')
                 }
                 counter.html(data['count'])
+                cartTotal.html(data['cartTotal'])
                 if (fromPage === 'product') {
                     const productQty = $('#productQty')
                     productQty.replaceWith(data['html'])

@@ -125,8 +125,8 @@
                     </a>
 
                     <div class="header-cart">
-                            <span class="header-cart__price">
-                                11 845 ₽
+                            <span id="cartTotal" class="header-cart__price">
+                                {{ number_format($headerCartTotal / 100, 0, ',', ' ') }} ₽
                             </span>
                         <a href="{{ route('cart') }}">
                                 <span id="cartCounter" class="{{ $headerCartCount ? 'd-block' : 'd-none' }}">
