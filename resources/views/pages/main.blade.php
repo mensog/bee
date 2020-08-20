@@ -130,9 +130,9 @@
         </div>
     </div>
 
-    <x-delivery/>
-
     <x-promotions/>
+
+    <x-delivery/>
 
     <div class="main-qa">
         <div class="container">
