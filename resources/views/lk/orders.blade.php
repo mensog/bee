@@ -7,7 +7,7 @@
                 <h2 class="lk-orders__heading">Заказы ({{ $orders->total() }})</h2>
                 @foreach($orders as $key=> $order)
                     <div class="accordion" id="accordionOrders">
-                        <div class="lk-orders__item" data-toggle="collapse"
+                        <div class="lk-orders__item {{ $order->first() ? '' : 'collapsed' }}" data-toggle="collapse"
                              data-target="#accordionOrders{{ $order->id }}"
                              aria-expanded="true" aria-controls="accordionOrders1">
                             <div class="lk-orders__item-wrap">
@@ -56,7 +56,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="accordionOrders{{ $order->id }}" class="collapse cart show"
+                        <div id="accordionOrders{{ $order->id }}"
+                             class="collapse cart {{ $order->first() ? 'show' : '' }}"
                              aria-labelledby="accordionOrders{{ $order->id }}"
                              data-parent="#accordionOrders{{ $order->id }}">
                             <div class="cart__wrap p-0">
