@@ -132,59 +132,7 @@
 
     <x-delivery/>
 
-    {{-- <div class="main-sales">
-        <div class="container">
-            <h3 class="main-sales__header">Акции и спецпредложения</h3>
-            <div class="main-sales-cards">
-                <div class="main-sales-cards__item main-sales-cards__register-card">
-                    <p class="main-sales-cards__header ">
-                        200 баллов
-                        <img src="/svg/main/arrow-right.svg" alt="">
-                    </p>
-                    <p class="main-sales-cards__text">
-                        за регистрацию
-                    </p>
-                </div>
-                <div class="main-sales-cards__item main-sales-cards__second">
-                    <p class="main-sales-cards__header">
-                        2% баллов
-                        <img src="/svg/main/arrow-right.svg" alt="">
-                    </p>
-                    <p class="main-sales-cards__text">
-                        на второй заказ
-                    </p>
-                </div>
-                <div class="main-sales-cards__item main-sales-cards__app">
-                    <p class="main-sales-cards__header">
-                        200 баллов
-                        <img src="/svg/main/arrow-right.svg" alt="">
-                    </p>
-                    <p class="main-sales-cards__text">
-                        за установку приложения
-                    </p>
-                </div>
-                <div class="main-sales-cards__item main-sales-cards__second">
-                    <p class="main-sales-cards__header">
-                        200 баллов
-                        <img src="/svg/main/arrow-right.svg" alt="">
-                    </p>
-                    <p class="main-sales-cards__text">
-                        за регистрацию
-                    </p>
-                </div>
-                <div class="main-sales-cards__item main-sales-cards__sale">
-                    <p class="main-sales-cards__header">
-                        Еще 25 акций
-                        <img src="/svg/main/arrow-right.svg" alt="">
-                    </p>
-                    <p class="main-sales-cards__text">
-                        Скидки, бонусные предложения
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
+    <x-promotions/>
 
     <div class="main-qa">
         <div class="container">
