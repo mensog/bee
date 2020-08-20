@@ -62,62 +62,65 @@
                              data-parent="#accordionOrders{{ $order->id }}">
                             <div class="cart__wrap p-0">
                                 @foreach($groupedOrders[$key] as $storeId => $items)
-                                    <h3 class="cart__subheading">
-                                        {{ $stores[$storeId]->full_name }} ({{ count($items) }})</h3>
-                                    @foreach($items as $item)
-                                        <div class="cart__inner">
-                                            <div class="cart__product">
-                                                <div class="cart__product-wrapper">
-                                                    <div class="cart__product-img">
-                                                        <a href="{{ route('product', ['name' => $item->product->friendly_url_name, 'storeSlug' => $item->product->store->slug]) }}">
-                                                            <img
-                                                                src="{{ $item->product->img_url ?? '/img/cart/placeholder150.png' }}"
-                                                                alt="{{ $item->product->name }}">
-                                                        </a>
-                                                    </div>
-                                                    <div class="cart__product-wrap">
-                                                        <div class="cart__product-descr">
+                                    <div>
+                                        <h3 class="cart__subheading">
+                                            {{ $stores[$storeId]->full_name }} ({{ count($items) }})</h3>
+                                        @foreach($items as $item)
+                                            <div class="cart__inner">
+                                                <div class="cart__product">
+                                                    <div class="cart__product-wrapper">
+                                                        <div class="cart__product-img">
                                                             <a href="{{ route('product', ['name' => $item->product->friendly_url_name, 'storeSlug' => $item->product->store->slug]) }}">
-                                                                {{ $item->product->name }}
+                                                                <img
+                                                                    src="{{ $item->product->img_url ?? '/img/cart/placeholder150.png' }}"
+                                                                    alt="{{ $item->product->name }}">
                                                             </a>
                                                         </div>
-                                                        <div
-                                                            class="cart__product-shop">{{ $item->product->weight ? $item->product->weight/1000 . ' кг |' : '' }}
-                                                            из {{ $item->product->store->company_name }}</div>
-                                                    </div>
-                                                </div>
-                                                <div class="cart__product-wrapper">
-                                                    <div class="cart__product-wrap">
-                                                        <div class="lk-orders__item-statusbox">
-                                                            <div class="lk-orders__item-icon">
-                                                                <svg width="20" height="20" viewBox="0 0 20 20"
-                                                                     fill="none"
-                                                                     xmlns="http://www.w3.org/2000/svg">
-                                                                    <circle cx="10" cy="10" r="10" fill="#00A454"/>
-                                                                    <g clip-path="url(#clip0)">
-                                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                              d="M15.7818 5.50687C16.0542 5.75455 16.0743 6.17618 15.8266 6.44862L9.15996 13.7819C9.03732 13.9169 8.86479 13.9956 8.68253 14C8.50026 14.0043 8.32418 13.9338 8.19526 13.8049L4.19526 9.80491C3.93491 9.54456 3.93491 9.12245 4.19526 8.8621C4.45561 8.60175 4.87772 8.60175 5.13807 8.8621L8.64368 12.3677L14.84 5.55172C15.0877 5.27928 15.5093 5.2592 15.7818 5.50687Z"
-                                                                              fill="white"/>
-                                                                    </g>
-                                                                    <defs>
-                                                                        <clipPath id="clip0">
-                                                                            <rect width="12" height="12" fill="white"
-                                                                                  transform="translate(4 4)"/>
-                                                                        </clipPath>
-                                                                    </defs>
-                                                                </svg>
+                                                        <div class="cart__product-wrap">
+                                                            <div class="cart__product-descr">
+                                                                <a href="{{ route('product', ['name' => $item->product->friendly_url_name, 'storeSlug' => $item->product->store->slug]) }}">
+                                                                    {{ $item->product->name }}
+                                                                </a>
                                                             </div>
-                                                            <p class="lk-orders__item-link lk-orders__item-link_green mb-0"
-                                                               href="#">
-                                                                {{ __('order_item_status.' . $item->status) }}
-                                                            </p>
+                                                            <div
+                                                                class="cart__product-shop">{{ $item->product->weight ? $item->product->weight/1000 . ' кг |' : '' }}
+                                                                из {{ $item->product->store->company_name }}</div>
                                                         </div>
-                                                        <div class="cart__product-box">
-                                                            @if(in_array($item->product_id, $favoritesListContent, true))
-                                                                <button data-id="{{ $item->product_id }}"
-                                                                        data-action="add"
-                                                                        class="btn-add-to-favorites add-to-favorites cart__product-link in-favorite"
-                                                                        style="max-width: 100%">
+                                                    </div>
+                                                    <div class="cart__product-wrapper">
+                                                        <div class="cart__product-wrap">
+                                                            <div class="lk-orders__item-statusbox">
+                                                                <div class="lk-orders__item-icon">
+                                                                    <svg width="20" height="20" viewBox="0 0 20 20"
+                                                                         fill="none"
+                                                                         xmlns="http://www.w3.org/2000/svg">
+                                                                        <circle cx="10" cy="10" r="10" fill="#00A454"/>
+                                                                        <g clip-path="url(#clip0)">
+                                                                            <path fill-rule="evenodd"
+                                                                                  clip-rule="evenodd"
+                                                                                  d="M15.7818 5.50687C16.0542 5.75455 16.0743 6.17618 15.8266 6.44862L9.15996 13.7819C9.03732 13.9169 8.86479 13.9956 8.68253 14C8.50026 14.0043 8.32418 13.9338 8.19526 13.8049L4.19526 9.80491C3.93491 9.54456 3.93491 9.12245 4.19526 8.8621C4.45561 8.60175 4.87772 8.60175 5.13807 8.8621L8.64368 12.3677L14.84 5.55172C15.0877 5.27928 15.5093 5.2592 15.7818 5.50687Z"
+                                                                                  fill="white"/>
+                                                                        </g>
+                                                                        <defs>
+                                                                            <clipPath id="clip0">
+                                                                                <rect width="12" height="12"
+                                                                                      fill="white"
+                                                                                      transform="translate(4 4)"/>
+                                                                            </clipPath>
+                                                                        </defs>
+                                                                    </svg>
+                                                                </div>
+                                                                <p class="lk-orders__item-link lk-orders__item-link_green mb-0"
+                                                                   href="#">
+                                                                    {{ __('order_item_status.' . $item->status) }}
+                                                                </p>
+                                                            </div>
+                                                            <div class="cart__product-box">
+                                                                @if(in_array($item->product_id, $favoritesListContent, true))
+                                                                    <button data-id="{{ $item->product_id }}"
+                                                                            data-action="add"
+                                                                            class="btn-add-to-favorites add-to-favorites cart__product-link in-favorite"
+                                                                            style="max-width: 100%">
                                                                     <span
                                                                         class="cart__product-icon">
                                                                         <svg
@@ -134,13 +137,13 @@
                                                                                 fill="none"/>
                                                                         </svg>
                                                                     </span>
-                                                                    В избранном
-                                                                </button>
-                                                            @else
-                                                                <button data-id="{{ $item->product_id }}"
-                                                                        data-action="add"
-                                                                        class="btn-add-to-favorites add-to-favorites cart__product-link"
-                                                                        style="max-width: 100%">
+                                                                        В избранном
+                                                                    </button>
+                                                                @else
+                                                                    <button data-id="{{ $item->product_id }}"
+                                                                            data-action="add"
+                                                                            class="btn-add-to-favorites add-to-favorites cart__product-link"
+                                                                            style="max-width: 100%">
                                                                      <span
                                                                          class="cart__product-icon">
                                                                         <svg
@@ -157,21 +160,21 @@
                                                                                 fill="none"/>
                                                                         </svg>
                                                                     </span>
-                                                                    В избранное
-                                                                </button>
-                                                            @endif
+                                                                        В избранное
+                                                                    </button>
+                                                                @endif
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="cart__product-wrap">
-                                                        <div class="cart__product-price">
-                                                            {{ $item->getSum() / 100 }} ₽
-                                                            @if($item->quantity > 1)
-                                                                <p>{{ $item->price / 100 }} ₽/ за шт</p>
-                                                            @endif
-                                                        </div>
-                                                        <div class="cart__product-box">
-                                                            <button type="button"
-                                                                    class="cart__product-link">
+                                                        <div class="cart__product-wrap">
+                                                            <div class="cart__product-price">
+                                                                {{ $item->getSum() / 100 }} ₽
+                                                                @if($item->quantity > 1)
+                                                                    <p>{{ $item->price / 100 }} ₽/ за шт</p>
+                                                                @endif
+                                                            </div>
+                                                            <div class="cart__product-box">
+                                                                <button type="button"
+                                                                        class="cart__product-link">
                                                                 <span
                                                                     class="cart__product-icon">
                                                                     <svg width="14" height="14" viewBox="0 0 14 14"
@@ -181,14 +184,15 @@
                                                                               fill="#9F9F9F"/>
                                                                     </svg>
                                                                 </span>
-                                                                Вернуть товар
-                                                            </button>
+                                                                    Вернуть товар
+                                                                </button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    @endforeach
+                                        @endforeach
+                                    </div>
                                 @endforeach
                             </div>
                         </div>

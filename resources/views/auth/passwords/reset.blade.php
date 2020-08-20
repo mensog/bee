@@ -9,7 +9,7 @@
 
                         <div class="card-auth__body">
                             <h3>Создание нового пароля</h3>
-                            <form class="reset-password form floating-label" method="POST"
+                            <form id="reset-password" class="reset-password form floating-label" method="POST"
                                   action="{{ route('password.update') }}">
                                 @csrf
 

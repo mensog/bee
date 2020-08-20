@@ -1,70 +1,67 @@
 import is from '../../../node_modules/is_js/is'
 import IMask from '../../../node_modules/imask/dist/imask.min'
 
+let mask
 const element = document.getElementById('phone');
 
-const checkout = document.getElementById('checkout')
-const registration = document.getElementById('registration')
+/**
+ *  Mask phone input and unmask on submit
+ *
+ * @param id
+ */
+const maskPhoneInput = (id) => {
+    const form = document.getElementById(id)
 
-let mask
+    if (document.body.contains(form)) {
+        const maskOptions = {
+            mask: '+{7} (000) 000-00-00'
+        };
+        mask = IMask(element, maskOptions);
 
-if (document.body.contains(checkout)) {
-    const maskOptions = {
-        mask: '+{7} (000) 000-00-00'
-    };
-    mask = IMask(element, maskOptions);
+        let formObject = document.forms[id]
+        let formElement = formObject.elements["phone"];
 
-    let checkoutFormObject = document.forms['checkout']
-
-    let checkoutFormElement = checkoutFormObject.elements["phone"];
-
-    checkout.onsubmit = () => {
-        checkoutFormElement.value = mask.unmaskedValue
+        form.onsubmit = () => {
+            formElement.value = mask.unmaskedValue
+        }
     }
 }
 
-if (document.body.contains(registration)) {
-    const maskOptions = {
-        mask: '+{7} (000) 000-00-00'
-    };
-    mask = IMask(element, maskOptions);
-
-    let registrationFormObject = document.forms['registration']
-
-    let registrationFormElement = registrationFormObject.elements["phone"];
-
-    registration.onsubmit = () => {
-        registrationFormElement.value = mask.unmaskedValue
-    }
-}
+maskPhoneInput('checkout')
+maskPhoneInput('registration')
+maskPhoneInput('profile')
 
 let isValid = [];
 
 jQuery($ => {
 
 
-    $('.registration #email, .registration #phone, .registration #name, .registration #surname, .registration #password, .registration #password-confirm').on('keyup', function () {
+    $('#registration #email, #registration #phone, #registration #name, #registration #surname, #registration #password, #registration #password-confirm').on('keyup', function () {
         checkRegistrationForm(false, $(this), 'registration')
     })
 
-    $('.reset-password #email, .reset-password #password, .reset-password #password-confirm').on('keyup', function () {
+    $('#reset-password #email, #reset-password #password, #reset-password #password-confirm').on('keyup', function () {
         checkRegistrationForm(false, $(this), 'reset-password')
     })
 
-    $('.edit-data #name, .edit-data #surname').on('keyup', function () {
+    $('#edit-data #name, #edit-data #surname').on('keyup', function () {
         checkRegistrationForm(false, $(this), 'edit-data')
     })
 
-    $('.change-email #email, .change-email #password').on('keyup', function () {
+    $('#change-email #email, #change-email #password').on('keyup', function () {
         checkRegistrationForm(false, $(this), 'change-email', 'password')
     })
 
-    $('.change-password #password, .change-password #newPassword, .change-password #newPasswordConfirmation').on('keyup', function () {
+    $('#change-password #password, #change-password #newPassword').on('keyup', function () {
         checkRegistrationForm(false, $(this), 'change-password', 'password')
     })
 
     $('#checkout #city, #checkout #email, #checkout #name-n-surname, #checkout #phone, #checkout #address').on('keyup', function () {
         checkRegistrationForm(false, $(this), 'checkout')
+    })
+
+    $('#profile #city, #profile #email, #profile #name-n-surname, #profile #phone, #profile #address').on('keyup', function () {
+        checkRegistrationForm(false, $(this), 'profile')
     })
 
     $('.show-password').on('click', function () {
@@ -85,7 +82,7 @@ jQuery($ => {
      */
     const checkRegistrationForm = (load, $this, page, ignoreID) => {
         if (load) {
-            $(`.${page} input`).each(function () {
+            $(`#${page} input`).each(function () {
                 switch ($(this).attr('type')) {
                     case 'text':
                         if ($(this).val().trim() !== '') {
@@ -103,7 +100,7 @@ jQuery($ => {
                         }
                         break
                     case 'email':
-                        if (page === 'checkout') {
+                        if (page === 'checkout' || page === 'profile') {
                             if (is.email($(this).val())) {
                                 $(this).removeClass('is-invalid')
                                 $(this).addClass('is-valid')
@@ -140,7 +137,7 @@ jQuery($ => {
                     case 'password':
 
                         if ($(this).attr('id') === 'password-confirm') {
-                            let password = $('#password').val()
+                            let password = $('#password').val().trim()
                             if ($(this).val() === password && $(this).val().length >= 8) {
                                 $(this).removeClass('is-invalid')
                                 $(this).addClass('is-valid')
@@ -320,18 +317,19 @@ jQuery($ => {
             }
         }
 
-        let num = $(`.${page} input:visible`).length;
+        let num = $(`#${page} input:visible`).length;
         if (page === 'registration') {
-            num = $(`.${page} input:not([type="hidden"])`).length;
+            num = $(`#${page} input:not([type="hidden"])`).length;
         }
 
-        if (page === 'checkout') {
+        if (page === 'checkout' || page === 'profile' || page === 'change-password') {
             num = $(`#${page} input:required`).length;
         }
+
         if (isValid.length === num) {
-            $(`.${page} button[type=submit]`).prop('disabled', false)
+            $(`#${page} button[type=submit]`).prop('disabled', false)
         } else {
-            $(`.${page} button[type=submit]`).prop('disabled', true)
+            $(`#${page} button[type=submit]`).prop('disabled', true)
         }
     }
 
@@ -353,7 +351,7 @@ jQuery($ => {
     checkRegistrationForm('start', false, 'change-email')
     checkRegistrationForm('start', false, 'checkout')
     checkRegistrationForm('start', false, 'edit-data')
-
+    checkRegistrationForm('start', false, 'profile')
 })
 
 
