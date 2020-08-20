@@ -9,7 +9,7 @@
             margin-bottom: 22px;
         }
 
-        .form-group:last-of-type{
+        .form-group:last-of-type {
             margin-bottom: 14px;
         }
 
@@ -183,6 +183,14 @@
     .cart__product-link:hover .cart__product-icon svg {
         path {
             fill: $red !important;
+        }
+    }
+
+    .in-favorite {
+        .cart__product-icon {
+            path {
+                fill: $red !important;
+            }
         }
     }
 

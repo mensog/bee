@@ -1,119 +1,130 @@
 .lk-orders {
-   padding: 30px;
-   background-color: $white;
+    padding: 30px;
+    background-color: $white;
 
-   &__heading {
-      margin: 0 0 30px;
-      font-weight: bold;
-      font-size: 36px;
-      line-height: 26px;
-      color: $black;
-   }
+    &__heading {
+        margin: 0 0 30px;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 26px;
+        color: $black;
+    }
 
-   &__item {
-      min-height: 140px;
-      padding: 24px;
-      display: flex;
-      justify-content: space-between;
-      background-color: $quaternary-gray;
-   }
+    &__item {
+        min-height: 140px;
+        padding: 24px;
+        display: flex;
+        justify-content: space-between;
+        background-color: $quaternary-gray;
+    }
 
-   &__item-wrap {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-   }
+    &__item-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 
-   &__item-box {
-      
-   }
+    &__item-box {
 
-   &__item-date {
-      margin: 0 0 8px;
-      font-weight: bold;
-      font-size: 16px;
-      line-height: 14px;
-      color: $black;
-   }
+    }
 
-   &__item-number {
-      font-size: 14px;
-      line-height: 12px;
-      color: $secondary-gray;
-   }
+    &__item-date {
+        margin: 0 0 8px;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 14px;
+        color: $black;
+    }
 
-   &__item-inner {
-      display: flex;
-      justify-content: space-between;
-   }
+    &__item-number {
+        font-size: 14px;
+        line-height: 12px;
+        color: $secondary-gray;
+    }
 
-   &__item-statusbox {
-      display: flex;
-      cursor: pointer;
-   }
+    &__item-inner {
+        display: flex;
+        justify-content: space-between;
+    }
 
-   &__item-icon {
-      width: 20px;
-      height: 20px;
-      position: relative;
-      margin-right: 8px;
+    &__item-statusbox {
+        display: flex;
+        cursor: pointer;
+    }
 
-      svg {
-         position: absolute;
-         top: 2px;
-         left: 0;
-      }
-   }
+    &__item-icon {
+        width: 20px;
+        height: 20px;
+        position: relative;
+        margin-right: 8px;
 
-   &__item-link {
-      font-weight: bold;
-      font-size: 14px;
-      margin-right: 20px;
+        svg {
+            position: absolute;
+            top: 2px;
+            left: 0;
+        }
+    }
 
-      
+    &__item-link {
+        font-weight: bold;
+        font-size: 14px;
+        margin-right: 20px;
 
-      &_green {
-         color: $green;
 
-         &:hover {
+        &_green {
             color: $green;
-         }
-      }
 
-      &_gray {
-         color: #818181;
+            &:hover {
+                color: $green;
+            }
+        }
 
-         &:hover {
+        &_gray {
             color: #818181;
-         }
-      }
 
-      &_orange {
-         color: $orange;
+            &:hover {
+                color: #818181;
+            }
+        }
 
-         &:hover {
+        &_orange {
             color: $orange;
-         }
-      }
-   }
 
-   &__item-price {
-      margin: 0 0 7px;
-      font-weight: bold;
-      font-size: 20px;
-      line-height: 16px;
-      color: $black;
-   }
+            &:hover {
+                color: $orange;
+            }
+        }
+    }
 
-   &__item-statusprice {
-      font-size: 11px;
-      line-height: 13px;
-      color: $secondary-gray;
-   }
+    &__item-price {
+        margin: 0 0 7px;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 16px;
+        color: $black;
+    }
 
-   &__item-open {
-      display: flex;
-      justify-content: flex-end;
-      cursor: pointer;
-   }
+    &__item-statusprice {
+        font-size: 11px;
+        line-height: 13px;
+        color: $secondary-gray;
+    }
+
+    &__item-open {
+        display: flex;
+        justify-content: flex-end;
+        cursor: pointer;
+    }
+}
+
+.lk-orders__item .lk-orders__item-open svg {
+    transition: 145ms ease-in-out;
+}
+
+.lk-orders__item:not(.collapsed) .lk-orders__item-open svg {
+    transform: rotate(180deg);
+}
+
+.lk-orders__item.collapsed .lk-orders__item-open svg {
+    transform: rotate(0);
 }
