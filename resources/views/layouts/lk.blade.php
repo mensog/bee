@@ -7,7 +7,7 @@
                 /
                 <a class="breadcrumbs-block__link" href="{{ route('lk') }}">Личный кабинет</a>
                 /
-                Личный счет
+                {{ $title ?? '' }}
             </p>
         </div>
     </div>

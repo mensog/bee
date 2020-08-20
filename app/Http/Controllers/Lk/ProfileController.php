@@ -18,7 +18,13 @@ class ProfileController extends Controller
         } else {
             $passwordChanged = false;
         }
-        return view('lk.profile', ['user' => $user, 'passwordChanged' => $passwordChanged]);
+        $title = 'Личные данные';
+        return view('lk.profile', [
+            'user' => $user,
+            'passwordChanged' => $passwordChanged,
+            'title' => $title,
+
+        ]);
     }
 
     public function showEditDataForm(Request $request)

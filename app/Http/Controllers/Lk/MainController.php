@@ -11,7 +11,8 @@ class MainController extends Controller
 {
     public function index(Request $request)
     {
-        return view('lk.dashboard');
+        $title = 'Личный счет';
+        return view('lk.dashboard', ['title' => $title]);
     }
 
     public function orders(Request $request)
@@ -33,12 +34,14 @@ class MainController extends Controller
         } else {
             $createdOrderId = false;
         }
+        $title = 'Заказы';
         return view('lk.orders', [
             'orders' => $orders,
             'createdOrderId' => $createdOrderId,
             'favoritesListContent' => $favoritesListContent,
             'groupedOrders' => $groupedOrders,
             'stores' => $stores,
+            'title' => $title,
             ]);
     }
 }
