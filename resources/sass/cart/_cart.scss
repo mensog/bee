@@ -58,15 +58,16 @@
         background-color: $white;
     }
 
-    &__inner {
-
+    &__inner:first-of-type {
+        .cart__product {
+            border-top: 1px solid $tertiary-gray;
+        }
     }
 
     &__product {
         display: flex;
         padding: 24px 0;
         border-bottom: 1px solid $tertiary-gray;
-        border-top: 1px solid $tertiary-gray;
     }
 
     &__product-wrapper {
