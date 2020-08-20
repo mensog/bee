@@ -17,6 +17,8 @@ class MainController extends Controller
     public function orders(Request $request)
     {
         $orders = Auth::user()->orders()->with('items', 'items.product')->orderBy('created_at', 'desc')->paginate(10);
+        $favoritesList = app('FavoriteList');
+        $favoritesListContent = $favoritesList->content;
         $groupedOrders = [];
         $storeIds = [];
         foreach ($orders as $order) {
@@ -34,6 +36,7 @@ class MainController extends Controller
         return view('lk.orders', [
             'orders' => $orders,
             'createdOrderId' => $createdOrderId,
+            'favoritesListContent' => $favoritesListContent,
             'groupedOrders' => $groupedOrders,
             'stores' => $stores,
             ]);
