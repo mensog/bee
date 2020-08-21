@@ -7,6 +7,7 @@
                 Личные данные
             </h2>
             <form id="profile" action="{{ route('lk_profile_edit_data') }}" method="post" class="form floating-label">
+                @csrf
                 <h3 class="cart__subheading">Город получения</h3>
                 <div class="form-group row">
                     <div class="col-md-12">
@@ -33,7 +34,7 @@
                             <input id="name-n-surname" type="text"
                                    class="form-control @error('fullName') is-invalid @enderror"
                                    name="fullName" placeholder=" "
-                                   value="{{ $user->fullName }}" required autocomplete="name">
+                                   value="{{ $user->full_name }}" required autocomplete="name">
                             <label for="name-n-surname">ФИО</label>
                             @error('fullName')
                             <span class="invalid-feedback" role="alert">
