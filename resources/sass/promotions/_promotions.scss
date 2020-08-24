@@ -11,58 +11,8 @@
         margin: 0;
     }
 
-    .row {
-       &:last-of-type {
-          .promotions__item {
-             margin-bottom: 0;
-          }
-       }
-    }
-
-
-    .col-3 {
-
-        &:first-of-type {
-            .promotions__item {
-                background: url(/img/promotions/check.png) center center / cover no-repeat;
-
-                &_green-gradient {
-                    background: linear-gradient(180deg, #7BB51C 0%, rgba(123, 181, 28, 0) 58.59%), url(/img/promotions/check.png) center center / cover no-repeat;
-                }
-
-                &_orange-gradient {
-                  background: linear-gradient(180deg, #EE7203 0%, rgba(238, 114, 3, 0) 58.59%), url(/img/promotions/check.png) center center / cover no-repeat;
-                }
-
-                &_blue-gradient {
-                  background: linear-gradient(180deg, #0078D7 0%, rgba(0, 120, 215, 0) 58.59%), url(/img/promotions/check.png) center center / cover no-repeat;
-                }
-            }
-        }
-
-        &:nth-of-type(2) {
-            .promotions__item {
-                background: $quaternary-gray url(/img/promotions/discount.png) center bottom / 90% no-repeat;
-
-                &_green {
-                    background: #7BB51C url(/img/promotions/discount.png) center bottom / 90% no-repeat;
-                }
-
-                &_orange {
-                   background: #EE7203 url(/img/promotions/discount.png) center bottom / 90% no-repeat;
-                }
-
-                &_blue {
-                  background: #0078D7 url(/img/promotions/discount.png) center bottom / 90% no-repeat;
-               }
-            }
-        }
-
-        &:nth-of-type(3) {
-            .promotions__item {
-                background: #242424 url(/img/promotions/appstore.png) center bottom / 50% no-repeat;
-            }
-        }
+    .contact {
+        padding: 64px 0 0;
     }
 
     &__heading {
@@ -95,57 +45,150 @@
         color: $black;
     }
 
-    &__shop-link {
-        font-size: 14px;
-        line-height: 12px;
-        color: $blue;
-        transition: all .3s linear;
-    }
-
     &__item {
-        margin: 0 0 48px;
         display: flex;
         flex-direction: column;
-        min-height: 262px;
-        padding: 24px 30px;
+        padding: 30px 30px 0 30px;
+        min-height: 220px;
+        background: linear-gradient(180deg, #35353D 0%, #292A2F 100%);
         transition: all .3s linear;
 
         &:hover {
             box-shadow: 0 4px 11px rgba($primary-gray, 0.35);
         }
-
-        &_empty {
-            justify-content: center;
-            align-items: center;
-            border: 2px solid $primary-yellow;
-            border-radius: 8px;
-        }
-
-        &_color-black {
-
-            div {
-                color: #242424;
-            }
-        }
-
-
     }
 
-    &__item-img {
-        max-width: 100%;
-    }
-
-    &__item-bonus {
+    &__item-heading {
         margin: 0 0 8px;
         font-weight: bold;
-        font-size: 20px;
-        line-height: 22px;
+        font-size: 24px;
+        line-height: 20px;
         color: $white;
     }
 
     &__item-descr {
+        margin: 0 0 8px;
+        font-weight: normal;
         font-size: 14px;
-        line-height: 18px;
+        line-height: 12px;
         color: $white;
     }
+
+    &__item-img {
+        margin-top: auto;
+        margin-left: auto;
+    }
+
+
+    // .row {
+    //    &:last-of-type {
+    //       .promotions__item {
+    //          margin-bottom: 0;
+    //       }
+    //    }
+    // }
+
+
+    // .col-3 {
+
+    //     &:first-of-type {
+    //         .promotions__item {
+    //             background: url(/img/promotions/check.png) center center / cover no-repeat;
+
+    //             &_green-gradient {
+    //                 background: linear-gradient(180deg, #7BB51C 0%, rgba(123, 181, 28, 0) 58.59%), url(/img/promotions/check.png) center center / cover no-repeat;
+    //             }
+
+    //             &_orange-gradient {
+    //               background: linear-gradient(180deg, #EE7203 0%, rgba(238, 114, 3, 0) 58.59%), url(/img/promotions/check.png) center center / cover no-repeat;
+    //             }
+
+    //             &_blue-gradient {
+    //               background: linear-gradient(180deg, #0078D7 0%, rgba(0, 120, 215, 0) 58.59%), url(/img/promotions/check.png) center center / cover no-repeat;
+    //             }
+    //         }
+    //     }
+
+    //     &:nth-of-type(2) {
+    //         .promotions__item {
+    //             background: $quaternary-gray url(/img/promotions/discount.png) center bottom / 90% no-repeat;
+
+    //             &_green {
+    //                 background: #7BB51C url(/img/promotions/discount.png) center bottom / 90% no-repeat;
+    //             }
+
+    //             &_orange {
+    //                background: #EE7203 url(/img/promotions/discount.png) center bottom / 90% no-repeat;
+    //             }
+
+    //             &_blue {
+    //               background: #0078D7 url(/img/promotions/discount.png) center bottom / 90% no-repeat;
+    //            }
+    //         }
+    //     }
+
+    //     &:nth-of-type(3) {
+    //         .promotions__item {
+    //             background: #242424 url(/img/promotions/appstore.png) center bottom / 50% no-repeat;
+    //         }
+    //     }
+    // }
+
+
+
+
+
+    // &__shop-link {
+    //     font-size: 14px;
+    //     line-height: 12px;
+    //     color: $blue;
+    //     transition: all .3s linear;
+    // }
+
+    // &__item {
+    //     margin: 0 0 48px;
+    //     display: flex;
+    //     flex-direction: column;
+    //     min-height: 262px;
+    //     padding: 24px 30px;
+    //     transition: all .3s linear;
+
+    //     &:hover {
+    //         box-shadow: 0 4px 11px rgba($primary-gray, 0.35);
+    //     }
+
+    //     &_empty {
+    //         justify-content: center;
+    //         align-items: center;
+    //         border: 2px solid $primary-yellow;
+    //         border-radius: 8px;
+    //     }
+
+    //     &_color-black {
+
+    //         div {
+    //             color: #242424;
+    //         }
+    //     }
+
+
+    // }
+
+    // &__item-img {
+    //     max-width: 100%;
+    // }
+
+    // &__item-bonus {
+    //     margin: 0 0 8px;
+    //     font-weight: bold;
+    //     font-size: 20px;
+    //     line-height: 22px;
+    //     color: $white;
+    // }
+
+    // &__item-descr {
+    //     font-size: 14px;
+    //     line-height: 18px;
+    //     color: $white;
+    // }
 }
