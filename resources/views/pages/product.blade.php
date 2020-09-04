@@ -168,7 +168,7 @@
                             <img src="/svg/product/price.svg" alt="">
                             <p>
                                 <small>Ближайшее время доставки</small>
-                                В течение 45 минут
+                                От 45 минут
                             </p>
                         </div>
                         <div class="product-card-requirements__item">

@@ -17,7 +17,7 @@
           <div class="delivery__items">
              <div class="delivery__item">
                 <div class="delivery__item-title">Ближайшее время доставки</div>
-                <div class="delivery__item-descr">В течение 45 минут</div>
+                <div class="delivery__item-descr">От 45 минут</div>
              </div>
              <div class="delivery__item">
                <div class="delivery__item-title">Сумма заказа</div>
