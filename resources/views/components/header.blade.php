@@ -166,7 +166,7 @@
                            </a>
                         </li>
                         <li class="nav-item">
-                           <a href="" class="nav-link">
+                           <a href="#" class="nav-link">
                               Доставка
                            </a>
                         </li>
@@ -234,7 +234,7 @@
                      </div>
                   </form>
                   <div class="header-icons">
-                     <a href="">
+                     <a href="/lk/orders" title="Мои заказы">
                         <img src="/svg/main/order.svg" alt="">
                      </a>
                      <a href="{{ route('favorites') }}">
@@ -248,7 +248,7 @@
                         <span id="cartTotal" class="header-cart__price">
                            {{ number_format($headerCartTotal / 100, 0, ',', ' ') }} ₽
                         </span>
-                        <a href="{{ route('cart') }}">
+                        <a href="{{ route('cart') }}" href="Корзина">
                            <span id="cartCounter" class="{{ $headerCartCount ? 'd-block' : 'd-none' }}">
                               {{ $headerCartCount ?: '' }}
                            </span>
