@@ -1,82 +1,103 @@
 .promotions {
-    padding: 0 0 64px;
-    background-color: $white;
+   padding: 0 0 64px;
+   background-color: $white;
 
-    .delivery {
-        margin: 0 0 30px;
-        padding: 28px 0 30px;
-    }
+   .delivery {
+      margin: 0 0 30px;
+      padding: 28px 0 30px;
+   }
 
-    .breadcrumb {
-        margin: 0;
-    }
+   .breadcrumb {
+      margin: 0;
+   }
 
-    .contact {
-        padding: 64px 0 0;
-    }
+   .contact {
+      padding: 64px 0 0;
+   }
 
-    &__heading {
-        margin: 0;
-        padding-bottom: 30px;
-        font-size: 36px;
-        line-height: 26px;
-        color: $black;
-        border-bottom: 1px solid $grey;
-    }
+   &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 48px;
 
-    &__shop {
-        padding: 30px 0;
-        display: flex;
-    }
+      .promotions__heading {
+         padding-bottom: 0;
+      }
 
-    &__shop-logo {
-        width: 95px;
-        height: 93px;
-        margin-right: 20px;
-        max-width: 100%;
-        border: 1px solid $tertiary-gray;
-    }
+      a {
+         font-weight: bold;
+         font-size: 14px;
+         line-height: 12px;
+         color: $black;
+      }
 
-    &__shop-name {
-        margin: 22px 0 7px 0;
-        font-weight: bold;
-        font-size: 24px;
-        line-height: 20px;
-        color: $black;
-    }
+      img {
+         margin-left: 5px;
+      }
+   }
 
-    &__item {
-        display: flex;
-        flex-direction: column;
-        padding: 30px 30px 0 30px;
-        min-height: 220px;
-        background: linear-gradient(180deg, #35353D 0%, #292A2F 100%);
-        transition: all .3s linear;
+   &__heading {
+      margin: 0;
+      padding-bottom: 30px;
+      font-size: 36px;
+      line-height: 26px;
+      color: $black;
+      border-bottom: 1px solid $grey;
+   }
 
-        &:hover {
-            box-shadow: 0 4px 11px rgba($primary-gray, 0.35);
-        }
-    }
+   &__shop {
+      padding: 30px 0;
+      display: flex;
+   }
 
-    &__item-heading {
-        margin: 0 0 8px;
-        font-weight: bold;
-        font-size: 24px;
-        line-height: 20px;
-        color: $white;
-    }
+   &__shop-logo {
+      width: 95px;
+      height: 93px;
+      margin-right: 20px;
+      max-width: 100%;
+      border: 1px solid $tertiary-gray;
+   }
 
-    &__item-descr {
-        margin: 0 0 8px;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 12px;
-        color: $white;
-    }
+   &__shop-name {
+      margin: 22px 0 7px 0;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 20px;
+      color: $black;
+   }
 
-    &__item-img {
-        margin-top: auto;
-        margin-left: auto;
-    }
+   &__item {
+      display: flex;
+      flex-direction: column;
+      padding: 30px 30px 0 30px;
+      min-height: 220px;
+      background: linear-gradient(180deg, #35353d 0%, #292a2f 100%);
+      transition: all 0.3s linear;
 
+      &:hover {
+         box-shadow: 0 4px 11px rgba($primary-gray, 0.35);
+      }
+   }
+
+   &__item-heading {
+      margin: 0 0 8px;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 20px;
+      color: $white;
+   }
+
+   &__item-descr {
+      margin: 0 0 8px;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 12px;
+      color: $white;
+   }
+
+   &__item-img {
+      margin-top: auto;
+      margin-left: auto;
+   }
 }
