@@ -95,36 +95,42 @@
                         <img src="/img/main/steps/step1.jpg" alt="">
                         <span class="main-steps-row__badge">1-й шаг</span>
                     </div>
-                    <p class="main-steps-row__header">
-                        Вы оформляйте заказ
-                    </p>
-                    <p class="main-steps-row__text">
-                        Мы доставим ваш заказ быстро и в удобное время
-                    </p>
+                    <div>
+                       <p class="main-steps-row__header">
+                           Вы оформляйте заказ
+                       </p>
+                       <p class="main-steps-row__text">
+                           Мы доставим ваш заказ быстро и в удобное время
+                       </p>
+                    </div>
                 </div>
                 <div class="main-steps-row__col">
                     <div class="main-steps-row__img">
                         <img src="/img/main/steps/step2.jpg" alt="">
                         <span class="main-steps-row__badge">2-й шаг</span>
                     </div>
-                    <p class="main-steps-row__header">
-                        Мы собираем заказ
-                    </p>
-                    <p class="main-steps-row__text">
-                        Мы проверим товарный вид и целостность каждого товара в заказе
-                    </p>
+                    <div>
+                       <p class="main-steps-row__header">
+                           Мы собираем заказ
+                       </p>
+                       <p class="main-steps-row__text">
+                           Мы проверим товарный вид и целостность каждого товара в заказе
+                       </p>
+                    </div>
                 </div>
                 <div class="main-steps-row__col">
                     <div class="main-steps-row__img">
                         <img src="/img/main/steps/step3.jpg" alt="">
                         <span class="main-steps-row__badge">3-й шаг</span>
                     </div>
-                    <p class="main-steps-row__header">
-                        Доставляем Вам в удобное время
-                    </p>
-                    <p class="main-steps-row__text">
-                        Мы доставим ваш заказ быстро и в удобное время
-                    </p>
+                    <div>
+                       <p class="main-steps-row__header">
+                           Доставляем Вам в удобное время
+                       </p>
+                       <p class="main-steps-row__text">
+                           Мы доставим ваш заказ быстро и в удобное время
+                       </p>
+                    </div>
                 </div>
             </div>
         </div>

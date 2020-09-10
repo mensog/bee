@@ -55,22 +55,22 @@
                 </p>
                 <a class="footer__link">Пользовательское соглашение</a>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-2 col-6">
                 <p class="footer__header">Покупателям</p>
                 <a class="footer__link" href="">О сервисе</a>
                 <a class="footer__link" href="">Доставка</a>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-2 col-6">
                 <p class="footer__header">Курьерам</p>
                 <a class="footer__link" href="">Сколько заработаю?</a>
                 <a class="footer__link" href="">Стать курьером</a>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-2 col-6">
                 <p class="footer__header">Поставщикам</p>
                 <a class="footer__link" href="">Какие условия?</a>
                 <a class="footer__link" href="">Стать поставщиком</a>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-2 col-6">
                 <p class="footer__header">Контакты</p>
                 <a class="footer__link" href="">beeclub@example.com</a>
                 <a class="footer__link" href="">+7 (900) 588 22 22</a>
@@ -78,10 +78,10 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col-lg-6 col-12">
+            <div class="col-lg-6 col-6">
                 <p class="footer__muted">BEECLUB @ 2020</p>
             </div>
-            <div class="col-lg-6 col-12">
+            <div class="col-lg-6 col-6">
                 <p class="footer__muted text-right">Сделано с любовью в <a href="">Студии Юрина</a></p>
             </div>
         </div>
@@ -95,5 +95,24 @@
         $('#passwordChanged').modal('show')
     </script>
 @endif
+
+
+<script>
+
+const footerTriggers = document.querySelectorAll('.footer__header');
+const footerLinks = document.querySelectorAll('.footer__link');
+
+footerTriggers.forEach((trigger) => {
+
+   footerLinks.forEach((link) => {
+      trigger.addEventListener('click', (e) => {
+         e.preventDefault();
+         trigger.classList.toggle('active');
+      });
+   });
+
+});
+
+</script>
 </body>
 </html>
