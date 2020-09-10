@@ -14,108 +14,30 @@
         <div class="container">
             <h2 class="promotions__heading">Акции и скидки</h2>
             <div class="promotions__shop">
-                <img class="promotions__shop-logo" src="/svg/shop-icons/leroy-mini.svg" alt="">
+                <img class="promotions__shop-logo" src="/svg/promotions/beeclub-logo.svg" alt="">
                 <h3 class="promotions__shop-name">BeeClub</h3>
             </div>
+
             <div class="row">
-                <div class="col-3">
-                    <a class="promotions__item" href="#">
-                        <div class="promotions__item-bonus">10%</div>
-                        <div class="promotions__item-descr">на всю садовую технику</div>
+                <div class="col-md-6">
+                    <a href="#" class="promotions__item">
+                        <div class="promotions__item-heading">Первая доставка бесплатно</div>
+                        <div class="promotions__item-descr">Действует при заказе от 1 000 ₽</div>
+                        <img class="promotions__item-img" src="/img/promotions/cart.png" alt="">
                     </a>
                 </div>
-                <div class="col-3">
-                    <a class="promotions__item  promotions__item_color-black" href="#">
-                        <div class="promotions__item-bonus">10%</div>
-                        <div class="promotions__item-descr">на кирпичные изделия</div>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a class="promotions__item" href="#">
-                        <div class="promotions__item-bonus">+200 баллов</div>
-                        <div class="promotions__item-descr">за установку мобильного приложения</div>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a class="promotions__item promotions__item_empty promotions__item_color-black" href="#">
-                        <div class="promotions__item-bonus">Ещё +20 услуг</div>
+                <div class="col-md-6">
+                    <a href="#" class="promotions__item">
+                        <div class="promotions__item-heading">200 баллов за регистрацию</div>
+                        <div class="promotions__item-descr">Создайте профиль на BeeClub и получите баллы на личный счет</div>
+                        <img class="promotions__item-img" src="/img/promotions/cart.png" alt="">
                     </a>
                 </div>
             </div>
-            <h2 class="promotions__heading">От партнеров</h2>
-            <div class="promotions__shop">
-                <img class="promotions__shop-logo" src="/svg/shop-icons/leroy-mini.svg" alt="">
-                <div class="promotions__shop-wrap">
-                    <h3 class="promotions__shop-name">Леруа Мерлен</h3>
-                    <a class="promotions__shop-link" href="#">Каталог Леруа Мерлен</a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-3">
-                    <a class="promotions__item promotions__item_green-gradient" href="#">
-                        <div class="promotions__item-bonus">10%</div>
-                        <div class="promotions__item-descr">на всю садовую технику</div>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a class="promotions__item promotions__item_green" href="#">
-                        <div class="promotions__item-bonus">10%</div>
-                        <div class="promotions__item-descr">на кирпичные изделия</div>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a class="promotions__item" href="#">
-                        <div class="promotions__item-bonus">+200 баллов</div>
-                        <div class="promotions__item-descr">за установку мобильного приложения</div>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a class="promotions__item promotions__item_empty promotions__item_color-black" href="#">
-                        <div class="promotions__item-bonus">Ещё +20 услуг</div>
-                    </a>
-                </div>
-            </div>
-            <div class="promotions__shop pt-0">
-                <img class="promotions__shop-logo" src="/svg/shop-icons/obi-mini.svg" alt="">
-                <div class="promotions__shop-wrap">
-                    <h3 class="promotions__shop-name">OBI</h3>
-                    <a class="promotions__shop-link" href="#">Каталог OBI</a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-3">
-                    <a class="promotions__item promotions__item_orange-gradient" href="#">
-                        <div class="promotions__item-bonus">10%</div>
-                        <div class="promotions__item-descr">на всю садовую технику</div>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a class="promotions__item promotions__item_orange" href="#">
-                        <div class="promotions__item-bonus">10%</div>
-                        <div class="promotions__item-descr">на кирпичные изделия</div>
-                    </a>
-                </div>
-            </div>
-            <div class="promotions__shop pt-0">
-                <img class="promotions__shop-logo" src="/svg/shop-icons/castorama-mini.svg" alt="">
-                <div class="promotions__shop-wrap">
-                    <h3 class="promotions__shop-name">Castorama</h3>
-                    <a class="promotions__shop-link" href="#">Каталог Castorama</a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-3">
-                    <a class="promotions__item promotions__item_blue-gradient" href="#">
-                        <div class="promotions__item-bonus">10%</div>
-                        <div class="promotions__item-descr">на всю садовую технику</div>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a class="promotions__item promotions__item_blue" href="#">
-                        <div class="promotions__item-bonus">10%</div>
-                        <div class="promotions__item-descr">на кирпичные изделия</div>
-                    </a>
-                </div>
+            <div class="contact">
+                <a href="#" class="contact__improve">
+                    <div class="contact__improve-text">Что можно улучшить на этой странице?</div>
+                </a>
             </div>
         </div>
     </div>
