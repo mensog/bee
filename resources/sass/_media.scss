@@ -1,7 +1,8 @@
 @media (max-width: 1199px) {
    .main-map .main-map-shops__item {
       margin-bottom: 8px;
-      max-width: 160px;
+      max-width: 150px;
+      height: 95px;
 
       &:last-child {
          margin-bottom: 0;
@@ -49,7 +50,7 @@
    .main-delivery .container {
       padding-top: 30px;
       padding-bottom: 30px;
-  }
+   }
 
    .main-delivery .main-delivery-card {
       margin-bottom: 10px;
@@ -90,34 +91,33 @@
    .contact__form {
       max-width: 100%;
       margin-right: 0;
-  }
+   }
 
-  .contact__form input {
-     margin: 0 0 18px;
-     padding: 16px 20px;
-     font-size: 12px;
+   .contact__form input {
+      margin: 0 0 18px;
+      padding: 16px 20px;
+      font-size: 12px;
 
-     &::placeholder {
-        font-size: 12px;
-     }
-  }
+      &::placeholder {
+         font-size: 12px;
+      }
+   }
 
-  .contact__form-btn {
-     padding: 16px 0;
-     font-size: 14px;
-  }
+   .contact__form-btn {
+      padding: 16px 0;
+      font-size: 14px;
+   }
 
    .contact__improve {
       max-width: 100%;
       min-height: 66px;
-      padding: 16px;
    }
 
    .contact__improve-text {
       font-size: 14px;
    }
 
-   .form-group:first-child{
+   .form-group:first-child {
       margin-bottom: 0;
    }
 
@@ -155,10 +155,21 @@
       min-height: 40px;
    }
 
+   .contact__social-item::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 22px;
+      height: 22px;
+      transform: translate(-50%, -50%);
+  }
+
    .app-banner {
       position: relative;
       min-height: 260px;
-      background:url(/img/main/app-banner/phones.png), linear-gradient(90deg, #F89D1B 0%, #FFDB4D 100%);
+      background: url(/img/main/app-banner/phones.png),
+         linear-gradient(90deg, #f89d1b 0%, #ffdb4d 100%);
       background-repeat: no-repeat;
       background-position: 125% bottom, center;
       background-size: 40%, 100%;
@@ -196,8 +207,7 @@
    .app-banner .app-banner-links__item img {
       max-width: 160px;
       height: 48px;
-  }
-
+   }
 }
 
 @media (max-width: 768px) {
@@ -268,46 +278,106 @@
    .main-qa .container {
       padding-top: 40px;
       padding-bottom: 40px;
-  }
+   }
 
-  #accordionOrder {
-   margin-bottom: 0;
-  }
+   #accordionOrder {
+      margin-bottom: 0;
+   }
 
-  .main-qa .main-qa-card__header {
-     padding: 16px;
-  }
+   .main-qa .main-qa-card__header {
+      padding: 16px;
+   }
 
    .main-qa__header {
       font-size: 24px;
       margin-bottom: 24px;
-  }
+   }
 
-  .main-qa .main-qa-card__header header {
-     font-size: 14px;
-  }
+   .main-qa .main-qa-card__header header {
+      font-size: 14px;
+   }
 
-  .main-qa .main-qa-card__body p {
-     font-size: 12px;
-  }
+   .main-qa .main-qa-card__body p {
+      font-size: 12px;
+   }
 
-  .main-qa__small {
-     font-size: 14px;
-     margin-bottom: 10px;
-  }
+   .main-qa__small {
+      font-size: 14px;
+      margin-bottom: 10px;
+   }
 
-  .app-banner {
-     background-size: 45%, 100%;
-  }
+   .app-banner {
+      background-size: 45%, 100%;
+   }
 
-  .footer .col-lg-3{
-     display: none;
-  }
+   .footer .col-lg-3 {
+      display: none;
+   }
 
-  .footer .container {
-     padding-top: 30px;
-  }
+   .footer .container {
+      padding-top: 30px;
+   }
 
+   .footer {
+      .col-6 {
+         overflow: hidden;
+      }
+   }
+
+   .footer__link {
+      display: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+   }
+
+   .footer__header {
+      position: relative;
+      font-size: 14px;
+      cursor: pointer;
+
+      &::before {
+         content: "";
+         position: absolute;
+         top: 0;
+         right: 0;
+         width: 15px;
+         height: 15px;
+         background: url(/svg/main/accordion-arrow.svg) center center/ 100%
+            no-repeat;
+         transition: all 0.3s;
+         transform: rotate(-180deg);
+      }
+
+      &.active {
+
+         &::before {
+            transform: rotate(0deg);
+         }
+
+        ~ .footer__link {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+         }
+      }
+   }
+
+   .footer hr {
+      margin-top: 30px;
+   }
+
+   .footer__muted {
+      font-size: 12px;
+
+      a {
+         font-size: inherit;
+      }
+   }
+
+   .text-right {
+      text-align: left !important;
+   }
 }
 
 @media (max-width: 540px) {
@@ -322,5 +392,19 @@
    .app-banner .app-banner-links__item img {
       max-width: 135px;
       height: 35px;
-  }
+   }
+
+   .contact__improve {
+      padding: 0 16px;
+   }
+
+   .contact__improve-text {
+      // padding: 0 25px 0 25px;
+   }
+
+   .contact__improve-text::before,
+   .contact__improve-text::after {
+      top: 50%;
+      transform: translateY(-50%);
+   }
 }
