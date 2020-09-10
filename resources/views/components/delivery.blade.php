@@ -3,12 +3,14 @@
         <div class="row">
             <div class="col-lg-4 col-12">
                 <div class="main-delivery-card main-delivery-card-grey">
-                    <p class="main-delivery-card__header">
-                        Честные цены
-                    </p>
-                    <p class="main-delivery-card__text">
-                        Товары от наших партнеров с ценами как в магазине
-                    </p>
+                    <div class="main-delivery-card__body">
+                       <p class="main-delivery-card__header">
+                           Честные цены
+                       </p>
+                       <p class="main-delivery-card__text">
+                           Товары от наших партнеров с ценами как в магазине
+                       </p>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-4 col-12">
