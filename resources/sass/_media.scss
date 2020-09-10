@@ -1,8 +1,9 @@
 @media (max-width: 1199px) {
    .main-map .main-map-shops__item {
       margin-bottom: 8px;
-      max-width: 150px;
+      max-width: 160px;
       height: 95px;
+      padding: 0;
 
       &:last-child {
          margin-bottom: 0;
@@ -32,6 +33,32 @@
    .main-qa .main-qa-card__header header img {
       margin-left: 15px;
    }
+
+   .header .menu-right .position {
+      margin-right: 20px;
+   }
+
+   .header .nav-item {
+      margin-right: 5px;
+   }
+
+   .header-right .form-inline {
+      max-width: 251px;
+  }
+
+
+   .header .header-icons a {
+      margin: 0 10px;
+  }
+
+  .header .header-icons .header-cart {
+     width: 100%;
+  }
+
+  .header .navbar-brand img {
+   max-width: 100%;
+  }
+
 }
 
 @media (max-width: 991px) {
@@ -208,6 +235,91 @@
       max-width: 160px;
       height: 48px;
    }
+
+   .mobile-bar {
+      display: flex;
+   }
+
+   .header .dropdown {
+      display: none;
+   }
+
+   .header .navbar {
+      display: none;
+   }
+
+   .header .header-inner {
+      display: none;
+   }
+
+  .header .header-wrap {
+      min-height: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  .header-right {
+     width: auto;
+  }
+
+  .header .menu-right .login {
+     display: none;
+  }
+
+  .header .menu-right .position {
+   margin-right: 0;
+}
+
+  .header .navbar-brand {
+     margin-right: 0;
+
+     img {
+        max-width: 70%;
+     }
+  }
+
+  .header .container {
+     padding-top: 12px;
+     padding-bottom: 12px;
+  }
+
+  .promotions {
+     padding: 30px 0;
+  }
+
+  .main-sales .container {
+     padding-top: 0;
+  }
+
+  .promotions__header {
+     flex-direction: column;
+     align-items: flex-start;
+     margin-bottom: 16px;
+  }
+
+  .promotions__header .promotions__heading {
+     margin: 0 0 16px;
+     font-size: 24px;
+  }
+
+  .main-sales .promotions__item {
+     padding: 16px;
+  }
+
+  .promotions__item-heading {
+     margin: 0 0 5px;
+     font-size: 20px;
+  }
+
+  .promotions__item-descr {
+     font-size: 12px;
+     margin-bottom: 0;
+  }
+
+  .promotions__item-img {
+     max-width: 200px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -378,6 +490,10 @@
    .text-right {
       text-align: left !important;
    }
+
+   .main-sales .promotions__item {
+      margin-bottom: 8px;
+   }
 }
 
 @media (max-width: 540px) {
@@ -398,9 +514,7 @@
       padding: 0 16px;
    }
 
-   .contact__improve-text {
-      // padding: 0 25px 0 25px;
-   }
+
 
    .contact__improve-text::before,
    .contact__improve-text::after {
