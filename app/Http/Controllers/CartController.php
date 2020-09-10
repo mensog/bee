@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cart;
 use App\Partner;
+use App\Product;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -65,6 +66,7 @@ class CartController extends Controller
         $groupedCartContent = $products->groupBy('store_id');
         $favoritesList = app('FavoriteList');
         $favoritesListContent = $favoritesList->content;
+        $recommendedProducts = Product::inRandomOrder()->whereNotIn('id', $cart->getProductIds())->limit(4)->get();
         $stores = Partner::whereIn('id', array_keys ($groupedCartContent->toArray()))->get()->keyBy('id');
         return view('pages.cart', [
             'products' => $products,
@@ -73,7 +75,8 @@ class CartController extends Controller
             'cartTotal' => $cartTotal,
             'groupedCartContent' => $groupedCartContent,
             'stores' => $stores,
-            'favoriteList' => $favoritesListContent
+            'favoriteList' => $favoritesListContent,
+            'recommendedProducts' => $recommendedProducts,
         ]);
     }
 
