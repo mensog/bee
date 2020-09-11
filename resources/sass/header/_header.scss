@@ -201,6 +201,12 @@
    }
 }
 
+.header-right__inner {
+   display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .header .nav-item {
    padding: 0;
    margin-right: 30px;
