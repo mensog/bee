@@ -29,18 +29,18 @@
                <nav class="navbar navbar-expand-lg">
                   <div class="collapse navbar-collapse">
                      <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                            <a href="{{ route('promotions') }}" class="nav-link">
                               Акции
                            </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                            <a href="{{ route('about') }}" class="nav-link">
                               О сервисе
                            </a>
                         </li>
                         <li class="nav-item">
-                           <a href="#" class="nav-link">
+                           <a href="{{ Route::currentRouteName() === 'about' ? '#delivery-cost' : route('about') . '#delivery-cost'}}" class="nav-link">
                               Доставка
                            </a>
                         </li>
@@ -113,9 +113,11 @@
                   </div>
                </form>
                <div class="header-icons">
+                  @if(!auth())
                   <a href="/lk/orders" title="Мои заказы">
-                     <img src="/svg/main/order.svg" alt="">
+                     <img src="/svg/main/order.svg" alt="Мои заказы">
                   </a>
+                  @endif
                   <a href="{{ route('favorites') }}">
                      <span id="favoritesCounter" class="{{ $headerFavoritesCount ? 'd-block' : 'd-none' }}">
                         {{ $headerFavoritesCount ?: '' }}

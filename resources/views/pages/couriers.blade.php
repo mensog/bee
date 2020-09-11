@@ -106,7 +106,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-8">
-                    <div class="choice">
+                    <div id="choice" class="choice">
                         <h2 class="choice__title">Сколько я буду зарабатывать?</h2>
                         <h3 class="choice__subtitle">Вид транспорта </h3>
                         <div class="choice__inner">
@@ -160,7 +160,7 @@
             </div>
         </div>
     </section>
-    
+
 
 </main>
 

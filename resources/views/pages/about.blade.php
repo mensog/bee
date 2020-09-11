@@ -83,9 +83,9 @@
         </div>
     </section>
 
-    <section class="delivery-cost">
+    <section id="delivery-cost" class="delivery-cost">
         <div class="container">
-            <h3 class="delivery-cost__heading">Наши магазины</h3>
+            <h3 class="delivery-cost__heading">Сколько стоит доставка?</h3>
             <div class="row">
                 <div class="col-3">
                     <div class="delivery-cost__item delivery-cost__item_yellow">

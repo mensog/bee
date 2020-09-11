@@ -57,23 +57,23 @@
          </div>
          <div class="col-lg-2 col-6">
             <p class="footer__header">Покупателям</p>
-            <a class="footer__link" href="">О сервисе</a>
-            <a class="footer__link" href="">Доставка</a>
+            <a class="footer__link" href="{{ route('about') }}">О сервисе</a>
+            <a class="footer__link" href="{{ Route::currentRouteName() === 'about' ? '#delivery-cost' : route('about') . '#delivery-cost' }}">Доставка</a>
          </div>
          <div class="col-lg-2 col-6">
             <p class="footer__header">Курьерам</p>
-            <a class="footer__link" href="">Сколько заработаю?</a>
-            <a class="footer__link" href="">Стать курьером</a>
+            <a class="footer__link" href="{{ Route::currentRouteName() === 'couriers' ? '#choice' : route('couriers') . '#choice' }}">Сколько заработаю?</a>
+            <a class="footer__link" href="{{ Route::currentRouteName() === 'couriers' ? '#choice' : route('couriers') . '#choise' }}">Стать курьером</a>
          </div>
          <div class="col-lg-2 col-6">
             <p class="footer__header">Поставщикам</p>
-            <a class="footer__link" href="">Какие условия?</a>
-            <a class="footer__link" href="">Стать поставщиком</a>
+            <a class="footer__link" href="{{ Route::currentRouteName() === 'suppliers' ? '#terms' : route('suppliers') . '#terms' }}">Какие условия?</a>
+            <a class="footer__link" href="{{ Route::currentRouteName() === 'suppliers' ? '#terms' : route('suppliers') . '#terms' }}">Стать поставщиком</a>
          </div>
          <div class="col-lg-2 col-6">
             <p class="footer__header">Контакты</p>
-            <a class="footer__link" href="">beeclub@example.com</a>
-            <a class="footer__link" href="">+7 (900) 588 22 22</a>
+            <a class="footer__link" href="mailto:beeclub@example.com">beeclub@example.com</a>
+            <a class="footer__link" href="tel+79005882222">+7 (900) 588 22 22</a>
          </div>
       </div>
       <hr>
@@ -82,7 +82,7 @@
             <p class="footer__muted">BEECLUB @ 2020</p>
          </div>
          <div class="col-lg-6 col-6">
-            <p class="footer__muted text-right">Сделано с любовью в <a href="">Студии Юрина</a></p>
+            <p class="footer__muted text-right">Сделано с любовью в <a href="#">Студии Юрина</a></p>
          </div>
       </div>
    </div>
@@ -97,31 +97,31 @@
    <ul class="mobile-bar__list">
       <li>
          <a href="#" class="mobile-bar__list-link">
-            <img src="/svg/mobile-menu/catalog.svg" alt="">
+            <img src="/svg/mobile-menu/catalog.svg" alt="Catalog">
             Каталог
          </a>
       </li>
       <li>
          <a href="#" class="mobile-bar__list-link">
-            <img src="/svg/mobile-menu/search.svg" alt="">
+            <img src="/svg/mobile-menu/search.svg" alt="Search">
             Поиск
          </a>
       </li>
       <li>
          <a href="{{ route('cart') }}" class="mobile-bar__list-link">
-            <img src="/svg/mobile-menu/cart.svg" alt="">
+            <img src="/svg/mobile-menu/cart.svg" alt="Cart">
             Корзина
          </a>
       </li>
       <li>
          <a href="{{ route('lk') }}" class="mobile-bar__list-link">
-            <img src="/svg/mobile-menu/user.svg" alt="">
+            <img src="/svg/mobile-menu/user.svg" alt="User">
             Войти
          </a>
       </li>
       <li>
          <a href="#" class="mobile-bar__list-link" data-menu>
-            <img src="/svg/mobile-menu/menu.svg" alt="">
+            <img src="/svg/mobile-menu/menu.svg" alt="Menu">
             Меню
          </a>
       </li>
@@ -132,7 +132,7 @@
    <div class="mobile-content__header">
       <div class="mobile-content__header-title">Меню</div>
       <div class="mobile-content__close" data-close>
-         <img src="/svg/mobile-menu/menu-close.svg" alt="">
+         <img src="/svg/mobile-menu/menu-close.svg" alt="close menu">
       </div>
    </div>
    <ul class="mobile-content__list">
@@ -146,7 +146,7 @@
          <a href="{{ route('about') }}" class="mobile-content__list-link">О сервисе</a>
       </li>
       <li>
-         <a href="#" class="mobile-content__list-link">Доставка</a>
+         <a href="{{ Route::currentRouteName() === 'about' ? '#delivery-cost' : route('about') . '#delivery-cost' }}" class="mobile-content__list-link">Доставка</a>
       </li>
       <li>
          <a href="{{ route('couriers') }}" class="mobile-content__list-link">Курьерам</a>

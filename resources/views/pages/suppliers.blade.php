@@ -67,7 +67,7 @@
       </div>
   </section>
 
-  <section class="terms">
+  <section id="terms" class="terms">
      <div class="container">
         <h2 class="terms__title">Условия и бонусы</h2>
         <div class="row">
