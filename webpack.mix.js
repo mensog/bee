@@ -69,4 +69,3 @@ mix.js(['resources/js/app.js'], 'public/js') // внешний сайт
         processCssUrls: false
     })
     .version();
-mix.browserSync('http://localhost:8888/')
