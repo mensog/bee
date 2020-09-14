@@ -1,26 +1,26 @@
-<div class="categories">
+@if(isset($storeCatalog['']) && count($storeCatalog['']) > 0)
+    <div class="categories">
     <div class="container">
         <h2 class="categories__heading">Категории</h2>
         <div class="categories__items">
-            <a href="#" class="categories__item">
-                <span class="categories__item-descr">Скобяные <br> изделия</span>
-                <img class="categories__item-img" src="/svg/components/categories/hardware.svg" alt="">
-            </a>
-            <a href="#" class="categories__item">
-                <span class="categories__item-descr">Плитка</span>
-                <img class="categories__item-img" src="/svg/components/categories/tile.svg" alt="">
-            </a>
-            <a href="#" class="categories__item">
-                <span class="categories__item-descr">Окна и двери</span>
-                <img class="categories__item-img" src="/svg/components/categories/window.svg" alt="">
-            </a>
-            <a href="#" class="categories__item">
-                <span class="categories__item-descr">Электротовары</span>
-                <img class="categories__item-img" src="/svg/components/categories/electrical.svg" alt="">
-            </a>
-            <a href="{{ route('catalog',['storeSlug' => $currentStore->slug]) }}" class="categories__item categories__item_empty">
-                <span class="categories__item-descr">Ещё 15 категорий</span>
-            </a>
+            @foreach($storeCatalog[''] as $category)
+
+                <a href="{{ route('category', ['storeSlug' => $currentStore->slug, 'name' => $category->friendly_url_name]) }}" class="categories__item">
+                    <span class="categories__item-descr">{{ $category->name }}</span>
+                        @if(!is_null($category->icon_path))
+                        <img class="categories__item-img" src="{{ asset($category->icon_path) }}" alt="">
+                        @endif
+                </a>
+                @if($loop->iteration == 4)
+                        @if($loop->remaining > 0)
+                        <a href="{{ route('catalog',['storeSlug' => $currentStore->slug]) }}" class="categories__item categories__item_empty">
+                            <span class="categories__item-descr">Ещё {{ $loop->remaining }} {{ Lang::choice('категория|категории|категорий', $loop->remaining, [], 'ru') }}</span>
+                        </a>
+                        @endif
+                    @break
+                @endif
+            @endforeach
         </div>
     </div>
 </div>
+@endif
