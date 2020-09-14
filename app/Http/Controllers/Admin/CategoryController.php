@@ -58,6 +58,7 @@ class CategoryController extends Controller
             'max' => 'Поле :attribute должно быть не более :max',
             'unique' => 'Такое значение :attribute уже занято, должно быть уникальным',
             'mimes' => 'Иконка должна быть в формате svg',
+            'regex' => 'ЧПУ может содержать только английские буквы, цифры и знак дефиса',
         ];
 
         $names = [
@@ -69,7 +70,7 @@ class CategoryController extends Controller
 
         return Validator::make($data, [
             'name' => ['required', 'string', 'min:1', 'max:255'],
-            'friendlyUrlName' => ['required', 'string', \Illuminate\Validation\Rule::unique('categories','friendly_url_name')->ignore($currentCategory), 'min:1', 'max:255'],
+            'friendlyUrlName' => ['required', 'regex:/(^[a-z0-9-]+$)/i', 'string', \Illuminate\Validation\Rule::unique('categories','friendly_url_name')->ignore($currentCategory), 'min:1', 'max:255'],
             'visible' => ['sometimes', 'required', 'integer', 'min:0', 'max:1'],
             'parent' => ['required', 'integer'],
             'icon' => ['file', 'mimes:svg'],

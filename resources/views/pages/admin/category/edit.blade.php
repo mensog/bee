@@ -82,6 +82,11 @@
                                 <div class="form-group">
                                     <label for="categoryIcon">Иконка (в формате svg)</label>
                                     <input type="file" name="icon" id="categoryIcon">
+                                    @error('icon')
+                                    <span class="text-danger invalid-field" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
