@@ -239,12 +239,6 @@
       padding-top: 64px;
    }
 
-   .promotions__item {
-      background: linear-gradient(180deg, #35353d 0%, #292a2f 100%);
-      border-radius: 0;
-      border: 0;
-   }
-
    .promotions__heading {
       border: 0;
    }
@@ -405,6 +399,17 @@
             text-decoration-line: underline;
             color: $black;
          }
+
+          ul {
+              list-style: none;
+              margin: 0;
+              padding: 0;
+          }
+
+          ol {
+              margin: 0;
+              padding-left: 20px;
+          }
       }
 
       &__social {

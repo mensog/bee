@@ -195,7 +195,7 @@
    .app-banner {
       position: relative;
       min-height: 260px;
-      background: url(/img/main/app-banner/phones.png),
+      background-image: url(/img/main/app-banner/phones.png),
          linear-gradient(90deg, #f89d1b 0%, #ffdb4d 100%);
       background-repeat: no-repeat;
       background-position: 125% bottom, center;
