@@ -117,12 +117,12 @@ class Category extends Model
         $categoryIds = [];
         $childCategories = $this->childCategories;
         foreach ($childCategories as $child) {
-            $categoryIds = array_merge([$child->id], $child->getChildCategoryIds());
+            $categoryIds = array_merge($categoryIds, [$child->id], $child->getChildCategoryIds());
         }
         return $categoryIds;
     }
 
-    public function productsWithChildQuery($storeId)
+    public function productsWithChildQuery()
     {
         $childCategories = $this->getChildCategoryIds();
         return Product::whereIn('category_id', array_merge([$this->id], $childCategories));
