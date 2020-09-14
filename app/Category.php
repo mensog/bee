@@ -5,9 +5,21 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Storage;
 
 class Category extends Model
 {
+    public const ICON_DIRECTORY = '/public/icons/';
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function(Category $category){
+            $category->deleteIcon();
+        });
+    }
+
     /**
      * Возвращает все продукты из текущей категории
      *
@@ -105,14 +117,23 @@ class Category extends Model
         $categoryIds = [];
         $childCategories = $this->childCategories;
         foreach ($childCategories as $child) {
-            $categoryIds = array_merge([$child->id], $child->getChildCategoryIds());
+            $categoryIds = array_merge($categoryIds, [$child->id], $child->getChildCategoryIds());
         }
         return $categoryIds;
     }
 
-    public function productsWithChildQuery($storeId)
+    public function productsWithChildQuery()
     {
         $childCategories = $this->getChildCategoryIds();
         return Product::whereIn('category_id', array_merge([$this->id], $childCategories));
+    }
+
+    public function deleteIcon()
+    {
+        if (!is_null($this->icon_path) && Storage::exists($this->icon_path)) {
+            Storage::delete($this->icon_path);
+        }
+        $this->icon_path = null;
+        $this->save();
     }
 }

@@ -6,6 +6,7 @@ use App\Category;
 use App\Http\Controllers\Controller;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
@@ -56,6 +57,8 @@ class CategoryController extends Controller
             'min' => 'Поле :attribute должно быть не менее :min',
             'max' => 'Поле :attribute должно быть не более :max',
             'unique' => 'Такое значение :attribute уже занято, должно быть уникальным',
+            'mimes' => 'Иконка должна быть в формате svg',
+            'regex' => 'ЧПУ может содержать только английские буквы, цифры и знак дефиса',
         ];
 
         $names = [
@@ -67,9 +70,10 @@ class CategoryController extends Controller
 
         return Validator::make($data, [
             'name' => ['required', 'string', 'min:1', 'max:255'],
-            'friendlyUrlName' => ['required', 'string', \Illuminate\Validation\Rule::unique('categories','friendly_url_name')->ignore($currentCategory), 'min:1', 'max:255'],
+            'friendlyUrlName' => ['required', 'regex:/(^[a-z0-9-]+$)/i', 'string', \Illuminate\Validation\Rule::unique('categories','friendly_url_name')->ignore($currentCategory), 'min:1', 'max:255'],
             'visible' => ['sometimes', 'required', 'integer', 'min:0', 'max:1'],
             'parent' => ['required', 'integer'],
+            'icon' => ['file', 'mimes:svg'],
         ], $messages, $names);
     }
 
@@ -92,6 +96,13 @@ class CategoryController extends Controller
             $category->visible = 0;
         }
         $category->setParent($request->input('parent'));
+        if ($request->hasFile('icon')) {
+            if (!is_null($category->icon_path)) {
+                $category->deleteIcon();
+            }
+            $path = Storage::putFileAs(Category::ICON_DIRECTORY, $request->file('icon'), $category->friendly_url_name . '.svg');
+            $category->icon_path = $path;
+        }
         $category->save();
         return redirect()->route('admin_edit_category_page', $category->id);
     }
@@ -136,7 +147,7 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $newCategory = Category::findOrFail($request->input('moveToCategoryId'));
         Product::where('category_id', $category->id)->update(['category_id' => $newCategory->id]);
-        Category::where('parent', $category->id)->update(['category_id' => (is_null($category->parent)) ? null : $category->parent]);
+        Category::where('parent', $category->id)->update(['parent' => (is_null($category->parent)) ? null : $category->parent]);
         $category->delete();
         return redirect()->route('admin_categories');
     }
@@ -146,5 +157,12 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $breadcrumbs = $category->getBreadcrumbs();
         return response()->json($breadcrumbs);
+    }
+
+    public function deleteIcon(Request $request, $id)
+    {
+        $category = Category::findOrFail($id);
+        $category->deleteIcon();
+        return redirect()->back();
     }
 }

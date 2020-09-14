@@ -26,7 +26,7 @@ class CategoryController extends Controller
             $activeCategorySlugs = [];
         } else {
             $category = Category::where('friendly_url_name', $name)->firstOrFail();
-            $productsQuery = $category->productsWithChildQuery($store->id);
+            $productsQuery = $category->productsWithChildQuery();
             $productsPaginator = $productsQuery->where('store_id', $store->id)->paginate(50);
             $breadcrumbs = $category->getBreadcrumbs();
             $activeCategorySlugs = array_keys($breadcrumbs);
