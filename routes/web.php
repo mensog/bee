@@ -63,6 +63,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'can:
     Route::post('/category/update/parent/{id}', 'CategoryController@setParent')->name('admin_category_update_parent');
     Route::post('/category/update/{id}', 'CategoryController@update')->name('admin_category_edit_data');
     Route::post('/category/delete/{id}', 'CategoryController@delete')->name('admin_category_delete');
+    Route::post('/category/icon/delete/{id}', 'CategoryController@deleteIcon')->name('admin_category_delete_icon');
     Route::get('/category/{id}', 'CategoryController@showEditPage')->name('admin_edit_category_page');
 
     Route::get('/partners', 'PartnerController@index')->name('admin_partners');
