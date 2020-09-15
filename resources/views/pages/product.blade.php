@@ -33,20 +33,6 @@
                     <div class="product-card-gallery">
                         <img class="product-card-gallery__image" src="{{ $product->img_url }}"
                              alt="{{ $product->name }}">
-                        <div class="product-card-gallery-images">
-                            <div class="product-card-gallery-images__item">
-
-                            </div>
-                            <div class="product-card-gallery-images__item active">
-
-                            </div>
-                            <div class="product-card-gallery-images__item">
-
-                            </div>
-                            <div class="product-card-gallery-images__item">
-
-                            </div>
-                        </div>
                     </div>
 
                     <div class="product-card-info">
@@ -55,7 +41,7 @@
                                 {{ $product->name }}
                             </h3>
 
-                            <div>
+                            <div class="product-card-info-header__inner">
                                 <div class="product-card-info-header__rating">
                                     <a href="">
                                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
@@ -97,11 +83,11 @@
                                                   fill="#E3E3E3"/>
                                         </svg>
                                     </a>
+                                    <span class="product-card-info-header__score">4.0</span>
                                 </div>
 
-                                <span class="product-card-info-header__score">4.0</span>
 
-                                <span class="product-card-info-header__sku">| Артикул: {{ $product-> sku }}</span>
+                                <span class="product-card-info-header__sku"><span>|</span> Артикул: {{ $product-> sku }}</span>
                             </div>
                             <hr>
                         </div>
@@ -144,8 +130,8 @@
                                     </button>
                                 @else
                                     <button data-id="{{ $product->id }}" data-action="add"
-                                            class="btn-add-to-favorites add-to-favorites btn btn-outline-black"
-                                            style="max-width: 100%">
+                                            class="btn-add-to-favorites add-to-favorites btn btn-outline-black">
+                                        <i class="ec ec-favorites font-size-15"></i>
                                         В избранное
                                     </button>
                                 @endif
@@ -158,7 +144,7 @@
                 <div class="product-card__footer">
                     <div class="product-card-requirements">
                         <div class="product-card-requirements__item  product-card-requirements__delivery">
-                            <img src="{{ $product->store->image_path }}" alt="">
+                                <img src="{{ $product->store->image_path }}" alt="">
                             <p>
                                 <small>Доставка из:</small>
                                 {{ $product->store->company_name }}
