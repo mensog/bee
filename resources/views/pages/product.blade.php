@@ -187,7 +187,7 @@
                     <div class="row">
                         <div class="col-lg-8 col-12">
                             @if($product->reviews->count() > 0)
-                            <h4>Отзывы</h4>
+                            <h4>Отзывы ({{ $product->reviews->count() }})</h4>
                                 <x-star-rating rating="{{ $product->getRating() }}" class="comments-card__rating" />
                                 <span class="comments-card__score">{{ number_format($product->getRating(), 1) }}</span>
                                 <span class="comments-card__count">({{ $product->reviews->count() }})</span>
