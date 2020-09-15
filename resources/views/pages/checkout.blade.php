@@ -232,7 +232,6 @@
     const storage = window.utils.storage
 
     window.addEventListener('DOMContentLoaded', () => {
-        // const storage = window._utils.storage()
         const city = storage('beeclub-city')
         const street = storage('beeclub-street')
         if (city) {
