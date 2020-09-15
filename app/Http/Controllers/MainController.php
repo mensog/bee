@@ -27,7 +27,11 @@ class MainController extends Controller
         $cartContent = $cart->content;
         $favoritesList = app('FavoriteList');
         $favoritesListContent = $favoritesList->content;
-        $likedRandomProducts = Partner::where('slug', $storeSlug)->firstOrFail()->products()->inRandomOrder()->take(4)->get();;
-        return view('pages.store', ['cartContent' => $cartContent, 'favoritesListContent' => $favoritesListContent, 'likedRandomProducts' => $likedRandomProducts,]);
+        $likedRandomProducts = Partner::where('slug', $storeSlug)->firstOrFail()->products()->inRandomOrder()->take(4)->get();
+        return view('pages.store', [
+            'cartContent' => $cartContent,
+            'favoritesListContent' => $favoritesListContent,
+            'likedRandomProducts' => $likedRandomProducts,
+        ]);
     }
 }

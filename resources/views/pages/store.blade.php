@@ -64,7 +64,7 @@
   </div>
 
    <x-categories/>
-   <x-liked :likedRandomProducts="$likedRandomProducts"/>
+   <x-liked :likedRandomProducts="$likedRandomProducts" :favoritesListContent="$favoritesListContent"/>
    <x-delivery/>
 </main>
 

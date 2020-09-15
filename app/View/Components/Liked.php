@@ -8,16 +8,26 @@ use Illuminate\View\Component;
 
 class Liked extends Component
 {
+     /**
+     * Array of favorites.
+     *
+     * @var array
+     */
+    public $favoritesListContent;
+
+
     public $likedRandomProducts;
 
     /**
      * Create a new component instance.
      *
+     * @param $favoritesListContent
      * @param $likedRandomProducts
      */
-    public function __construct($likedRandomProducts)
+    public function __construct($favoritesListContent, $likedRandomProducts)
     {
-       $this->likedRandomProducts = $likedRandomProducts;
+        $this->favoritesListContent = $favoritesListContent;
+        $this->likedRandomProducts = $likedRandomProducts;
     }
 
     /**
