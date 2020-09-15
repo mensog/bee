@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
+use App\Delivery;
 use App\Partner;
 use App\Product;
 use Illuminate\Http\Request;
@@ -158,6 +159,13 @@ class CartController extends Controller
         $itemsSubTotal = $cart->getItemsSubTotal();
         $cartTotal = $cart->getTotal();
         $user = auth()->user();
-        return view('pages.checkout', ['products' => $products, 'quantity' => $cartContent, 'itemsSubTotal' => $itemsSubTotal, 'cartTotal' => $cartTotal, 'user' => $user]);
+        $deliveries = Delivery::all();
+        return view('pages.checkout', ['products' => $products,
+            'quantity' => $cartContent,
+            'itemsSubTotal' => $itemsSubTotal,
+            'cartTotal' => $cartTotal,
+            'user' => $user,
+            'deliveries' => $deliveries,
+        ]);
     }
 }

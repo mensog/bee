@@ -36,6 +36,22 @@
                                     </div>
                                 </div>
                             </div>
+                            <h3 class="cart__subheading">Способы получения</h3>
+                            <div class="form-group row">
+
+                                @foreach($deliveries as $delivery)
+                                    <div class="col-md-6">
+                                        <div class="delivery-cost__item border">
+                                            <img class="delivery-cost__item-icon" src="{{$delivery->icon_path}}" alt="{{$delivery->title}}">
+                                            <div class="delivery-cost__item-heading py-2">{{ $delivery->title }}</div>
+                                            <div class="delivery-cost__item-descr text-secondary">{{ $delivery->description }}</div>
+                                            <div class="delivery-cost__item-time">c {{ $delivery->getTimeToDelivery() }}</div>
+                                            <div class="delivery-cost__item-price">{{ $delivery->price / 100 }} ₽</div>
+                                        </div>
+                                    </div>
+                                @endforeach
+
+                            </div>
                             <h3 class="cart__subheading">Данные получателя</h3>
                             <p class="cart__after-title">Полные фамилия, имя и отчество потребуются при получении
                                 заказа</p>

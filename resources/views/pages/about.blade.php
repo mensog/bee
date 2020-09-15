@@ -87,35 +87,19 @@
         <div class="container">
             <h3 class="delivery-cost__heading">Сколько стоит доставка?</h3>
             <div class="row">
+
+                @foreach($deliveries as $delivery)
                 <div class="col-3">
-                    <div class="delivery-cost__item delivery-cost__item_yellow">
-                        <img class="delivery-cost__item-icon" src="/svg/about/express.svg" alt="">
-                        <div class="delivery-cost__item-heading">Экспресс-доставка</div>
-                        <div class="delivery-cost__item-descr">Быстрая доставка в удобный <br> интервал времени</div>
-                        <div class="delivery-cost__item-time">с 18:00 26.07</div>
-                        <div class="delivery-cost__item-price">849 ₽</div>
+                    <div class="delivery-cost__item delivery-cost__item_{{$delivery->color}}">
+                        <img class="delivery-cost__item-icon" src="{{$delivery->icon_path}}" alt="{{$delivery->title}}">
+                        <div class="delivery-cost__item-heading">{{ $delivery->title }}</div>
+                        <div class="delivery-cost__item-descr">{{ $delivery->description }}</div>
+                        <div class="delivery-cost__item-time">c {{ $delivery->getTimeToDelivery() }}</div>
+                        <div class="delivery-cost__item-price">{{ $delivery->price / 100 }} ₽</div>
                     </div>
                 </div>
-                <div class="col-3">
-                    <div class="delivery-cost__item delivery-cost__item_white">
-                        <img class="delivery-cost__item-icon" src="/svg/about/courier.svg" alt="">
-                        <div class="delivery-cost__item-heading">Курьером</div>
-                        <div class="delivery-cost__item-descr">Доставка в удобный день и <br> интервал времени</div>
-                        <div class="delivery-cost__item-time">с 12:00 27.07</div>
-                        <div class="delivery-cost__item-price">349 ₽</div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="delivery-cost__item delivery-cost__item_blue">
-                        <img class="delivery-cost__item-icon" src="/svg/about/night.svg" alt="">
-                        <div class="delivery-cost__item-heading">Ночной тариф</div>
-                        <div class="delivery-cost__item-descr">Ночная доставка с 22.00 до <br> 06.00 без пробок и
-                            опозданий
-                        </div>
-                        <div class="delivery-cost__item-time">с 22:00 27.07</div>
-                        <div class="delivery-cost__item-price">549 ₽</div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </section>
