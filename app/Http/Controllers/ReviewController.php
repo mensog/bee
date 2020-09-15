@@ -35,6 +35,7 @@ class ReviewController extends Controller
     public function create(Request $request, $id)
     {
         $product = Product::findOrFail($id);
+        $this->authorize('createReview', $product);
         $this->reviewCreateValidator($request->all())->validate();
         $review = new Review();
         $review->user_id = auth()->user()->id;

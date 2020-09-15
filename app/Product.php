@@ -71,6 +71,6 @@ class Product extends Model
 
     public function getRating()
     {
-        return $this->reviews->avg('rating');
+        return round($this->reviews->avg('rating'), 1);
     }
 }
