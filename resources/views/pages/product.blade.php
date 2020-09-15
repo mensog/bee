@@ -56,9 +56,11 @@
                             </h3>
 
                             <div>
-                                <x-star-rating rating="{{ $product->getRating() }}" class="product-card-info-header__rating" />
+                                <x-star-rating rating="{{ $product->getRating() }}"
+                                               class="product-card-info-header__rating"/>
 
-                                <span class="product-card-info-header__score">{{ number_format($product->getRating(), 1) }}</span>
+                                <span
+                                    class="product-card-info-header__score">{{ number_format($product->getRating(), 1) }}</span>
 
                                 <span class="product-card-info-header__sku">| Артикул: {{ $product-> sku }}</span>
                             </div>
@@ -92,7 +94,9 @@
                             <div class="product-card-info-body-cart">
                                 <div class="product-card-info-body-cart__price">
                                     <p>{{ $product->price / 100 }} ₽ <span>/за шт</span></p>
-                                    <a target="_blank" href="{{ $product->getStoreProductLink() }}"><img src="/svg/product/search.svg" alt=""> Проверить цену в {{ $product->store->full_name }}</a>
+                                    <a target="_blank" href="{{ $product->getStoreProductLink() }}"><img
+                                            src="/svg/product/search.svg" alt=""> Проверить цену
+                                        в {{ $product->store->full_name }}</a>
                                 </div>
                                 <x-product-add-to-cart :inCartQuantity="$inCartQuantity" :productId="$product->id"/>
                                 @if($inFavoritesList)
@@ -187,8 +191,8 @@
                     <div class="row">
                         <div class="col-lg-8 col-12">
                             @if($product->reviews->count() > 0)
-                            <h4>Отзывы</h4>
-                                <x-star-rating rating="{{ $product->getRating() }}" class="comments-card__rating" />
+                                <h4>Отзывы</h4>
+                                <x-star-rating rating="{{ $product->getRating() }}" class="comments-card__rating"/>
                                 <span class="comments-card__score">{{ number_format($product->getRating(), 1) }}</span>
                                 <span class="comments-card__count">({{ $product->reviews->count() }})</span>
                             @else
@@ -196,61 +200,117 @@
                             @endif
                         </div>
                         @can('createReview', $product)
-                        <div class="col-lg-4 col-12">
-                            <button class="btn btn-outline-black">Оставить отзыв</button>
-                        </div>
+                            <div class="col-lg-4 col-12">
+                                <button class="btn btn-outline-black">Оставить отзыв</button>
+                            </div>
                         @endcan
                     </div>
                     @can('createReview', $product)
-                        <div class="row mt-3">
-                            <div class="col-12">
-                            <form method="post" action="{{ route('add_review', ['id' => $product->id]) }}">
-                                @csrf
-                                <input class="form-control" name="rating">
-                                <textarea id="advantages" type="text" class="form-control" rows="3" name="advantages" placeholder=" ">{{ old('advantages') }}</textarea>
-                                <label for="advantages">Достоинства</label>
-                                <textarea id="disadvantages" type="text" class="form-control" rows="3" name="disadvantages" placeholder=" ">{{ old('disadvantages') }}</textarea>
-                                <label for="disadvantages">Недостатки</label>
-                                <textarea id="comment" type="text" class="form-control" rows="3" name="comment" placeholder=" ">{{ old('comment') }}</textarea>
-                                <label for="comment">Комментарий</label>
-                                <button class="btn btn-primary" type="submit">Отправить</button>
-                            </form>
+                        <form class="form floating-label" method="post" id="comment"
+                              action="{{ route('add_review', ['id' => $product->id]) }}">
+                            @csrf
+                            <div class="form-group row">
+                                <div class="col-lg-6 col-12">
+                                    <fieldset class="rating">
+                                        <div class="rating__group">
+                                            <input class="rating__input" type="radio" name="rating" id="rating-1"
+                                                   value="1">
+                                            <label class="rating__star" for="rating-1" aria-label="Ужасно"></label>
+
+                                            <input class="rating__input" type="radio" name="rating" id="rating-2"
+                                                   value="2">
+                                            <label class="rating__star" for="rating-2" aria-label="Сносно"></label>
+
+                                            <input class="rating__input" type="radio" name="rating" id="rating-3"
+                                                   value="3">
+                                            <label class="rating__star" for="rating-3" aria-label="Нормально"></label>
+
+                                            <input class="rating__input" type="radio" name="rating" id="rating-4"
+                                                   value="4">
+                                            <label class="rating__star" for="rating-4" aria-label="Хорошо"></label>
+
+                                            <input class="rating__input" type="radio" name="rating" id="rating-5"
+                                                   value="5">
+                                            <label class="rating__star" for="rating-5" aria-label="Отлично"></label>
+
+                                            <div class="rating__focus"></div>
+                                        </div>
+                                    </fieldset>
+                                </div>
                             </div>
-                        </div>
+                            <div class="form-group row">
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-control-container">
+                                        <textarea id="advantages" type="text" class="form-control" rows="3"
+                                                  name="advantages" placeholder=" "
+                                                  required>{{ old('advantages') }}</textarea>
+                                        <label for="advantages">Достоинства</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-control-container">
+                                         <textarea id="disadvantages" type="text" class="form-control" rows="3"
+                                                   name="disadvantages" placeholder=" "
+                                                   required>{{ old('disadvantages') }}</textarea>
+                                        <label for="disadvantages">Недостатки</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-control-container">
+                                        <textarea id="commentText" type="text" class="form-control" rows="3"
+                                                  name="comment" placeholder=" "
+                                                  required>{{ old('comment') }}</textarea>
+                                        <label for="comment">Комментарий</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <button class="btn btn-primary" type="submit" disabled>Оставить отзыв</button>
+                                </div>
+                            </div>
+                        </form>
                     @endcan
                 </div>
                 <div class="comments-card__body">
                     <div class="comments-list">
                         @foreach($product->reviews as $review)
-                        <div class="comment">
-                            <div class="comment__header">
-                                <img class="comment__img" src="/svg/product/user.svg" alt="">
-                                <div>
-                                    <p>{{ $review->user->full_name }} <span>{{ date('d.m.Y', strtotime($review->created_at)) }}</span></p>
-                                    <div class="comment__rating">
-                                        <img src="/svg/product/star.svg" alt="">
-                                        <img src="/svg/product/star.svg" alt="">
-                                        <img src="/svg/product/star.svg" alt="">
-                                        <img src="/svg/product/star.svg" alt="">
-                                        <img src="/svg/product/star.svg" alt="">
+                            <div class="comment">
+                                <div class="comment__header">
+                                    <img class="comment__img" src="/svg/product/user.svg" alt="">
+                                    <div>
+                                        <p>{{ $review->user->full_name }}
+                                            <span>{{ date('d.m.Y', strtotime($review->created_at)) }}</span></p>
+                                        <div class="comment__rating">
+                                            <img src="/svg/product/star.svg" alt="">
+                                            <img src="/svg/product/star.svg" alt="">
+                                            <img src="/svg/product/star.svg" alt="">
+                                            <img src="/svg/product/star.svg" alt="">
+                                            <img src="/svg/product/star.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment__body">
+                                    <div class="comment__text">
+                                        <p>Достоинства</p>
+                                        <p>{{ $review->advantages }}</p>
+                                    </div>
+                                    <div class="comment__text">
+                                        <p>Недостатки:</p>
+                                        <p>{{ $review->disadvantages }}</p>
+                                    </div>
+                                    <div class="comment__text">
+                                        <p>Комментарий:</p>
+                                        <p>{{ $review->comment }}</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="comment__body">
-                                <div class="comment__text">
-                                    <p>Достоинства</p>
-                                    <p>{{ $review->advantages }}</p>
-                                </div>
-                                <div class="comment__text">
-                                    <p>Недостатки:</p>
-                                    <p>{{ $review->disadvantages }}</p>
-                                </div>
-                                <div class="comment__text">
-                                    <p>Комментарий:</p>
-                                    <p>{{ $review->comment }}</p>
-                                </div>
-                            </div>
-                        </div>
                         @endforeach
                     </div>
                     <button class="btn btn-outline-black">Показать все отзывы</button>
