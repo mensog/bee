@@ -16,7 +16,7 @@
                             <div class="liked__item-article">{{ $likedRandomProduct->sku }}</div>
                         </div>
                         <div class="liked__item-footer">
-                            <div class="liked__item-price"><span>{{ $likedRandomProduct->price }}₽</span> / за 1 шт</div>
+                            <div class="liked__item-price"><span>{{ $likedRandomProduct->price/100 }}₽</span> / за 1 шт</div>
                             <button class="liked__item-btn btn btn-primary">В корзину</button>
                         </div>
                     </a>
