@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Partner;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,7 @@ class MainController extends Controller
         $cartContent = $cart->content;
         $favoritesList = app('FavoriteList');
         $favoritesListContent = $favoritesList->content;
-        $likedRandomProducts = Product::inRandomOrder()->take(4)->get();
+        $likedRandomProducts = Partner::where('slug', $storeSlug)->firstOrFail()->products()->inRandomOrder()->take(4)->get();;
         return view('pages.store', ['cartContent' => $cartContent, 'favoritesListContent' => $favoritesListContent, 'likedRandomProducts' => $likedRandomProducts,]);
     }
 }
