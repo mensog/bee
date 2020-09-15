@@ -426,4 +426,24 @@
 
 </main>
 
+<script>
+    const hash = window.location.hash
+    if (hash) {
+        const hashes = hash.split('#', hash.length).filter(Boolean)
+        hashes.forEach((item, index) => {
+            if (index === 0) {
+                let itemNode = document.getElementById(item)
+                itemNode.scrollIntoView()
+            } else if (index === 1) {
+                let itemNode = document.querySelector(`[data-target="#${item}"]`)
+                if (itemNode) {
+                    setTimeout(() => {
+                        itemNode.click()
+                    }, 100)
+                }
+            }
+        })
+    }
+</script>
+
 <x-footer/>
