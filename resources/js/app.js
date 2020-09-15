@@ -51,6 +51,11 @@ export const clean = obj => {
 
 jQuery($ => {
 
+    const street = window.utils.storage('beeclub-street')
+    if (street) {
+        document.getElementById('curPosition').textContent = street
+    }
+
     $('[data-toggle="tooltip"]').tooltip()
 
     const storeDropdown = $('#navbarDropdown')

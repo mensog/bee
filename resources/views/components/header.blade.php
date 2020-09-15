@@ -59,7 +59,7 @@
                   </div>
                </nav>
                <div class="menu-right">
-                  <a class="position" href="#"><img src="/svg/main/position.svg" alt="">Москва</a>
+                  <a class="position" href="#"><img src="/svg/main/position.svg" alt=""><span id="curPosition">Москва</span></a>
                   <a class="login" href="{{ route('lk') }}">Войти в профиль</a>
                </div>
             </div>
