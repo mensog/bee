@@ -120,7 +120,7 @@
         </div>
     </section>
 
-    <div class="main-qa">
+    <div id="questions" class="main-qa">
         <div class="container">
             <h3 class="main-qa__header">
                 Часто задаваемые вопросы
@@ -302,7 +302,7 @@
                                  data-target="#accordionOrderFour" aria-expanded="true"
                                  aria-controls="accordionOrderFour">
                                 <header>
-                                    Что такое личный счет?
+                                    Что такое личный счет и баллы?
                                     <div class="main-qa-card__img">
                                         <img src="/svg/main/accordion-arrow.svg" alt="">
                                     </div>
@@ -425,5 +425,25 @@
     </div>
 
 </main>
+
+<script>
+    const hash = window.location.hash
+    if (hash) {
+        const hashes = hash.split('#', hash.length).filter(Boolean)
+        hashes.forEach((item, index) => {
+            if (index === 0) {
+                let itemNode = document.getElementById(item)
+                itemNode.scrollIntoView()
+            } else if (index === 1) {
+                let itemNode = document.querySelector(`[data-target="#${item}"]`)
+                if (itemNode) {
+                    setTimeout(() => {
+                        itemNode.click()
+                    }, 100)
+                }
+            }
+        })
+    }
+</script>
 
 <x-footer/>

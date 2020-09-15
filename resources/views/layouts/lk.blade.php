@@ -81,13 +81,22 @@
                         <div class="lk-help">
                             <p class="lk-help__header"><img src="/svg/lk/help.svg" alt=""> <span>Помощь</span></p>
                             <p class="lk-help__link">
-                                <a href="">Что делать, если товар не подошел?</a>
+                                <a target="_blank"
+                                   href="{{ route('about') . '#questions#accordionOrderThree' }}">
+                                    Какие товары принимают к возврату?
+                                </a>
                             </p>
                             <p class="lk-help__link">
-                                <a href="">Как вернуть товар?</a>
+                                <a target="_blank"
+                                   href="{{ route('about') . '#questions#accordionOrderTwo' }}">
+                                    Как вернуть товар?
+                                </a>
                             </p>
                             <p class="lk-help__link">
-                                <a href="">Что такое личный счет</a>
+                                <a target="_blank"
+                                   href="{{ route('about') . '#questions#accordionOrderFour' }}">
+                                    Что такое личный счет и баллы?
+                                </a>
                             </p>
                         </div>
                     </div>

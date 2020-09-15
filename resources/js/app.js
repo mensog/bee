@@ -15,6 +15,9 @@ require('./Product/product-change-cart');
 require('./Registration/registration');
 require('./Main/toggle-map')
 require('./Main/swiper')
+require('./geolocation')
+
+window.utils = require('./utils')
 
 // window.Vue = require('vue');
 
@@ -47,6 +50,9 @@ export const clean = obj => {
 };
 
 jQuery($ => {
+
+    $('[data-toggle="tooltip"]').tooltip()
+
     const storeDropdown = $('#navbarDropdown')
 
     $('.dropdown-empty ').on('click', function () {

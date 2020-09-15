@@ -134,12 +134,10 @@
 
     .card-lk__link {
         margin-bottom: 20px;
-
-        a {
-            font-size: 14px;
-            line-height: 12px;
-            color: #1990FE;
-        }
+        font-size: 14px;
+        line-height: 12px;
+        color: #1990FE;
+        display: table;
     }
 
     h4 {
