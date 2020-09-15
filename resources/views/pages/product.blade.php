@@ -54,14 +54,12 @@
                             <h3>
                                 {{ $product->name }}
                             </h3>
-
                             <div>
                                 <x-star-rating rating="{{ $product->getRating() }}"
                                                class="product-card-info-header__rating"/>
-
-                                <span
-                                    class="product-card-info-header__score">{{ number_format($product->getRating(), 1) }}</span>
-
+                                <span class="product-card-info-header__score">
+                                    {{ number_format($product->getRating(), 1) }}
+                                </span>
                                 <span class="product-card-info-header__sku">| Артикул: {{ $product-> sku }}</span>
                             </div>
                             <hr>
@@ -201,12 +199,16 @@
                         </div>
                         @can('createReview', $product)
                             <div class="col-lg-4 col-12">
-                                <button class="btn btn-outline-black">Оставить отзыв</button>
+                                <button type="button" data-toggle="collapse" data-target="#comment"
+                                        aria-expanded="false" aria-controls="comment"
+                                        class="btn btn-outline-black">
+                                    Оставить отзыв
+                                </button>
                             </div>
                         @endcan
                     </div>
                     @can('createReview', $product)
-                        <form class="form floating-label" method="post" id="comment"
+                        <form class="form mt-3 floating-label collapse" method="post" id="comment"
                               action="{{ route('add_review', ['id' => $product->id]) }}">
                             @csrf
                             <div class="form-group row">
@@ -278,43 +280,47 @@
                         </form>
                     @endcan
                 </div>
-                <div class="comments-card__body">
-                    <div class="comments-list">
-                        @foreach($product->reviews as $review)
-                            <div class="comment">
-                                <div class="comment__header">
-                                    <img class="comment__img" src="/svg/product/user.svg" alt="">
-                                    <div>
-                                        <p>{{ $review->user->full_name }}
-                                            <span>{{ date('d.m.Y', strtotime($review->created_at)) }}</span></p>
-                                        <div class="comment__rating">
-                                            <img src="/svg/product/star.svg" alt="">
-                                            <img src="/svg/product/star.svg" alt="">
-                                            <img src="/svg/product/star.svg" alt="">
-                                            <img src="/svg/product/star.svg" alt="">
-                                            <img src="/svg/product/star.svg" alt="">
+                @if($product->reviews->count() > 0)
+                    <div class="comments-card__body">
+                        <div class="comments-list">
+                            @foreach($product->reviews as $review)
+                                <div class="comment">
+                                    <div class="comment__header">
+                                        <img class="comment__img" src="/svg/product/user.svg" alt="">
+                                        <div>
+                                            <p>{{ $review->user->full_name }}
+                                                <span>{{ date('d.m.Y', strtotime($review->created_at)) }}</span></p>
+                                            <div class="comment__rating">
+                                                <img src="/svg/product/star.svg" alt="">
+                                                <img src="/svg/product/star.svg" alt="">
+                                                <img src="/svg/product/star.svg" alt="">
+                                                <img src="/svg/product/star.svg" alt="">
+                                                <img src="/svg/product/star.svg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment__body">
+                                        <div class="comment__text">
+                                            <p>Достоинства</p>
+                                            <p>{{ $review->advantages }}</p>
+                                        </div>
+                                        <div class="comment__text">
+                                            <p>Недостатки:</p>
+                                            <p>{{ $review->disadvantages }}</p>
+                                        </div>
+                                        <div class="comment__text">
+                                            <p>Комментарий:</p>
+                                            <p>{{ $review->comment }}</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="comment__body">
-                                    <div class="comment__text">
-                                        <p>Достоинства</p>
-                                        <p>{{ $review->advantages }}</p>
-                                    </div>
-                                    <div class="comment__text">
-                                        <p>Недостатки:</p>
-                                        <p>{{ $review->disadvantages }}</p>
-                                    </div>
-                                    <div class="comment__text">
-                                        <p>Комментарий:</p>
-                                        <p>{{ $review->comment }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
+                        @if($product->reviews->count() >= 2)
+                            <button class="btn btn-outline-black mt-4">Показать все отзывы</button>
+                        @endif
                     </div>
-                    <button class="btn btn-outline-black">Показать все отзывы</button>
-                </div>
+                @endif
             </div>
         </div>
     </div>
