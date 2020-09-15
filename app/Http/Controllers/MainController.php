@@ -26,6 +26,7 @@ class MainController extends Controller
         $cartContent = $cart->content;
         $favoritesList = app('FavoriteList');
         $favoritesListContent = $favoritesList->content;
-        return view('pages.store', ['cartContent' => $cartContent, 'favoritesListContent' => $favoritesListContent]);
+        $likedRandomProducts = Product::inRandomOrder()->take(4)->get();
+        return view('pages.store', ['cartContent' => $cartContent, 'favoritesListContent' => $favoritesListContent, 'likedRandomProducts' => $likedRandomProducts,]);
     }
 }

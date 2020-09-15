@@ -2,18 +2,22 @@
 
 namespace App\View\Components;
 
+use App\Product;
 use Illuminate\View\Component;
+
 
 class Liked extends Component
 {
+    public $likedRandomProducts;
+
     /**
      * Create a new component instance.
      *
-     * @return void
+     * @param $likedRandomProducts
      */
-    public function __construct()
+    public function __construct($likedRandomProducts)
     {
-        //
+       $this->likedRandomProducts = $likedRandomProducts;
     }
 
     /**
