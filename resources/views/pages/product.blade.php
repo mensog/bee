@@ -279,13 +279,30 @@
                     </div>
                 </div>
 
+                <div>@if($errors->any())
+                        {!! implode('', $errors->all('<div>:message</div>')) !!}
+                    @endif
+                    <form method="post" action="{{ route('add_review', ['id' => $product->id]) }}">
+                        @csrf
+                        <input name="rating">
+                        <textarea id="advantages" type="text" class="form-control" rows="3" name="advantages" placeholder=" ">{{ old('advantages') }}</textarea>
+                        <label for="advantages">Достоинства</label>
+                        <textarea id="disadvantages" type="text" class="form-control" rows="3" name="disadvantages" placeholder=" ">{{ old('disadvantages') }}</textarea>
+                        <label for="disadvantages">Недостатки</label>
+                        <textarea id="comment" type="text" class="form-control" rows="3" name="comment" placeholder=" ">{{ old('comment') }}</textarea>
+                        <label for="comment">Комментарий</label>
+                        <button type="submit">Отправить</button>
+                    </form>
+                </div>
+
                 <div class="comments-card__body">
                     <div class="comments-list">
+                        @foreach($product->reviews as $review)
                         <div class="comment">
                             <div class="comment__header">
                                 <img class="comment__img" src="/svg/product/user.svg" alt="">
                                 <div>
-                                    <p>Артем Иванов <span>23.01.2020</span></p>
+                                    <p>{{ $review->user->full_name }} <span>{{ date('d.m.Y', strtotime($review->created_at)) }}</span></p>
                                     <div class="comment__rating">
                                         <img src="/svg/product/star.svg" alt="">
                                         <img src="/svg/product/star.svg" alt="">
@@ -298,23 +315,19 @@
                             <div class="comment__body">
                                 <div class="comment__text">
                                     <p>Достоинства</p>
-                                    <p>Суперский</p>
+                                    <p>{{ $review->advantages }}</p>
                                 </div>
                                 <div class="comment__text">
                                     <p>Недостатки:</p>
-                                    <p>За время использования не обнаружил.
-                                        (когда выбирал еще из кучи моделей - везде часто писали о коротком шнуре,не
-                                        считаю это проблемой, воткнул положил рядом где нибудь, зачем кому то +100500
-                                        метров не понимаю)</p>
+                                    <p>{{ $review->disadvantages }}</p>
                                 </div>
                                 <div class="comment__text">
                                     <p>Комментарий:</p>
-                                    <p>Это мой первый внешний жесткий, поэтому сравнивать не с чем, но покупкой
-                                        однозначно доволен! работает через ноутбук Sony Vaio usb2.0
-                                        копирование/перемещение с него ~30-40мб, в обратном ~20-30мб</p>
+                                    <p>{{ $review->comment }}</p>
                                 </div>
                             </div>
                         </div>
+                        @endforeach
                     </div>
                     <button class="btn btn-outline-black">Показать все отзывы</button>
                 </div>

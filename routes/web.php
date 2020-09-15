@@ -102,6 +102,8 @@ Route::get('/personal-data-agreement', 'StaticPageController@personalDataAgreeme
 Route::get('/personal-data-policy', 'StaticPageController@personalDataPolicy')->name('personal-data-policy');
 Route::get('/sale-regulations', 'StaticPageController@saleRegulations')->name('sale-regulations');
 
+Route::post('/product/{id}/review', 'ReviewController@create')->name('add_review');
+
 Route::get('/{storeSlug}/catalog', 'CategoryController@index')->name('catalog');
 Route::get('/{storeSlug}/category/{name}', 'CategoryController@index')->name('category');
 Route::get('/{storeSlug}/product/{name}', 'ProductController@show')->name('product');
