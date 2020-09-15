@@ -99,6 +99,7 @@
     .product .product-card .product-card-info .product-card-info-body .product-card-info-body-cart button {
 
         &.btn-outline-black {
+            font-weight: normal;
             font-size: 14px;
             margin-bottom: 0;
             padding: 0;
@@ -220,9 +221,25 @@
         margin-bottom: 30px;
     }
 
+    .comments .comments-card__body .comment {
+        margin-bottom: 24px;
+    }
+
 }
 
 
 @media (max-width: 575px) {
+    .product .product-card .product-card-info-body-cart .add-to-cart.btn.btn-primary {
+        max-width: 100%;
+        padding: 16px 0;
+        font-size: 14px;
+    }
 
+    .comments .comments-card__header .btn.btn-outline-black {
+        max-width: 100%;
+    }
+
+    .product-page .comments .comments-card__body .btn.btn-outline-black {
+        max-width: 100%;
+    }
 }
