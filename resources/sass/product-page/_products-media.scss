@@ -165,7 +165,12 @@
 
     .product-page .props-list_hidden {
         display: none;
+
+        &.show {
+            display: block;
+        }
     }
+
 
     .product-description .product-description-card .btn-outline-black {
         display: block;

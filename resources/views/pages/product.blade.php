@@ -118,7 +118,9 @@
                             <div class="product-card-info-body-cart">
                                 <div class="product-card-info-body-cart__price">
                                     <p>{{ $product->price / 100 }} ₽ <span>/за шт</span></p>
-                                    <a target="_blank" href="{{ $product->getStoreProductLink() }}"><img src="/svg/product/search.svg" alt=""> Проверить цену в {{ $product->store->full_name }}</a>
+                                    <a target="_blank" href="{{ $product->getStoreProductLink() }}"><img
+                                            src="/svg/product/search.svg" alt=""> Проверить цену
+                                        в {{ $product->store->full_name }}</a>
                                 </div>
                                 <x-product-add-to-cart :inCartQuantity="$inCartQuantity" :productId="$product->id"/>
                                 @if($inFavoritesList)
@@ -143,7 +145,7 @@
                 <div class="product-card__footer">
                     <div class="product-card-requirements">
                         <div class="product-card-requirements__item  product-card-requirements__delivery">
-                                <img src="{{ $product->store->image_path }}" alt="">
+                            <img src="{{ $product->store->image_path }}" alt="">
                             <p>
                                 <small>Доставка из:</small>
                                 {{ $product->store->company_name }}
@@ -321,8 +323,18 @@
     const btnProps = document.querySelector('.btn-props');
     const propsList = document.querySelector('.props-list_hidden');
 
-    btnProps.addEventListener('click', () => {
-        propsList.style.display = 'block';
-    });
+    if (btnProps) {
+        btnProps.addEventListener('click', () => {
+            propsList.classList.toggle('show');
+            btnProps.classList.toggle('show');
+
+            if (btnProps.classList.contains('show')) {
+                btnProps.textContent = 'Скрыть';
+            } else  {
+                btnProps.textContent = 'Показать все';
+            }
+        });
+    }
+
 
 </script>
