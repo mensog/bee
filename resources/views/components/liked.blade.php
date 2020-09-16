@@ -7,7 +7,7 @@
                 <div class="col-12 col-lg-3 col-md-6">
                     <a href="{{ route('product', ['name' => $likedRandomProduct->friendly_url_name, 'storeSlug' => $likedRandomProduct->store->slug]) }}" class="liked__item">
                         <div class="liked__item-body">
-                            <img class="liked__item-img" src="{{ ($likedRandomProduct->img_url) ? $likedRandomProduct->img_url:'/img/catalog/product/product-img.png'  }}" alt="{{ $likedRandomProduct->name }}">
+                            <img class="liked__item-img" src="{{ ($likedRandomProduct->img_url) ?:'/img/catalog/product/product-img.png'  }}" alt="{{ $likedRandomProduct->name }}">
                                 @if(in_array($likedRandomProduct->id, $favoritesListContent, true))
                                     <button data-id="{{ $likedRandomProduct->id }}" data-action="remove" data-page="catalog"
                                             class="btn-add-to-favorites liked__item-favorite add-to-favorites">
