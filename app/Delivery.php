@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Delivery extends Model
 {
+    public const ICON_DIRECTORY = '/public/delivery-icons';
+
     public function getTimeToDelivery()
     {
         $timeNow = Carbon::now()->timezone('Europe/Moscow')->roundHours();
@@ -21,8 +23,17 @@ class Delivery extends Model
             return $timeNow->addHour($this->delay)->format('H:i d.m');
         }
 
-        if ($timeNow->toTimeString() >= $endDelivery->subHour($this->delay)->toTimeString()) {
+        else {
             return $startDelivery->addDay()->format('H:i d.m');
         }
+    }
+
+    public function deleteIcon()
+    {
+        if (!is_null($this->icon_path) && Storage::exists($this->icon_path)) {
+            Storage::delete($this->icon_path);
+        }
+        $this->icon_path = null;
+        $this->save();
     }
 }

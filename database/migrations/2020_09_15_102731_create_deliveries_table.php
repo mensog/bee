@@ -17,12 +17,12 @@ class CreateDeliveriesTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->integer('delay');
+            $table->integer('delay')->default(0);
             $table->time('start', 0);
             $table->time('end', 0);
             $table->integer('price');
-            $table->string('color');
-            $table->integer('serial_id');
+            $table->string('color')->nullable();
+            $table->integer('serial_number');
             $table->string('icon_path')->nullable();
             $table->timestamps();
         });
