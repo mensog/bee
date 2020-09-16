@@ -12,7 +12,7 @@
 @endif
 
 @if($page === 'favorites')
-    <div class="container">
+{{--    <div class="container">--}}
         <div class="empty">
             <div class="empty__inner">
                 <img class="empty__img" src="/svg/components/empty-list/heart.svg" alt="heart">
@@ -21,7 +21,7 @@
                 <a class="empty__btn btn btn-primary" href="{{ route('main') }}">Перейти к покупкам</a>
             </div>
         </div>
-    </div>
+{{--    </div>--}}
 @endif
 
 @if($page === 'orders')
