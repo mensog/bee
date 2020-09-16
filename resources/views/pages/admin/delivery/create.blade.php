@@ -29,7 +29,7 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <input type="text" name="title" class="form-control" id="title" onkeyup="return forceLower(this);" required>
+                                            <input type="text" name="title" class="form-control" id="title" required>
                                             <label for="title">Название</label>
                                         </div>
                                     </div>
@@ -57,13 +57,13 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <input type="number" name="price" class="form-control" id="price" data-rule-digits="true" required>
-                                            <label for="price">Стоимость товара (руб)</label>
+                                            <label for="price">Стоимость доставки (руб)</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <input type="number" name="serial_number" class="form-control" id="serial_number" data-rule-digits="true" required>
-                                            <label for="serial_number">Серийный номер</label>
+                                            <label for="serial_number">Порядковый номер</label>
                                         </div>
                                     </div>
                                 </div>
@@ -85,11 +85,12 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <input type="number" name="delay" class="form-control" id="delay" data-rule-digits="true">
-                                            <label for="delay">Задержка доставки в часах()</label>
+                                            <label for="delay">Задержка доставки (в часах)</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                          <div class="form-group">
+                                             <label for="icon_path">Иконка</label>
                                             <input type="file" data-max-files="1" name="icon_path" id="icon_path">
                                          </div>
                                     </div>

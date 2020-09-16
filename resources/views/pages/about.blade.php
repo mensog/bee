@@ -91,7 +91,9 @@
                 @foreach($deliveries as $delivery)
                 <div class="col-3">
                     <div class="delivery-cost__item delivery-cost__item_{{$delivery->color}}">
-                        <img class="delivery-cost__item-icon" src="{{$delivery->icon_path}}" alt="{{$delivery->title}}">
+                        @if($delivery->icon_path != null)
+                            <img class="delivery-cost__item-icon" src="{{ $delivery->icon_path}}" alt="{{$delivery->title}}">
+                        @endif
                         <div class="delivery-cost__item-heading">{{ $delivery->title }}</div>
                         <div class="delivery-cost__item-descr">{{ $delivery->description }}</div>
                         <div class="delivery-cost__item-time">c {{ $delivery->getTimeToDelivery() }}</div>
