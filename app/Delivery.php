@@ -15,7 +15,6 @@ class Delivery extends Model
         $startDelivery = Carbon::createFromTimeString($this->start);
         $endDelivery = Carbon::createFromTimeString($this->end);
 
-        $timeNow
         if ($timeNow->toTimeString() < $startDelivery->toTimeString()) {
             return $startDelivery->addHour($this->delay)->format('H:i d.m');
         }
