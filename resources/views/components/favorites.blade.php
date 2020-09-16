@@ -48,8 +48,5 @@
         </div>
     </div>
 @else
-    <div>
-        <p class="text-center font-size-36">Сейчас в избранном пусто</p>
-        <p class="text-center font-size-36">Перейти к <a href="{{ route('main') }}">покупкам</a></p>
-    </div>
+    <x-empty-list page="favorites"/>
 @endif
