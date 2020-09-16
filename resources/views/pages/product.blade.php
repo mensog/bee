@@ -110,7 +110,6 @@
                                         @endforeach
                                     @endif
                                 </ul>
-
                                 <a href="#description">
                                     <img src="/svg/product/description.svg" alt=""> Перейти к описанию
                                 </a>
@@ -186,7 +185,7 @@
                     <h4 class="product-description-card__header">Характеристики</h4>
                     <div class="row">
                         <div class="col-lg-6 col-12">
-                            <ul class="props-list">
+                            <ul class="props-list mb-0">
                                 @foreach($attributes as $key => $attribute)
                                     <li>
                                         <p>{{ $attribute['name'] }}</p>
@@ -197,10 +196,11 @@
                             </ul>
                         </div>
                         <div class="col-lg-6 col-12">
-                            <ul class="props-list">
+                            <ul class="props-list mb-0 props-list_hidden">
                             @endif
                             @endforeach
                         </div>
+                        <button class="btn btn-outline-black btn-props">Показать все</button>
                     </div>
                 @endif
             </div>
@@ -314,3 +314,15 @@
 
 <x-footer/>
 
+<script>
+
+    // Full Properties
+
+    const btnProps = document.querySelector('.btn-props');
+    const propsList = document.querySelector('.props-list_hidden');
+
+    btnProps.addEventListener('click', () => {
+        propsList.style.display = 'block';
+    });
+
+</script>
