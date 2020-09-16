@@ -1,5 +1,6 @@
 .dropdown {
     position: relative;
+    width: 114px;
 
     .catalog-btn.dropdown-empty {
         cursor: not-allowed;
@@ -119,6 +120,7 @@
 }
 
 .dropdown-stores {
+    width: 206px;
 
     .dropdown-btn {
         transition: all 0.2s ease-in-out;
