@@ -8,21 +8,15 @@
          </a>
       </div>
 
-      <!-- <div class="promotions__shop">
-         <img class="promotions__shop-logo" src="/svg/promotions/beeclub-logo.svg" alt="">
-         <h3 class="promotions__shop-name">BeeClub</h3>
-      </div> -->
-
       <div class="row">
          <div class="col-md-6">
-            <a href="#" class="promotions__item">
+            <a href="#" class="promotions__item promotions__item_right">
                <div class="promotions__item-heading">
                   Первая доставка бесплатно
                </div>
                <div class="promotions__item-descr">
                   Действует при заказе от 1 000 ₽
                </div>
-               <img class="promotions__item-img" src="/img/promotions/cart.png" alt="">
             </a>
          </div>
          <div class="col-md-6">
@@ -33,7 +27,6 @@
                <div class="promotions__item-descr">
                   Создайте профиль на BeeClub и получите баллы на личный счет
                </div>
-               <img class="promotions__item-img" src="/img/promotions/cart.png" alt="">
             </a>
          </div>
       </div>

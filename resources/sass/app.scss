@@ -37,7 +37,9 @@
 @import "components/empty-list";
 
 // Media
-@import "media";
+@import "main-page/main-media";
+@import "store/store-media";
+@import "product-page/products-media";
 
 
 #content {
@@ -203,16 +205,19 @@ html {
         font-size: 16px;
         line-height: 14px;
         text-align: center;
-        color: #252524;
+        color: #242424;
         border: 1px solid #252524;
         box-sizing: border-box;
         border-radius: 5px;
         max-width: 255px;
         width: 100%;
+
+
     }
 
     .btn.btn-outline-black:hover {
         background-color: #fff;
+        border-color: $yellow;
     }
 }
 

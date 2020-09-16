@@ -33,20 +33,6 @@
                     <div class="product-card-gallery">
                         <img class="product-card-gallery__image" src="{{ $product->img_url }}"
                              alt="{{ $product->name }}">
-                        <div class="product-card-gallery-images">
-                            <div class="product-card-gallery-images__item">
-
-                            </div>
-                            <div class="product-card-gallery-images__item active">
-
-                            </div>
-                            <div class="product-card-gallery-images__item">
-
-                            </div>
-                            <div class="product-card-gallery-images__item">
-
-                            </div>
-                        </div>
                     </div>
 
                     <div class="product-card-info">
@@ -55,7 +41,7 @@
                                 {{ $product->name }}
                             </h3>
 
-                            <div>
+                            <div class="product-card-info-header__inner">
                                 <div class="product-card-info-header__rating">
                                     <a href="">
                                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
@@ -97,11 +83,11 @@
                                                   fill="#E3E3E3"/>
                                         </svg>
                                     </a>
+                                    <span class="product-card-info-header__score">4.0</span>
                                 </div>
 
-                                <span class="product-card-info-header__score">4.0</span>
 
-                                <span class="product-card-info-header__sku">| Артикул: {{ $product-> sku }}</span>
+                                <span class="product-card-info-header__sku"><span>|</span> Артикул: {{ $product-> sku }}</span>
                             </div>
                             <hr>
                         </div>
@@ -124,7 +110,6 @@
                                         @endforeach
                                     @endif
                                 </ul>
-
                                 <a href="#description">
                                     <img src="/svg/product/description.svg" alt=""> Перейти к описанию
                                 </a>
@@ -133,7 +118,9 @@
                             <div class="product-card-info-body-cart">
                                 <div class="product-card-info-body-cart__price">
                                     <p>{{ $product->price / 100 }} ₽ <span>/за шт</span></p>
-                                    <a target="_blank" href="{{ $product->getStoreProductLink() }}"><img src="/svg/product/search.svg" alt=""> Проверить цену в {{ $product->store->full_name }}</a>
+                                    <a target="_blank" href="{{ $product->getStoreProductLink() }}"><img
+                                            src="/svg/product/search.svg" alt=""> Проверить цену
+                                        в {{ $product->store->full_name }}</a>
                                 </div>
                                 <x-product-add-to-cart :inCartQuantity="$inCartQuantity" :productId="$product->id"/>
                                 @if($inFavoritesList)
@@ -144,8 +131,8 @@
                                     </button>
                                 @else
                                     <button data-id="{{ $product->id }}" data-action="add"
-                                            class="btn-add-to-favorites add-to-favorites btn btn-outline-black"
-                                            style="max-width: 100%">
+                                            class="btn-add-to-favorites add-to-favorites btn btn-outline-black">
+                                        <i class="ec ec-favorites font-size-15"></i>
                                         В избранное
                                     </button>
                                 @endif
@@ -200,7 +187,7 @@
                     <h4 class="product-description-card__header">Характеристики</h4>
                     <div class="row">
                         <div class="col-lg-6 col-12">
-                            <ul class="props-list">
+                            <ul class="props-list mb-0">
                                 @foreach($attributes as $key => $attribute)
                                     <li>
                                         <p>{{ $attribute['name'] }}</p>
@@ -211,10 +198,11 @@
                             </ul>
                         </div>
                         <div class="col-lg-6 col-12">
-                            <ul class="props-list">
+                            <ul class="props-list mb-0 props-list_hidden">
                             @endif
                             @endforeach
                         </div>
+                        <button class="btn btn-outline-black btn-props">Показать все</button>
                     </div>
                 @endif
             </div>
@@ -328,3 +316,25 @@
 
 <x-footer/>
 
+<script>
+
+    // Full Properties
+
+    const btnProps = document.querySelector('.btn-props');
+    const propsList = document.querySelector('.props-list_hidden');
+
+    if (btnProps) {
+        btnProps.addEventListener('click', () => {
+            propsList.classList.toggle('show');
+            btnProps.classList.toggle('show');
+
+            if (btnProps.classList.contains('show')) {
+                btnProps.textContent = 'Скрыть';
+            } else  {
+                btnProps.textContent = 'Показать все';
+            }
+        });
+    }
+
+
+</script>
