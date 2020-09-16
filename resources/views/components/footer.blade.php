@@ -63,12 +63,12 @@
          <div class="col-lg-2 col-6">
             <p class="footer__header">Курьерам</p>
             <a class="footer__link" href="{{ Route::currentRouteName() === 'couriers' ? '#choice' : route('couriers') . '#choice' }}">Сколько заработаю?</a>
-            <a class="footer__link" href="{{ Route::currentRouteName() === 'couriers' ? '#choice' : route('couriers') . '#choise' }}">Стать курьером</a>
+            <a class="footer__link" href="{{ Route::currentRouteName() === 'couriers' ? '#choice' : route('couriers') . '#income' }}">Стать курьером</a>
          </div>
          <div class="col-lg-2 col-6">
             <p class="footer__header">Поставщикам</p>
             <a class="footer__link" href="{{ Route::currentRouteName() === 'suppliers' ? '#terms' : route('suppliers') . '#terms' }}">Какие условия?</a>
-            <a class="footer__link" href="{{ Route::currentRouteName() === 'suppliers' ? '#terms' : route('suppliers') . '#terms' }}">Стать поставщиком</a>
+            <a class="footer__link" href="{{ Route::currentRouteName() === 'suppliers' ? '#terms' : route('suppliers') . '#become' }}">Стать поставщиком</a>
          </div>
          <div class="col-lg-2 col-6">
             <p class="footer__header">Контакты</p>

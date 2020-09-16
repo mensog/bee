@@ -24,7 +24,7 @@
                     <div class="main-screen__benefits-descr">комиссии от продажи удерживаем с поставщика</div>
                 </div>
             </div>
-            <button class="main-screen__btn btn btn-primary">Начать работу</button>
+            <a href="{{ Route::currentRouteName() === 'suppliers' ? '#terms' : route('suppliers') . '#become' }}" class="main-screen__btn btn btn-primary" >Начать работу</a>
         </div>
     </section>
 
@@ -73,39 +73,65 @@
         <div class="container">
             <h2 class="terms__title">Условия и бонусы</h2>
             <div class="row">
-                <div class="col-6">
+                <div class="col-lg-6">
                     <div class="terms__item">
-                        <div class="terms__item-title">Большой оборот</div>
-                        <div class="terms__item-text">У вас хороший ассортимент? Мы его реализуем. <br>
-                            Мы уже продаем 10 000 товаров в день
+                        <div class="terms__item-img">
+                            <img src="/svg/suppliers/arrows-up.svg" alt="arrows-up">
+                        </div>
+                        <div>
+                            <div class="terms__item-title">Большой оборот</div>
+                            <div class="terms__item-text">
+                                У вас хороший ассортимент? Мы его реализуем. <br>
+                                Мы уже продаем 10 000 товаров в день
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-lg-6">
                     <div class="terms__item">
-                        <div class="terms__item-title">Без конкурентов</div>
-                        <div class="terms__item-text">Ведем нишевой отбор поставщиков. Гарантируем сохранить <br> ваши
-                            позиции без конкурентов
+                        <div class="terms__item-img">
+                            <img src="/svg/suppliers/cup.svg" alt="cup">
+                        </div>
+                        <div>
+                            <div class="terms__item-title">Без конкурентов</div>
+                            <div class="terms__item-text">
+                                Ведем нишевой отбор поставщиков. Гарантируем сохранить <br>
+                                ваши позиции без конкурентов
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-lg-6">
                     <div class="terms__item">
-                        <div class="terms__item-title">Узнаваемость бренда</div>
-                        <div class="terms__item-text">Вашу продукцию увидят и купят тысячи клиентов</div>
+                        <div class="terms__item-img">
+                            <img src="/svg/suppliers/heart.svg" alt="heart">
+                        </div>
+                        <div>
+                            <div class="terms__item-title">Узнаваемость бренда</div>
+                            <div class="terms__item-text">
+                                Вашу продукцию увидят и купят тысячи клиентов
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-lg-6">
                     <div class="terms__item">
-                        <div class="terms__item-title">Низкая комиссия</div>
-                        <div class="terms__item-text">Единая комиссия - всего 17% от стоимости товара</div>
+                        <div class="terms__item-img">
+                            <img src="/svg/suppliers/percent.svg" alt="percent">
+                        </div>
+                        <div>
+                            <div class="terms__item-title">Низкая комиссия</div>
+                            <div class="terms__item-text">
+                                Единая комиссия - всего 17% от стоимости товара
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="become">
+    <section id="become" class="become">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">

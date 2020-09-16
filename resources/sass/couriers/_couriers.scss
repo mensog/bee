@@ -1,7 +1,7 @@
 .main-screen {
     padding: 31px 0 63px;
     min-height: 520px;
-    background: $light-grey url(/img/couriers/main-screen-bg.png) 85% bottom no-repeat;
+    background: $light-grey url(/img/couriers/main-screen-bg.png) right bottom no-repeat;
     background-size: contain;
 
     .breadcrumb {
@@ -164,49 +164,17 @@
     padding: 64px 0 64px;
     background-color: #FFF6CB;
 
-    .col-6 {
-       &:nth-child(1) {
-          .terms__item {
-            &:first-of-type {
-                margin: 0 0 48px;
-            }
+    .col-lg-6 {
 
-            &:nth-of-type(2) {
-             margin: 0 0 48px;
+        &:first-child {
+            .terms__item {
+                margin-bottom: 48px;
             }
-             &::before {
-               background: #FDD900 url(/svg/couriers/curve.svg) center no-repeat;
-             }
-          }
-       }
-    }
+        }
 
-    .col-6 {
         &:nth-child(2) {
             .terms__item {
-                &::before {
-                    background: $primary-yellow url(/svg/couriers/ruble.svg) center no-repeat;
-                }
-            }
-        }
-    }
-
-    .col-6 {
-        &:nth-child(3) {
-            .terms__item {
-                &::before {
-                    background: $primary-yellow url(/svg/couriers/double.svg) center no-repeat;
-                }
-            }
-        }
-    }
-
-    .col-6 {
-        &:nth-child(4) {
-            .terms__item {
-                &::before {
-                    background: $primary-yellow url(/svg/couriers/percent.svg) center no-repeat;
-                }
+                margin-bottom: 48px;
             }
         }
     }
@@ -221,21 +189,13 @@
 
     &__item {
        position: relative;
-    //    margin: 0 0 48px;
-       padding-left: 95px;
+        display: flex;
 
 
+    }
 
-       &::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 65px;
-          height: 65px;
-          border-radius: 50%;
-         //  background: #FDD900;
-       }
+    &__item-img {
+        margin-right: 30px;
     }
 
     &__item-title {
