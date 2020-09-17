@@ -96,6 +96,28 @@ main {
             }
         }
     }
+
+    .input-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+    }
+
+    .delivery__label {
+        transition: 145ms ease-in-out;
+        cursor: pointer;
+    }
+
+    .delivery__label:hover,
+    .delivery__input:focus + .delivery__label {
+        box-shadow: #fdd900 0 0 0 3px;
+    }
+
+    .delivery__input:checked + .delivery__label {
+        border-color: #FDD900 !important;
+    }
 }
 
 
