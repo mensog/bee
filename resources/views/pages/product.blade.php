@@ -288,15 +288,9 @@
                                     <div class="comment__header">
                                         <img class="comment__img" src="/svg/product/user.svg" alt="">
                                         <div>
-                                            <p>{{ $review->user->full_name }}
+                                            <p>{{ $review->user->full_name ?? 'Аноним' }}
                                                 <span>{{ date('d.m.Y', strtotime($review->created_at)) }}</span></p>
-                                            <div class="comment__rating">
-                                                <img src="/svg/product/star.svg" alt="">
-                                                <img src="/svg/product/star.svg" alt="">
-                                                <img src="/svg/product/star.svg" alt="">
-                                                <img src="/svg/product/star.svg" alt="">
-                                                <img src="/svg/product/star.svg" alt="">
-                                            </div>
+                                            <x-star-rating rating="{{ $review->rating }}" class="comment__rating"/>
                                         </div>
                                     </div>
                                     <div class="comment__body">
