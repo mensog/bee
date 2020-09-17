@@ -49,13 +49,12 @@ class DeliveryController extends Controller
         $delivery->start = Carbon::createFromTimeString($request->input('start'))->roundHours();
         $delivery->end = Carbon::createFromTimeString($request->input('end'))->roundHours();
         $delivery->delay = $request->input('delay');
-
+        $delivery->save();
         if ($request->hasFile('icon_path')) {
             if (!is_null($delivery->icon_path)) {
                 $delivery->deleteIcon();
             }
-            $path = Storage::putFileAs(Delivery::ICON_DIRECTORY, $request->file('icon_path'), $request->input('title') . '_' . $request
-                ->file('icon_path')->getClientOriginalName());
+            $path = Storage::putFileAs(Delivery::ICON_DIRECTORY, $request->file('icon_path'), $delivery->id . '_' . $delivery->id . '.svg');
             $delivery->icon_path = $path;
         }
         $delivery->save();

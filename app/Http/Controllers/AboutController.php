@@ -6,7 +6,7 @@ use App\Delivery;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
-{
+{3
     public function index()
     {
         $deliveries = Delivery::all();

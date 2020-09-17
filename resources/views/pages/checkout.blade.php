@@ -43,7 +43,7 @@
                                     <div class="col-md-6">
                                         <div class="delivery-cost__item border">
                                             @if($delivery->icon_path != null)
-                                                <img class="delivery-cost__item-icon" src="{{$delivery->icon_path}}" alt="{{$delivery->title}}">
+                                                <img class="delivery-cost__item-icon" src="{{ asset($delivery->icon_path) }}" alt="{{$delivery->title}}">
                                             @endif
                                             <div class="delivery-cost__item-heading py-2">{{ $delivery->title }}</div>
                                             <div class="delivery-cost__item-descr text-secondary">{{ $delivery->description }}</div>

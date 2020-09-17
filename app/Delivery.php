@@ -4,27 +4,37 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Delivery extends Model
 {
     public const ICON_DIRECTORY = '/public/delivery-icons';
+    /**
+     * @var mixed
+     */
 
     public function getTimeToDelivery()
     {
         $timeNow = Carbon::now()->timezone('Europe/Moscow')->roundHours();
-        $startDelivery = Carbon::createFromTimeString($this->start);
-        $endDelivery = Carbon::createFromTimeString($this->end);
+        $timeIncludDelivery = $timeNow->addHour($this->delay);
+        $start = $this->start;
+        $end = $this->end;
 
-        if ($timeNow->toTimeString() < $startDelivery->toTimeString()) {
-            return $startDelivery->addHour($this->delay)->format('H:i d.m');
-        }
 
-        if ($timeNow->toTimeString() < $endDelivery->subHour($this->delay)->toTimeString()) {
-            return $timeNow->addHour($this->delay)->format('H:i d.m');
-        }
-
-        else {
-            return $startDelivery->addDay()->format('H:i d.m');
+        if ($start < $end) {
+            if ($timeIncludDelivery->toTimeString() > $start && $timeIncludDelivery->toTimeString() < $end) {
+                return $timeIncludDelivery->format('H:i d.m');
+            } else {
+                return Carbon::createFromTimeString($start)->format('H:i d.m');
+            }
+        } else if($start > $end) {
+            if ($timeIncludDelivery->toTimeString() < $start && $timeIncludDelivery->toTimeString() < $end) {
+                return $timeIncludDelivery->format('H:i d.m');
+            } else {
+                return $timeIncludDelivery->format('H:i d.m');
+            }
+        } else {
+            return Carbon::createFromTimeString($start)->addHour($this->delay)->format('H:i d.m');
         }
     }
 
