@@ -53,7 +53,7 @@
                                 </li>
                                 <li>
                                     <a class=""
-                                       href="#">
+                                       href="{{ route('lk_profile_notifications') }}">
                                         <img src="/svg/lk/notifications.svg" alt="">
                                         Уведомления
                                     </a>

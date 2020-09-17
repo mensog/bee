@@ -79,6 +79,7 @@ Route::group(['prefix' => 'lk', 'namespace' => 'Lk', 'middleware' => 'auth'], fu
     Route::post('/profile/editdata', 'ProfileController@editData')->name('lk_profile_edit_data');
     Route::get('/profile/changeemail', 'ProfileController@showChangeEmailForm')->name('lk_profile_change_email_form');
     Route::post('/profile/changeemail', 'ProfileController@changeEmail')->name('lk_profile_change_email');
+    Route::get('/profile/notifications', 'ProfileController@showNotification')->name('lk_profile_notifications');
     Route::get('/profile/changepass', 'ProfileController@showChangePasswordForm')->name('lk_profile_change_password_form');
     Route::post('/profile/changepass', 'ProfileController@changePassword')->name('lk_profile_change_password');
 });

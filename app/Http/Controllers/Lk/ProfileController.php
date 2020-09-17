@@ -45,7 +45,7 @@ class ProfileController extends Controller
         ];
         return Validator::make($data, [
             'fullName' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email', \Illuminate\Validation\Rule::unique('users','email')->ignore($userId), 'max:255'],
+            'email' => ['required', 'email', \Illuminate\Validation\Rule::unique('users', 'email')->ignore($userId), 'max:255'],
         ], $messages, $names);
     }
 
@@ -109,6 +109,11 @@ class ProfileController extends Controller
         $user->save();
         $request->session()->flash('passwordChanged', true);
         return redirect()->route('lk_profile');
+    }
+
+    public function showNotification()
+    {
+        return view('lk.notification');
     }
 
     protected function changePasswordValidator(array $data)
