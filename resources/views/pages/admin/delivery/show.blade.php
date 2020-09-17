@@ -106,6 +106,20 @@
                             </div>
                         </div>
                     </form>
+                    <form id="deleteCategory" class="form"
+                          action="{{ route('admin_delete_delivery', $delivery->id) }}" method="post">
+                        @csrf
+                        <div class="card card-bordered style-default-light no-shadow">
+
+                            <div class="card-actionbar style-default-bright">
+                                <div class="card-actionbar-row" style="text-align: left">
+                                    <button type="submit" onclick="return confirm('Удаление категории - Вы уверены? Восстановить будет невозможно')" class="btn btn-flex ink-reaction btn-warning">
+                                        Удалить способ доставки
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

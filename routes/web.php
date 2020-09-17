@@ -75,6 +75,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'can:
     Route::post('/deliveries/create', 'DeliveryController@createOrUpdate')->name('admin_create_delivery');
     Route::get('/delivery/{id}', 'DeliveryController@show')->name('admin_delivery');
     Route::post('/delivery/update/{id}', 'DeliveryController@createOrUpdate')->name('admin_update_delivery');
+    Route::post('/delivery/delete/{id}', 'DeliveryController@delete')->name('admin_delete_delivery');
 
 });
 
