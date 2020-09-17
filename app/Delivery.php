@@ -4,14 +4,14 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
 
 class Delivery extends Model
 {
+    use SoftDeletes;
+
     public const ICON_DIRECTORY = '/public/delivery-icons';
-    /**
-     * @var mixed
-     */
 
     public function getTimeToDelivery()
     {

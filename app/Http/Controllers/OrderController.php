@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
+use App\Delivery;
 use App\Order;
 use App\OrderStatus;
 use Illuminate\Http\Request;
@@ -56,6 +57,8 @@ class OrderController extends Controller
         $order->address = $request->input('address');
         $order->status = OrderStatus::PAID;
         $order->amount_paid = $order->getSum();
+        $order->delivery_id = $request->input('delivery');
+        $order->delivery_amount = Delivery::find($request->input('delivery'))->price * 100;
         $order->save();
         $order->fillFromCart($cart);
         $order = Order::where('id', $order->id)->with('items')->first();
