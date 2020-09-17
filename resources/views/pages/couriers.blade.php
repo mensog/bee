@@ -26,7 +26,7 @@
                     <div class="main-screen__benefits-descr">уже в нашей команде</div>
                 </div>
             </div>
-            <button class="main-screen__btn btn btn-primary">Начать работу</button>
+            <a href="#income" class="main-screen__btn btn btn-primary">Начать работу</a>
         </div>
     </section>
 
@@ -155,9 +155,10 @@
                         </div>
                         <h3 class="choice__subtitle">Условия работы</h3>
                         <div class="choice__inner">
-                            <input type="text" class="choice__input choice__input_mr"
+                            <input type="number" id="orderPerDay" class="choice__input choice__input_mr"
                                    placeholder="Доставленных заказов в день">
-                            <input type="text" class="choice__input" placeholder="Рабочих дней в неделю">
+                            <input type="number" id="daysInWeek" class="choice__input"
+                                   placeholder="Рабочих дней в неделю">
                         </div>
                         <div class="choice__inner">
                             <div class="choice__box">
@@ -165,9 +166,9 @@
                                 <div class="choice__text">Фирменные оклейка машины и униформа</div>
                             </div>
                             <div class="choice__box">
-                                <input id="choice-radio" type="radio" class="choice__box-radio"
+                                <input id="choice-checkbox" type="checkbox" class="choice__box-radio beeclub-switcher"
                                        placeholder="Рабочих дней в неделю">
-                                <label for="choice-radio" class="choice__box-label">Нет</label>
+                                <label for="choice-checkbox" class="choice__box-label">Нет</label>
                             </div>
                         </div>
                     </div>
@@ -175,20 +176,25 @@
                 <div class="col-4">
                     <div class="request">
                         <div class="request__header">
-                            <h2 class="request__header-title"><span>Я заработаю за месяц*</span> ~ 35 023 ₽</h2>
-                            <div class="request__header-descr">*За расчет берется средний месяц, <br> в котором 30.5
-                                дней
+                            <h2 class="request__header-title">
+                                <span>Я заработаю за месяц*</span>
+                                ~<span data-income="35 023" class="incomePrice" id="incomePrice">35 023</span> ₽
+                            </h2>
+                            <div id="incomeText" class="request__header-descr">
+                                *За расчет берется средний месяц, <br> в котором 30.5 дней
                             </div>
                         </div>
                         <form action="#" class="request__form">
                             <h3 class="request__form-title">Заявка на вакансию</h3>
-                            <div class="request__form-text">Оставьте контактные данные и мы вышлем информацию о вакансии
-                                <br> курьера с зарплатой <span>42 200 ₽</span></div>
+                            <div class="request__form-text">
+                                Оставьте контактные данные и мы вышлем информацию о вакансии
+                                <br> курьера с зарплатой <span id="incomeData">35 023 ₽</span>
+                            </div>
                             <input class="request__form-input" type="text" placeholder="Имя">
                             <input class="request__form-input" type="text" placeholder="Телефон">
                             <button class="request__form-btn btn btn-primary" type="submit">Получить вакансию</button>
-                            <div class="request__form-descr">Отправляя свои данные, вы соглашаетесь на обработку
-                                персональных данных
+                            <div class="request__form-descr">
+                                Отправляя свои данные, вы соглашаетесь на обработку персональных данных
                             </div>
                         </form>
                     </div>
@@ -201,8 +207,6 @@
             </div>
         </div>
     </section>
-
-
 </main>
 
 <x-footer/>
