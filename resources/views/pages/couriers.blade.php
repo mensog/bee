@@ -188,7 +188,7 @@
                             <h3 class="request__form-title">Заявка на вакансию</h3>
                             <div class="request__form-text">
                                 Оставьте контактные данные и мы вышлем информацию о вакансии
-                                <br> курьера с зарплатой <span>42 200 ₽</span>
+                                <br> курьера с зарплатой <span id="incomeData">35 023 ₽</span>
                             </div>
                             <input class="request__form-input" type="text" placeholder="Имя">
                             <input class="request__form-input" type="text" placeholder="Телефон">

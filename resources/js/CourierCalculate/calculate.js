@@ -8,8 +8,10 @@ jQuery($ => {
 
     $('#orderPerDay').on('input', function () {
         const value = $(this).val()
-        if (value >= 0) {
+        if (value > 0) {
             orderPerDay = value
+        } else {
+            orderPerDay = 0
         }
         calculate(orderPerDay, daysInWeek, brand, pricePerOrder, brandMultiplier, weeksPerMonth)
     })
@@ -21,8 +23,10 @@ jQuery($ => {
 
     $('#daysInWeek').on('input', function () {
         const value = $(this).val()
-        if (value >= 0) {
+        if (value > 0 && value <= 7) {
             daysInWeek = value
+        } else {
+            daysInWeek = 0
         }
         calculate(orderPerDay, daysInWeek, brand, pricePerOrder, brandMultiplier, weeksPerMonth)
     })
@@ -30,18 +34,20 @@ jQuery($ => {
     const calculate = (orderPerDay, daysInWeek, brand, pricePerOrder, brandMultiplier, weeksPerMonth) => {
         let averagePrice;
         if (orderPerDay && daysInWeek) {
-            averagePrice = orderPerDay * daysInWeek * weeksPerMonth * pricePerOrder
+            averagePrice = Math.round(orderPerDay * daysInWeek * weeksPerMonth * pricePerOrder)
 
             if (brand) {
-                averagePrice = averagePrice * brandMultiplier
+                averagePrice = Math.round(averagePrice * brandMultiplier)
             }
 
-            $('#incomePrice').text(averagePrice)
+            $('#incomePrice').text(averagePrice.toLocaleString('ru-RU'))
+            $('#incomeData').text(averagePrice.toLocaleString('ru-RU') + '₽')
             $('#incomeText').addClass('d-none')
         } else {
             const $incomePrice = $('#incomePrice')
             const defaultIncome = $incomePrice.data('income')
             $incomePrice.text(defaultIncome)
+            $('#incomeData').text(defaultIncome + '₽')
             $('#incomeText').removeClass('d-none')
         }
     }
