@@ -166,7 +166,7 @@
                                 <div class="choice__text">Фирменные оклейка машины и униформа</div>
                             </div>
                             <div class="choice__box">
-                                <input id="choice-checkbox" type="checkbox" class="choice__box-radio"
+                                <input id="choice-checkbox" type="checkbox" class="choice__box-radio beeclub-switcher"
                                        placeholder="Рабочих дней в неделю">
                                 <label for="choice-checkbox" class="choice__box-label">Нет</label>
                             </div>
