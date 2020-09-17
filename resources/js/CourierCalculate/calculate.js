@@ -41,13 +41,13 @@ jQuery($ => {
             }
 
             $('#incomePrice').text(averagePrice.toLocaleString('ru-RU'))
-            $('#incomeData').text(averagePrice.toLocaleString('ru-RU') + '₽')
+            $('#incomeData').text(averagePrice.toLocaleString('ru-RU') + ' ₽')
             $('#incomeText').addClass('d-none')
         } else {
             const $incomePrice = $('#incomePrice')
             const defaultIncome = $incomePrice.data('income')
             $incomePrice.text(defaultIncome)
-            $('#incomeData').text(defaultIncome + '₽')
+            $('#incomeData').text(defaultIncome + ' ₽')
             $('#incomeText').removeClass('d-none')
         }
     }
