@@ -58,7 +58,7 @@ class OrderController extends Controller
         $order->status = OrderStatus::PAID;
         $order->amount_paid = $order->getSum();
         $order->delivery_id = $request->input('delivery');
-        $order->delivery_amount = Delivery::find($request->input('delivery'))->price * 100;
+        $order->delivery_amount = Delivery::find($request->input('delivery'))->price;
         $order->save();
         $order->fillFromCart($cart);
         $order = Order::where('id', $order->id)->with('items')->first();
