@@ -16,6 +16,7 @@ require('./Registration/registration');
 require('./Main/toggle-map')
 require('./Main/swiper')
 require('./geolocation')
+require('./CourierCalculate/calculate')
 
 window.utils = require('./utils')
 

@@ -188,7 +188,7 @@
     }
 
     &__item {
-       position: relative;
+        position: relative;
         display: flex;
 
 
@@ -241,7 +241,7 @@
         font-size: 36px;
         line-height: 26px;
         color: $black;
-        border-bottom: 1px solid $secondary-gray;
+        border-bottom: 1px solid $tertiary-gray;
     }
 
     &__subtitle {
@@ -388,6 +388,14 @@
             font-weight: bold;
             font-size: 16px;
             line-height: 14px;
+        }
+
+        .incomePrice {
+            display: inline-block;
+            font-weight: bold;
+            font-size: 36px;
+            line-height: 26px;
+            margin-bottom: 0;
         }
 
 
