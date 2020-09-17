@@ -39,17 +39,25 @@
                             <h3 class="cart__subheading">Способы получения</h3>
                             <div class="form-group row">
 
-                                @foreach($deliveries as $delivery)
+                                @foreach($deliveries as $key => $delivery)
                                     <div class="col-md-6">
-                                        <div class="delivery-cost__item border">
+                                        <input id="delivery-{{ $key }}" type="radio"
+                                               name="delivery" class="input-hidden delivery__input">
+                                        <label class="delivery-cost__item delivery__label border"
+                                               for="delivery-{{ $key }}">
                                             @if($delivery->icon_path != null)
-                                                <img class="delivery-cost__item-icon" src="{{$delivery->icon_path}}" alt="{{$delivery->title}}">
+                                                <img class="delivery-cost__item-icon"
+                                                     src="{{$delivery->icon_path}}" alt="{{$delivery->title}}">
                                             @endif
                                             <div class="delivery-cost__item-heading py-2">{{ $delivery->title }}</div>
-                                            <div class="delivery-cost__item-descr text-secondary">{{ $delivery->description }}</div>
-                                            <div class="delivery-cost__item-time">c {{ $delivery->getTimeToDelivery() }}</div>
+                                            <div class="delivery-cost__item-descr text-secondary">
+                                                {{ $delivery->description }}
+                                            </div>
+                                            <div class="delivery-cost__item-time">
+                                                c {{ $delivery->getTimeToDelivery() }}
+                                            </div>
                                             <div class="delivery-cost__item-price">{{ $delivery->price / 100 }} ₽</div>
-                                        </div>
+                                        </label>
                                     </div>
                                 @endforeach
 
