@@ -25,8 +25,8 @@ class ReviewController extends Controller
 
         return Validator::make($data, [
             'rating' => ['required', 'integer', 'min:1', 'max:5'],
-            'advantages' => ['string', 'max:2000'],
-            'disadvantages' => ['string', 'max:2000'],
+            'advantages' => ['string', 'max:4000'],
+            'disadvantages' => ['string', 'max:4000'],
             'comment' => ['string', 'max:4000'],
         ], $messages, $names);
     }

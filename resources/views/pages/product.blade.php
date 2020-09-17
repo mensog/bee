@@ -199,7 +199,7 @@
                         </div>
                         @can('createReview', $product)
                             <div class="col-lg-4 col-12">
-                                <button type="button" data-toggle="collapse" data-target="#comment"
+                                <button type="button" data-toggle="collapse" data-target="#review"
                                         aria-expanded="false" aria-controls="comment"
                                         class="btn btn-outline-black">
                                     Оставить отзыв
@@ -208,7 +208,7 @@
                         @endcan
                     </div>
                     @can('createReview', $product)
-                        <form class="form mt-3 floating-label collapse" method="post" id="comment"
+                        <form class="form mt-3 floating-label collapse" method="post" id="review"
                               action="{{ route('add_review', ['id' => $product->id]) }}">
                             @csrf
                             <div class="form-group row">
@@ -216,23 +216,23 @@
                                     <fieldset class="rating">
                                         <div class="rating__group">
                                             <input class="rating__input" type="radio" name="rating" id="rating-1"
-                                                   value="1">
+                                                   value="1" required>
                                             <label class="rating__star" for="rating-1" aria-label="Ужасно"></label>
 
                                             <input class="rating__input" type="radio" name="rating" id="rating-2"
-                                                   value="2">
+                                                   value="2" required>
                                             <label class="rating__star" for="rating-2" aria-label="Сносно"></label>
 
                                             <input class="rating__input" type="radio" name="rating" id="rating-3"
-                                                   value="3">
+                                                   value="3" required>
                                             <label class="rating__star" for="rating-3" aria-label="Нормально"></label>
 
                                             <input class="rating__input" type="radio" name="rating" id="rating-4"
-                                                   value="4">
+                                                   value="4" required>
                                             <label class="rating__star" for="rating-4" aria-label="Хорошо"></label>
 
                                             <input class="rating__input" type="radio" name="rating" id="rating-5"
-                                                   value="5">
+                                                   value="5" required>
                                             <label class="rating__star" for="rating-5" aria-label="Отлично"></label>
 
                                             <div class="rating__focus"></div>
@@ -245,7 +245,7 @@
                                     <div class="form-control-container">
                                         <textarea id="advantages" type="text" class="form-control" rows="3"
                                                   name="advantages" placeholder=" "
-                                                  required>{{ old('advantages') }}</textarea>
+                                                  >{{ old('advantages') }}</textarea>
                                         <label for="advantages">Достоинства</label>
                                     </div>
                                 </div>
@@ -256,7 +256,7 @@
                                     <div class="form-control-container">
                                          <textarea id="disadvantages" type="text" class="form-control" rows="3"
                                                    name="disadvantages" placeholder=" "
-                                                   required>{{ old('disadvantages') }}</textarea>
+                                                   >{{ old('disadvantages') }}</textarea>
                                         <label for="disadvantages">Недостатки</label>
                                     </div>
                                 </div>
@@ -267,14 +267,14 @@
                                     <div class="form-control-container">
                                         <textarea id="commentText" type="text" class="form-control" rows="3"
                                                   name="comment" placeholder=" "
-                                                  required>{{ old('comment') }}</textarea>
+                                                  >{{ old('comment') }}</textarea>
                                         <label for="comment">Комментарий</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-4">
-                                    <button class="btn btn-primary" type="submit" disabled>Оставить отзыв</button>
+                                    <button class="btn btn-primary" type="submit">Оставить отзыв</button>
                                 </div>
                             </div>
                         </form>
