@@ -345,3 +345,25 @@
         line-height: 12px;
     }
 }
+
+.cart-aside {
+    position: relative;
+}
+
+.cart-aside.loading:before {
+    content: url("/svg/preloaders/loading-primary.svg");
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 70px;
+    max-height: 70px;
+    display: block;
+    z-index: 3;
+}
+
+.cart-aside.loading {
+    opacity: 0.5;
+}

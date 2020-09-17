@@ -5,8 +5,7 @@ let mask
 const element = document.getElementById('phone');
 
 /**
- *  Mask phone input and unmask on submit
- *
+ * Mask phone input and unmask on submit
  * @param id
  */
 const maskPhoneInput = (id) => {
@@ -34,7 +33,6 @@ maskPhoneInput('profile')
 let isValid = [];
 
 jQuery($ => {
-
 
     $('#registration #email, #registration #phone, #registration #name, #registration #surname, #registration #password, #registration #password-confirm').on('keyup', function () {
         checkRegistrationForm(false, $(this), 'registration')
@@ -167,7 +165,6 @@ jQuery($ => {
                         }
                         break
                     case 'checkbox':
-                    case 'radio':
                         if ($(this).is(":checked")) {
                             if (!isValid.includes($(this).attr('id'))) {
                                 isValid.push($(this).attr('id'))
@@ -305,7 +302,6 @@ jQuery($ => {
                     }
                     break
                 case 'checkbox':
-                case 'radio':
                     if ($this.is(":checked")) {
                         if (!isValid.includes($this.attr('id'))) {
                             isValid.push($this.attr('id'))
@@ -327,8 +323,8 @@ jQuery($ => {
             num = $(`#${page} input:required`).length;
         }
 
-        console.log(isValid)
-        console.log(num)
+        // console.log(isValid)
+        // console.log(num)
 
         if (isValid.length === num) {
             $(`#${page} button[type=submit]`).prop('disabled', false)
