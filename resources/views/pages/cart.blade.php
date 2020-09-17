@@ -13,4 +13,6 @@
     <x-cart :favoriteList="$favoriteList" :groupedCartContent="$groupedCartContent" :stores="$stores" :quantity="$quantity" :itemsSubTotal="$itemsSubTotal" :cartTotal="$cartTotal" :recommendedProducts="$recommendedProducts" :favoritesListContent="$favoriteList"/>
 </main>
 
+<x-improve/>
+
 <x-footer/>

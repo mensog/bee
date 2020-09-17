@@ -1,8 +1,13 @@
 .suppliers {
+    padding-bottom: 64px;
    .main-screen {
       background: $light-grey url(/img/suppliers/main-screen-bg.png) right bottom no-repeat;
       background-size: contain;
    }
+
+    .improve {
+        background-color: $white;
+    }
 }
 
 .become {
@@ -84,9 +89,4 @@
             color: $secondary-gray;
         }
     }
-    .contact__improve {
-        margin-top: 64px;
-        background: $white;
-    }
-
 }

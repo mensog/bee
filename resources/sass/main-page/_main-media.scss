@@ -135,15 +135,6 @@
       font-size: 14px;
    }
 
-   .contact__improve {
-      max-width: 100%;
-      min-height: 66px;
-   }
-
-   .contact__improve-text {
-      font-size: 14px;
-   }
-
    .form-group:first-child {
       margin-bottom: 0;
    }
@@ -510,15 +501,4 @@
       height: 35px;
    }
 
-   .contact__improve {
-      padding: 0 16px;
-   }
-
-
-
-   .contact__improve-text::before,
-   .contact__improve-text::after {
-      top: 50%;
-      transform: translateY(-50%);
-   }
 }

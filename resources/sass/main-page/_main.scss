@@ -901,46 +901,6 @@
          }
       }
    }
-
-   &__improve {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 24px;
-      max-width: 540px;
-      min-height: 92px;
-      background: $light-grey;
-   }
-
-   &__improve-text {
-      position: relative;
-      padding: 0 56px 0 68px;
-      font-weight: bold;
-      font-size: 16px;
-      line-height: 14px;
-      color: #000000;
-
-      &::before {
-         content: "";
-         position: absolute;
-         top: -15px;
-         left: 0;
-         width: 44px;
-         height: 44px;
-         border-radius: 50%;
-         background: #fdd900 url(/svg/main/question.svg) center no-repeat;
-      }
-
-      &::after {
-         content: "";
-         position: absolute;
-         top: 0;
-         right: 0;
-         width: 18px;
-         height: 18px;
-         background: url(/svg/main/arrow-right.svg) center no-repeat;
-      }
-   }
 }
 
 .mobile-bar {

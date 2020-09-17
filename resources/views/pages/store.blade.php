@@ -73,14 +73,9 @@
     <x-liked :likedRandomProducts="$likedRandomProducts" :favoritesListContent="$favoritesListContent"/>
     <x-delivery/>
 
-    <div class="contact">
-        <div class="container">
-            <a href="#" class="contact__improve">
-                <div class="contact__improve-text">Что можно улучшить на этой странице?</div>
-            </a>
-        </div>
-    </div>
+    <x-improve/>
 
 </main>
+
 
 <x-footer/>

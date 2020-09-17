@@ -202,6 +202,10 @@
 
     <x-delivery/>
 
+    <div class="container">
+        <x-improve/>
+    </div>
+
 </main>
 
 <x-footer/>
