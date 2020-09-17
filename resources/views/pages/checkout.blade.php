@@ -41,8 +41,8 @@
 
                                 @foreach($deliveries as $key => $delivery)
                                     <div class="col-md-6">
-                                        <input id="delivery-{{ $key }}" type="radio"
-                                               name="delivery" class="input-hidden delivery__input">
+                                        <input id="delivery-{{ $key }}" type="radio" {{ $key === 0 ? 'checked' : '' }}
+                                        name="delivery" class="input-hidden delivery__input">
                                         <label class="delivery-cost__item delivery__label border"
                                                for="delivery-{{ $key }}">
                                             @if($delivery->icon_path != null)

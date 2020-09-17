@@ -74,7 +74,6 @@ jQuery($ => {
 
     /**
      *  Validate inputs by page
-     *
      * @param load
      * @param $this
      * @param page
@@ -168,6 +167,7 @@ jQuery($ => {
                         }
                         break
                     case 'checkbox':
+                    case 'radio':
                         if ($(this).is(":checked")) {
                             if (!isValid.includes($(this).attr('id'))) {
                                 isValid.push($(this).attr('id'))
@@ -305,6 +305,7 @@ jQuery($ => {
                     }
                     break
                 case 'checkbox':
+                case 'radio':
                     if ($this.is(":checked")) {
                         if (!isValid.includes($this.attr('id'))) {
                             isValid.push($this.attr('id'))
@@ -325,6 +326,9 @@ jQuery($ => {
         if (page === 'checkout' || page === 'profile' || page === 'change-password') {
             num = $(`#${page} input:required`).length;
         }
+
+        console.log(isValid)
+        console.log(num)
 
         if (isValid.length === num) {
             $(`#${page} button[type=submit]`).prop('disabled', false)
