@@ -284,7 +284,7 @@
                     <div class="comments-card__body">
                         <div class="comments-list">
                             @foreach($product->reviews as $review)
-                                <div class="comment">
+                                <div class="comment {{ ($loop->iteration > 2) ? 'd-none' : '' }}">
                                     <div class="comment__header">
                                         <img class="comment__img" src="/svg/product/user.svg" alt="">
                                         <div>
@@ -310,7 +310,7 @@
                                 </div>
                             @endforeach
                         </div>
-                        @if($product->reviews->count() >= 2)
+                        @if($product->reviews->count() > 2)
                             <button class="btn btn-outline-black mt-4">Показать все отзывы</button>
                         @endif
                     </div>
