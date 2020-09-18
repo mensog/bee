@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Courier;
+use App\Delivery;
 use App\Http\Controllers\Controller;
 use App\Order;
 use App\OrderStatus;
@@ -29,6 +30,7 @@ class OrderController extends Controller
     {
         $couriers = Courier::all();
         $order = Order::with('items', 'items.product')->with('courier')->where('id', $id)->firstOrFail();
+        $delivery = $order->delivery()->withTrashed()->first();
         $groupedOrder = $order->items->groupBy(function ($item) {
             return $item->product->store_id;
         });
@@ -36,7 +38,15 @@ class OrderController extends Controller
         $orderStores = $order->orderStores->keyBy('store_id');
         $storeNames = $stores->pluck('company_name', 'id');
         $privateAccount = $order->user->privateAccount;
-        return view('pages.admin.order.show', ['order' => $order, 'groupedOrder' => $groupedOrder, 'storeNames' => $storeNames, 'orderStores' => $orderStores, 'couriers' => $couriers, 'account' => $privateAccount]);
+        return view('pages.admin.order.show', [
+            'order' => $order,
+            'groupedOrder' => $groupedOrder,
+            'storeNames' => $storeNames,
+            'orderStores' => $orderStores,
+            'couriers' => $couriers,
+            'account' => $privateAccount,
+            'delivery' => $delivery
+        ]);
     }
 
     public function changeOrder(Request $request, $id)

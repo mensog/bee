@@ -114,6 +114,14 @@
                                     {{ date('H:i',strtotime($order->delivery_start_time)) }} - {{ date('H:i',strtotime($order->delivery_end_time)) }}
                                 </span>
                                 </div>
+                                <div>
+                                    @if($delivery)
+                                        {{ $delivery->title }}
+                                        <span class="pull-right">
+                                        {{ $order->delivery_amount / 100 }} руб
+                                     @endif
+                                </span>
+                                </div>
                                 <hr>
                                 <div>
                                     ФИО

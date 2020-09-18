@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Delivery;
 
 class AboutController extends Controller
 {
     public function index()
     {
-        return view('pages.about');
+        $deliveries = Delivery::all();
+        return view('pages.about', ['deliveries' => $deliveries]);
     }
 }

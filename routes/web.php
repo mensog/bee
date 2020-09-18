@@ -73,6 +73,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'can:
     Route::get('/partners', 'PartnerController@index')->name('admin_partners');
     Route::get('/partner/log', 'LogController@index')->name('admin_partners_log');
     Route::get('/partner/{id}', 'PartnerController@show')->name('admin_partner');
+
+    Route::get('/deliveries', 'DeliveryController@index')->name('admin_deliveries');
+    Route::get('/deliveries/create', 'DeliveryController@create')->name('admin_create_delivery_page');
+    Route::post('/deliveries/create', 'DeliveryController@createOrUpdate')->name('admin_create_delivery');
+    Route::get('/delivery/{id}', 'DeliveryController@show')->name('admin_delivery');
+    Route::post('/delivery/update/{id}', 'DeliveryController@createOrUpdate')->name('admin_update_delivery');
+    Route::post('/delivery/delete/{id}', 'DeliveryController@delete')->name('admin_delivery_delete');
+
 });
 
 Route::group(['prefix' => 'lk', 'namespace' => 'Lk', 'middleware' => 'auth'], function () {
@@ -100,6 +108,7 @@ Route::get('/promotions', 'PromotionsController@index')->name('promotions');
 Route::get('/about', 'AboutController@index')->name('about');
 
 Route::post('/api/cart', 'CartController@api')->name('api_cart');
+Route::post('/api/cart-aside', 'CartController@apiAside')->name('api_cart_aside');
 Route::post('/api/favorites', 'FavoriteListController@api')->name('api_favorites');
 
 Auth::routes();

@@ -35,6 +35,7 @@ class MainController extends Controller
             $createdOrderId = false;
         }
         $title = 'Заказы';
+        $delivery = $order->delivery()->withTrashed()->first();
         return view('lk.orders', [
             'orders' => $orders,
             'createdOrderId' => $createdOrderId,
@@ -42,6 +43,7 @@ class MainController extends Controller
             'groupedOrders' => $groupedOrders,
             'stores' => $stores,
             'title' => $title,
+            'delivery' => $delivery,
             ]);
     }
 }

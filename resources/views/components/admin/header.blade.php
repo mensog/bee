@@ -140,6 +140,12 @@
                                 <span class="title">Неразобранные категории</span>
                             </a>
                         </li>
+                        <li class="{{ Route::currentRouteName() === 'admin_unsorted_categories' ? 'active' : '' }}">
+                            <a class="{{ Route::currentRouteName() === 'admin_unsorted_categories' ? 'active' : '' }}"
+                               href="{{ route('admin_deliveries') }}">
+                                <span class="title">Способы доставки</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 

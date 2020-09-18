@@ -5,8 +5,7 @@ let mask
 const element = document.getElementById('phone');
 
 /**
- *  Mask phone input and unmask on submit
- *
+ * Mask phone input and unmask on submit
  * @param id
  */
 const maskPhoneInput = (id) => {
@@ -34,7 +33,6 @@ maskPhoneInput('profile')
 let isValid = [];
 
 jQuery($ => {
-
 
     $('#registration #email, #registration #phone, #registration #name, #registration #surname, #registration #password, #registration #password-confirm').on('keyup', function () {
         checkRegistrationForm(false, $(this), 'registration')
@@ -78,7 +76,6 @@ jQuery($ => {
 
     /**
      *  Validate inputs by page
-     *
      * @param load
      * @param $this
      * @param page
@@ -333,6 +330,9 @@ jQuery($ => {
         if (page === 'comment') {
             num = $(`#${page} textarea:required`).length;
         }
+
+        // console.log(isValid)
+        // console.log(num)
 
         if (isValid.length === num) {
             $(`#${page} button[type=submit]`).prop('disabled', false)

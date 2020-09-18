@@ -48,6 +48,10 @@ class Order extends Model
         foreach ($items as $item) {
             $sum += $item->getSum();
         }
+        $deliveryPrice = $this->delivery_amount;
+        if($deliveryPrice) {
+            $sum += $deliveryPrice;
+        }
         return $sum;
     }
 
@@ -56,6 +60,10 @@ class Order extends Model
         $items = $this->items;
         foreach ($items as $item) {
             $sum += $item->getInStockSum();
+        }
+        $deliveryPrice = $this->delivery_amount;
+        if($deliveryPrice) {
+            $sum += $deliveryPrice;
         }
         return $sum;
     }
@@ -89,5 +97,10 @@ class Order extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function delivery()
+    {
+        return $this->belongsTo('App\Delivery');
     }
 }

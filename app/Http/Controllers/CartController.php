@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
+use App\Delivery;
 use App\Partner;
 use App\Product;
 use Illuminate\Http\Request;
@@ -150,6 +151,22 @@ class CartController extends Controller
         return $response;
     }
 
+    public function apiAside(Request $request)
+    {
+        $response = response()->json([], 404);
+        if ($request->has('deliveryId')) {
+            $delivery = Delivery::find($request->input('deliveryId'));
+            if ($delivery) {
+                $cart = app('Cart');
+                $cartContent = $cart->content;
+                $cartTotal = $cart->getTotal();
+                $response = [];
+                $response['html'] = view('components.cart-aside', ['cartTotal'=> $cartTotal, 'quantity' => $cartContent, 'delivery' => $delivery])->render();
+            }
+        }
+        return $response;
+    }
+
     public function showCheckout(Request $request)
     {
         $cart = app('Cart');
@@ -158,6 +175,13 @@ class CartController extends Controller
         $itemsSubTotal = $cart->getItemsSubTotal();
         $cartTotal = $cart->getTotal();
         $user = auth()->user();
-        return view('pages.checkout', ['products' => $products, 'quantity' => $cartContent, 'itemsSubTotal' => $itemsSubTotal, 'cartTotal' => $cartTotal, 'user' => $user]);
+        $deliveries = Delivery::all();
+        return view('pages.checkout', ['products' => $products,
+            'quantity' => $cartContent,
+            'itemsSubTotal' => $itemsSubTotal,
+            'cartTotal' => $cartTotal,
+            'user' => $user,
+            'deliveries' => $deliveries,
+        ]);
     }
 }
