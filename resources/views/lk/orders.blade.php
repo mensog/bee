@@ -198,9 +198,9 @@
                         </div>
                     </div>
                     <div class="row text-center py-3">
-                        @if($order->delivery)
+                        @if($delivery)
                             <div class="col-md-6">
-                                {{ $order->delivery->title }}
+                                {{ $delivery->title }}
                             </div>
                             <div class="col-md-6">
                                 {{ $order->delivery_amount / 100}} руб.
