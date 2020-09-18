@@ -15,7 +15,7 @@ class Delivery extends Model
 
     public function getTimeToDelivery()
     {
-        $timeIncludeDelivery = Carbon::now()->timezone('Europe/Moscow')->roundHours()->addHour($this->delay);
+        $timeIncludeDelivery = Carbon::now()->roundHours()->addHour($this->delay + 3);
         $start = Carbon::createFromTimeString($this->start);
         $end = Carbon::createFromTimeString($this->end);;
 
@@ -24,7 +24,7 @@ class Delivery extends Model
             if ($timeIncludeDelivery > $start && $timeIncludeDelivery < $end) {
                 return $timeIncludeDelivery->format('H:i d.m');
             } else {
-                return Carbon::createFromTimeString($start)->addHour($this->delay)->format('H:i d.m');
+                return Carbon::createFromTimeString($start)->addDay(1)->format('H:i d.m');
             }
         } else if($start > $end) {
             $end->addDay(1);
