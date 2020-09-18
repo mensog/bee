@@ -15,23 +15,23 @@ class Delivery extends Model
 
     public function getTimeToDelivery()
     {
-        $timeNow = Carbon::now()->timezone('Europe/Moscow')->roundHours();
-        $timeIncludDelivery = $timeNow->addHour($this->delay);
-        $start = $this->start;
-        $end = $this->end;
+        $timeIncludeDelivery = Carbon::now()->timezone('Europe/Moscow')->roundHours()->addHour($this->delay);
+        $start = Carbon::createFromTimeString($this->start);
+        $end = Carbon::createFromTimeString($this->end);;
 
 
         if ($start < $end) {
-            if ($timeIncludDelivery->toTimeString() > $start && $timeIncludDelivery->toTimeString() < $end) {
-                return $timeIncludDelivery->format('H:i d.m');
+            if ($timeIncludeDelivery->toTimeString() > $start && $timeIncludeDelivery->toTimeString() < $end) {
+                return $timeIncludeDelivery->format('H:i d.m');
             } else {
-                return Carbon::createFromTimeString($start)->format('H:i d.m');
+                return Carbon::createFromTimeString($start)->addHour($this->delay)->format('H:i d.m');
             }
         } else if($start > $end) {
-            if ($timeIncludDelivery->toTimeString() < $start && $timeIncludDelivery->toTimeString() < $end) {
-                return $timeIncludDelivery->format('H:i d.m');
+            $end->addDay(1);
+            if ($timeIncludeDelivery > $start && $timeIncludeDelivery->toTimeString() < $end) {
+                return $timeIncludeDelivery->format('H:i d.m');
             } else {
-                return $timeIncludDelivery->format('H:i d.m');
+                return Carbon::createFromTimeString($start)->addHour($this->delay)->format('H:i d.m');
             }
         } else {
             return Carbon::createFromTimeString($start)->addHour($this->delay)->format('H:i d.m');
