@@ -50,7 +50,7 @@ class Order extends Model
         }
         $deliveryPrice = $this->delivery_amount;
         if($deliveryPrice) {
-            $sum += $deliveryPrice / 100;
+            $sum += $deliveryPrice;
         }
         return $sum;
     }
@@ -63,7 +63,7 @@ class Order extends Model
         }
         $deliveryPrice = $this->delivery_amount;
         if($deliveryPrice) {
-            $sum += $deliveryPrice / 100;
+            $sum += $deliveryPrice;
         }
         return $sum;
     }
