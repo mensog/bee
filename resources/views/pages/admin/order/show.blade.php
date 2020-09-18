@@ -115,9 +115,9 @@
                                 </span>
                                 </div>
                                 <div>
-                                    {{ $deliveryName }}
+                                    {{ $delivery->title }}
                                     <span class="pull-right">
-                                    {{ $order->delivery_amount / 100 . ' руб' }}
+                                    {{ $delivery->price / 100 . ' руб' }}
                                 </span>
                                 </div>
                                 <hr>

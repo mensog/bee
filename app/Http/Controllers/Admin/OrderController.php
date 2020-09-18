@@ -30,7 +30,7 @@ class OrderController extends Controller
     {
         $couriers = Courier::all();
         $order = Order::with('items', 'items.product')->with('courier')->where('id', $id)->firstOrFail();
-        $deliveryName = Delivery::withTrashed()->where('id', $order->delivery_id)->firstOrFail()->title;
+        $delivery = $order->delivery()->withTrashed()->first();
         $groupedOrder = $order->items->groupBy(function ($item) {
             return $item->product->store_id;
         });
@@ -45,7 +45,7 @@ class OrderController extends Controller
             'orderStores' => $orderStores,
             'couriers' => $couriers,
             'account' => $privateAccount,
-            'deliveryName' => $deliveryName,
+            'delivery' => $delivery,
         ]);
     }
 

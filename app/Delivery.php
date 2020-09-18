@@ -46,4 +46,9 @@ class Delivery extends Model
         $this->icon_path = null;
         $this->save();
     }
+
+    public function orders()
+    {
+        return $this->hasMany('App\Order');
+    }
 }

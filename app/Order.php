@@ -90,4 +90,9 @@ class Order extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function delivery()
+    {
+        return $this->belongsTo('App\Delivery');
+    }
 }
