@@ -14,11 +14,13 @@ class StarRating extends Component
 
     protected $rating;
     protected $class;
+    protected $interaction;
 
-    public function __construct($rating, $class)
+    public function __construct($rating, $class, $interaction = true)
     {
         $this->rating = $rating;
         $this->class = $class;
+        $this->interaction = $interaction;
     }
 
     /**
@@ -28,6 +30,6 @@ class StarRating extends Component
      */
     public function render()
     {
-        return view('components.star-rating', ['rating' => $this->rating, 'class' => $this->class]);
+        return view('components.star-rating', ['rating' => $this->rating, 'class' => $this->class, 'interaction' => $this->interaction]);
     }
 }

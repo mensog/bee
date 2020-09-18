@@ -56,7 +56,7 @@
                             </h3>
                             <div>
                                 <x-star-rating rating="{{ $product->getRating() }}"
-                                               class="product-card-info-header__rating"/>
+                                               class="product-card-info-header__rating" :interaction=false/>
                                 <span class="product-card-info-header__score">
                                     {{ number_format($product->getRating(), 1) }}
                                 </span>
@@ -190,7 +190,7 @@
                         <div class="col-lg-8 col-12">
                             @if($product->reviews->count() > 0)
                                 <h4>Отзывы ({{ $product->reviews->count() }})</h4>
-                                <x-star-rating rating="{{ $product->getRating() }}" class="comments-card__rating"/>
+                                <x-star-rating rating="{{ $product->getRating() }}" class="comments-card__rating" :interaction="false"/>
                                 <span class="comments-card__score">{{ number_format($product->getRating(), 1) }}</span>
                                 <span class="comments-card__count">({{ $product->reviews->count() }})</span>
                             @else
@@ -290,7 +290,7 @@
                                         <div>
                                             <p>{{ $review->user->full_name ?? 'Аноним' }}
                                                 <span>{{ date('d.m.Y', strtotime($review->created_at)) }}</span></p>
-                                            <x-star-rating rating="{{ $review->rating }}" class="comment__rating"/>
+                                            <x-star-rating rating="{{ $review->rating }}" class="comment__rating" :interaction="false"/>
                                         </div>
                                     </div>
                                     <div class="comment__body">
