@@ -4,6 +4,9 @@ jQuery($ => {
             const deliveryValue = $(this).val()
 
             if (deliveryValue) {
+                let data = {
+                    deliveryId: +deliveryValue
+                }
                 const $aside = $('.cart-aside')
                 $.ajax({
                     type: 'POST',
@@ -11,7 +14,7 @@ jQuery($ => {
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    data: deliveryValue,
+                    data: JSON.stringify(data),
                     contentType: 'application/json',
                     beforeSend: () => {
                         $aside.addClass('loading')

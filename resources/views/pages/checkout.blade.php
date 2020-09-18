@@ -217,7 +217,7 @@
                 </div>
 
                 <div class="col-4">
-                    <x-cart-aside :quantity="$quantity" :cartTotal="$cartTotal"/>
+                    <x-cart-aside :quantity="$quantity" :cartTotal="$cartTotal" :delivery="$deliveries[0]"/>
                 </div>
 
             </div>

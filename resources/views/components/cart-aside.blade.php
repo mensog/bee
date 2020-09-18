@@ -7,7 +7,7 @@
         </div>
         <div class="checkout__wrap">
             <span class="checkout__products">Доставка:</span>
-            <span class="checkout__products-price">413 ₽</span>
+            <span class="checkout__products-price">{{ $delivery->price / 100 }} ₽</span>
         </div>
         <div class="checkout__wrap">
             <div class="checkout__box">
@@ -22,7 +22,7 @@
         </div>
         <div class="checkout__wrap">
             <span class="checkout__total">Общая сумма:</span>
-            <span class="checkout__total-price">{{ $cartTotal / 100 }} ₽</span>
+            <span class="checkout__total-price">{{ $cartTotal / 100 + $delivery->price / 100 }} ₽</span>
         </div>
         <button type="submit" class="checkout__btn btn btn-primary">
             Оплатить онлайн
