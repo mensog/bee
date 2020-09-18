@@ -191,7 +191,7 @@
                 .product-card-info-body-cart {
                     padding-left: 30px;
 
-                    button{
+                    button {
                         width: 100%;
                         border-radius: 5px;
                         padding: 19px;
@@ -316,6 +316,11 @@
         padding: 30px;
         background: #FFFFFF;
 
+        &__header:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+
         &__header {
             padding-bottom: 40px;
             border-bottom: 1px solid #E3E3E3;
@@ -358,6 +363,10 @@
 
         &__body {
             padding-top: 30px;
+
+            .comment:last-of-type {
+                margin-bottom: 0;
+            }
 
             .comment {
                 margin-bottom: 64px;

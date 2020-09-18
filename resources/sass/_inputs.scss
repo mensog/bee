@@ -72,6 +72,7 @@ main {
             border-radius: 5px;
             padding: 20px;
             height: 52px;
+            color: #000000;
             font-size: 14px;
 
             ::placeholder {
@@ -131,6 +132,85 @@ main {
     input[type="checkbox"].beeclub-switcher:checked:after {
         left: 30px;
         box-shadow: -2px 4px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .rating {
+        margin: 0;
+        padding: 0;
+        border: none;
+
+        &__group {
+            position: relative;
+            width: 10em;
+            height: 2em;
+            background-image: url('/svg/product/star-off.svg');
+            background-size: 2em 1.9em;
+            background-repeat: repeat-x;
+        }
+
+        &__input {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+        }
+
+        &__input:focus ~ .rating__focus {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            outline: 0.2em solid #4a90e2;
+            outline-offset: 0.2em;
+        }
+
+        &__star {
+            position: absolute;
+            top: 0 !important;
+            left: 0 !important;
+            margin: 0;
+            height: 2em;
+            background-size: 2em 1.9em;
+            background-repeat: repeat-x;
+        }
+
+        &__star:hover,
+        &__input:checked + .rating__star {
+            background-image: url('/svg/product/star-on.svg');
+            cursor: pointer;
+        }
+
+        &__star:hover ~ .rating__star {
+            background-image: url('/svg/product/star-off.svg');
+        }
+
+        &__star:nth-of-type(1) {
+            z-index: 5;
+            width: 2em;
+        }
+
+        &__star:nth-of-type(2) {
+            z-index: 4;
+            width: 4em;
+        }
+
+        &__star:nth-of-type(3) {
+            z-index: 3;
+            width: 6em;
+        }
+
+        &__star:nth-of-type(4) {
+            z-index: 2;
+            width: 8em;
+        }
+
+        &__star:nth-of-type(5) {
+            z-index: 1;
+            width: 10em;
+        }
     }
 }
 
