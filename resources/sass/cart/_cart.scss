@@ -1,4 +1,9 @@
 .checkout-page {
+
+    .delivery-cost {
+        display: none;
+    }
+
     .container {
         padding-bottom: 64px;
     }
@@ -343,5 +348,10 @@
         font-weight: bold;
         font-size: 14px;
         line-height: 12px;
+
+        &:hover {
+            border-color: $primary-yellow;
+            box-shadow: none !important;
+        }
     }
 }

@@ -36,6 +36,40 @@
                                     </div>
                                 </div>
                             </div>
+                            <section id="delivery-cost" class="delivery-cost">
+                                    <h3 class="delivery-cost__heading">Способы получения</h3>
+                                    <div class="row no-gutters">
+                                        <div class="col-lg-3 col-md-6 col-6">
+                                            <div class="delivery-cost__item delivery-cost__item_white">
+                                                <img class="delivery-cost__item-icon" src="/svg/about/express.svg" alt="">
+                                                <div class="delivery-cost__item-heading">Экспресс-доставка</div>
+                                                <div class="delivery-cost__item-descr">Быстрая доставка в удобный <br> интервал времени</div>
+                                                <div class="delivery-cost__item-time">с 18:00 26.07</div>
+                                                <div class="delivery-cost__item-price">849 ₽</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6 col-6">
+                                            <div class="delivery-cost__item delivery-cost__item_white">
+                                                <img class="delivery-cost__item-icon" src="/svg/about/courier.svg" alt="">
+                                                <div class="delivery-cost__item-heading">Курьером</div>
+                                                <div class="delivery-cost__item-descr">Доставка в удобный день и <br> интервал времени</div>
+                                                <div class="delivery-cost__item-time">с 12:00 27.07</div>
+                                                <div class="delivery-cost__item-price">349 ₽</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6 col-6">
+                                            <div class="delivery-cost__item delivery-cost__item_white">
+                                                <img class="delivery-cost__item-icon" src="/svg/about/night.svg" alt="">
+                                                <div class="delivery-cost__item-heading">Ночной тариф</div>
+                                                <div class="delivery-cost__item-descr">Ночная доставка с 22.00 до <br> 06.00 без пробок и
+                                                    опозданий
+                                                </div>
+                                                <div class="delivery-cost__item-time">с 22:00 27.07</div>
+                                                <div class="delivery-cost__item-price">549 ₽</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </section>
                             <h3 class="cart__subheading">Данные получателя</h3>
                             <p class="cart__after-title">Полные фамилия, имя и отчество потребуются при получении
                                 заказа</p>
@@ -188,7 +222,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-lg-4">
                     <div class="cart-aside">
                         <div class="checkout">
                             <h4 class="checkout__heading">Ваша корзина ({{ count($quantity) }})</h4>
