@@ -21,14 +21,14 @@ class Delivery extends Model
 
 
         if ($start < $end) {
-            if ($timeIncludeDelivery->toTimeString() > $start && $timeIncludeDelivery->toTimeString() < $end) {
+            if ($timeIncludeDelivery > $start && $timeIncludeDelivery < $end) {
                 return $timeIncludeDelivery->format('H:i d.m');
             } else {
                 return Carbon::createFromTimeString($start)->addHour($this->delay)->format('H:i d.m');
             }
         } else if($start > $end) {
             $end->addDay(1);
-            if ($timeIncludeDelivery > $start && $timeIncludeDelivery->toTimeString() < $end) {
+            if ($timeIncludeDelivery > $start && $timeIncludeDelivery < $end) {
                 return $timeIncludeDelivery->format('H:i d.m');
             } else {
                 return Carbon::createFromTimeString($start)->addHour($this->delay)->format('H:i d.m');

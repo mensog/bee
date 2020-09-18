@@ -45,21 +45,27 @@ class Order extends Model
     {
         $sum = 0;
         $items = $this->items;
-        $deliveryPrice = $this->delivery()->first()->price;
         foreach ($items as $item) {
             $sum += $item->getSum();
         }
-        return $sum + $deliveryPrice;
+        $deliveryPrice = $this->delivery_amount;
+        if($deliveryPrice) {
+            $sum += $deliveryPrice / 100;
+        }
+        return $sum;
     }
 
     public function getFinalSum() {
         $sum = 0;
         $items = $this->items;
-        $deliveryPrice = $this->delivery()->first()->price;
         foreach ($items as $item) {
             $sum += $item->getInStockSum();
         }
-        return $sum + $deliveryPrice;
+        $deliveryPrice = $this->delivery_amount;
+        if($deliveryPrice) {
+            $sum += $deliveryPrice / 100;
+        }
+        return $sum;
     }
 
     public function courier()

@@ -203,7 +203,7 @@
                                 {{ $order->delivery->title }}
                             </div>
                             <div class="col-md-6">
-                                {{ $order->delivery->price }}
+                                {{ $order->delivery_amount / 100}} руб.
                             </div>
                         @endif
                     </div>

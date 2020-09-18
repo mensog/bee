@@ -107,7 +107,7 @@
                         </div>
                     </form>
                     <form id="deleteCategory" class="form"
-                          action="{{ route('admin_delete_delivery', $delivery->id) }}" method="post">
+                          action="{{ route('admin_delivery_delete', $delivery->id) }}" method="post">
                         @csrf
                         <div class="card card-bordered style-default-light no-shadow">
 
