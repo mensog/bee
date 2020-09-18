@@ -40,7 +40,7 @@
                             <div class="form-group row">
 
                                 @foreach($deliveries as $key => $delivery)
-                                    <div class="col-md-6">
+                                    <div class="col-6">
                                         <input id="delivery-{{ $key }}" type="radio" {{ $key === 0 ? 'checked' : '' }}
                                         name="delivery" value="{{ $delivery->id }}"
                                                class="input-hidden delivery__input">
@@ -216,8 +216,8 @@
                     </div>
                 </div>
 
-                <div class="col-4">
-                    <x-cart-aside :quantity="$quantity" :cartTotal="$cartTotal"/>
+                <div class="col-lg-4">
+                    <x-cart-aside :quantity="$quantity" :cartTotal="$cartTotal" :delivery="$deliveries[0]"/>
                 </div>
 
             </div>

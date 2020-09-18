@@ -26,7 +26,7 @@ class CartAside extends Component
      *
      * @var int
      */
-    public $deliveryId;
+    public $delivery;
 
     /**
      * Create a new component instance.
@@ -35,11 +35,11 @@ class CartAside extends Component
      * @param $quantity
      * @param $deliveryId
      */
-    public function __construct($cartTotal, $quantity, $deliveryId = false)
+    public function __construct($cartTotal, $quantity, $delivery = false)
     {
         $this->cartTotal = $cartTotal;
         $this->quantity = $quantity;
-        $this->deliveryId = $deliveryId;
+        $this->delivery = $delivery;
     }
 
     /**

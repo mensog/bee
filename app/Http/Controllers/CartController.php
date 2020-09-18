@@ -151,6 +151,22 @@ class CartController extends Controller
         return $response;
     }
 
+    public function apiAside(Request $request)
+    {
+        $response = response()->json([], 404);
+        if ($request->has('deliveryId')) {
+            $delivery = Delivery::find($request->input('deliveryId'));
+            if ($delivery) {
+                $cart = app('Cart');
+                $cartContent = $cart->content;
+                $cartTotal = $cart->getTotal();
+                $response = [];
+                $response['html'] = view('components.cart-aside', ['cartTotal'=> $cartTotal, 'quantity' => $cartContent, 'delivery' => $delivery])->render();
+            }
+        }
+        return $response;
+    }
+
     public function showCheckout(Request $request)
     {
         $cart = app('Cart');

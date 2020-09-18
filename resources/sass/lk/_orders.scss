@@ -51,6 +51,7 @@
     &__item-statusbox {
         display: flex;
         cursor: pointer;
+        align-items: center;
     }
 
     &__item-icon {
@@ -58,11 +59,34 @@
         height: 20px;
         position: relative;
         margin-right: 8px;
+        padding: 4px;
+        background: #818181;
+        text-align: center;
+        border-radius: 50%;
 
         svg {
-            position: absolute;
-            top: 2px;
-            left: 0;
+            vertical-align: text-top;
+            margin: 0;
+        }
+
+        &_blue {
+            background: #1990FE;
+        }
+
+        &_red {
+            background: #EB5757;
+        }
+
+        &_green {
+            background: $green;
+        }
+
+        &_gray {
+            background: #818181;
+        }
+
+        &_orange {
+            background: $orange;
         }
     }
 
@@ -71,6 +95,22 @@
         font-size: 14px;
         margin-right: 20px;
 
+
+        &_blue {
+            color: #1990FE;
+
+            &:hover {
+                color: #1990FE;
+            }
+        }
+
+        &_red {
+            color: #EB5757;
+
+            &:hover {
+                color: #EB5757;
+            }
+        }
 
         &_green {
             color: $green;

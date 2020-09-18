@@ -103,6 +103,7 @@ Route::get('/promotions', 'PromotionsController@index')->name('promotions');
 Route::get('/about', 'AboutController@index')->name('about');
 
 Route::post('/api/cart', 'CartController@api')->name('api_cart');
+Route::post('/api/cart-aside', 'CartController@apiAside')->name('api_cart_aside');
 Route::post('/api/favorites', 'FavoriteListController@api')->name('api_favorites');
 
 Auth::routes();

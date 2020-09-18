@@ -44,8 +44,6 @@ class Cart extends Component
      */
     public $cartTotal;
 
-    public $recommendedProducts;
-
     public $favoritesListContent;
 
     /**
@@ -58,7 +56,7 @@ class Cart extends Component
      * @param $itemsSubTotal
      * @param $cartTotal
      */
-    public function __construct($favoriteList, $groupedCartContent, $stores, $quantity, $itemsSubTotal, $cartTotal, $recommendedProducts, $favoritesListContent)
+    public function __construct($favoriteList, $groupedCartContent, $stores, $quantity, $itemsSubTotal, $cartTotal, $favoritesListContent)
     {
         $this->groupedCartContent = $groupedCartContent;
         $this->favoriteList = $favoriteList;
@@ -66,7 +64,6 @@ class Cart extends Component
         $this->quantity = $quantity;
         $this->itemsSubTotal = $itemsSubTotal;
         $this->cartTotal = $cartTotal;
-        $this->recommendedProducts = $recommendedProducts;
         $this->favoritesListContent = $favoritesListContent;
     }
 
