@@ -113,7 +113,7 @@
 
                             <div class="card-actionbar style-default-bright">
                                 <div class="card-actionbar-row" style="text-align: left">
-                                    <button type="submit" onclick="return confirm('Удаление категории - Вы уверены? Восстановить будет невозможно')" class="btn btn-flex ink-reaction btn-warning">
+                                    <button type="submit" onclick="return confirm('Удаление доставки - Вы уверены? Восстановить будет невозможно')" class="btn btn-flex ink-reaction btn-warning">
                                         Удалить способ доставки
                                     </button>
                                 </div>

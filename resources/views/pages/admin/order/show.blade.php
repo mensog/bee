@@ -115,10 +115,10 @@
                                 </span>
                                 </div>
                                 <div>
-                                    @if($order->delivery)
-                                        {{ $order->delivery->title }}
+                                    @if($delivery)
+                                        {{ $delivery->title }}
                                         <span class="pull-right">
-                                        {{ $order->delivery_amount / 100 . ' руб' }}
+                                        {{ $order->delivery_amount / 100 }} руб
                                      @endif
                                 </span>
                                 </div>

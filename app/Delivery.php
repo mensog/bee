@@ -31,10 +31,10 @@ class Delivery extends Model
             if ($timeIncludeDelivery > $start && $timeIncludeDelivery < $end) {
                 return $timeIncludeDelivery->format('H:i d.m');
             } else {
-                return Carbon::createFromTimeString($start)->addHour($this->delay)->format('H:i d.m');
+                return Carbon::createFromTimeString($start)->format('H:i d.m');
             }
         } else {
-            return Carbon::createFromTimeString($start)->addHour($this->delay)->format('H:i d.m');
+            return $timeIncludeDelivery->format('H:i d.m');
         }
     }
 
