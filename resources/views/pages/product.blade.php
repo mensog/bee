@@ -311,7 +311,7 @@
                             @endforeach
                         </div>
                         @if($product->reviews->count() > 2)
-                            <button class="btn btn-outline-black mt-4">Показать все отзывы</button>
+                            <button id="showComments" class="btn btn-outline-black mt-4">Показать все отзывы</button>
                         @endif
                     </div>
                 @endif

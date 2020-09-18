@@ -52,6 +52,12 @@ export const clean = obj => {
 
 jQuery($ => {
 
+    $('#showComments').on('click', function () {
+        $(this).addClass('d-none')
+
+        $('.comments-list .comment').removeClass('d-none')
+    })
+
     const street = window.utils.storage('beeclub-street')
     if (street) {
         document.getElementById('curPosition').textContent = street
