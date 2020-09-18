@@ -47,8 +47,8 @@ class DeliveryController extends Controller
         $delivery->color = $request->input('color');
         $delivery->delay = $request->input('delay');
         $delivery->serial_number = $request->input('serial_number');
-        $delivery->start = Carbon::createFromTimeString($request->input('start'))->roundHours();
-        $delivery->end = Carbon::createFromTimeString($request->input('end'))->roundHours();
+        $delivery->start = Carbon::createFromTimeString($request->input('start'));
+        $delivery->end = Carbon::createFromTimeString($request->input('end'));
 
         $delivery->save();
         if ($request->hasFile('icon_path')) {

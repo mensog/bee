@@ -15,7 +15,7 @@ class Delivery extends Model
 
     public function getTimeToDelivery()
     {
-        $timeIncludeDelivery = Carbon::now()->roundHours()->addHour($this->delay);
+        $timeIncludeDelivery = Carbon::now()->addHour($this->delay);
         $start = Carbon::createFromTimeString($this->start);
         $end = Carbon::createFromTimeString($this->end);;
 
