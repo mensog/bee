@@ -83,4 +83,6 @@
 
 </main>
 
+<x-app-banner/>
+
 <x-footer/>

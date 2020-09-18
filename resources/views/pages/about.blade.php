@@ -442,4 +442,6 @@
     }
 </script>
 
+<x-app-banner/>
+
 <x-footer/>

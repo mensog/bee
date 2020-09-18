@@ -227,6 +227,9 @@
         </form>
     </div>
 </main>
+
+<x-app-banner/>
+
 <x-footer/>
 <script>
     const storage = window.utils.storage
