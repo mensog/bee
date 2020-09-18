@@ -2,7 +2,7 @@
     <div id="cart" class="cart">
         <div class="container">
             <div class="row">
-                <div class="col-8">
+                <div class="col-lg-8">
                     <div class="cart__wrap">
                         <h2 class="cart__heading">Корзина ({{ count($quantity) }})</h2>
                         @csrf
@@ -14,7 +14,7 @@
                                         <div class="cart__product-wrapper">
                                             <div class="cart__product-img">
                                                 <a href="{{ route('product', ['name' => $item->friendly_url_name, 'storeSlug' => $item->store->slug]) }}">
-                                                    <img src="{{ $item->img_url ?? '/img/cart/placeholder150.png' }}"
+                                                    <img src="{{  $item->img_url ?? '/img/cart/placeholder150.png' }}"
                                                          alt="{{ $item->name }}">
                                                 </a>
                                             </div>
@@ -102,7 +102,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-lg-4">
                     <div class="cart-aside">
                         <div class="checkout">
                             <h4 class="checkout__heading">Ваша корзина ({{ count($quantity) }})</h4>
@@ -149,7 +149,7 @@
             <h2 class="liked__heading">Рекомендованные товары</h2>
             <div class="row">
                 @foreach($recommendedProducts as $recommendedProduct)
-                    <div class="col-3">
+                    <div class="col-lg-3">
                         <a href="{{ route('product', ['name' => $recommendedProduct->friendly_url_name, 'storeSlug' => $recommendedProduct->store->slug]) }}" class="liked__item">
                             <div class="liked__item-body">
                                 <img class="liked__item-img" src="{{ $recommendedProduct->img_url }}" alt="{{ $recommendedProduct->name }}">

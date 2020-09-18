@@ -1,0 +1,135 @@
+@media (max-width: 1199px) {
+
+}
+
+@media (max-width: 991px) {
+    .breadcrumbs .container {
+        padding-top: 16px;
+        padding-bottom: 16px !important;
+    }
+
+    .cart {
+        .container {
+            padding-top: 0;
+        }
+
+        &__wrap {
+            padding: 24px 16px;
+            margin-bottom: 30px;
+        }
+
+        &__heading {
+            padding-bottom: 16px;
+            margin-bottom: 0;
+            font-size: 24px;
+        }
+
+        &__subheading {
+            padding: 16px 0;
+            font-size: 20px;
+        }
+
+        &__product {
+            flex-direction: column;
+        }
+
+        &__product-wrapper {
+            width: 100%;
+            justify-content: flex-start;
+
+            &:first-of-type {
+                margin-bottom: 11px;
+            }
+        }
+
+        &__product-img {
+            max-width: 48px;
+            max-height: 48px;
+
+            a {
+                display: block;
+                height: 100%;
+            }
+        }
+
+        &__product-box {
+            &:first-of-type {
+                margin-bottom: 14px;
+            }
+        }
+
+        &__product-descr {
+            a {
+                font-size: 12px;
+            }
+        }
+
+        &__product-shop {
+            font-size: 12px;
+        }
+
+        &__product-link {
+            font-size: 12px;
+        }
+
+        &__product-link {
+            display: flex;
+            align-items: center;
+        }
+
+        &__product-input {
+            font-size: 12px;
+
+            &::placeholder {
+                font-size: 12px;
+            }
+        }
+    }
+
+    .checkout {
+        padding: 24px 16px 0;
+
+        &__heading {
+            font-size: 16px;
+            margin-bottom: 11px;
+        }
+
+        &__wrap {
+            padding: 9px 0;
+
+            &:last-of-type {
+                padding: 16px 0 24px;
+            }
+            span {
+                font-size: 12px;
+            }
+
+            .checkout__total-price {
+                font-size: 16px;
+            }
+
+            .checkout__total {
+                font-size: 14px;
+            }
+        }
+    }
+    .cart-aside .checkout__btn {
+        position: fixed !important;
+        bottom: 0;
+        left: 50%;
+        max-width: 296px;
+        transform: translateX(-50%);
+        z-index: 1000;
+    }
+
+}
+
+@media (max-width: 767px) {
+
+}
+
+@media (max-width: 575px) {
+
+}
+
+
