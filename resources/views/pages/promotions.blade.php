@@ -1,6 +1,6 @@
 <x-header />
 
-<main id="content" role="main">
+<main id="content" role="main" class="bg-white">
     <div class="promotions">
         <div class="delivery">
             <div class="container">
@@ -34,13 +34,10 @@
                     </a>
                 </div>
             </div>
-            <div class="contact">
-                <a href="#" class="contact__improve">
-                    <div class="contact__improve-text">Что можно улучшить на этой странице?</div>
-                </a>
-            </div>
         </div>
     </div>
+    <x-improve/>
+
 </main>
 
 <x-app-banner/>

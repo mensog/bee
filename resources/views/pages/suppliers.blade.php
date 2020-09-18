@@ -24,7 +24,8 @@
                     <div class="main-screen__benefits-descr">комиссии от продажи удерживаем с поставщика</div>
                 </div>
             </div>
-            <a href="{{ Route::currentRouteName() === 'suppliers' ? '#terms' : route('suppliers') . '#become' }}" class="main-screen__btn btn btn-primary" >Начать работу</a>
+            <a href="{{ Route::currentRouteName() === 'suppliers' ? '#terms' : route('suppliers') . '#become' }}"
+               class="main-screen__btn btn btn-primary">Начать работу</a>
         </div>
     </section>
 
@@ -150,17 +151,17 @@
                             <input class="become__input" type="text" placeholder="Имя">
                             <input class="become__input" type="text" placeholder="Телефон">
                             <button class="btn btn-primary become__btn">Перезвоните мне</button>
-                            <div class="become__text become__text_small">Отправляя свои данные, вы соглашаетесь на обработку персональных данных</div>
+                            <div class="become__text become__text_small">Отправляя свои данные, вы соглашаетесь на
+                                обработку персональных данных
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
-            <a href="#" class="contact__improve">
-                <div class="contact__improve-text">Что можно улучшить на этой странице?</div>
-            </a>
         </div>
     </section>
 
+    <x-improve/>
 </main>
 
 <x-footer/>

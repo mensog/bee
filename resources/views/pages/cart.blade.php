@@ -15,4 +15,6 @@
 
 <x-app-banner/>
 
+<x-improve/>
+
 <x-footer/>

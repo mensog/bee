@@ -345,3 +345,16 @@
         line-height: 12px;
     }
 }
+
+.cart-page {
+
+    .liked {
+        padding-bottom: 0;
+        background-color: $white;
+    }
+
+    + .container > .improve {
+        margin-bottom: 64px;
+    }
+}
+

@@ -314,10 +314,8 @@
                     </div>
                 </div>
             </div>
-            <a href="#" class="contact__improve">
-                <div class="contact__improve-text">Что можно улучшить на этой странице?</div>
-            </a>
         </div>
+            <x-improve/>
     </div>
 
 </main>

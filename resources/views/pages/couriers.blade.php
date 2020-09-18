@@ -1,6 +1,6 @@
 <x-header/>
 
-<main id="content" role="main">
+<main id="content" role="main" class="couriers">
 
     <section class="main-screen">
         <div class="container">
@@ -200,13 +200,11 @@
                     </div>
                 </div>
             </div>
-            <div class="contact">
-                <a href="#" class="contact__improve">
-                    <div class="contact__improve-text">Что можно улучшить на этой странице?</div>
-                </a>
-            </div>
         </div>
     </section>
+
+    <x-improve/>
+
 </main>
 
 <x-footer/>
