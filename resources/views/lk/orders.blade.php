@@ -197,7 +197,18 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row text-center py-3">
+                        @if($order->delivery)
+                            <div class="col-md-6">
+                                {{ $order->delivery->title }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ $order->delivery->price }}
+                            </div>
+                        @endif
+                    </div>
                 @endforeach
+
             </div>
         @else
             <x-empty-list page="orders"/>
