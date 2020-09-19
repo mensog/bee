@@ -10,13 +10,7 @@
                 </li>
                 <li class="breadcrumb__item">/</li>
                 <li class="breadcrumb__item">
-                    <a class="breadcrumb__link"
-                       href="{{ route('store_main', ['storeSlug' => $store->slug]) }}">{{ $store->company_name }}
-                    </a>
-                </li>
-                <li class="breadcrumb__item">/</li>
-                <li class="breadcrumb__item">
-                    <a class="breadcrumb__link" href="{{ route('catalog', ['storeSlug' => $store->slug]) }}">
+                    <a class="breadcrumb__link" href="{{ route('catalog') }}">
                         Каталог
                     </a>
                 </li>
@@ -29,18 +23,25 @@
                     @else
                         <li class="breadcrumb__item">/</li>
                         <li class="breadcrumb__item">
+                            @if ($store)
                             <a class="breadcrumb__link"
-                               href="{{ route('category',['storeSlug' => $store->slug , 'name'=> $key]) }}">
+                               href="{{ route('category',['storeId' => $store->id , 'name'=> $key]) }}">
                                 {{ $crumb }}
                             </a>
+                                @else
+                                <a class="breadcrumb__link"
+                                   href="{{ route('category', ['name'=> $key]) }}">
+                                    {{ $crumb }}
+                                </a>
+                            @endif
                         </li>
                     @endif
                 @endforeach
             </ul>
-            <div class="delivery__box">
-                <img class="delivery__box-img" src="{{ $store->image_path }}" alt="">
-                <h3 class="delivery__box-title"><span>Доставка из</span>{{ $store->company_name }}</h3>
-            </div>
+            {{--<div class="delivery__box">--}}
+                {{--<img class="delivery__box-img" src="{{ $store->image_path }}" alt="">--}}
+                {{--<h3 class="delivery__box-title"><span>Доставка из</span>{{ $store->company_name }}</h3>--}}
+            {{--</div>--}}
         </div>
     </div>
 
@@ -128,14 +129,14 @@
                             @isset($currentCategory)
                                 @isset($storeCatalog[$currentCategory->id])
                                     @foreach($storeCatalog[$currentCategory->id] as $cat)
-                                        <a href="{{ route('category', ['name' => $cat->friendly_url_name, 'storeSlug' => $currentStore->slug]) }}"
+                                        <a href="{{ route('category', ['name' => $cat->friendly_url_name]) }}"
                                            class="tabs__control-btn">{{  $cat->name }}</a>
                                     @endforeach
                                 @endisset
                             @else
                                 @isset($storeCatalog[''])
                                     @foreach($storeCatalog[''] as $cat)
-                                        <a href="{{ route('category', ['name' => $cat->friendly_url_name, 'storeSlug' => $currentStore->slug]) }}"
+                                        <a href="{{ route('category', ['name' => $cat->friendly_url_name]) }}"
                                            class="tabs__control-btn">{{  $cat->name }}</a>
                                     @endforeach
                                 @endisset

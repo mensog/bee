@@ -11,11 +11,11 @@
                    href="{{ route('store_main', ['storeSlug' => $product->store->slug]) }}">{{ $product->store->company_name }}</a>
                 /
                 <a class="breadcrumbs-block__link"
-                   href="{{ route('catalog', ['storeSlug' => $product->store->slug]) }}">Каталог</a>
+                   href="{{ route('catalog') }}">Каталог</a>
                 /
                 @foreach($categoryBreadcrumbs as $url => $catName)
                     <a class="breadcrumbs-block__link"
-                       href="{{ route('category', ['name' => $url, 'storeSlug' => $product->store->slug]) }}">
+                       href="{{ route('category', ['name' => $url, 'storeId' => $product->store->id]) }}">
                         {{ $catName }}
                     </a>
                     /

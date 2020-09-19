@@ -8,17 +8,17 @@ class CategoryHeaderItem extends Component
 {
     protected $categories;
     protected $childCategories;
-    protected $store;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($categories, $childCategories, $store)
+    public function __construct($categories, $childCategories)
     {
         $this->categories = $categories;
         $this->childCategories = $childCategories;
-        $this->store= $store;
+
     }
 
     /**
@@ -31,7 +31,6 @@ class CategoryHeaderItem extends Component
         return view('components.category-header-item',[
             'categories' => $this->categories,
             'childCategories' => $this->childCategories,
-            'store' => $this->store,
         ]);
     }
 }

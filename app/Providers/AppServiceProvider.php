@@ -52,7 +52,8 @@ class AppServiceProvider extends ServiceProvider
                     }
                 }
             }
-            view()->share('currentStore', $store);
+            $commonCatalog = Category::getCommonCatalog();
+            view()->share('commonCatalog', $commonCatalog);
 
             $stores = Partner::all();
             view()->share('headerAllStores', $stores);

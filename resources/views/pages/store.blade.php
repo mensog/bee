@@ -1,4 +1,4 @@
-<x-header/>
+<x-header :currentStore="$currentStore"/>
 
 <main id="content" role="main" class="store">
 
@@ -69,7 +69,7 @@
         </div>
     </div>
 
-    <x-categories/>
+    <x-categories :currentStore="$currentStore" :storeCatalog="$storeCatalog"/>
     <x-liked :likedRandomProducts="$likedRandomProducts" :favoritesListContent="$favoritesListContent"/>
     <x-delivery/>
 

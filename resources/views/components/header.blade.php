@@ -68,14 +68,14 @@
                 </div>
                 <div class="header-inner">
                     <div class="dropdown">
-                        <a class="catalog-btn btn btn-primary dropdown-toggle {{ (isset($storeCatalog) && $storeCatalog) ? '' : 'dropdown-empty' }}"
+                        <a class="catalog-btn btn btn-primary dropdown-toggle"
                            type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                            aria-expanded="false">
                             <img src="/svg/main/catalog.svg" alt="">Каталог
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            @isset($storeCatalog)
-                                <x-category-header :categories="$storeCatalog" :store="$currentStore"/>
+                            @isset($commonCatalog)
+                                <x-category-header :categories="$commonCatalog"/>
                             @endisset
                         </div>
                     </div>
