@@ -6,7 +6,6 @@ use App\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Notifications\Notification;
 
 class OrderPaidNotification extends OrderNotification
 {
@@ -16,7 +15,7 @@ class OrderPaidNotification extends OrderNotification
     /**
      * Create a new notification instance.
      *
-     * @return void
+     * @param Order $order
      */
     public function __construct(Order $order)
     {
@@ -46,7 +45,12 @@ class OrderPaidNotification extends OrderNotification
         return (new MailMessage)
                     ->line('оплачен')
                     ->line('Ваш заказ оплачен')
-                    ->view('notifications.email', ['order' => $this->order]);
+                    ->view('notifications.email', [
+                        'order' => $this->order,
+                        'status' => 'Оплачен',
+                        'quantity' => $this->order->items()->pluck('quantity')->toArray(),
+                        'style' => '',
+                    ]);
     }
 
     /**

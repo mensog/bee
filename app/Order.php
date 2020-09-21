@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Notifications\OrderCanceledNotification;
 use App\Notifications\OrderPaidNotification;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -112,12 +113,25 @@ class Order extends Model
         return $this->email;
     }
 
-    public function sendStatusNotification(Order $order)
+    public function sendStatusNotification()
     {
-        $status = $order->status;
-        if ($status == OrderStatus::PAID) {
-            $notification = new OrderPaidNotification($order);
-            $order->notify($notification);
+        if ($this->status == OrderStatus::PAID) {
+            $this->notify(new OrderPaidNotification($this));
         }
+        if ($this->status == OrderStatus::CANCELED) {
+            $this->notify(new OrderCanceledNotification($this));
+        }
+//        if ($this->status == OrderStatus::CANCELED) {
+//            $this->notify(new OrderCanceledNotification($this));
+//        }
+//        if ($this->status == OrderStatus::CANCELED) {
+//            $this->notify(new OrderCanceledNotification($this));
+//        }
+//        if ($this->status == OrderStatus::CANCELED) {
+//            $this->notify(new OrderCanceledNotification($this));
+//        }
+//        if ($this->status == OrderStatus::CANCELED) {
+//            $this->notify(new OrderCanceledNotification($this));
+//        }
     }
 }

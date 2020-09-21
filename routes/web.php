@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('email', function () {
-    return view('vendor/notifications/email');
-});
 Route::get('/', 'MainController@index')->name('main');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'can:accessAdminPanel'], function () {
@@ -118,5 +115,3 @@ Route::get('/{storeSlug}/category/{name}', 'CategoryController@index')->name('ca
 Route::get('/{storeSlug}/product/{name}', 'ProductController@show')->name('product');
 
 Route::get('/{storeSlug}', 'MainController@showStore')->name('store_main');
-
-
