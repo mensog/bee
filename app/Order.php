@@ -7,6 +7,7 @@ use App\Notifications\OrderCompletedNotification;
 use App\Notifications\OrderGivenToCourierNotification;
 use App\Notifications\OrderPaidNotification;
 use App\Notifications\OrderPendingNotification;
+use App\Notifications\OrderReDeliveryNotification;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
@@ -133,8 +134,8 @@ class Order extends Model
         if ($this->status == OrderStatus::GIVEN_TO_COURIER) {
             $this->notify(new OrderGivenToCourierNotification($this));
         }
-//        if ($this->status == OrderStatus::CANCELED) {
-//            $this->notify(new OrderCanceledNotification($this));
-//        }
+        if ($this->status == OrderStatus::RE_DELIVERY) {
+            $this->notify(new OrderReDeliveryNotification($this));
+        }
     }
 }
