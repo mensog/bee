@@ -119,6 +119,7 @@ Route::get('/sale-regulations', 'StaticPageController@saleRegulations')->name('s
 
 Route::post('/product/{id}/review', 'ReviewController@create')->name('add_review');
 
+Route::get('/search', 'CategoryController@search')->name('search');
 Route::get('/catalog', 'CategoryController@index')->name('catalog');
 Route::get('/category/{name}', 'CategoryController@index')->name('category');
 Route::get('/{storeSlug}/product/{name}', 'ProductController@show')->name('product');

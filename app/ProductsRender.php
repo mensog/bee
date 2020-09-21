@@ -28,10 +28,12 @@ class ProductsRender
     public $pageName;
     public $pageRootRoute;
     public $sidebarRouteName;
+    public $skipQuery;
 
 
     public function __construct($request, $categoryName)
     {
+        $this->skipQuery = false;
         $cart = app('Cart');
         $this->cartContent = $cart->content;
 
@@ -87,6 +89,8 @@ class ProductsRender
 
     public function initProducts()
     {
-        $this->products = $this->productsQuery->paginate(self::PRODUCTS_PER_PAGE)->appends(request()->query());
+        if (!$this->skipQuery) {
+            $this->products = $this->productsQuery->paginate(self::PRODUCTS_PER_PAGE)->appends(request()->query());
+        }
     }
 }

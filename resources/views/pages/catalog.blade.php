@@ -37,7 +37,17 @@
             {{--</div>--}}
         </div>
     </div>
-
+@if($productsRender->skipQuery)
+        <div class="catalog">
+            <div class="container text-center">
+                <h3 class="catalog__title">Ничего не найдено</h3>
+                <div class="row">
+                    К сожалению по вашему запросу товаров не найдено
+                </div>
+                <a href="{{ route('catalog') }}" class="btn btn-primary">Вернуться в каталог</a>
+            </div>
+        </div>
+@else
     <div class="catalog">
         <div class="container">
             <h3 class="catalog__title">{{ (is_null($productsRender->currentCategory)) ? $productsRender->pageName : $productsRender->currentCategory->name }}</h3>
@@ -134,7 +144,7 @@
             </div>
         </div>
     </div>
-
+    @endif
     <x-delivery/>
 
     <div class="container">
