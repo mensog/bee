@@ -108,9 +108,9 @@
                             </ul>
                         </div>
                     </div>
-                    <form action="" class="form-inline">
+                    <form action="{{ route('search') }}" method="get" class="form-inline">
                         <div class="input-group">
-                            <input placeholder="Хочу найти нужный товар" type="text" class="form-control">
+                            <input placeholder="Хочу найти нужный товар" type="text" name="q" class="form-control" value="{{ request()->input('q') ?? '' }}">
                             <div class="input-group-append">
                                 <button class="btn btn-primary btn-search"><img src="/svg/main/search.svg" alt="">
                                 </button>
