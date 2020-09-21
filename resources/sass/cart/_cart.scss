@@ -343,6 +343,11 @@
         font-weight: bold;
         font-size: 14px;
         line-height: 12px;
+
+        &:hover {
+            border-color: $primary-yellow;
+            box-shadow: none !important;
+        }
     }
 }
 
@@ -377,6 +382,10 @@
 
     + .container > .improve {
         margin-bottom: 64px;
+    }
+
+    .budge {
+        display: none;
     }
 }
 
