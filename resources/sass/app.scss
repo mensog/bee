@@ -227,3 +227,14 @@ html {
 button.btn:hover {
     cursor: pointer;
 }
+
+.budge {
+    width: 177px;
+    padding: 5px 8px 5px 26px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    color: $white;
+    background: $green url(/svg/check-small.svg) 4% 25% no-repeat;
+    border-radius: 6px;
+}
