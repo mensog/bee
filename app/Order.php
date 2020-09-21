@@ -5,6 +5,7 @@ namespace App;
 use App\Notifications\OrderCanceledNotification;
 use App\Notifications\OrderCompletedNotification;
 use App\Notifications\OrderPaidNotification;
+use App\Notifications\OrderPendingNotification;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
@@ -125,9 +126,9 @@ class Order extends Model
         if ($this->status == OrderStatus::COMPLETED) {
             $this->notify(new OrderCompletedNotification($this));
         }
-//        if ($this->status == OrderStatus::CANCELED) {
-//            $this->notify(new OrderCanceledNotification($this));
-//        }
+        if ($this->status == OrderStatus::PENDING) {
+            $this->notify(new OrderPendingNotification($this));
+        }
 //        if ($this->status == OrderStatus::CANCELED) {
 //            $this->notify(new OrderCanceledNotification($this));
 //        }
