@@ -60,7 +60,7 @@
                         </div>
                     </nav>
                     <div class="menu-right">
-                        <a class="position" href="#"><img src="/svg/main/position.svg" alt="">Москва</a>
+                        <p class="position mb-0"><img src="/svg/main/position.svg" alt=""><span id="curPosition">Москва</span></p>
                         <a class="login" href="{{ route('lk') }}">
                             @auth В личный кабинет @else Войти в профиль @endauth
                         </a>
