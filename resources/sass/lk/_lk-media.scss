@@ -1,19 +1,11 @@
 @media (max-width: 991px) {
 
-    .breadcrumbs-lk {
-        display: none;
-    }
-
-
     .lk-page {
         padding-top: 30px;
         padding-bottom: 0;
         background-color: $white;
-        .card-lk {
-            display: none;
-        }
 
-        + .main-delivery {
+        .card-lk {
             display: none;
         }
     }

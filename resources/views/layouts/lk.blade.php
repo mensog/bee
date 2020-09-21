@@ -1,6 +1,6 @@
 <x-header/>
 <main id="content" role="main">
-    <div class="breadcrumbs breadcrumbs-lk">
+    <div class="breadcrumbs">
         <div class="container">
             <p class="breadcrumbs-block">
                 <a class="breadcrumbs-block__link" href="{{ route('main') }}">Главная</a>

@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-6">
                         <div class="form-control-container">
                             <input id="house" type="text"
                                    class="form-control"
@@ -101,7 +101,7 @@
                             <label for="house">Дом</label>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-6">
                         <div class="form-control-container">
                             <input id="apartment" type="text"
                                    class="form-control"
@@ -110,7 +110,7 @@
                             <label for="apartment">Квартира</label>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-6">
                         <div class="form-control-container">
                             <input id="floor" type="text"
                                    class="form-control"
@@ -121,7 +121,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-lg-6">
                         <button class="btn btn-primary" type="submit">
                             Сохранить данные
                         </button>
@@ -169,7 +169,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-lg-6">
                         <button class="btn btn-primary" type="submit">
                             Изменить пароль
                         </button>
