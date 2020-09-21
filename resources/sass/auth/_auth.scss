@@ -123,7 +123,40 @@
         }
     }
 
+    .registration-page {
 
+
+        .card-auth {
+            h2 {
+                margin-bottom: 24px;
+                font-size: 20px;
+            }
+
+            .form-group {
+                margin-bottom: 0;
+            }
+
+            .form-control-container {
+                margin-bottom: 20px;
+            }
+        }
+
+        .auth-page__after-title {
+            display: none;
+        }
+
+        .auth-page__agreement {
+            margin-bottom: 16px;
+            font-size: 10px;
+            a {
+                font-size: 10px;
+            }
+        }
+
+        .auth-page__registered {
+            font-size: 12px;
+        }
+    }
 
 
 }
