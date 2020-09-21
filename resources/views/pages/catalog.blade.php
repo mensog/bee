@@ -10,11 +10,11 @@
                 </li>
                 <li class="breadcrumb__item">/</li>
                 <li class="breadcrumb__item">
-                    <a class="breadcrumb__link" href="{{ route('catalog') }}">
-                        Каталог
+                    <a class="breadcrumb__link" href="{{ $productsRender->pageRootRoute }}">
+                        {{ $productsRender->pageName }}
                     </a>
                 </li>
-                @foreach($breadcrumbs as $key => $crumb)
+                @foreach($productsRender->breadcrumbs as $key => $crumb)
                     @if($loop->last)
                         <li class="breadcrumb__item">/</li>
                         <li class="breadcrumb__item">
@@ -23,17 +23,10 @@
                     @else
                         <li class="breadcrumb__item">/</li>
                         <li class="breadcrumb__item">
-                            @if ($store)
                             <a class="breadcrumb__link"
-                               href="{{ route('category',['storeId' => $store->id , 'name'=> $key]) }}">
+                               href="{{ route('category', ['name'=> $key]) }}">
                                 {{ $crumb }}
                             </a>
-                                @else
-                                <a class="breadcrumb__link"
-                                   href="{{ route('category', ['name'=> $key]) }}">
-                                    {{ $crumb }}
-                                </a>
-                            @endif
                         </li>
                     @endif
                 @endforeach
@@ -47,48 +40,39 @@
 
     <div class="catalog">
         <div class="container">
-            <h3 class="catalog__title">{{ (is_null($currentCategory)) ? 'Каталог' : $currentCategory->name }}</h3>
+            <h3 class="catalog__title">{{ (is_null($productsRender->currentCategory)) ? $productsRender->pageName : $productsRender->currentCategory->name }}</h3>
             <div class="row">
                 <div class="col-lg-3">
                     <div class="catalog__aside">
                         <div class="catalog__subtitle subtitle">Категории</div>
 
-                        @isset($storeCatalog)
-                            <x-category-sidebar :categories="$storeCatalog" :store="$store"
-                                                :activeCategorySlugs="$activeCategorySlugs"/>
+                        @isset($commonCatalog)
+                            <x-category-sidebar :categories="$commonCatalog" :activeCategorySlugs="$productsRender->activeCategorySlugs"
+                            :routeName="$productsRender->sidebarRouteName"/>
                         @endisset
                         <div class="price-filter">
                             <h4 class="price-filter__title subtitle">Цена</h4>
                             <div class="price-filter__wrap">
                                 <div class="price-filter__box">
                                     <span>от</span>
-                                    <input type="text" placeholder="0 ₽">
+                                    <input type="text" placeholder="" value="{{ ($productsRender->filterPriceFrom) ? $productsRender->filterPriceFrom / 100 : '' }}">
                                 </div>
                                 <div class="price-filter__box">
                                     <span>до</span>
-                                    <input type="text" placeholder="112 220 ₽">
+                                    <input type="text" placeholder="" value="{{ ($productsRender->filterPriceTo) ? $productsRender->filterPriceTo / 100 : '' }}">
                                 </div>
                             </div>
                         </div>
                         <div class="checkboxes">
-                            <h4 class="checkboxes__subtitle subtitle">Материал</h4>
+                            <h4 class="checkboxes__subtitle subtitle">Магазин</h4>
                             <div class="checkboxes__wrap">
+                                @foreach($productsRender->stores as $filterStore)
                                 <div class="checkboxes__item">
-                                    <input type="checkbox" id="gypsum">
-                                    <label for="gypsum">Гипс</label>
+                                    <input type="checkbox" id="store{{ $filterStore->id }}" name="filterStore"
+                                    {{ in_array($filterStore->id, $productsRender->storeIds) ? ' checked' : '' }}>
+                                    <label for="store{{ $filterStore->id }}">{{ $filterStore->company_name }}</label>
                                 </div>
-                                <div class="checkboxes__item">
-                                    <input type="checkbox" id="сoncrete">
-                                    <label for="сoncrete">Бетон</label>
-                                </div>
-                                <div class="checkboxes__item">
-                                    <input type="checkbox" id="steel">
-                                    <label for="steel">Сталь</label>
-                                </div>
-                                <div class="checkboxes__item">
-                                    <input type="checkbox" id="aluminum">
-                                    <label for="aluminum">Алюминий</label>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                         <div class="checkboxes">
@@ -126,75 +110,25 @@
                 <div class="col-lg-9">
                     <div class="tabs">
                         <div class="tabs__control">
-                            @isset($currentCategory)
-                                @isset($storeCatalog[$currentCategory->id])
-                                    @foreach($storeCatalog[$currentCategory->id] as $cat)
+                            @isset($productsRender->currentCategory)
+                                @isset($productsRender->storeCatalog[$currentCategory->id])
+                                    @foreach($productsRender->storeCatalog[$currentCategory->id] as $cat)
                                         <a href="{{ route('category', ['name' => $cat->friendly_url_name]) }}"
                                            class="tabs__control-btn">{{  $cat->name }}</a>
                                     @endforeach
                                 @endisset
                             @else
-                                @isset($storeCatalog[''])
-                                    @foreach($storeCatalog[''] as $cat)
+                                @isset($productsRender->storeCatalog[''])
+                                    @foreach($productsRender->storeCatalog[''] as $cat)
                                         <a href="{{ route('category', ['name' => $cat->friendly_url_name]) }}"
                                            class="tabs__control-btn">{{  $cat->name }}</a>
                                     @endforeach
                                 @endisset
                             @endisset
                         </div>
-                        <div class="tabs__sort">
-                            <div
-                                class="tabs__sort-quantity">{{ $products->total() }} {{ Lang::choice('товар|товара|товаров', $products->total(), [], 'ru') }}</div>
-                            <div class="tabs__sort-filter">
-                                Сортировать: <span>по популярности</span>
-                                <img src="/svg/catalog/sort-icon.svg" alt="">
-                            </div>
-                        </div>
                     </div>
-                    <div class="product">
-                        <div class="row">
-                            @foreach ($products as $key => $product)
-                                <div class="col-lg-4">
-                                    <div id="product_{{ $product->id }}" class="product__item">
-                                        <a href="{{ route('product', ['storeSlug' => $product->store->slug, 'name' => $product->friendly_url_name]) }}">
-                                            <div class="product__item-img">
-                                                <img src="{{ $product->img_url }}" alt="{{ $product->name }}">
-                                            </div>
-                                        </a>
-                                        @if(in_array($product->id, $favoritesListContent, true))
-                                            <button data-id="{{ $product->id }}" data-action="remove" data-page="catalog"
-                                                    class="btn-add-to-favorites product__item-favorite add-to-favorites p-0 text-gray-6 font-size-13">
-                                                <i class="ec heart font-size-15"></i>
-                                            </button>
-                                        @else
-                                            <button data-id="{{ $product->id }}" data-action="add" data-page="catalog"
-                                                    class="btn-add-to-favorites product__item-favorite add-to-favorites p-0 text-gray-6 font-size-13">
-                                                <i class="ec ec-favorites font-size-15"></i>
-                                            </button>
-                                        @endif
-                                        <a href="{{ route('product', ['storeSlug' => $product->store->slug, 'name' => $product->friendly_url_name]) }}">
-                                            <div class="product__item-descr">{{ $product->name }}</div>
-                                            <div class="product__item-article">{{ $product->sku }}</div>
-                                            <div class="product__item-price">
-                                                <span>{{ $product->price / 100 }} ₽</span>/ за 1 шт
-                                            </div>
-                                        </a>
-                                        @if (isset($cartContent[$product->id]))
-                                            <button data-id="{{ $product->id }}" data-quantity="1"
-                                                    class="product__item-btn btn btn-primary btn-inactive">
-                                                В корзине
-                                            </button>
-                                        @else
-                                            <button data-id="{{ $product->id }}" data-quantity="1"
-                                                    class="product__item-btn btn btn-primary add-to-cart">
-                                                В корзину
-                                            </button>
-                                        @endif
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                        {{ $products->links() }}
+                    <div id="productsContainer">
+                        <x-products-list :products="$productsRender->products" :cartContent="$productsRender->cartContent" :favoritesListContent="$productsRender->favoritesListContent"/>
                     </div>
                 </div>
             </div>

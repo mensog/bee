@@ -101,6 +101,7 @@ Route::get('/removefromcart', 'CartController@removeProduct')->name('remove_from
 Route::get('/checkout', 'CartController@showCheckout')->middleware('auth')->name('checkout_page');
 Route::post('/order', 'OrderController@create')->middleware('auth')->name('place_order');
 Route::get('/favorites', 'FavoriteListController@show')->name('favorites');
+Route::get('/favorites/{name}', 'FavoriteListController@show')->name('favorites_category');
 Route::get('/couriers', 'CouriersController@index')->name('couriers');
 Route::get('/suppliers', 'SuppliersController@index')->name('suppliers');
 Route::get('/store', 'StoreController@index')->name('store');
