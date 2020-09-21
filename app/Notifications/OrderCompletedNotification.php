@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\HtmlString;
 
-class OrderCanceledNotification extends OrderNotification
+class OrderCompletedNotification extends OrderNotification
 {
     use Queueable;
 
@@ -41,20 +41,17 @@ class OrderCanceledNotification extends OrderNotification
      */
     public function toMail($notifiable)
     {
-
-
         return (new MailMessage)
-                    ->line('не оплачен')
-                    ->line(new HtmlString('Попробуйте оплатить заказ повторно.<br>Перейдите по ссылке для повторной оплаты'))
+                    ->line('доставлен')
+                    ->line(new HtmlString('Заказ успешно доставлен. Понравился товар?<br>Оставьте о нем отзыв!'))
                     ->view('notifications.email', [
                         'order' => $this->order,
-                        'route' => 'place_order',
-                        'linkName' => 'ссылка',
-                        'status' => 'Ожидает оплату',
+                        'status' => 'Доставлен',
                         'quantity' => $this->order->items()->pluck('quantity')->toArray(),
                         'style' => '',
                     ]);
     }
+
 
     /**
      * Get the array representation of the notification.
