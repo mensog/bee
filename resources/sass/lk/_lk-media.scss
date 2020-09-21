@@ -1,0 +1,73 @@
+@media (max-width: 991px) {
+
+    .breadcrumbs-lk {
+        display: none;
+    }
+
+
+    .lk-page {
+        padding-top: 30px;
+        padding-bottom: 0;
+        background-color: $white;
+        .card-lk {
+            display: none;
+        }
+
+        + .main-delivery {
+            display: none;
+        }
+    }
+
+    .lk-sidebar {
+        margin-bottom: 0;
+        border-bottom: 1px solid #F4F4F4;
+
+        &__header {
+            padding: 0;
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 24px;
+        }
+
+        &__img {
+            margin-right: 8px;
+            margin-bottom: 0;
+            img {
+                max-width: 30px;
+            }
+        }
+
+        &__close {
+            display: block;
+            margin-left: auto;
+        }
+
+        &__user {
+            font-size: 20px;
+            margin-bottom: 0;
+        }
+
+        ul  {
+            padding-bottom: 24px;
+
+            li a {
+            font-size: 12px;
+            }
+        }
+    }
+
+    .lk-help {
+        padding: 30px;
+
+        &__header {
+            margin-bottom: 11px;
+            font-size: 16px;
+        }
+
+        &__link {
+            margin-bottom: 6px;
+            font-size: 12px;
+        }
+    }
+
+}

@@ -1,6 +1,6 @@
 <x-header/>
 <main id="content" role="main">
-    <div class="breadcrumbs">
+    <div class="breadcrumbs breadcrumbs-lk">
         <div class="container">
             <p class="breadcrumbs-block">
                 <a class="breadcrumbs-block__link" href="{{ route('main') }}">Главная</a>
@@ -28,6 +28,9 @@
                                     Иванов Иван Иванович
                                     {{--                        {{ $user->name . ' ' . $user->surname }}--}}
                                 </p>
+                                <div class="lk-sidebar__close" data-close="">
+                                    <img src="/svg/mobile-menu/menu-close.svg" alt="">
+                                </div>
                             </div>
                             <ul>
                                 <li>
