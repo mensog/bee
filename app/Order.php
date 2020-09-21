@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\Notifications\OrderPaidNotification;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Order extends Model
 {
+    use Notifiable;
     /**
      * Возвращает все товарные позиции из текущего заказа
      *
@@ -102,5 +105,19 @@ class Order extends Model
     public function delivery()
     {
         return $this->belongsTo('App\Delivery');
+    }
+
+    public function routeNotificationForMail()
+    {
+        return $this->email;
+    }
+
+    public function sendStatusNotification(Order $order)
+    {
+        $status = $order->status;
+        if ($status == OrderStatus::PAID) {
+            $notification = new OrderPaidNotification($order);
+            $order->notify($notification);
+        }
     }
 }

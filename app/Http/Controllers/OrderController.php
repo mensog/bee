@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cart;
 use App\Delivery;
+use App\Notifications\OrderPaidNotification;
 use App\Order;
 use App\OrderStatus;
 use Illuminate\Http\Request;
@@ -63,6 +64,7 @@ class OrderController extends Controller
         $order->fillFromCart($cart);
         $order = Order::where('id', $order->id)->with('items')->first();
         $order->fillOrderStores();
+        $order->sendStatusNotification($order);
         $request->session()->flash('createdOrderId', $order->id);
         $cart->clear();
         return redirect()->route('lk_orders');
