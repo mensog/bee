@@ -29,7 +29,7 @@
                                         <p class="lk-orders__item-link lk-orders__item-link_blue mb-0" href="#">
                                             {{ __('order_status.' . $order->status) }}
                                         </p>
-                                        @if($delivery)
+                                        @if($deliveryType = $order->delivery()->withTrashed()->first())
                                             <div class="lk-orders__item-icon">
                                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -39,7 +39,7 @@
                                                 </svg>
                                             </div>
                                             <p class="lk-orders__item-link lk-orders__item-link_gray mb-0">
-                                                {{ $delivery->title }}/{{ $order->delivery_amount / 100}} руб.
+                                                {{ $deliveryType->title }}/{{ $order->delivery_amount / 100}} руб.
                                             </p>
                                         @endif
                                     </div>
