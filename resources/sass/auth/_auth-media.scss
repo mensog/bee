@@ -15,7 +15,18 @@
             font-size: 20px;
         }
 
+        .cart__after-title {
+            margin-top: -10px;
+            font-size: 12px;
+            margin-bottom: 14px;
+        }
+
         .form-group .form-control-container {
+
+            input {
+                height: 48px;
+            }
+
             label {
                 font-size: 12px;
             }
