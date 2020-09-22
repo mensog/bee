@@ -7,7 +7,7 @@
     }
 
     .card-lk {
-        padding: 24px 16px;
+        padding: 24px 0;
 
         &__header {
             margin-bottom: 16px;
@@ -22,14 +22,42 @@
             font-size: 12px;
         }
 
-        &__score {
-            font-size: 30px;
-            margin-bottom: 24px;
+        &__img {
+            max-width: 143px;
         }
     }
 
     .card-lk .card-lk__score {
+        margin-bottom: 24px;
+        font-size: 30px;
+    }
 
+    .card-lk .card-lk__link {
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+
+    .card-lk h4 {
+        font-size: 20px;
+        margin-bottom: 14px;
+    }
+
+    .card-lk .card-log__title {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .card-lk .card-log__date {
+        font-size: 12px;
+        position: static;
+        display: block;
+        margin-bottom: 16px;
+    }
+
+    .card-lk .card-log {
+        display: block;
+        padding: 16px;
+        height: auto;
     }
 
 
