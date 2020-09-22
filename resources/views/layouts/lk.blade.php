@@ -28,9 +28,6 @@
                                     Иванов Иван Иванович
                                     {{--                        {{ $user->name . ' ' . $user->surname }}--}}
                                 </p>
-                                <div class="lk-sidebar__close" data-close="">
-                                    <img src="/svg/mobile-menu/menu-close.svg" alt="">
-                                </div>
                             </div>
                             <ul>
                                 <li>
