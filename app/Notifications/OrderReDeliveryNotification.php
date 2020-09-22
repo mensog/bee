@@ -43,10 +43,10 @@ class OrderReDeliveryNotification extends OrderNotification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('не доставлен')
-                    ->line(new HtmlString('Не удалось доставить заказ.<br>Повторная доставка запланирована на завтра.'))
                     ->view('notifications.email', [
                         'order' => $this->order,
+                        'titleNotification' => 'не доставлен',
+                        'firstText' => new HtmlString('Не удалось доставить заказ.<br>Повторная доставка запланирована на завтра.'),
                         'status' => 'Не доставлен',
                         'quantity' => $this->order->items()->pluck('quantity')->toArray(),
                         'style' => '',

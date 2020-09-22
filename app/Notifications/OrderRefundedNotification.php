@@ -6,21 +6,22 @@ use App\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Support\HtmlString;
 
-class OrderCompletedNotification extends OrderNotification
+class OrderRefundedNotification extends OrderNotification
 {
     use Queueable;
-
+    public $productReturn;
     /**
      * Create a new notification instance.
      *
      * @param Order $order
      */
-    public function __construct(Order $order)
+    public function __construct(Order $order, $productReturn)
     {
-       parent::__construct($order);
+        parent::__construct($order);
+        $this->productReturn = $productReturn;
     }
+
 
     /**
      * Get the notification's delivery channels.
@@ -42,16 +43,19 @@ class OrderCompletedNotification extends OrderNotification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->view('notifications.email', [
-                        'order' => $this->order,
-                        'titleNotification' => 'доставлен',
-                        'firstText' => new HtmlString('Заказ успешно доставлен. Понравился товар?<br>Оставьте о нем отзыв!'),
-                        'status' => 'Доставлен',
-                        'quantity' => $this->order->items()->pluck('quantity')->toArray(),
-                        'style' => '',
-                    ]);
+            ->view('notifications.email', [
+                'order' => $this->order,
+                'productReturn' => $this->productReturn,
+                'titleNotification' => 'доставлен и частично возвращен',
+                'firstText' => 'Товар арт.',
+                'secondText' => 'в заказе',
+                'thirdText' => 'передан на возврат.',
+                'status' => 'Доставлен и частично возвращен',
+                'quantity' => $this->order->items()->pluck('quantity')->toArray(),
+                'style' => '',
+            ]);
+        //Доработать
     }
-
 
     /**
      * Get the array representation of the notification.

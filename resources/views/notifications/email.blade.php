@@ -9,9 +9,11 @@
     <div class="container">
         <div class="row">
            <div class="col-md-12">
-                <h1>Заказ <a href="#">№{{ $order->id }}</a> {{ $introLines[0] }}</h1>
+                <h1>Заказ <a href="#">№{{ $order->id }}</a> {{ $titleNotification }}</h1>
                <p>
-                   {{ $introLines[1] }}
+                   @if(isset($firstText))
+                       {{$firstText}}
+                   @endif
                    @if(isset($route) && isset($linkName))
                        <a href="{{ $route }}">{{ $linkName }}</a>
                    @endif

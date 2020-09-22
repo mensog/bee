@@ -44,10 +44,10 @@ class OrderCanceledNotification extends OrderNotification
 
 
         return (new MailMessage)
-                    ->line('не оплачен')
-                    ->line(new HtmlString('Попробуйте оплатить заказ повторно.<br>Перейдите по ссылке для повторной оплаты'))
                     ->view('notifications.email', [
                         'order' => $this->order,
+                        'titleNotification' => 'не оплачен',
+                        'firstText' => new HtmlString('Попробуйте оплатить заказ повторно.<br>Перейдите по ссылке для повторной оплаты'),
                         'route' => 'place_order',
                         'linkName' => 'ссылка.',
                         'status' => 'Ожидает оплату',

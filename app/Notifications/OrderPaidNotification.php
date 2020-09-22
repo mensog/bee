@@ -6,6 +6,7 @@ use App\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Support\HtmlString;
 
 class OrderPaidNotification extends OrderNotification
 {
@@ -43,10 +44,12 @@ class OrderPaidNotification extends OrderNotification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('оплачен')
-                    ->line('Ваш заказ оплачен')
                     ->view('notifications.email', [
                         'order' => $this->order,
+                        'titleNotification' => 'оплачен',
+                        'firstText' => new HtmlString('Мы уже начали работать над вашим заказом!<br>Отслеживайте заказ в разделе «Заказы» в'),
+                        'route' => 'lk',
+                        'linkName' => 'Личном кабинете.',
                         'status' => 'Оплачен',
                         'quantity' => $this->order->items()->pluck('quantity')->toArray(),
                         'style' => '',

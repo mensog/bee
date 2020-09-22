@@ -8,6 +8,7 @@ use App\Notifications\OrderGivenToCourierNotification;
 use App\Notifications\OrderPaidNotification;
 use App\Notifications\OrderPendingNotification;
 use App\Notifications\OrderReDeliveryNotification;
+use App\Notifications\OrderRefundedNotification;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
@@ -126,6 +127,15 @@ class Order extends Model
             $this->notify(new OrderCanceledNotification($this));
         }
         if ($this->status == OrderStatus::COMPLETED) {
+            $productReturn = [];
+            foreach ($this->items as $item) {
+                if ($item->status == OrderStatus::REFUNDED) {
+                    array_push($productReturn, $item);
+                }
+            }
+            if ($productReturn != []) {
+                $this->notify(new OrderRefundedNotification($this, $productReturn));
+            }
             $this->notify(new OrderCompletedNotification($this));
         }
         if ($this->status == OrderStatus::PENDING) {

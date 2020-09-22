@@ -43,10 +43,10 @@ class OrderGivenToCourierNotification extends OrderNotification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('передан курьеру')
-                    ->line(new HtmlString('Заказ передан курьеру и скоро будет доставлен.<br>Отслеживайте заказ в разделе "Заказы" в'))
                     ->view('notifications.email', [
                         'order' => $this->order,
+                        'titleNotification' => 'передан курьеру',
+                        'firstText' => new HtmlString('Заказ успешно доставлен. Понравился товар?<br>Оставьте о нем отзыв!'),
                         'route' => 'lk',
                         'linkName' => 'Личном кабинете.',
                         'status' => 'Передан курьеру',

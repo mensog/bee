@@ -43,10 +43,10 @@ class OrderPendingNotification extends OrderNotification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('ожидает курьера')
-                    ->line(new HtmlString('Заказ собран и ожидает курьера для вручения.<br>Отслеживайте заказ в разделе "Заказы" в'))
                     ->view('notifications.email', [
                         'order' => $this->order,
+                        'titleNotification' => 'ожидает курьера',
+                        'firstText' => new HtmlString('Заказ собран и ожидает курьера для вручения.<br>Отслеживайте заказ в разделе "Заказы" в'),
                         'route' => 'lk',
                         'linkName' => 'Личном кабинете.',
                         'status' => 'Забирается со склада',
