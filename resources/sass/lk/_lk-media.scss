@@ -4,11 +4,34 @@
         padding-top: 30px;
         padding-bottom: 0;
         background-color: $white;
+    }
 
-        .card-lk {
-            display: none;
+    .card-lk {
+        padding: 24px 16px;
+
+        &__header {
+            margin-bottom: 16px;
+        }
+
+        &__title {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 12px;
+        }
+
+        &__score {
+            font-size: 30px;
+            margin-bottom: 24px;
         }
     }
+
+    .card-lk .card-lk__score {
+
+    }
+
 
     .lk-sidebar {
         margin-bottom: 0;
