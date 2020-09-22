@@ -48,4 +48,8 @@
     @endif
 </main>
 
+<x-app-banner/>
+
+<x-improve/>
+
 <x-footer/>

@@ -17,7 +17,7 @@
                 <div class="main-delivery-card main-delivery-card-yellow">
                     <div class="main-delivery-card__body">
                         <p class="main-delivery-card__header">
-                            Экономию времени и денег
+                            Экономия времени и денег
                         </p>
                         <p class="main-delivery-card__text">
                             Теперь не нужно ездить по магазинам или платить за доставку из каждого магазина

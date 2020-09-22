@@ -62,6 +62,10 @@ jQuery($ => {
         checkRegistrationForm(false, $(this), 'profile')
     })
 
+    $('#comment #advantages, #comment #disadvantages, #comment #commentText').on('keyup', function () {
+        checkRegistrationForm(false, $(this), 'comment')
+    })
+
     $('.show-password').on('click', function () {
         showPassword($(this));
     })
@@ -321,6 +325,10 @@ jQuery($ => {
 
         if (page === 'checkout' || page === 'profile' || page === 'change-password') {
             num = $(`#${page} input:required`).length;
+        }
+
+        if (page === 'comment') {
+            num = $(`#${page} textarea:required`).length;
         }
 
         // console.log(isValid)

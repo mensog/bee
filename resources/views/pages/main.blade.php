@@ -96,12 +96,12 @@
                         <span class="main-steps-row__badge">1-й шаг</span>
                     </div>
                     <div>
-                       <p class="main-steps-row__header">
-                           Вы оформляйте заказ
-                       </p>
-                       <p class="main-steps-row__text">
-                           Мы доставим ваш заказ быстро и в удобное время
-                       </p>
+                        <p class="main-steps-row__header">
+                            Вы оформляйте заказ
+                        </p>
+                        <p class="main-steps-row__text">
+                            Мы доставим ваш заказ быстро и в удобное время
+                        </p>
                     </div>
                 </div>
                 <div class="main-steps-row__col">
@@ -110,12 +110,12 @@
                         <span class="main-steps-row__badge">2-й шаг</span>
                     </div>
                     <div>
-                       <p class="main-steps-row__header">
-                           Мы собираем заказ
-                       </p>
-                       <p class="main-steps-row__text">
-                           Мы проверим товарный вид и целостность каждого товара в заказе
-                       </p>
+                        <p class="main-steps-row__header">
+                            Мы собираем заказ
+                        </p>
+                        <p class="main-steps-row__text">
+                            Мы проверим товарный вид и целостность каждого товара в заказе
+                        </p>
                     </div>
                 </div>
                 <div class="main-steps-row__col">
@@ -124,12 +124,12 @@
                         <span class="main-steps-row__badge">3-й шаг</span>
                     </div>
                     <div>
-                       <p class="main-steps-row__header">
-                           Доставляем Вам в удобное время
-                       </p>
-                       <p class="main-steps-row__text">
-                           Мы доставим ваш заказ быстро и в удобное время
-                       </p>
+                        <p class="main-steps-row__header">
+                            Доставляем Вам в удобное время
+                        </p>
+                        <p class="main-steps-row__text">
+                            Мы доставим ваш заказ быстро и в удобное время
+                        </p>
                     </div>
                 </div>
             </div>
@@ -163,12 +163,14 @@
                             <div id="accordionServiceOne" class="collapse show" aria-labelledby="accordionServiceOne"
                                  data-parent="#accordionService">
                                 <div class="main-qa-card__body">
-                                    <p>
-                                        Всё правильно. Деньги списываются, а потом возвращаются — так устроен кэшбэк.
-                                        <br>
-                                        Стоимость подписки возвращается в следующем месяце — например, если вы потратили
-                                        5000 в мае, 169 рублей поступят на счёт в июне.
-                                    </p>
+                                    <ol>
+                                        <li>Экономим ваше время. Теперь не нужно ездить по магазинам и тратить на это
+                                            целый день.
+                                        </li>
+                                        <li>Считаем ваши деньги. Вы заказываете товары из любимых магазинов и платите за
+                                            доставку всего 1 раз.
+                                        </li>
+                                    </ol>
                                 </div>
                             </div>
                         </div>
@@ -186,10 +188,8 @@
                                  data-parent="#accordionService">
                                 <div class="main-qa-card__body">
                                     <p>
-                                        Всё правильно. Деньги списываются, а потом возвращаются — так устроен кэшбэк.
-                                        <br>
-                                        Стоимость подписки возвращается в следующем месяце — например, если вы потратили
-                                        5000 в мае, 169 рублей поступят на счёт в июне.
+                                        Узнать стоимость доставки можно <a
+                                            href="https://demo33.dev2tech.ru/about#delivery-cost">тут</a>.
                                     </p>
                                 </div>
                             </div>
@@ -208,10 +208,7 @@
                                  data-parent="#accordionService">
                                 <div class="main-qa-card__body">
                                     <p>
-                                        Всё правильно. Деньги списываются, а потом возвращаются — так устроен кэшбэк.
-                                        <br>
-                                        Стоимость подписки возвращается в следующем месяце — например, если вы потратили
-                                        5000 в мае, 169 рублей поступят на счёт в июне.
+                                        Всего 1 раз. Вы заказываете товары из любимых магазинов, мы привозим.
                                     </p>
                                 </div>
                             </div>
@@ -236,10 +233,7 @@
                                  data-parent="#accordionOrder">
                                 <div class="main-qa-card__body">
                                     <p>
-                                        Всё правильно. Деньги списываются, а потом возвращаются — так устроен кэшбэк.
-                                        <br>
-                                        Стоимость подписки возвращается в следующем месяце — например, если вы потратили
-                                        5000 в мае, 169 рублей поступят на счёт в июне.
+                                        Да, нужно. Чтобы сделать заказ необходимо зарегистрироваться.
                                     </p>
                                 </div>
                             </div>
@@ -250,7 +244,7 @@
                                  data-target="#accordionOrderTwo"
                                  aria-expanded="true" aria-controls="accordionOrderTwo">
                                 <header>
-                                    Как отследить свой заказ?
+                                    Как отследить мой заказ?
                                     <div class="main-qa-card__img">
                                         <img src="/svg/main/accordion-arrow.svg" alt="">
                                     </div>
@@ -260,10 +254,8 @@
                                  data-parent="#accordionOrder">
                                 <div class="main-qa-card__body">
                                     <p>
-                                        Всё правильно. Деньги списываются, а потом возвращаются — так устроен кэшбэк.
-                                        <br>
-                                        Стоимость подписки возвращается в следующем месяце — например, если вы потратили
-                                        5000 в мае, 169 рублей поступят на счёт в июне.
+                                        Чтобы отследить заказ нужно перейти в Личный кабинет и найти раздел
+                                        <a href="/lk/orders">Заказы</a>
                                     </p>
                                 </div>
                             </div>
@@ -284,7 +276,8 @@
                             <div class="form-group row">
                                 <div class="col-lg-6">
                                     <div class="form-control-container">
-                                        <input class="form-control bg-white" id="name" placeholder=" " type="text" name="name">
+                                        <input class="form-control bg-white" id="name" placeholder=" " type="text"
+                                               name="name">
                                         <label for="name">Имя</label>
                                     </div>
                                 </div>
@@ -299,7 +292,8 @@
                             <div class="form-group row">
                                 <div class="col-lg-12">
                                     <div class="form-control-container">
-                                        <textarea class="form-control bg-white" rows="3" id="questions" name="questions" placeholder=" "></textarea>
+                                        <textarea class="form-control bg-white" rows="3" id="questions" name="questions"
+                                                  placeholder=" "></textarea>
                                         <label for="questions">Ваш вопрос</label>
                                     </div>
                                 </div>
@@ -320,12 +314,12 @@
                     </div>
                 </div>
             </div>
-            <a href="#" class="contact__improve">
-                <div class="contact__improve-text">Что можно улучшить на этой странице?</div>
-            </a>
         </div>
+            <x-improve/>
     </div>
 
 </main>
+
+<x-app-banner/>
 
 <x-footer/>

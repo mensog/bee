@@ -17,34 +17,6 @@
    </div>
 </div>
 
-<div class="app-banner">
-   <div class="container">
-      <div class="row">
-         <div class="col-lg-6 col-12">
-            <div class="app-banner__body">
-               <span class="app-banner__badge">Скоро</span>
-               <p class="app-banner__header">
-                  Покупки удобнее с приложением BeeClub
-               </p>
-               <p class="app-banner__text">
-                  Еще больше скидок и акций
-               </p>
-               <div class="app-banner-links">
-                  <a class="app-banner-links__item" href="">
-                     <img src="/img/main/app-banner/play-market.png" alt="">
-                  </a>
-                  <a class="app-banner-links__item" href="">
-                     <img src="/img/main/app-banner/app-store.png" alt="">
-                  </a>
-               </div>
-            </div>
-         </div>
-         <div class="col-lg-6 col-12" style="margin-top: auto; margin-left: auto; margin-right: auto;">
-            <img src="/img/main/app-banner/phones.png" alt="">
-         </div>
-      </div>
-   </div>
-</div>
 
 <footer class="footer">
    <div class="container">
@@ -63,12 +35,12 @@
          <div class="col-lg-2 col-6">
             <p class="footer__header">Курьерам</p>
             <a class="footer__link" href="{{ Route::currentRouteName() === 'couriers' ? '#choice' : route('couriers') . '#choice' }}">Сколько заработаю?</a>
-            <a class="footer__link" href="{{ Route::currentRouteName() === 'couriers' ? '#choice' : route('couriers') . '#choise' }}">Стать курьером</a>
+            <a class="footer__link" href="{{ Route::currentRouteName() === 'couriers' ? '#choice' : route('couriers') . '#income' }}">Стать курьером</a>
          </div>
          <div class="col-lg-2 col-6">
             <p class="footer__header">Поставщикам</p>
             <a class="footer__link" href="{{ Route::currentRouteName() === 'suppliers' ? '#terms' : route('suppliers') . '#terms' }}">Какие условия?</a>
-            <a class="footer__link" href="{{ Route::currentRouteName() === 'suppliers' ? '#terms' : route('suppliers') . '#terms' }}">Стать поставщиком</a>
+            <a class="footer__link" href="{{ Route::currentRouteName() === 'suppliers' ? '#terms' : route('suppliers') . '#become' }}">Стать поставщиком</a>
          </div>
          <div class="col-lg-2 col-6">
             <p class="footer__header">Контакты</p>

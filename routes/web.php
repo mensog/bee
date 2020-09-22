@@ -65,6 +65,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'can:
     Route::post('/category/icon/delete/{id}', 'CategoryController@deleteIcon')->name('admin_category_delete_icon');
     Route::get('/category/{id}', 'CategoryController@showEditPage')->name('admin_edit_category_page');
 
+    Route::get('/review/{id}', 'ReviewController@showEditPage')->name('admin_review_update_page');
+    Route::post('/review/update/{id}', 'ReviewController@update')->name('admin_review_update');
+    Route::post('/review/delete/{id}', 'ReviewController@delete')->name('admin_review_delete');
+
     Route::get('/partners', 'PartnerController@index')->name('admin_partners');
     Route::get('/partner/log', 'LogController@index')->name('admin_partners_log');
     Route::get('/partner/{id}', 'PartnerController@show')->name('admin_partner');
@@ -86,6 +90,7 @@ Route::group(['prefix' => 'lk', 'namespace' => 'Lk', 'middleware' => 'auth'], fu
     Route::post('/profile/editdata', 'ProfileController@editData')->name('lk_profile_edit_data');
     Route::get('/profile/changeemail', 'ProfileController@showChangeEmailForm')->name('lk_profile_change_email_form');
     Route::post('/profile/changeemail', 'ProfileController@changeEmail')->name('lk_profile_change_email');
+    Route::get('/profile/notifications', 'ProfileController@showNotification')->name('lk_profile_notifications');
     Route::get('/profile/changepass', 'ProfileController@showChangePasswordForm')->name('lk_profile_change_password_form');
     Route::post('/profile/changepass', 'ProfileController@changePassword')->name('lk_profile_change_password');
 });
@@ -109,6 +114,8 @@ Auth::routes();
 Route::get('/personal-data-agreement', 'StaticPageController@personalDataAgreement')->name('personal-data-agreement');
 Route::get('/personal-data-policy', 'StaticPageController@personalDataPolicy')->name('personal-data-policy');
 Route::get('/sale-regulations', 'StaticPageController@saleRegulations')->name('sale-regulations');
+
+Route::post('/product/{id}/review', 'ReviewController@create')->name('add_review');
 
 Route::get('/{storeSlug}/catalog', 'CategoryController@index')->name('catalog');
 Route::get('/{storeSlug}/category/{name}', 'CategoryController@index')->name('category');

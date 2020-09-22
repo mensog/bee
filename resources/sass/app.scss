@@ -30,14 +30,19 @@
 @import "about/about";
 @import "lk/lk";
 @import "lk/orders";
+@import "lk/notification";
 
 // Components
-@import "components/caregories";
+@import "components/categories";
 @import "components/liked";
 @import "components/empty-list";
+@import "components/improve";
 
 // Media
-@import "media";
+@import "main-page/main-media";
+@import "store/store-media";
+@import "product-page/products-media";
+@import "cart/cart-media";
 
 
 #content {
@@ -203,19 +208,33 @@ html {
         font-size: 16px;
         line-height: 14px;
         text-align: center;
-        color: #252524;
+        color: #242424;
         border: 1px solid #252524;
         box-sizing: border-box;
         border-radius: 5px;
         max-width: 255px;
         width: 100%;
+
+
     }
 
     .btn.btn-outline-black:hover {
         background-color: #fff;
+        border-color: $yellow;
     }
 }
 
 button.btn:hover {
     cursor: pointer;
+}
+
+.budge {
+    width: 177px;
+    padding: 5px 8px 5px 26px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    color: $white;
+    background: $green url(/svg/check-small.svg) 4% 25% no-repeat;
+    border-radius: 6px;
 }

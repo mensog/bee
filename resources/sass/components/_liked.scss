@@ -41,6 +41,13 @@
         border: 0;
         background-color: $white;
         border-radius: 50%;
+        padding: 0;
+        color: #9F9F9F;
+
+        i {
+            position: absolute;
+            top: 6px;
+        }
     }
 
     &__item-body {

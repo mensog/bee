@@ -1,6 +1,6 @@
-<x-header />
+<x-header/>
 
-<main id="content" role="main">
+<main id="content" role="main" class="couriers">
 
     <section class="main-screen">
         <div class="container">
@@ -26,7 +26,7 @@
                     <div class="main-screen__benefits-descr">уже в нашей команде</div>
                 </div>
             </div>
-            <button class="main-screen__btn btn btn-primary">Начать работу</button>
+            <a href="#income" class="main-screen__btn btn btn-primary">Начать работу</a>
         </div>
     </section>
 
@@ -47,7 +47,9 @@
                 </div>
                 <div class="col-4">
                     <div class="expectations__item expectations__item_dark-gray">
-                        <div class="expectations__item-title expectations__item-title_white">Хорошую <br> физическую форму</div>
+                        <div class="expectations__item-title expectations__item-title_white">Хорошую <br> физическую
+                            форму
+                        </div>
                         <div class="expectations__item-text expectations__item-text_white">
                             <span>Средний вес заказа - 12 кг</span>
                             <span>Максимальный вес заказа - 30 кг</span>
@@ -70,39 +72,71 @@
         </div>
     </section>
 
-    <section class="terms">
+    <section id="terms" class="terms">
         <div class="container">
             <h2 class="terms__title">Условия и бонусы</h2>
             <div class="row">
-                <div class="col-6">
+                <div class="col-lg-6">
                     <div class="terms__item">
-                        <div class="terms__item-title">Карьерный рост</div>
-                        <div class="terms__item-text">Готовы хорошо работать? <br> У нас есть возможности для вашего роста</div>
+                        <div class="terms__item-img">
+                            <img src="/svg/couriers/curve.svg" alt="curve">
+                        </div>
+                        <div>
+                            <div class="terms__item-title">Карьерный рост</div>
+                            <div class="terms__item-text">
+                                Готовы хорошо работать? <br>
+                                У нас есть возможности для вашего роста
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-lg-6">
                     <div class="terms__item">
-                        <div class="terms__item-title">Переходы между отделами</div>
-                        <div class="terms__item-text">Хочешь изучать новые направления? <br> У тебя будет такая возможность в BeeClub</div>
+                        <div class="terms__item-img">
+                            <img src="/svg/couriers/ruble.svg" alt="ruble">
+                        </div>
+                        <div>
+                            <div class="terms__item-title">Стабильная зарплата</div>
+                            <div class="terms__item-text">
+                                Официально, 2 раза в месяц
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-lg-6">
                     <div class="terms__item">
-                        <div class="terms__item-title">Стабильная зарплата</div>
-                        <div class="terms__item-text">Официально, 2 раза в месяц</div>
+                        <div class="terms__item-img">
+                            <img src="/svg/couriers/double.svg" alt="double">
+                        </div>
+                        <div>
+                            <div class="terms__item-title">Переходы между отделами</div>
+                            <div class="terms__item-text">
+                                Хочешь изучать новые направления? <br>
+                                У тебя будет такая возможность в BeeClub
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-lg-6">
                     <div class="terms__item">
-                        <div class="terms__item-title">Бонусы от сетей</div>
-                        <div class="terms__item-text">Делимся секретными скидками и бонусами с сотрудниками от магазинов-поставщиков</div>
+                        <div class="terms__item-img">
+                            <img src="/svg/couriers/percent.svg" alt="percent">
+                        </div>
+                        <div>
+                            <div class="terms__item-title">Бонусы от сетей</div>
+                            <div class="terms__item-text">
+                                Делимся секретными скидками и бонусами с сотрудниками от <br>
+                                магазинов-поставщиков
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="income">
+    <section id="income" class="income">
         <div class="container">
             <div class="row">
                 <div class="col-8">
@@ -121,8 +155,10 @@
                         </div>
                         <h3 class="choice__subtitle">Условия работы</h3>
                         <div class="choice__inner">
-                            <input type="text" class="choice__input choice__input_mr" placeholder="Доставленных заказов в день">
-                            <input type="text" class="choice__input" placeholder="Рабочих дней в неделю">
+                            <input type="number" id="orderPerDay" class="choice__input choice__input_mr"
+                                   placeholder="Доставленных заказов в день">
+                            <input type="number" id="daysInWeek" class="choice__input"
+                                   placeholder="Рабочих дней в неделю">
                         </div>
                         <div class="choice__inner">
                             <div class="choice__box">
@@ -130,8 +166,9 @@
                                 <div class="choice__text">Фирменные оклейка машины и униформа</div>
                             </div>
                             <div class="choice__box">
-                                <input id="choice-radio" type="radio" class="choice__box-radio" placeholder="Рабочих дней в неделю">
-                                <label for="choice-radio" class="choice__box-label">Нет</label>
+                                <input id="choice-checkbox" type="checkbox" class="choice__box-radio beeclub-switcher"
+                                       placeholder="Рабочих дней в неделю">
+                                <label for="choice-checkbox" class="choice__box-label">Нет</label>
                             </div>
                         </div>
                     </div>
@@ -139,29 +176,35 @@
                 <div class="col-4">
                     <div class="request">
                         <div class="request__header">
-                            <h2 class="request__header-title"><span>Я заработаю за месяц*</span> ~ 35 023 ₽</h2>
-                            <div class="request__header-descr">*За расчет берется средний месяц, <br> в котором 30.5 дней</div>
+                            <h2 class="request__header-title">
+                                <span>Я заработаю за месяц*</span>
+                                ~<span data-income="35 023" class="incomePrice" id="incomePrice">35 023</span> ₽
+                            </h2>
+                            <div id="incomeText" class="request__header-descr">
+                                *За расчет берется средний месяц, <br> в котором 30.5 дней
+                            </div>
                         </div>
                         <form action="#" class="request__form">
                             <h3 class="request__form-title">Заявка на вакансию</h3>
-                            <div class="request__form-text">Оставьте контактные данные и мы вышлем информацию о вакансии <br> курьера с зарплатой <span>42 200 ₽</span></div>
+                            <div class="request__form-text">
+                                Оставьте контактные данные и мы вышлем информацию о вакансии
+                                <br> курьера с зарплатой <span id="incomeData">35 023 ₽</span>
+                            </div>
                             <input class="request__form-input" type="text" placeholder="Имя">
                             <input class="request__form-input" type="text" placeholder="Телефон">
                             <button class="request__form-btn btn btn-primary" type="submit">Получить вакансию</button>
-                            <div class="request__form-descr">Отправляя свои данные, вы соглашаетесь на обработку персональных данных</div>
+                            <div class="request__form-descr">
+                                Отправляя свои данные, вы соглашаетесь на обработку персональных данных
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="contact">
-                <a href="#" class="contact__improve">
-                    <div class="contact__improve-text">Что можно улучшить на этой странице?</div>
-                </a>
-            </div>
         </div>
     </section>
 
+    <x-improve/>
 
 </main>
 
-<x-footer />
+<x-footer/>

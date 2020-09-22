@@ -16,6 +16,10 @@ require('./Registration/registration');
 require('./Main/toggle-map')
 require('./Main/swiper')
 require('./Delivery/delivery')
+require('./geolocation')
+require('./CourierCalculate/calculate')
+
+window.utils = require('./utils')
 
 // window.Vue = require('vue');
 
@@ -48,6 +52,20 @@ export const clean = obj => {
 };
 
 jQuery($ => {
+
+    $('#showComments').on('click', function () {
+        $(this).addClass('d-none')
+
+        $('.comments-list .comment').removeClass('d-none')
+    })
+
+    const street = window.utils.storage('beeclub-street')
+    if (street) {
+        document.getElementById('curPosition').textContent = street
+    }
+
+    $('[data-toggle="tooltip"]').tooltip()
+
     const storeDropdown = $('#navbarDropdown')
 
     $('.dropdown-empty ').on('click', function () {

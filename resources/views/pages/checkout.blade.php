@@ -225,4 +225,21 @@
         </form>
     </div>
 </main>
+
+<x-app-banner/>
+
 <x-footer/>
+<script>
+    const storage = window.utils.storage
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const city = storage('beeclub-city')
+        const street = storage('beeclub-street')
+        if (city) {
+            document.getElementById('city').value = city
+        }
+        if (street) {
+            document.getElementById('address').value = street
+        }
+    })
+</script>
