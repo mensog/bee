@@ -4,7 +4,6 @@ namespace App\Notifications;
 
 use App\Order;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\HtmlString;
 
@@ -21,17 +20,6 @@ class OrderPaidNotification extends OrderNotification
     public function __construct(Order $order)
     {
        parent::__construct($order);
-    }
-
-    /**
-     * Get the notification's delivery channels.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function via($notifiable)
-    {
-        return ['mail'];
     }
 
     /**
@@ -65,7 +53,8 @@ class OrderPaidNotification extends OrderNotification
     public function toArray($notifiable)
     {
         return [
-            //
+            'status' => 'Заказ №' . $this->order->id . ' оплачен' ,
+            'notice' => 'Мы уже начали работать над вашим заказом!',
         ];
     }
 }

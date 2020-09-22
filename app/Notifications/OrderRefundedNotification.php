@@ -4,34 +4,21 @@ namespace App\Notifications;
 
 use App\Order;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
 class OrderRefundedNotification extends OrderNotification
 {
     use Queueable;
-    public $productReturn;
+    public $productsReturn;
     /**
      * Create a new notification instance.
      *
      * @param Order $order
      */
-    public function __construct(Order $order, $productReturn)
+    public function __construct(Order $order, $productsReturn)
     {
         parent::__construct($order);
-        $this->productReturn = $productReturn;
-    }
-
-
-    /**
-     * Get the notification's delivery channels.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function via($notifiable)
-    {
-        return ['mail'];
+        $this->productsReturn = $productsReturn;
     }
 
     /**
@@ -45,7 +32,7 @@ class OrderRefundedNotification extends OrderNotification
         return (new MailMessage)
             ->view('notifications.email', [
                 'order' => $this->order,
-                'productReturn' => $this->productReturn,
+                'productReturn' => $this->productsReturn,
                 'titleNotification' => 'доставлен и частично возвращен',
                 'firstText' => 'Товар арт.',
                 'secondText' => 'в заказе',
@@ -66,7 +53,9 @@ class OrderRefundedNotification extends OrderNotification
     public function toArray($notifiable)
     {
         return [
-            //
+            'status' => 'Заказ №' . $this->order->id . ' доставлен и частично возвращен' ,
+            'notice' => 'Товар арт.',
+            'noticeSecond' => 'в заказе' . $this->order->id . 'передан на возврат.',
         ];
     }
 }
