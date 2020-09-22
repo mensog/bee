@@ -14,13 +14,16 @@
     @if (count($groupedCartContent) != 0)
         <div class="liked">
             <div class="container">
+                <div class="budge">
+                    Товары, которыми Вы интересовались
+                </div>
                 <h2 class="liked__heading">Рекомендованные товары</h2>
                 <div class="row">
                     @foreach($recommendedProducts as $recommendedProduct)
                         <div class="col-3">
                             <a href="{{ route('product', ['name' => $recommendedProduct->friendly_url_name, 'storeSlug' => $recommendedProduct->store->slug]) }}" class="liked__item">
                                 <div class="liked__item-body">
-                                    <img class="liked__item-img" src="{{ $recommendedProduct->img_url }}" alt="{{ $recommendedProduct->name }}">
+                                    <img class="liked__item-img" src="{{ $recommendedProduct->img_url ?:'/img/catalog/product/product-img.png' }}" alt="{{ $recommendedProduct->name }}">
                                     @if(in_array($recommendedProduct->id, $favoriteList, true))
                                         <button data-id="{{ $recommendedProduct->id }}" data-action="remove" data-page="catalog"
                                                 class="btn-add-to-favorites product__item-favorite add-to-favorites p-0 text-gray-6 font-size-13">
