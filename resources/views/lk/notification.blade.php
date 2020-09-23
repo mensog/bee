@@ -3,39 +3,22 @@
 @section('content')
     <div class="card-lk">
         <div class="card-lk__header">
-            <h3 class="card-lk__title">Уведомления (5)</h3>
+            <h3 class="card-lk__title">Уведомления ({{ count($notifications) }})</h3>
         </div>
+        @if($notifications != [])
         <div class="card-lk__body card-lk-notifications">
+            @foreach($notifications as $notification)
             <div class="card-lk-notification">
                 <div class="card-lk-notification__header">
-                    <div class="card-lk-notification__title">Заказ у курьера</div>
-                    <div class="card-lk-notification__date">27.07.2020</div>
+                    <div class="card-lk-notification__title">{{ $notification->data['status'] }}</div>
+                    <div class="card-lk-notification__date">{{ $notification->created_at->format('d.m.Y') }}</div>
                 </div>
                 <div class="card-lk-notification__body">
-                    <div class="card-lk-notification__order">Заказ №4548912</div>
-                    <div class="card-lk-notification__descr">доставим сегодня с 09:00 до 14:00</div>
+                    <div class="card-lk-notification__descr">{{ $notification->data['notice'] }}</div>
                 </div>
             </div>
-            <div class="card-lk-notification">
-                <div class="card-lk-notification__header">
-                    <div class="card-lk-notification__title">Заказ у курьера</div>
-                    <div class="card-lk-notification__date">27.07.2020</div>
-                </div>
-                <div class="card-lk-notification__body">
-                    <div class="card-lk-notification__order">Заказ №4548912</div>
-                    <div class="card-lk-notification__descr">доставим сегодня с 09:00 до 14:00</div>
-                </div>
-            </div>
-            <div class="card-lk-notification">
-                <div class="card-lk-notification__header">
-                    <div class="card-lk-notification__title">Заказ у курьера</div>
-                    <div class="card-lk-notification__date">27.07.2020</div>
-                </div>
-                <div class="card-lk-notification__body">
-                    <div class="card-lk-notification__order">Заказ №4548912</div>
-                    <div class="card-lk-notification__descr">доставим сегодня с 09:00 до 14:00</div>
-                </div>
-            </div>
+            @endforeach
         </div>
+        @endif
     </div>
 @endsection

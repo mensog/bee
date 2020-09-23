@@ -63,7 +63,7 @@ class OrderController extends Controller
         $order->fillFromCart($cart);
         $order = Order::where('id', $order->id)->with('items')->first();
         $order->fillOrderStores();
-        $order->sendStatusNotification();
+        Auth::user()->sendStatusNotification($order);
         $request->session()->flash('createdOrderId', $order->id);
         $cart->clear();
         return redirect()->route('lk_orders');

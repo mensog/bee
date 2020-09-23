@@ -113,7 +113,10 @@ class ProfileController extends Controller
 
     public function showNotification()
     {
-        return view('lk.notification');
+        $notifications = Auth::user()->notifications;
+        return view('lk.notification', [
+            'notifications' => $notifications,
+        ]);
     }
 
     protected function changePasswordValidator(array $data)

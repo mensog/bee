@@ -2,6 +2,13 @@
 
 namespace App;
 
+use App\Notifications\OrderCanceledNotification;
+use App\Notifications\OrderCompletedNotification;
+use App\Notifications\OrderGivenToCourierNotification;
+use App\Notifications\OrderPaidNotification;
+use App\Notifications\OrderPendingNotification;
+use App\Notifications\OrderReDeliveryNotification;
+use App\Notifications\OrderRefundedNotification;
 use App\Notifications\ResetPassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -86,5 +93,36 @@ class User extends Authenticatable
             return $lastOrder->phone;
         }
         return '';
+    }
+
+    public function sendStatusNotification(Order $order)
+    {
+        if ($order->status == OrderStatus::PAID) {
+            $this->notify(new OrderPaidNotification($order));
+        }
+        if ($order->status == OrderStatus::CANCELED) {
+            $this->notify(new OrderCanceledNotification($order));
+        }
+        if ($order->status == OrderStatus::COMPLETED) {
+            $productsReturn = [];
+            foreach ($order->items as $item) {
+                if ($order->status == OrderStatus::REFUNDED) {
+                    array_push($productsReturn, $item);
+                }
+            }
+            if ($productsReturn != []) {
+                $this->notify(new OrderRefundedNotification($order, $productsReturn));
+            }
+            $this->notify(new OrderCompletedNotification($order));
+        }
+        if ($order->status == OrderStatus::PENDING) {
+            $this->notify(new OrderPendingNotification($order));
+        }
+        if ($order->status == OrderStatus::GIVEN_TO_COURIER) {
+            $this->notify(new OrderGivenToCourierNotification($order));
+        }
+        if ($order->status == OrderStatus::RE_DELIVERY) {
+            $this->notify(new OrderReDeliveryNotification($order));
+        }
     }
 }
