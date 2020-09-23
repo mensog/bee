@@ -9,16 +9,16 @@ use Illuminate\Notifications\Messages\MailMessage;
 class OrderRefundedNotification extends OrderNotification
 {
     use Queueable;
-    public $productsReturn;
+    public $productReturn;
     /**
      * Create a new notification instance.
      *
      * @param Order $order
      */
-    public function __construct(Order $order, $productsReturn)
+    public function __construct(Order $order, $productReturn)
     {
         parent::__construct($order);
-        $this->productsReturn = $productsReturn;
+        $this->productReturn = $productReturn;
     }
 
     /**
@@ -32,10 +32,10 @@ class OrderRefundedNotification extends OrderNotification
         return (new MailMessage)
             ->view('notifications.email', [
                 'order' => $this->order,
-                'productReturn' => $this->productsReturn,
+                'productReturn' => $this->productReturn,
                 'titleNotification' => 'доставлен и частично возвращен',
-                'firstText' => 'Товар арт.',
-                'secondText' => 'в заказе',
+                'firstText' => 'Товар арт.' . $this->productReturn->sku,
+                'secondText' => 'в заказе №' . $this->order->id,
                 'thirdText' => 'передан на возврат.',
                 'status' => 'Доставлен и частично возвращен',
                 'quantity' => $this->order->items()->pluck('quantity')->toArray(),
@@ -54,8 +54,8 @@ class OrderRefundedNotification extends OrderNotification
     {
         return [
             'status' => 'Заказ №' . $this->order->id . ' доставлен и частично возвращен' ,
-            'notice' => 'Товар арт.',
-            'noticeSecond' => 'в заказе' . $this->order->id . 'передан на возврат.',
+            'notice' => 'Товар арт.' . $this->productReturn->sku,
+            'noticeSecond' => 'в заказе №' . $this->order->id . ' передан на возврат.',
         ];
     }
 }

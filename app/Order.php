@@ -129,7 +129,7 @@ class Order extends Model
         if ($this->status == OrderStatus::COMPLETED) {
             $productsReturn = [];
             foreach ($this->items as $item) {
-                if ($this->status == OrderStatus::REFUNDED) {
+                if ($this->status == OrderItemStatus::REFUNDED) {
                     array_push($productsReturn, $item);
                 }
             }

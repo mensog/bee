@@ -14,7 +14,11 @@
                     <div class="card-lk-notification__date">{{ $notification->created_at->format('d.m.Y') }}</div>
                 </div>
                 <div class="card-lk-notification__body">
-                    <div class="card-lk-notification__descr">{{ $notification->data['notice'] }}</div>
+                    <div class="card-lk-notification__descr">{{ $notification->data['notice'] }}
+                        @if(isset($notification->data['noticeSecond']))
+                            {{ $notification->data['noticeSecond'] }}
+                        @endif
+                    </div>
                 </div>
             </div>
             @endforeach

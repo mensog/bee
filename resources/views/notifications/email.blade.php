@@ -14,6 +14,12 @@
                    @if(isset($firstText))
                        {{$firstText}}
                    @endif
+                   @if(isset($secondText))
+                       {{$secondText}}
+                   @endif
+                  @if(isset($thirdText))
+                       {{$thirdText}}
+                   @endif
                    @if(isset($route) && isset($linkName))
                        <a href="{{ $route }}">{{ $linkName }}</a>
                    @endif
@@ -50,6 +56,7 @@
                 <div class="row">
                     <div class="col-md-8">
                         {{ $item->product->name }}
+                        <small>Арт.{{ $item->product->sku }}</small>
                         <small>
                             @if($item->product->weight)
                                 {{$item->product->weight / 1000}} КГ|
