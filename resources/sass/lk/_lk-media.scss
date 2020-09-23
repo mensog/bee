@@ -1,13 +1,12 @@
 @media (max-width: 991px) {
 
     .lk-page {
-        padding-top: 30px;
         padding-bottom: 0;
-        background-color: $white;
     }
 
     .card-lk {
-        padding: 24px 0;
+        padding: 24px 16px;
+        margin-bottom: 40px;
 
         &__header {
             margin-bottom: 16px;
@@ -66,7 +65,7 @@
         border-bottom: 1px solid #F4F4F4;
 
         &__header {
-            padding: 0;
+            padding: 30px 16px 0;
             display: flex;
             align-items: flex-start;
             margin-bottom: 24px;
