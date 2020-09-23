@@ -55,7 +55,7 @@ class OrderController extends Controller
         $order->email = $request->input('email');
         $order->phone = $request->input('phone');
         $order->address = $request->input('address');
-        $order->status = OrderStatus::PAID;
+        $order->status = OrderStatus::COMPLETED;
         $order->delivery_id = $request->input('delivery');
         $order->delivery_amount = Delivery::find($request->input('delivery'))->price;
         $order->amount_paid = $order->getSum();
@@ -63,7 +63,7 @@ class OrderController extends Controller
         $order->fillFromCart($cart);
         $order = Order::where('id', $order->id)->with('items')->first();
         $order->fillOrderStores();
-        Auth::user()->sendStatusNotification($order);
+        $order->sendStatusNotification();
         $request->session()->flash('createdOrderId', $order->id);
         $cart->clear();
         return redirect()->route('lk_orders');

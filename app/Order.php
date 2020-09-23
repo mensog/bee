@@ -2,6 +2,13 @@
 
 namespace App;
 
+use App\Notifications\OrderCanceledNotification;
+use App\Notifications\OrderCompletedNotification;
+use App\Notifications\OrderGivenToCourierNotification;
+use App\Notifications\OrderPaidNotification;
+use App\Notifications\OrderPendingNotification;
+use App\Notifications\OrderReDeliveryNotification;
+use App\Notifications\OrderRefundedNotification;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
@@ -109,5 +116,36 @@ class Order extends Model
     public function routeNotificationForMail()
     {
         return $this->email;
+    }
+
+    public function sendStatusNotification()
+    {
+        if ($this->status == OrderStatus::PAID) {
+            $this->user->notify(new OrderPaidNotification($this));
+        }
+        if ($this->status == OrderStatus::CANCELED) {
+            $this->user->notify(new OrderCanceledNotification($this));
+        }
+        if ($this->status == OrderStatus::COMPLETED) {
+            $productsReturn = [];
+            foreach ($this->items as $item) {
+                if ($this->status == OrderStatus::REFUNDED) {
+                    array_push($productsReturn, $item);
+                }
+            }
+            if ($productsReturn != []) {
+                $this->user->notify(new OrderRefundedNotification($this, $productsReturn));
+            }
+            $this->user->notify(new OrderCompletedNotification($this));
+        }
+        if ($this->status == OrderStatus::READY_FOR_DELIVERY) {
+            $this->user->notify(new OrderPendingNotification($this));
+        }
+        if ($this->status == OrderStatus::GIVEN_TO_COURIER) {
+            $this->user->notify(new OrderGivenToCourierNotification($this));
+        }
+        if ($this->status == OrderStatus::RE_DELIVERY) {
+            $this->user->notify(new OrderReDeliveryNotification($this));
+        }
     }
 }
