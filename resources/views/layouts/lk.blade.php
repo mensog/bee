@@ -19,7 +19,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="sticky-top">
-                        <div class="lk-sidebar">
+                        <div class="lk-sidebar lk-sidebar_dn">
                             <div class="lk-sidebar__header">
                                 <div class="lk-sidebar__img">
                                     <img src="/svg/lk/user-avatar.svg" alt="user-avatar">
@@ -78,7 +78,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="lk-help">
+                        <div class="lk-help lk-help_dn">
                             <p class="lk-help__header"><img src="/svg/lk/help.svg" alt=""> <span>Помощь</span></p>
                             <p class="lk-help__link">
                                 <a target="_blank"

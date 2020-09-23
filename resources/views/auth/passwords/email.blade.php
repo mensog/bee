@@ -4,11 +4,12 @@
     <div class="auth-page">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-6">
+                <div class="col-xl-4 col-md-6">
                     <div class="card-auth">
 
                         <div class="card-auth__body">
-                            <h3>Сброс пароля</h3>
+                            <h3>Восстановить пароль</h3>
+                            <p class="cart__after-title">Введите адрес электронной почты профиля</p>
                             @if (session('status'))
                                 <div class="alert alert-success" role="alert">
                                     {{ session('status') }}
@@ -42,8 +43,18 @@
                                 <div class="row">
                                     <div class="col-md-12 text-center">
                                         <button type="submit" class="btn btn-primary mb-0">
-                                            Отправить ссылку для сброса пароля
+                                            Восстановить
                                         </button>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="remember-block text-center">
+                                            <a href="{{ route('login') }}">
+                                                Вход на сайт
+                                            </a>
+                                            <a href="{{ route('register') }}">
+                                                Регистрация
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </form>

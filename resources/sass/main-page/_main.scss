@@ -905,8 +905,7 @@
 
 .mobile-bar {
    display: none;
-
-   position: sticky;
+   position: fixed;
    bottom: 0;
    left: 0;
    padding: 0 30px;
@@ -914,7 +913,7 @@
    align-items: center;
    min-height: 62px;
    background: $white;
-   z-index: 999;
+   z-index: 1050;
    border-top: 1px solid #e3e3e3;
 
    &__list {
@@ -940,6 +939,25 @@
       img {
          margin-bottom: 6px;
       }
+
+       svg {
+           fill: #818181;
+           margin-bottom: 6px;
+
+           path {
+               fill: #818181;
+           }
+       }
+
+       &.active {
+           color: $black;
+
+           svg {
+               path {
+                   fill: $black;
+               }
+           }
+       }
    }
 }
 
@@ -950,9 +968,9 @@
    left: 0;
    width: 100%;
    height: 100vh;
-   padding: 30px;
+   padding: 30px 16px;
    background-color: $white;
-   z-index: 99;
+   z-index: 1049;
 
    &.active {
       display: block;
@@ -961,7 +979,7 @@
    &__header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       margin: 0 0 17px;
    }
 
@@ -1005,9 +1023,3 @@
       }
    }
 }
-
-
-.lock {
-   overflow: hidden;
-}
-

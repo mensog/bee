@@ -31,6 +31,7 @@
 @import "lk/lk";
 @import "lk/orders";
 @import "lk/notification";
+@import "lk/check-email";
 
 // Components
 @import "components/categories";
@@ -43,6 +44,11 @@
 @import "store/store-media";
 @import "product-page/products-media";
 @import "cart/cart-media";
+@import "auth/auth-media";
+@import "lk/lk-media";
+@import "lk/profile-media";
+@import "lk/notification-media";
+@import "lk/orders-media";
 
 
 #content {
@@ -237,4 +243,9 @@ button.btn:hover {
     color: $white;
     background: $green url(/svg/check-small.svg) 4% 25% no-repeat;
     border-radius: 6px;
+}
+
+
+.lock {
+    overflow: hidden;
 }
