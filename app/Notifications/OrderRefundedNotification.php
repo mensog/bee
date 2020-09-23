@@ -30,6 +30,7 @@ class OrderRefundedNotification extends OrderNotification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+            ->subject('Beeclub Заказ №' . $this->order->id . ' доставлен и частично возвращен' )
             ->view('notifications.email', [
                 'order' => $this->order,
                 'productReturn' => $this->productReturn,

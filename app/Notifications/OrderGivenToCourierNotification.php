@@ -30,6 +30,7 @@ class OrderGivenToCourierNotification extends OrderNotification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+                    ->subject('Beeclub Заказ №' . $this->order->id . ' передан курьеру' )
                     ->view('notifications.email', [
                         'order' => $this->order,
                         'titleNotification' => 'передан курьеру',

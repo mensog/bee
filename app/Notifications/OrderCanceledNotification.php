@@ -32,6 +32,7 @@ class OrderCanceledNotification extends OrderNotification
 
 
         return (new MailMessage)
+                    ->subject('Beeclub Заказ №' . $this->order->id . ' не оплачен' )
                     ->view('notifications.email', [
                         'order' => $this->order,
                         'titleNotification' => 'не оплачен',

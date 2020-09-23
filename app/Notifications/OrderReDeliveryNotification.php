@@ -30,6 +30,7 @@ class OrderReDeliveryNotification extends OrderNotification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+                    ->subject('Beeclub Заказ №' . $this->order->id . ' не доставлен' )
                     ->view('notifications.email', [
                         'order' => $this->order,
                         'titleNotification' => 'не доставлен',

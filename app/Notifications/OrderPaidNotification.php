@@ -32,6 +32,7 @@ class OrderPaidNotification extends OrderNotification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+                    ->subject('Beeclub Заказ №' . $this->order->id . ' успешно оплачен' )
                     ->view('notifications.email', [
                         'order' => $this->order,
                         'titleNotification' => 'оплачен',
