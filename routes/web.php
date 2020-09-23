@@ -110,7 +110,10 @@ Route::get('/about', 'AboutController@index')->name('about');
 
 Route::post('/api/cart', 'CartController@api')->name('api_cart');
 Route::post('/api/cart-aside', 'CartController@apiAside')->name('api_cart_aside');
-Route::post('/api/favorites', 'FavoriteListController@api')->name('api_favorites');
+Route::post('/api/favorites/action', 'FavoriteListController@api')->name('api_favorites_action');
+Route::get('/api/catalog', 'CategoryController@apiIndex')->name('api_catalog');
+Route::get('/api/search', 'CategoryController@apiSearch')->name('api_search');
+Route::get('/api/favorites', 'FavoriteListController@apiShow')->name('api_favorites');
 
 Auth::routes();
 Route::get('/personal-data-agreement', 'StaticPageController@personalDataAgreement')->name('personal-data-agreement');

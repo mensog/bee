@@ -51,4 +51,16 @@ class FavoriteListController extends ProductsRenderController
             'productsRender' => $productsRender,
         ]);
     }
+
+    public function apiShow(Request $request)
+    {
+        $name = $request->has('name') ? $request->input('name') : '';
+        $productsRender = new ProductsFavoritesRender($request, $name);
+        $productsRender->initProducts();
+        $response = [];
+        $response['html'] = view('components.products-list', [
+            'productsRender' => $productsRender
+        ])->render();
+        return response()->json($response);
+    }
 }

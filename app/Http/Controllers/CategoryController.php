@@ -32,4 +32,28 @@ class CategoryController extends ProductsRenderController
             'productsRender' => $productsRender,
         ]);
     }
+
+    public function apiIndex(Request $request)
+    {
+        $name = $request->has('name') ? $request->input('name') : '';
+        $productsRender = new ProductsCatalogRender($request, $name);
+        $productsRender->initProducts();
+        $response = [];
+        $response['html'] = view('components.products-list', [
+            'productsRender' => $productsRender
+        ])->render();
+        return response()->json($response);
+    }
+
+    public function apiSearch(Request $request)
+    {
+        $name = $request->has('name') ? $request->input('name') : '';
+        $productsRender = new ProductsSearchRender($request, $name);
+        $productsRender->initProducts();
+        $response = [];
+        $response['html'] = view('components.products-list', [
+            'productsRender' => $productsRender
+        ])->render();
+        return response()->json($response);
+    }
 }
