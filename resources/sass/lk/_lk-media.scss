@@ -64,6 +64,10 @@
         margin-bottom: 0;
         border-bottom: 1px solid #F4F4F4;
 
+        &_dn {
+            display: none;
+        }
+
         &__header {
             padding: 30px 16px 0;
             display: flex;
@@ -100,6 +104,10 @@
 
     .lk-help {
         padding: 30px;
+
+        &_dn {
+            display: none;
+        }
 
         &__header {
             margin-bottom: 11px;

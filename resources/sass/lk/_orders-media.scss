@@ -13,6 +13,7 @@
 @media (max-width: 991px) {
     .lk-orders {
         padding: 23px 16px 16px;
+        margin-bottom: 40px;
 
         &__heading {
             font-size: 24px;
@@ -35,9 +36,6 @@
     }
 
     .lk-page {
-        .cart__subheading {
-            margin: 0;
-        }
 
         .cart__product {
             padding: 16px 0;
@@ -53,6 +51,10 @@
 
         .cart__product-img {
             margin-right: 8px;
+        }
+
+        .cart__product-descr {
+            line-height: 1;
         }
 
         .cart__product-wrapper {
@@ -93,17 +95,24 @@
         }
 
         &__item-wrap {
+            justify-content: center;
 
-            &:nth-of-type(2) {
-                justify-content: center;
+            &:nth-of-type(1) {
+                //justify-content: center;
+                .lk-orders__item-box {
+                    &:first-of-type {
+                        position: absolute;
+                        top: 16px;
+                        left: 16px;
+                    }
+                }
+
             }
         }
 
         &__item-inner {
-            display: block;
+            flex-direction: column;
         }
-
-
 
         &__item-statusprice {
             font-size: 10px;
