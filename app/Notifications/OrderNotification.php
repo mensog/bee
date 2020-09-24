@@ -32,11 +32,11 @@ class OrderNotification extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
-        if(env('SMS_AERO_ENABLED',0) == 0) {
-            return ['database', 'mail'];
+        if(env('SMS_AERO_ENABLED',0)) {
+            return ['database', 'mail', SmsAeroChannel::class];
         }
 
-        return ['database', 'mail', SmsAeroChannel::class];
+        return ['database', 'mail'];
     }
 
 }

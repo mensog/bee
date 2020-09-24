@@ -56,8 +56,7 @@ class OrderRefundedNotification extends OrderNotification
     {
         return [
             'status' => 'Заказ №' . $this->order->id . ' доставлен и частично возвращен' ,
-            'notice' => 'Товар арт.' . $this->productReturn->sku,
-            'noticeSecond' => ' в заказе №' . $this->order->id . ' передан на возврат.',
+            'notice' => 'Товар арт.' . $this->productReturn->sku . ' в заказе №' . $this->order->id . ' передан на возврат.',
         ];
     }
 
