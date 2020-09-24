@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Notifications\UserRegistered;
 use App\PrivateAccount;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -91,7 +92,11 @@ class RegisterController extends Controller
         ]);
         $account = new PrivateAccount();
         $account->user_id = $user->id;
+        if (env('REGISTER_BONUS_ENABLED', 0)) {
+            $account->bonus_amount = env('REGISTER_BONUS_AMOUNT', 0) * 100;
+        }
         $account->save();
+        $user->notify(new UserRegistered());
         return $user;
     }
 }
