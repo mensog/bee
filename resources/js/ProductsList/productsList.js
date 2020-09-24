@@ -3,15 +3,23 @@ jQuery($ => {
         name: '',
         storeId: '',
         priceTo: '',
-        priceFrom: ''
+        priceFrom: '',
+        q: ''
     }
 
     let storeIds = []
 
+    data.q = $('[name="q"]').val()
+
     $('[data-category-name]').on('click',
         function (e) {
             e.preventDefault()
-            data.name = $(this).data('category-name')
+            const value = $(this).data('category-name')
+            if (data.name === value) {
+                data.name = ''
+            } else {
+                data.name = $(this).data('category-name')
+            }
             productsListRequest(data)
         })
 
