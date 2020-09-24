@@ -42,7 +42,7 @@ jQuery($ => {
     $('[name="priceCatalog"]').on('input',
         _.debounce(
             function () {
-                const value = $(this).val().replace(/\D/g, "")
+                const value = $(this).val().replace(/\D/g, '')
                 $(this).val(value)
                 const type = $(this).data('type')
                 if (type) {
