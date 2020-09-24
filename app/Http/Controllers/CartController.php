@@ -160,15 +160,20 @@ class CartController extends Controller
                 $cart = app('Cart');
                 $cartContent = $cart->content;
                 $cartTotal = $cart->getTotal();
+                $bonusDiscount = (int) $cart->bonus_discount;
                 $response = [];
                 $user = auth()->user();
                 $hasNoOrders = $user->orders->count() == 0;
+                $privateAccount = $user->privateAccount;
                 $response['html'] = view('components.cart-aside', [
                     'cartTotal'=> $cartTotal,
                     'quantity' => $cartContent,
                     'delivery' => $delivery,
                     'hasNoOrders' => $hasNoOrders,
-                    ])->render();
+                    'privateAccount' => $privateAccount,
+                    'bonusDiscount' => $bonusDiscount,
+
+                ])->render();
             }
         }
         return $response;
@@ -178,12 +183,14 @@ class CartController extends Controller
     {
         $cart = app('Cart');
         $cartContent = $cart->content;
+        $bonusDiscount = (int) $cart->bonus_discount;
         $products = $cart->getProducts();
         $itemsSubTotal = $cart->getItemsSubTotal();
         $cartTotal = $cart->getTotal();
         $user = auth()->user();
         $hasNoOrders = $user->orders->count() == 0;
         $deliveries = Delivery::all();
+        $privateAccount = $user->privateAccount;
         return view('pages.checkout', ['products' => $products,
             'quantity' => $cartContent,
             'itemsSubTotal' => $itemsSubTotal,
@@ -191,6 +198,8 @@ class CartController extends Controller
             'user' => $user,
             'deliveries' => $deliveries,
             'hasNoOrders' => $hasNoOrders,
+            'privateAccount' => $privateAccount,
+            'bonusDiscount' => $bonusDiscount,
         ]);
     }
 }

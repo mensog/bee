@@ -222,7 +222,7 @@
                 </div>
 
                 <div class="col-lg-4">
-                    <x-cart-aside :quantity="$quantity" :cartTotal="$cartTotal" :delivery="$deliveries[0]" :hasNoOrders="$hasNoOrders"/>
+                    <x-cart-aside :quantity="$quantity" :cartTotal="$cartTotal" :delivery="$deliveries[0]" :hasNoOrders="$hasNoOrders" :privateAccount="$privateAccount" :bonusDiscount="$bonusDiscount"/>
                 </div>
 
             </div>

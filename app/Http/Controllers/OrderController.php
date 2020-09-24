@@ -63,7 +63,12 @@ class OrderController extends Controller
         } else {
             $order->delivery_amount = Delivery::find($request->input('delivery'))->price;
         }
+        $withdrawFromPrivateAccountResult = $user->privateAccount->withdraw($cart->bonus_discount);
         $order->amount_paid = $order->getSum();
+        if ($withdrawFromPrivateAccountResult) {
+            $order->bonus_discount = $cart->bonus_discount;
+            $order->amount_paid = $order->getSum() - $order->bonusDiscount;
+        }
         $order->save();
         $order->fillFromCart($cart);
         $order = Order::where('id', $order->id)->with('items')->first();
