@@ -18,6 +18,7 @@ require('./Main/swiper')
 require('./Delivery/delivery')
 require('./geolocation')
 require('./CourierCalculate/calculate')
+require('./ProductsList/productsList')
 
 window.utils = require('./utils')
 

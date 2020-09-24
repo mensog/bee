@@ -55,7 +55,6 @@
                 <div class="col-lg-3">
                     <div class="catalog__aside">
                         <div class="catalog__subtitle subtitle">Категории</div>
-
                         @isset($commonCatalog)
                             <x-category-sidebar :categories="$commonCatalog" :activeCategorySlugs="$productsRender->activeCategorySlugs"
                             :routeName="$productsRender->sidebarRouteName"/>
@@ -65,11 +64,11 @@
                             <div class="price-filter__wrap">
                                 <div class="price-filter__box">
                                     <span>от</span>
-                                    <input type="text" placeholder="" value="{{ ($productsRender->filterPriceFrom) ? $productsRender->filterPriceFrom / 100 : '' }}">
+                                    <input name="priceCatalog" data-type="priceFrom" type="text" placeholder="500" value="{{ ($productsRender->filterPriceFrom) ? $productsRender->filterPriceFrom / 100 : '' }}">
                                 </div>
                                 <div class="price-filter__box">
                                     <span>до</span>
-                                    <input type="text" placeholder="" value="{{ ($productsRender->filterPriceTo) ? $productsRender->filterPriceTo / 100 : '' }}">
+                                    <input name="priceCatalog" data-type="priceTo" type="text" placeholder="1500" value="{{ ($productsRender->filterPriceTo) ? $productsRender->filterPriceTo / 100 : '' }}">
                                 </div>
                             </div>
                         </div>
@@ -78,7 +77,7 @@
                             <div class="checkboxes__wrap">
                                 @foreach($productsRender->stores as $filterStore)
                                 <div class="checkboxes__item">
-                                    <input type="checkbox" id="store{{ $filterStore->id }}" name="filterStore"
+                                    <input type="checkbox" data-store="{{ $filterStore->id }}" id="store{{ $filterStore->id }}" name="filterStore"
                                     {{ in_array($filterStore->id, $productsRender->storeIds) ? ' checked' : '' }}>
                                     <label for="store{{ $filterStore->id }}">{{ $filterStore->company_name }}</label>
                                 </div>
