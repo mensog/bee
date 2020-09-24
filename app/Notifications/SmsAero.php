@@ -5,16 +5,6 @@ namespace App\Notifications;
 class SmsAero
 {
     const URL_SMSAERO_API = 'https://gate.smsaero.ru/v2';
-
-    private $sign = 'SMS Aero';
-
-    public function __construct($sign = false)
-    {
-        if ($sign) {
-            $this->sign = $sign;
-        }
-    }
-
     /**
      * Формирование curl запроса
      * @param $url
@@ -62,7 +52,7 @@ class SmsAero
     {
         return json_decode(self::curl_post(self::URL_SMSAERO_API . '/sms/send/', [
             'number' => $number,
-            'sign' => $this->sign,
+            'sign' => env('SMS_AERO_SIGN', 'Beeclub'),
             'text' => $text,
             'channel' => $channel,
             'dateSend' => $dateSend,
