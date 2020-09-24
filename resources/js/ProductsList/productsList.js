@@ -49,7 +49,7 @@ jQuery($ => {
                     data[type] = value
                     productsListRequest(data)
                 }
-            }, 200))
+            }, 400))
 
     /**
      * Change url in window history
@@ -62,7 +62,7 @@ jQuery($ => {
     }
 
     /**
-     * Create url from data
+     * Create url from normalized data and pathname
      * @param data : object
      * @param pathname
      * @return {string}
@@ -72,12 +72,10 @@ jQuery($ => {
         const last = keys[keys.length - 1];
         let str = `${pathname}?`
         Object.entries(data).forEach(([key, val]) => {
-            if (val) {
-                if (last === key || (keys[0] === key && last === key)) {
-                    str += `${key}=${val}`
-                } else {
-                    str += `${key}=${val}&`
-                }
+            if (last === key || (keys[0] === key && last === key)) {
+                str += `${key}=${val}`
+            } else {
+                str += `${key}=${val}&`
             }
         });
         return str
