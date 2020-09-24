@@ -57,7 +57,12 @@
                                             <div class="delivery-cost__item-time">
                                                 c {{ $delivery->getTimeToDelivery() }}
                                             </div>
-                                            <div class="delivery-cost__item-price">{{ $delivery->price / 100 }} ₽</div>
+                                            @if(env('FREE_FIRST_DELIVERY_ENABLED', 0) && $hasNoOrders)
+                                                <div class="delivery-cost__item-price"><del class="text-muted"> {{ $delivery->price / 100 }} ₽</del> 0 ₽</div>
+                                                <div>Доставка первого заказа бесплатно</div>
+                                            @else
+                                                <div class="delivery-cost__item-price">{{ $delivery->price / 100 }} ₽</div>
+                                            @endif
                                         </label>
                                     </div>
                                 @endforeach
@@ -217,7 +222,7 @@
                 </div>
 
                 <div class="col-lg-4">
-                    <x-cart-aside :quantity="$quantity" :cartTotal="$cartTotal" :delivery="$deliveries[0]"/>
+                    <x-cart-aside :quantity="$quantity" :cartTotal="$cartTotal" :delivery="$deliveries[0]" :hasNoOrders="$hasNoOrders"/>
                 </div>
 
             </div>

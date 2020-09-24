@@ -45,19 +45,24 @@ class OrderController extends Controller
     public function create(Request $request)
     {
         $cart = Cart::current();
+        $user = Auth::user();
         if (count($cart->content) == 0) {
             return redirect()->route('cart');
         }
         $this->orderCreateValidator($request->all())->validate();
         $order = new Order();
-        $order->user_id = Auth::user()->id;
+        $order->user_id = $user->id;
         $order->full_name = $request->input('fullName');
         $order->email = $request->input('email');
         $order->phone = $request->input('phone');
         $order->address = $request->input('address');
         $order->status = OrderStatus::PAID;
         $order->delivery_id = $request->input('delivery');
-        $order->delivery_amount = Delivery::find($request->input('delivery'))->price;
+        if (env('FREE_FIRST_DELIVERY_ENABLED') && $user->orders->count() == 0) {
+            $order->delivery_amount = 0;
+        } else {
+            $order->delivery_amount = Delivery::find($request->input('delivery'))->price;
+        }
         $order->amount_paid = $order->getSum();
         $order->save();
         $order->fillFromCart($cart);

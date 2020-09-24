@@ -7,7 +7,11 @@
         </div>
         <div class="checkout__wrap">
             <span class="checkout__products">Доставка:</span>
+            @if(env('FREE_FIRST_DELIVERY_ENABLED', 0) && $hasNoOrders)
+                <span class="checkout__products-price"><del class="text-muted">{{ $delivery->price / 100 }} ₽</del> 0 ₽</span>
+            @else
             <span class="checkout__products-price">{{ $delivery->price / 100 }} ₽</span>
+            @endif
         </div>
         <div class="checkout__wrap">
             <div class="checkout__box">
@@ -22,7 +26,11 @@
         </div>
         <div class="checkout__wrap">
             <span class="checkout__total">Общая сумма:</span>
+            @if(env('FREE_FIRST_DELIVERY_ENABLED', 0) && $hasNoOrders)
+            <span class="checkout__total-price">{{ $cartTotal / 100 }} ₽</span>
+            @else
             <span class="checkout__total-price">{{ $cartTotal / 100 + $delivery->price / 100 }} ₽</span>
+            @endif
         </div>
         <button type="submit" class="checkout__btn btn btn-primary">
             Оплатить онлайн

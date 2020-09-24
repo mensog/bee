@@ -161,7 +161,14 @@ class CartController extends Controller
                 $cartContent = $cart->content;
                 $cartTotal = $cart->getTotal();
                 $response = [];
-                $response['html'] = view('components.cart-aside', ['cartTotal'=> $cartTotal, 'quantity' => $cartContent, 'delivery' => $delivery])->render();
+                $user = auth()->user();
+                $hasNoOrders = $user->orders->count() == 0;
+                $response['html'] = view('components.cart-aside', [
+                    'cartTotal'=> $cartTotal,
+                    'quantity' => $cartContent,
+                    'delivery' => $delivery,
+                    'hasNoOrders' => $hasNoOrders,
+                    ])->render();
             }
         }
         return $response;
@@ -175,6 +182,7 @@ class CartController extends Controller
         $itemsSubTotal = $cart->getItemsSubTotal();
         $cartTotal = $cart->getTotal();
         $user = auth()->user();
+        $hasNoOrders = $user->orders->count() == 0;
         $deliveries = Delivery::all();
         return view('pages.checkout', ['products' => $products,
             'quantity' => $cartContent,
@@ -182,6 +190,7 @@ class CartController extends Controller
             'cartTotal' => $cartTotal,
             'user' => $user,
             'deliveries' => $deliveries,
+            'hasNoOrders' => $hasNoOrders,
         ]);
     }
 }
