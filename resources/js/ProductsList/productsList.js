@@ -18,7 +18,7 @@ jQuery($ => {
             if (data.name === value) {
                 data.name = ''
             } else {
-                data.name = $(this).data('category-name')
+                data.name = value
             }
             productsListRequest(data)
         })
@@ -73,9 +73,7 @@ jQuery($ => {
         let str = `${pathname}?`
         Object.entries(data).forEach(([key, val]) => {
             if (val) {
-                if (last === key) {
-                    str += `${key}=${val}`
-                } else if (keys[0] === key && last === key) {
+                if (last === key || (keys[0] === key && last === key)) {
                     str += `${key}=${val}`
                 } else {
                     str += `${key}=${val}&`
