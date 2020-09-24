@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Channels\SmsAeroChannel;
 use App\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -29,8 +30,6 @@ class OrderCanceledNotification extends OrderNotification
      */
     public function toMail($notifiable)
     {
-
-
         return (new MailMessage)
                     ->subject('Beeclub Заказ №' . $this->order->id . ' не оплачен' )
                     ->view('notifications.email', [
@@ -57,5 +56,12 @@ class OrderCanceledNotification extends OrderNotification
             'status' => 'Неудачная оплата',
             'notice' => 'Попробуйте оплатить заказ повторно.',
         ];
+    }
+
+    public function toSmsAero($notifiable)
+    {
+        $number = $this->order->takeNumber($this->order->phone);
+        $text = 'Заказ №'. $this->order->id . ' не оплачен. Попробуйте оплатить заказ повторно.';
+        return (new SmsAeroChannel($number, $text));
     }
 }

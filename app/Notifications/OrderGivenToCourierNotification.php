@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Channels\SmsAeroChannel;
 use App\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -55,5 +56,12 @@ class OrderGivenToCourierNotification extends OrderNotification
             'status' => 'Заказ №' . $this->order->id . ' передан курьеру' ,
             'notice' => 'Заказ передан курьеру и скоро будет доставлен.',
         ];
+    }
+
+    public function toSmsAero($notifiable)
+    {
+        $number = $this->order->takeNumber($this->order->phone);
+        $text = 'Заказ №'. $this->order->id . ' передан курьеру и скоро будет доставлен.';
+        return (new SmsAeroChannel($number, $text));
     }
 }

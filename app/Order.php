@@ -148,4 +148,11 @@ class Order extends Model
             $this->user->notify(new OrderReDeliveryNotification($this));
         }
     }
+
+    public function takeNumber($number)
+    {
+        $phone = str_replace(['+', '(', ')', '-', ' '], '', $number);
+        return  preg_replace('/^./', 7, $phone);
+
+    }
 }

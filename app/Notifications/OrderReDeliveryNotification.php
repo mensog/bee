@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Channels\SmsAeroChannel;
 use App\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -53,5 +54,12 @@ class OrderReDeliveryNotification extends OrderNotification
             'status' => 'Заказ №' . $this->order->id . ' не доставлен' ,
             'notice' => 'Не удалось доставить заказ.  Повторная доставка запланирована на завтра.',
         ];
+    }
+
+    public function toSmsAero($notifiable)
+    {
+        $number = $this->order->takeNumber($this->order->phone);
+        $text = 'Заказ №'. $this->order->id . ' не доставлен. Повторная доставка запланирована на завтра.';
+        return (new SmsAeroChannel($number, $text));
     }
 }

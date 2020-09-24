@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Channels\SmsAeroChannel;
 use App\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -54,5 +55,12 @@ class OrderCompletedNotification extends OrderNotification
             'status' => 'Заказ №' . $this->order->id . ' доставлен',
             'notice' => 'Заказ успешно доставлен. Понравился товар? Оставьте о нем отзыв!',
         ];
+    }
+
+    public function toSmsAero($notifiable)
+    {
+        $number = $this->order->takeNumber($this->order->phone);
+        $text = 'Заказ №'. $this->order->id . ' успешно доставлен. Понравился товар? Оставьте о нем отзыв!';
+        return (new SmsAeroChannel($number, $text));
     }
 }

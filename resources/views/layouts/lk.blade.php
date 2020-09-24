@@ -55,7 +55,7 @@
                                     <a class=""
                                        href="{{ route('lk_profile_notifications') }}">
                                         <img src="/svg/lk/notifications.svg" alt="">
-                                        Уведомления
+                                        Уведомления ({{ count($notifications) }})
                                     </a>
                                 </li>
                                 <li>

@@ -7,6 +7,7 @@ use App\Category;
 use App\FavoriteList;
 use App\Observers\CartObserver;
 use App\Partner;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -57,7 +58,10 @@ class AppServiceProvider extends ServiceProvider
             $stores = Partner::all();
             view()->share('headerAllStores', $stores);
 
-
+            if (Auth::user()) {
+                $notifications = Auth::user()->notifications;
+                view()->share('notifications', $notifications);
+            }
         });
     }
 }

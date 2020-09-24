@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Channels\SmsAeroChannel;
 use App\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -55,5 +56,12 @@ class OrderPendingNotification extends OrderNotification
             'status' => 'Заказ №' . $this->order->id . ' ожидает курьера' ,
             'notice' => 'Заказ собран и ожидает курьера для вручения.',
         ];
+    }
+
+    public function toSmsAero($notifiable)
+    {
+        $number = $this->order->takeNumber($this->order->phone);
+        $text = 'Заказ №'. $this->order->id . ' собран и ожидает курьера для вручения.';
+        return (new SmsAeroChannel($number, $text));
     }
 }

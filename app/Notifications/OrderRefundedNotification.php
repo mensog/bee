@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Channels\SmsAeroChannel;
 use App\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -56,7 +57,14 @@ class OrderRefundedNotification extends OrderNotification
         return [
             'status' => 'Заказ №' . $this->order->id . ' доставлен и частично возвращен' ,
             'notice' => 'Товар арт.' . $this->productReturn->sku,
-            'noticeSecond' => 'в заказе №' . $this->order->id . ' передан на возврат.',
+            'noticeSecond' => ' в заказе №' . $this->order->id . ' передан на возврат.',
         ];
+    }
+
+    public function toSmsAero($notifiable)
+    {
+        $number = $this->order->takeNumber($this->order->phone);
+        $text = 'Заказ №'. $this->order->id . ' доставлен и частично возвращен. ' . 'Товар арт.' . $this->productReturn->sku . ' в заказе №' . $this->order->id . ' передан на возврат.';
+        return (new SmsAeroChannel($number, $text));
     }
 }
