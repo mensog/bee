@@ -113,9 +113,15 @@
                             <div class="checkout__wrap">
                                 <div class="checkout__box">
                                     <span class="checkout__weight">Вес:</span>
-                                    <span class="checkout__weight-limit">Вес не больше 30 кг</span>
+                                    @if($nowWeight > $maxWeight)
+                                        <span class="checkout__weight-limit">Вес не больше {{ $maxWeight / 1000 }} кг</span>
+                                    @endif
                                 </div>
-                                <span class="checkout__weight-total">45 кг</span>
+                                @if($nowWeight > $maxWeight)
+                                    <span class="checkout__weight-total">{{ $nowWeight / 1000}} кг</span>
+                                @else
+                                    <span class="checkout__weight-total text-body">{{ $nowWeight / 1000}} кг</span>
+                                @endif
                             </div>
                             <div class="checkout__wrap">
                                 <span class="checkout__discount">Скидка:</span>
@@ -125,13 +131,24 @@
                                 <span class="checkout__total">Общая сумма:</span>
                                 <span class="checkout__total-price">{{ $cartTotal / 100 }} ₽</span>
                             </div>
-                            <a href="{{ route('checkout_page') }}" class="checkout__btn btn btn-primary">
+                            @if($nowWeight > $maxWeight)
+                                <a href="{{ route('checkout_page') }}" class="checkout__btn btn btn-primary disabled">
+                                    @guest
+                                        Войти для оформления
+                                    @else
+
+                                        Перейти к оформлению
+                                    @endguest
+                                </a>
+                            @else
+                                <a href="{{ route('checkout_page') }}" class="checkout__btn btn btn-primary">
                                 @guest
                                     Войти для оформления
                                 @else
                                     Перейти к оформлению
                                 @endguest
-                            </a>
+                                </a>
+                            @endif
                         </div>
                         <div class="promocode">
                             <h4 class="promocode__heading">Введите промокод</h4>

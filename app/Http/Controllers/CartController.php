@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cart;
 use App\Delivery;
+use App\Order;
 use App\Partner;
 use App\Product;
 use Illuminate\Http\Request;
@@ -24,14 +25,16 @@ class CartController extends Controller
         $cart = app('Cart');
         $cart->addProduct($productId, $quantity);
         $cartContent = $cart->content;
+        $nowWeight = $cart->getProductsWeight();
         $response = [
             'count' => $cart->countTotalQuantity(),
             'cartTotal' => number_format($cart->getTotal() / 100, 0, ',', ' ') . ' ₽',
+            'nowWeight' => $nowWeight,
         ];
         if ($request->input('fromPage') === 'cart') {
             $products = $cart->getProducts();
             $groupedCartContent = $products->groupBy('store_id');
-            $stores = Partner::whereIn('id', array_keys ($groupedCartContent->toArray()))->get()->keyBy('id');
+            $stores = Partner::whereIn('id', array_keys($groupedCartContent->toArray()))->get()->keyBy('id');
             $itemsSubTotal = $cart->getItemsSubTotal();
             $cartTotal = $cart->getTotal();
             $favoritesList = app('FavoriteList');
@@ -43,10 +46,12 @@ class CartController extends Controller
                 'cartTotal' => $cartTotal,
                 'groupedCartContent' => $groupedCartContent,
                 'stores' => $stores,
-                'favoriteList' => $favoritesListContent
+                'favoriteList' => $favoritesListContent,
+                'maxWeight' => Order::MAX_WEIGHT,
+                'nowWeight' => $nowWeight,
             ])->render();
         } elseif ($request->input('fromPage') === 'product') {
-            $response['html'] = view('components.product-add-to-cart', ['productId'=> $productId, 'inCartQuantity' => $quantity])->render();
+            $response['html'] = view('components.product-add-to-cart', ['productId' => $productId, 'inCartQuantity' => $quantity, 'nowWeight' => $nowWeight,])->render();
         }
         return response()->json($response);
     }
@@ -68,7 +73,8 @@ class CartController extends Controller
         $favoritesList = app('FavoriteList');
         $favoritesListContent = $favoritesList->content;
         $recommendedProducts = Product::inRandomOrder()->whereNotIn('id', $cart->getProductIds())->limit(4)->get();
-        $stores = Partner::whereIn('id', array_keys ($groupedCartContent->toArray()))->get()->keyBy('id');
+        $stores = Partner::whereIn('id', array_keys($groupedCartContent->toArray()))->get()->keyBy('id');
+        $nowWeight = $cart->getProductsWeight();
         return view('pages.cart', [
             'products' => $products,
             'quantity' => $cartContent,
@@ -78,6 +84,8 @@ class CartController extends Controller
             'stores' => $stores,
             'favoriteList' => $favoritesListContent,
             'recommendedProducts' => $recommendedProducts,
+            'maxWeight' => Order::MAX_WEIGHT,
+            'nowWeight' => $nowWeight,
         ]);
     }
 
@@ -95,16 +103,18 @@ class CartController extends Controller
         $cart = app('Cart');
         $cart->updateProductQuantity($productId, $quantity);
         $cartContent = $cart->content;
+        $nowWeight = $cart->getProductsWeight();
         $response = [
             'count' => $cart->countTotalQuantity(),
             'cartTotal' => number_format($cart->getTotal() / 100, 0, ',', ' ') . ' ₽',
+            'nowWeight' => $nowWeight,
         ];
         if ($request->input('fromPage') === 'cart') {
             $products = $cart->getProducts();
             $itemsSubTotal = $cart->getItemsSubTotal();
             $cartTotal = $cart->getTotal();
             $groupedCartContent = $products->groupBy('store_id');
-            $stores = Partner::whereIn('id', array_keys ($groupedCartContent->toArray()))->get()->keyBy('id');
+            $stores = Partner::whereIn('id', array_keys($groupedCartContent->toArray()))->get()->keyBy('id');
             $favoritesList = app('FavoriteList');
             $favoritesListContent = $favoritesList->content;
             $response['html'] = view('components.cart', [
@@ -114,15 +124,17 @@ class CartController extends Controller
                 'cartTotal' => $cartTotal,
                 'groupedCartContent' => $groupedCartContent,
                 'stores' => $stores,
-                'favoriteList' => $favoritesListContent
+                'favoriteList' => $favoritesListContent,
+                'maxWeight' => Order::MAX_WEIGHT,
+                'nowWeight' => $nowWeight,
             ])->render();
         } elseif ($request->input('fromPage') === 'product') {
-            $response['html'] = view('components.product-add-to-cart', ['productId'=> $productId, 'inCartQuantity' => $quantity])->render();
+            $response['html'] = view('components.product-add-to-cart', ['productId' => $productId, 'inCartQuantity' => $quantity, 'nowWeight' => $nowWeight,])->render();
         } elseif ($request->input('fromPage') === 'favorites') {
             $inCartProducts = $cart->getProducts();
             $favoritesList = app('FavoriteList');
             $favoriteProducts = $favoritesList->getProducts();
-            $response['html'] = view('components.favorites', ['products'=> $favoriteProducts, 'inCartProducts' => $inCartProducts])->render();
+            $response['html'] = view('components.favorites', ['products' => $favoriteProducts, 'inCartProducts' => $inCartProducts, 'nowWeight' => $nowWeight,])->render();
         }
         return response()->json($response);
 
@@ -161,7 +173,7 @@ class CartController extends Controller
                 $cartContent = $cart->content;
                 $cartTotal = $cart->getTotal();
                 $response = [];
-                $response['html'] = view('components.cart-aside', ['cartTotal'=> $cartTotal, 'quantity' => $cartContent, 'delivery' => $delivery])->render();
+                $response['html'] = view('components.cart-aside', ['cartTotal' => $cartTotal, 'quantity' => $cartContent, 'delivery' => $delivery])->render();
             }
         }
         return $response;
@@ -169,6 +181,7 @@ class CartController extends Controller
 
     public function showCheckout(Request $request)
     {
+
         $cart = app('Cart');
         $cartContent = $cart->content;
         $products = $cart->getProducts();
@@ -176,12 +189,18 @@ class CartController extends Controller
         $cartTotal = $cart->getTotal();
         $user = auth()->user();
         $deliveries = Delivery::all();
+        $nowWeight = $cart->getProductsWeight();
+        if (Order::MAX_WEIGHT < $nowWeight) {
+            return redirect()->route('cart');
+        }
         return view('pages.checkout', ['products' => $products,
             'quantity' => $cartContent,
             'itemsSubTotal' => $itemsSubTotal,
             'cartTotal' => $cartTotal,
             'user' => $user,
             'deliveries' => $deliveries,
+            'maxWeight' => Order::MAX_WEIGHT,
+            'nowWeight' => $nowWeight,
         ]);
     }
 }

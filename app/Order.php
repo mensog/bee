@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    const MAX_WEIGHT = 30000;
     /**
      * Возвращает все товарные позиции из текущего заказа
      *
