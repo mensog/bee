@@ -40,7 +40,9 @@ class CategoryController extends ProductsRenderController
         $productsRender->initProducts();
         $response = [];
         $response['html'] = view('components.products-list', [
-            'productsRender' => $productsRender
+            'products' => $productsRender->products,
+            'cartContent' => $productsRender->cartContent,
+            'favoritesListContent' => $productsRender->favoritesListContent,
         ])->render();
         return response()->json($response);
     }
@@ -52,7 +54,9 @@ class CategoryController extends ProductsRenderController
         $productsRender->initProducts();
         $response = [];
         $response['html'] = view('components.products-list', [
-            'productsRender' => $productsRender
+            'products' => $productsRender->products,
+            'cartContent' => $productsRender->cartContent,
+            'favoritesListContent' => $productsRender->favoritesListContent,
         ])->render();
         return response()->json($response);
     }
