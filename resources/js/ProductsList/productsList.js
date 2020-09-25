@@ -57,8 +57,9 @@ jQuery($ => {
      * @param pathname
      */
     function changeUrl(data, pathname) {
-        const url = createUrl(data, pathname)
-        history.replaceState(data, '', url);
+
+        const url = createUrlForAddressBar(data, pathname)
+        history.replaceState(url, '', url);
     }
 
     /**
@@ -67,12 +68,56 @@ jQuery($ => {
      * @param pathname
      * @return {string}
      */
-    function createUrl(data, pathname) {
+    function createUrlForRequest(data, pathname) {
+        let pathSegments = pathname.replace(/^\//, '').replace(/\/$/,'').split('/');
+        let resultPath = '';
+        if (pathSegments[0] == 'catalog' || pathSegments[0] == 'category') {
+            resultPath += '/api/catalog'
+        } else {
+            resultPath += '/api/' + pathSegments[0]
+        }
         const keys = Object.keys(data);
         const last = keys[keys.length - 1];
-        let str = `${pathname}?`
+        let str = `${resultPath}?`
         Object.entries(data).forEach(([key, val]) => {
             if (val) {
+                if (last === key) {
+                    str += `${key}=${val}`
+                } else if (keys[0] === key && last === key) {
+                    str += `${key}=${val}`
+                } else {
+                    str += `${key}=${val}&`
+                }
+            }
+        });
+        return str
+    }
+
+    function createUrlForAddressBar(data, pathname) {
+        let pathSegments = pathname.replace(/^\//, '').replace(/\/$/,'').split('/');
+        let resultPath = '';
+        if (pathSegments[0] == 'catalog') {
+            if (data.name !== undefined) {
+                resultPath += '/category/' + data.name
+            } else {
+                resultPath += '/' + path
+            }
+        } else {
+            if (data.name !== undefined) {
+                resultPath += '/' + pathSegments[0] + '/' + data.name
+            } else {
+                if (pathSegments[0] == 'category') {
+                    resultPath += '/catalog'
+                } else {
+                    resultPath += '/' + pathSegments[0]
+                }
+            }
+        }
+        const keys = Object.keys(data);
+        const last = keys[keys.length - 1];
+        let str = `${resultPath}?`
+        Object.entries(data).forEach(([key, val]) => {
+            if (val && key !== 'name') {
                 if (last === key) {
                     str += `${key}=${val}`
                 } else if (keys[0] === key && last === key) {
@@ -102,12 +147,13 @@ jQuery($ => {
     function productsListRequest(data) {
         const dataNormalized = clean(data)
         const pathname = window.location.pathname
+        const urlForRequest = createUrlForRequest(dataNormalized, pathname);
         changeUrl(dataNormalized, pathname)
         if (pathname) {
             const $productsContainer = $('#productsContainer')
             $.ajax({
                 type: 'GET',
-                url: `/api${pathname}`,
+                url: `${urlForRequest}`,
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
