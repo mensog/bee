@@ -36,6 +36,16 @@ class Order extends Model
         });
     }
 
+    public function getItemsSum()
+    {
+        $sum = 0;
+        $items = $this->items;
+        foreach ($items as $item) {
+            $sum += $item->getSum();
+        }
+        return $sum;
+    }
+
     /**
      * Возвращает сумму заказа
      *
@@ -43,11 +53,7 @@ class Order extends Model
      */
     public function getSum()
     {
-        $sum = 0;
-        $items = $this->items;
-        foreach ($items as $item) {
-            $sum += $item->getSum();
-        }
+        $sum = $this->getItemsSum();
         $deliveryPrice = $this->delivery_amount;
         if($deliveryPrice) {
             $sum += $deliveryPrice;
@@ -61,9 +67,14 @@ class Order extends Model
         foreach ($items as $item) {
             $sum += $item->getInStockSum();
         }
-        $deliveryPrice = $this->delivery_amount;
-        if($deliveryPrice) {
-            $sum += $deliveryPrice;
+        if ($this->delivery_amount) {
+            $sum += $this->delivery_amount;
+        }
+        if ($this->promocode_discount) {
+            $sum -= $this->promocode_discount;
+        }
+        if ($this->bonus_discount) {
+            $sum -= $this->bonus_discount;
         }
         return $sum;
     }

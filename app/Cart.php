@@ -111,6 +111,8 @@ class Cart extends Model
     public function clear()
     {
         $this->content = [];
+        $this->promocode = null;
+        $this->bonus_discount = 0;
         $this->save();
     }
 

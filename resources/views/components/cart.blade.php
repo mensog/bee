@@ -117,10 +117,10 @@
                                 </div>
                                 <span class="checkout__weight-total">45 кг</span>
                             </div>
-                            <div class="checkout__wrap">
-                                <span class="checkout__discount">Скидка:</span>
-                                <span class="checkout__discount-price">− 413 ₽</span>
-                            </div>
+                            {{--<div class="checkout__wrap">--}}
+                                {{--<span class="checkout__discount">Скидка:</span>--}}
+                                {{--<span class="checkout__discount-price">− 413 ₽</span>--}}
+                            {{--</div>--}}
                             <div class="checkout__wrap">
                                 <span class="checkout__total">Общая сумма:</span>
                                 <span class="checkout__total-price">{{ $cartTotal / 100 }} ₽</span>
@@ -133,11 +133,11 @@
                                 @endguest
                             </a>
                         </div>
-                        <div class="promocode">
-                            <h4 class="promocode__heading">Введите промокод</h4>
-                            <input class="promocode__input" type="text" placeholder="Промокод на скидку">
-                            <button class="promocode__btn btn btn-empty">Применить промокод</button>
-                        </div>
+                        {{--<div class="promocode">--}}
+                            {{--<h4 class="promocode__heading">Введите промокод</h4>--}}
+                            {{--<input class="promocode__input" type="text" placeholder="Промокод на скидку">--}}
+                            {{--<button class="promocode__btn btn btn-empty">Применить промокод</button>--}}
+                        {{--</div>--}}
                     </div>
                 </div>
             </div>

@@ -18,7 +18,7 @@ class PrivateAccount extends Model
 
     public function withdraw($amount)
     {
-        if ($amount < $this->getTotalAmount()) {
+        if ($amount > $this->getTotalAmount()) {
             return false;
         }
         if ($this->refund_amount >= $amount) {

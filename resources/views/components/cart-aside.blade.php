@@ -23,26 +23,40 @@
         @if($bonusDiscount > 0)
         <div class="checkout__wrap">
             <span class="checkout__discount">Скидка:</span>
-            <span class="checkout__discount-price">{{ $bonusDiscount / 100 }} ₽</span>
+            <span class="checkout__discount-price">{{ ($bonusDiscount + $promocodeDiscount) / 100 }} ₽</span>
         </div>
         @endif
         <div class="checkout__wrap">
             <span class="checkout__total">Общая сумма:</span>
             @if(env('FREE_FIRST_DELIVERY_ENABLED', 0) && $hasNoOrders)
-            <span class="checkout__total-price">{{ $cartTotal / 100 }} ₽</span>
+            <span class="checkout__total-price">{{ $cartTotal / 100 - ($bonusDiscount + $promocodeDiscount) / 100}} ₽</span>
             @else
-            <span class="checkout__total-price">{{ $cartTotal / 100 + $delivery->price / 100 - $bonusDiscount / 100 }} ₽</span>
+            <span class="checkout__total-price">{{ $cartTotal / 100 + $delivery->price / 100 - ($bonusDiscount + $promocodeDiscount) / 100 }} ₽</span>
             @endif
         </div>
         <button type="submit" class="checkout__btn btn btn-primary">
             Оплатить онлайн
         </button>
     </div>
-    <div class="promocode">
-        <h4 class="promocode__heading">Введите промокод</h4>
-        <input class="promocode__input" type="text" placeholder="Промокод на скидку">
-        <button class="promocode__btn btn btn-empty">Применить промокод</button>
+    <div class="promocode mb-4">
+        @if($promocode)
+            <h4 class="promocode__heading">Промокод</h4>
+            <p>Вы применили промокод {{ $promocode->name }} на скидку {{ $promocode->amount_type == \App\PromocodeType::PERCENTAGE ? $promocode->amount : $promocode->amount / 100 }} {{ __('promocode_type_short.' . $promocode->amount_type) }}</p>
+            <button class="promocode__btn btn btn-empty remove-promocode">Отменить промокод</button>
+        @else
+            <h4 class="promocode__heading">Введите промокод</h4>
+            @if(!$promocode && $wrongPromocode !== false)
+                <p>Такого промокода нет</p>
+            @endif
+            <input class="promocode__input" type="text" name="promocode"
+                   @if(!$promocode && $wrongPromocode !== false)
+                   value="{{ $wrongPromocode }}"
+                   @endif
+                   placeholder="Промокод на скидку">
+            <button class="promocode__btn btn btn-empty apply-promocode">Применить промокод</button>
+        @endif
     </div>
+
     <div class="promocode">
         <h4 class="promocode__heading">Бонусный счет</h4>
         @if($bonusDiscount > 0)

@@ -6,6 +6,7 @@ use App\Cart;
 use App\Delivery;
 use App\Order;
 use App\OrderStatus;
+use App\Promocode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -63,17 +64,40 @@ class OrderController extends Controller
         } else {
             $order->delivery_amount = Delivery::find($request->input('delivery'))->price;
         }
-        $withdrawFromPrivateAccountResult = $user->privateAccount->withdraw($cart->bonus_discount);
-        $order->amount_paid = $order->getSum();
-        if ($withdrawFromPrivateAccountResult) {
-            $order->bonus_discount = $cart->bonus_discount;
-            $order->amount_paid = $order->getSum() - $order->bonusDiscount;
-        }
         $order->save();
         $order->fillFromCart($cart);
         $order = Order::where('id', $order->id)->with('items')->first();
         $order->fillOrderStores();
+        $itemsSum = $order->getItemsSum();
+        if ($cart->bonus_discount > $itemsSum) {
+            $amountToWithdrawFromPrivateAccount = $itemsSum;
+        } else {
+            $amountToWithdrawFromPrivateAccount = $cart->bonus_discount;
+        }
+        $withdrawFromPrivateAccountResult = $user->privateAccount->withdraw($amountToWithdrawFromPrivateAccount);
+        if ($withdrawFromPrivateAccountResult) {
+            $order->bonus_discount = $amountToWithdrawFromPrivateAccount;
+        } else {
+            $order->bonus_discount = 0;
+        }
+        $promocodeDiscount = 0;
+        if (!is_null($cart->promocode)) {
+            $promocode = Promocode::where('name', $cart->promocode)->first();
+            if ($promocode) {
+                $promocodeDiscount = $promocode->getCurrencyAmountFromTotal($itemsSum - $order->bonus_discount);
+                if ($promocodeDiscount > $itemsSum - $order->bonus_discount) {
+                    $order->promocode_discount = $itemsSum - $order->bonus_discount;
+                } else {
+                    $order->promocode_discount = $promocodeDiscount;
+                }
+                $order->promocode_name = $cart->promocode;
+            }
+        }
+        $order->amount_paid = $order->getSum() - $order->bonus_discount - $order->promocode_discount;
+        $amountToPay = $order->getSum() - $order->bonus_discount - $order->promocode_discount;
+        $order->amount_paid = $amountToPay;
         $request->session()->flash('createdOrderId', $order->id);
+        $order->save();
         $cart->clear();
         return redirect()->route('lk_orders');
     }
