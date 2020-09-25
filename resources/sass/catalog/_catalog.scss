@@ -335,7 +335,7 @@
             &::placeholder {
                 font-size: 14px;
                 line-height: 12px;
-                color: $black;
+                color: $secondary-gray;
             }
         }
     }
@@ -404,4 +404,13 @@
     max-height: 70px;
     display: block;
     z-index: 3;
+}
+
+.breadcrumb-container {
+    padding: 28px 0;
+    background: #f4f4f4;
+
+    .breadcrumb {
+        margin-bottom: 0;
+    }
 }

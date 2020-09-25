@@ -18,7 +18,7 @@ jQuery($ => {
             if (data.name === value) {
                 data.name = ''
             } else {
-                data.name = $(this).data('category-name')
+                data.name = value
             }
             productsListRequest(data)
         })
@@ -42,14 +42,14 @@ jQuery($ => {
     $('[name="priceCatalog"]').on('input',
         _.debounce(
             function () {
-                const value = $(this).val().replace(/\D/g, "")
+                const value = $(this).val().replace(/\D/g, '')
                 $(this).val(value)
                 const type = $(this).data('type')
                 if (type) {
                     data[type] = value
                     productsListRequest(data)
                 }
-            }, 200))
+            }, 400))
 
     /**
      * Change url in window history
@@ -63,7 +63,7 @@ jQuery($ => {
     }
 
     /**
-     * Create url from data
+     * Create url from normalized data and pathname
      * @param data : object
      * @param pathname
      * @return {string}
@@ -80,14 +80,10 @@ jQuery($ => {
         const last = keys[keys.length - 1];
         let str = `${resultPath}?`
         Object.entries(data).forEach(([key, val]) => {
-            if (val) {
-                if (last === key) {
-                    str += `${key}=${val}`
-                } else if (keys[0] === key && last === key) {
-                    str += `${key}=${val}`
-                } else {
-                    str += `${key}=${val}&`
-                }
+            if (last === key || (keys[0] === key && last === key)) {
+                str += `${key}=${val}`
+            } else {
+                str += `${key}=${val}&`
             }
         });
         return str
