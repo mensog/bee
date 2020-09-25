@@ -48,7 +48,7 @@ class Cart extends Component
 
     public $maxWeight;
 
-    public $nowWeight;
+    public $totalWeight;
 
     /**
      * Create a new cart component instance.
@@ -60,7 +60,7 @@ class Cart extends Component
      * @param $itemsSubTotal
      * @param $cartTotal
      */
-    public function __construct($favoriteList, $groupedCartContent, $stores, $quantity, $itemsSubTotal, $cartTotal, $favoritesListContent, $maxWeight, $nowWeight)
+    public function __construct($favoriteList, $groupedCartContent, $stores, $quantity, $itemsSubTotal, $cartTotal, $favoritesListContent, $maxWeight, $totalWeight)
     {
         $this->groupedCartContent = $groupedCartContent;
         $this->favoriteList = $favoriteList;
@@ -70,7 +70,7 @@ class Cart extends Component
         $this->cartTotal = $cartTotal;
         $this->favoritesListContent = $favoritesListContent;
         $this->maxWeight = $maxWeight;
-        $this->nowWeight = $nowWeight;
+        $this->totalWeight = $totalWeight;
     }
 
     /**

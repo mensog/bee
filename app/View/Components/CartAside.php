@@ -37,15 +37,15 @@ class CartAside extends Component
      */
     public $maxWeight;
 
-    public $nowWeight;
+    public $totalWeight;
 
-    public function __construct($cartTotal, $quantity, $delivery = false, $maxWeight, $nowWeight)
+    public function __construct($cartTotal, $quantity, $delivery = false, $maxWeight, $totalWeight)
     {
         $this->cartTotal = $cartTotal;
         $this->quantity = $quantity;
         $this->delivery = $delivery;
         $this->maxWeight = $maxWeight;
-        $this->nowWeight = $nowWeight;
+        $this->totalWeight = $totalWeight;
     }
 
     /**

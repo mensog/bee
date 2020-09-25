@@ -204,13 +204,12 @@ class Cart extends Model
         Cart::where('updated_at', '<', Carbon::now()->subSeconds(self::CART_ID_COOKIE_EXPIRES))->whereNull('user_id')->delete();
     }
 
-    public function getProductsWeight()
+    public function  getTotalWeight()
     {
-        $total = 0;
-        $cartContent = $this->content;
-        for ($i = 0; $i < sizeof($cartContent); $i++) {
-            $total += $this->products[$i]->weight * array_values($cartContent)[$i];
+        $totalWeight = 0;
+        foreach ($this->products->pluck('weight', 'id') as $key => $weight) {
+            $totalWeight += $weight * $this->content[$key];
         }
-        return $total;
+        return $totalWeight;
     }
 }

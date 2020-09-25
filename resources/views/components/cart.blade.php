@@ -113,14 +113,14 @@
                             <div class="checkout__wrap">
                                 <div class="checkout__box">
                                     <span class="checkout__weight">Вес:</span>
-                                    @if($nowWeight > $maxWeight)
+                                    @if($totalWeight > $maxWeight)
                                         <span class="checkout__weight-limit">Вес не больше {{ $maxWeight / 1000 }} кг</span>
                                     @endif
                                 </div>
-                                @if($nowWeight > $maxWeight)
-                                    <span class="checkout__weight-total">{{ $nowWeight / 1000}} кг</span>
+                                @if($totalWeight > $maxWeight)
+                                    <span class="checkout__weight-total">{{ $totalWeight / 1000}} кг</span>
                                 @else
-                                    <span class="checkout__weight-total text-body">{{ $nowWeight / 1000}} кг</span>
+                                    <span class="checkout__weight-total text-body">{{ $totalWeight / 1000}} кг</span>
                                 @endif
                             </div>
                             <div class="checkout__wrap">
@@ -131,7 +131,7 @@
                                 <span class="checkout__total">Общая сумма:</span>
                                 <span class="checkout__total-price">{{ $cartTotal / 100 }} ₽</span>
                             </div>
-                            @if($nowWeight > $maxWeight)
+                            @if($totalWeight > $maxWeight)
                                 <a href="{{ route('checkout_page') }}" class="checkout__btn btn btn-primary disabled">
                                     @guest
                                         Войти для оформления
