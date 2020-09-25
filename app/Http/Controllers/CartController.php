@@ -169,8 +169,9 @@ class CartController extends Controller
                 $cart = app('Cart');
                 $cartContent = $cart->content;
                 $cartTotal = $cart->getTotal();
+                $totalWeight = $cart->getTotalWeight();
                 $response = [];
-                $response['html'] = view('components.cart-aside', ['cartTotal' => $cartTotal, 'quantity' => $cartContent, 'delivery' => $delivery])->render();
+                $response['html'] = view('components.cart-aside', ['cartTotal' => $cartTotal, 'quantity' => $cartContent, 'delivery' => $delivery, 'totalWeight' => $totalWeight])->render();
             }
         }
         return $response;
@@ -187,7 +188,7 @@ class CartController extends Controller
         $user = auth()->user();
         $deliveries = Delivery::all();
         $totalWeight = $cart->getTotalWeight();
-        if (Order::WEIGHT_LIMIT < $totalWeight) {
+        if (Order::WEIGHT_MAX_LIMIT < $totalWeight || Order::WEIGHT_MIN_LIMIT > $totalWeight) {
             return redirect()->route('cart');
         }
         return view('pages.checkout', ['products' => $products,

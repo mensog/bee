@@ -48,6 +48,9 @@ class OrderController extends Controller
         if (count($cart->content) == 0) {
             return redirect()->route('cart');
         }
+        if (Order::WEIGHT_MAX_LIMIT > $cart->getTotalWeight() || Order::WEIGHT_MIN_LIMIT < $cart->getTotalWeight()) {
+            return redirect()->route('cart');
+        }
         $this->orderCreateValidator($request->all())->validate();
         $order = new Order();
         $order->user_id = Auth::user()->id;

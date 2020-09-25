@@ -12,11 +12,13 @@
         <div class="checkout__wrap">
             <div class="checkout__box">
                 <span class="checkout__weight">Вес:</span>
-                @if($totalWeight > \App\Order::WEIGHT_LIMIT)
-                    <span class="checkout__weight-limit">Вес не больше {{ \App\Order::WEIGHT_LIMIT / 1000 }} кг</span>
+                @if($totalWeight > \App\Order::WEIGHT_MAX_LIMIT)
+                    <span class="checkout__weight-limit">Вес не больше {{ \App\Order::WEIGHT_MAX_LIMIT / 1000 }} кг</span>
+                @elseif($totalWeight < \App\Order::WEIGHT_MIN_LIMIT)
+                     <span class="checkout__weight-limit">Вес не меньше {{ \App\Order::WEIGHT_MIN_LIMIT / 1000 }} кг</span>
                 @endif
             </div>
-            @if($totalWeight > \App\Order::WEIGHT_LIMIT)
+            @if($totalWeight > \App\Order::WEIGHT_MAX_LIMIT || $totalWeight < \App\Order::WEIGHT_MIN_LIMIT)
                 <span class="checkout__weight-total">{{ $totalWeight / 1000}} кг</span>
             @else
                 <span class="checkout__weight-total text-body">{{ $totalWeight / 1000}} кг</span>

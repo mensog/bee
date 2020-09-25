@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    const WEIGHT_LIMIT = 30000;
+    const WEIGHT_MAX_LIMIT = 30000;
+    const WEIGHT_MIN_LIMIT = 1000;
     /**
      * Возвращает все товарные позиции из текущего заказа
      *

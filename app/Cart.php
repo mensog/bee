@@ -207,9 +207,10 @@ class Cart extends Model
     public function  getTotalWeight()
     {
         $totalWeight = 0;
-        foreach ($this->products->pluck('weight', 'id') as $key => $weight) {
+        foreach ($this->getProducts()->pluck('weight', 'id') as $key => $weight) {
             $totalWeight += $weight * $this->content[$key];
         }
         return $totalWeight;
+
     }
 }
