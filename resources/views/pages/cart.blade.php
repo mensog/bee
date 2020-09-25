@@ -10,7 +10,7 @@
             </p>
         </div>
     </div>
-    <x-cart :favoriteList="$favoriteList" :groupedCartContent="$groupedCartContent" :stores="$stores" :quantity="$quantity" :itemsSubTotal="$itemsSubTotal" :cartTotal="$cartTotal" :favoritesListContent="$favoriteList" :maxWeight="$maxWeight" :totalWeight="$totalWeight"/>
+    <x-cart :favoriteList="$favoriteList" :groupedCartContent="$groupedCartContent" :stores="$stores" :quantity="$quantity" :itemsSubTotal="$itemsSubTotal" :cartTotal="$cartTotal" :favoritesListContent="$favoriteList" :totalWeight="$totalWeight"/>
     @if (count($groupedCartContent) != 0)
         <div class="liked">
             <div class="container">

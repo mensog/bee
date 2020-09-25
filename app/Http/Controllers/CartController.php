@@ -47,7 +47,6 @@ class CartController extends Controller
                 'groupedCartContent' => $groupedCartContent,
                 'stores' => $stores,
                 'favoriteList' => $favoritesListContent,
-                'maxWeight' => Order::WEIGHT_LIMIT,
                 'totalWeight' => $totalWeight,
             ])->render();
         } elseif ($request->input('fromPage') === 'product') {
@@ -84,7 +83,6 @@ class CartController extends Controller
             'stores' => $stores,
             'favoriteList' => $favoritesListContent,
             'recommendedProducts' => $recommendedProducts,
-            'maxWeight' => Order::WEIGHT_LIMIT,
             'totalWeight' => $totalWeight,
         ]);
     }
@@ -125,7 +123,6 @@ class CartController extends Controller
                 'groupedCartContent' => $groupedCartContent,
                 'stores' => $stores,
                 'favoriteList' => $favoritesListContent,
-                'maxWeight' => Order::WEIGHT_LIMIT,
                 'totalWeight' => $totalWeight,
             ])->render();
         } elseif ($request->input('fromPage') === 'product') {
@@ -199,7 +196,6 @@ class CartController extends Controller
             'cartTotal' => $cartTotal,
             'user' => $user,
             'deliveries' => $deliveries,
-            'maxWeight' => Order::WEIGHT_LIMIT,
             'totalWeight' => $totalWeight,
         ]);
     }

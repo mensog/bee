@@ -217,7 +217,7 @@
                 </div>
 
                 <div class="col-lg-4">
-                    <x-cart-aside :quantity="$quantity" :cartTotal="$cartTotal" :delivery="$deliveries[0]" :maxWeight="$maxWeight" :totalWeight="$totalWeight"/>
+                    <x-cart-aside :quantity="$quantity" :cartTotal="$cartTotal" :delivery="$deliveries[0]" :totalWeight="$totalWeight"/>
                 </div>
 
             </div>
