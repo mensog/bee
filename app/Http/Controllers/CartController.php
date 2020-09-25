@@ -160,11 +160,23 @@ class CartController extends Controller
                 $cart = app('Cart');
                 $cartContent = $cart->content;
                 $cartTotal = $cart->getTotal();
-                $bonusDiscount = (int) $cart->bonus_discount;
                 $response = [];
                 $user = auth()->user();
-                $hasNoOrders = $user->orders->count() == 0;
                 $privateAccount = $user->privateAccount;
+                $bonusDiscount = (int) $cart->bonus_discount;
+                if ($request->has('bonusAmount')) {
+                    $bonusesToAdd = (int) $request->input('bonusAmount') * 100;
+                    if ($bonusesToAdd == 0) {
+                        $cart->bonus_discount = 0;
+                        $cart->save();
+                        $bonusDiscount = 0;
+                    }elseif ($bonusesToAdd <= $privateAccount->getTotalAmount()) {
+                        $cart->bonus_discount = $bonusesToAdd;
+                        $cart->save();
+                        $bonusDiscount = $bonusesToAdd;
+                    }
+                }
+                $hasNoOrders = $user->orders->count() == 0;
                 $response['html'] = view('components.cart-aside', [
                     'cartTotal'=> $cartTotal,
                     'quantity' => $cartContent,

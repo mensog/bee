@@ -47,11 +47,11 @@
         <h4 class="promocode__heading">Бонусный счет</h4>
         @if($bonusDiscount > 0)
             <p>Вы применили <b>{{ $bonusDiscount / 100 }}</b> {{ Lang::choice('бонус|бонуса|бонусов', $bonusDiscount / 100, [], 'ru') }}</p>
-            <button class="promocode__btn btn btn-empty">Отменить применение бонусов</button>
+            <button class="promocode__btn btn btn-empty remove-bonus">Отменить применение бонусов</button>
         @else
             <p>Вам доступно <b>{{ $privateAccount->getTotalAmount() / 100 }}</b> {{ Lang::choice('бонус|бонуса|бонусов', $privateAccount->getTotalAmount(), [], 'ru') }}</p>
-            <input class="promocode__input" type="text" placeholder="Сколько бонусов применить">
-            <button class="promocode__btn btn btn-empty">Применить бонусы</button>
+            <input class="promocode__input" type="text" name="bonusesToAdd" placeholder="Сколько бонусов применить">
+            <button class="promocode__btn btn btn-empty add-bonus">Применить бонусы</button>
         @endif
     </div>
 </div>
