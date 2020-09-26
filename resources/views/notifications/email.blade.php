@@ -101,7 +101,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width"/>
     <title>BeeClub</title>
-    <meta name="x-apple-disable-message-reformatting">
 
     <style type="text/css">
         body {
@@ -135,7 +134,6 @@
         p {
             margin: 0;
             padding: 0;
-            margin-bottom: 0;
         }
 
         h1,
@@ -181,6 +179,26 @@
 
         a:hover {
             color: #000000 !important;
+        }
+
+        .gray {
+            background-color: #c4c4c4;
+        }
+
+        .blue {
+            background-color: #1990fe;
+        }
+
+        .orange {
+            background-color: #f78c07;
+        }
+
+        .red {
+            background-color: #eb5757;
+        }
+
+        .green {
+            background-color: #00a454;
         }
 
 
@@ -295,6 +313,8 @@
                                     <td style="padding-bottom: 24px;">
                                         <span style="color:#9f9f9f;">Статус заказа</span> <br>
                                         <a href="#" class="{{ $style }}"
+                                           style="display: inline-block; margin-bottom: 5px; padding: 8px 16px; background-color: #c4c4c4; border-radius: 6px; color: #ffffff; text-decoration: none;">{{ $status }}</a>
+                                        <a href="#" class="{{ $style }}"
                                            style="display: inline-block; padding: 8px 16px; background-color: #c4c4c4; border-radius: 6px; color: #ffffff; text-decoration: none;">{{ $status }}</a>
                                     </td>
                                 </tr>
@@ -350,7 +370,6 @@
                                                             <a href="#"
                                                                style="color: #1990fe; text-decoration: none;">{{ $item->product->name }}</a>
                                                         <p>Арт.{{ $item->product->sku }}</p>
-                                                        </p>
                                                         <p style="margin-top:0; margin-bottom:0;">
                                                             @if($item->product->weight)
                                                                 {{$item->product->weight / 1000}} КГ|
