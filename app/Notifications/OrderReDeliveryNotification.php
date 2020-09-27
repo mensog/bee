@@ -38,7 +38,7 @@ class OrderReDeliveryNotification extends OrderNotification
                         'firstText' => new HtmlString('Не удалось доставить заказ.<br>Повторная доставка запланирована на завтра.'),
                         'status' => 'Не доставлен',
                         'quantity' => $this->order->items()->pluck('quantity')->toArray(),
-                        'style' => '',
+                        'style' => 'red',
                     ]);
     }
 

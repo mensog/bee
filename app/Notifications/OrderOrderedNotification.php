@@ -8,7 +8,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\HtmlString;
 
-class OrderPendingNotification extends OrderNotification
+class OrderOrderedNotification extends OrderNotification
 {
     use Queueable;
 
@@ -31,16 +31,16 @@ class OrderPendingNotification extends OrderNotification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('Beeclub Заказ №' . $this->order->id . ' ожидает курьера' )
+                    ->subject('Beeclub Собираем заказ №' . $this->order->id)
                     ->view('notifications.email', [
                         'order' => $this->order,
-                        'titleNotification' => 'ожидает курьера',
-                        'firstText' => new HtmlString('Заказ собран и ожидает курьера для вручения.<br>Отслеживайте заказ в разделе "Заказы" в'),
+                        'uniqueTitleNotification' => 'Собираем заказ',
+                        'firstText' => new HtmlString('Заказ уже собирается на складе и скоро будет передан курьеру. <br> Отслеживайте заказ в разделе «Заказы» в'),
                         'route' => 'lk',
                         'linkName' => 'Личном кабинете.',
-                        'status' => 'Забирается со склада',
+                        'status' => 'Собирается',
                         'quantity' => $this->order->items()->pluck('quantity')->toArray(),
-                        'style' => '',
+                        'style' => 'orange',
                     ]);
     }
 
@@ -53,15 +53,15 @@ class OrderPendingNotification extends OrderNotification
     public function toArray($notifiable)
     {
         return [
-            'status' => 'Заказ №' . $this->order->id . ' ожидает курьера' ,
-            'notice' => 'Заказ собран и ожидает курьера для вручения.',
+            'status' => 'Собираем №' . $this->order->id . ' заказ' ,
+            'notice' => 'Заказ уже собирается на складе и скоро будет передан курьеру.',
         ];
     }
 
     public function toSmsAero($notifiable)
     {
         $number = $this->order->takeNumber($this->order->phone);
-        $text = 'Заказ №'. $this->order->id . ' собран и ожидает курьера для вручения.';
+        $text = 'Заказ №'. $this->order->id . ' уже собирается на складе и скоро будет передан курьеру.';
         return (new SmsAeroChannel($number, $text));
     }
 }

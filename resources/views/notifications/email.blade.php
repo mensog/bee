@@ -182,23 +182,23 @@
         }
 
         .gray {
-            background-color: #c4c4c4;
+            background-color: #c4c4c4 !important;
         }
 
         .blue {
-            background-color: #1990fe;
+            background-color: #1990fe !important;
         }
 
         .orange {
-            background-color: #f78c07;
+            background-color: #f78c07 !important;
         }
 
         .red {
-            background-color: #eb5757;
+            background-color: #eb5757 !important;
         }
 
         .green {
-            background-color: #00a454;
+            background-color: #00a454 !important;
         }
 
 
@@ -283,10 +283,17 @@
                                                 <td>
                                                     <h1
                                                         style="color:#000000; font-size:26px; line-height:1.2; font-weight:normal; margin-top:0; margin-bottom:16px;">
-                                                        <b>Заказ
-                                                            <a href="#" target="_blank"
-                                                               style="color:#1990fe; text-decoration: none;">№{{ $order->id }}</a>
-                                                            {{ $titleNotification }}
+                                                        <b>
+                                                            @if(isset($uniqueTitleNotification))
+                                                                {{ $uniqueTitleNotification }}
+                                                                <a href="#" target="_blank"
+                                                                    style="color:#1990fe; text-decoration: none;">№{{ $order->id }}</a>
+                                                            @else
+                                                                Заказ
+                                                                <a href="#" target="_blank"
+                                                                    style="color:#1990fe; text-decoration: none;">№{{ $order->id }}</a>
+                                                                {{ $titleNotification }}
+                                                            @endif
                                                         </b>
                                                     </h1>
                                                     <p style="margin-top:0; margin-bottom:24px;">
@@ -300,7 +307,7 @@
                                                             {{$thirdText}}
                                                         @endif
                                                         @if(isset($route) && isset($linkName))
-                                                            <a href="{{ $route }}"
+                                                            <a href="{{ asset($route) }}"
                                                                style="color:#1990FE; text-decoration: none;">{{ $linkName }}</a>
                                                         @endif
                                                     </p>
@@ -314,8 +321,10 @@
                                         <span style="color:#9f9f9f;">Статус заказа</span> <br>
                                         <a href="#" class="{{ $style }}"
                                            style="display: inline-block; margin-bottom: 5px; padding: 8px 16px; background-color: #c4c4c4; border-radius: 6px; color: #ffffff; text-decoration: none;">{{ $status }}</a>
-                                        <a href="#" class="{{ $style }}"
-                                           style="display: inline-block; padding: 8px 16px; background-color: #c4c4c4; border-radius: 6px; color: #ffffff; text-decoration: none;">{{ $status }}</a>
+                                        @if(isset($secondStatus))
+                                        <a href="#" class="{{ $secondStyle }}"
+                                           style="display: inline-block; padding: 8px 16px; background-color: #c4c4c4; border-radius: 6px; color: #ffffff; text-decoration: none;">{{ $secondStatus }}</a>
+                                        @endif
                                     </td>
                                 </tr>
                                 <tr>

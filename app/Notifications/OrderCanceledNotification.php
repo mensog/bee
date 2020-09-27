@@ -40,7 +40,7 @@ class OrderCanceledNotification extends OrderNotification
                         'linkName' => 'ссылка.',
                         'status' => 'Ожидает оплату',
                         'quantity' => $this->order->items()->pluck('quantity')->toArray(),
-                        'style' => '',
+                        'style' => 'gray',
                     ]);
     }
 

@@ -42,7 +42,7 @@ class OrderPaidNotification extends OrderNotification
                         'linkName' => 'Личном кабинете.',
                         'status' => 'Оплачен',
                         'quantity' => $this->order->items()->pluck('quantity')->toArray(),
-                        'style' => '',
+                        'style' => 'blue',
                     ]);
     }
 

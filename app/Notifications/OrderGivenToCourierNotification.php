@@ -35,12 +35,12 @@ class OrderGivenToCourierNotification extends OrderNotification
                     ->view('notifications.email', [
                         'order' => $this->order,
                         'titleNotification' => 'передан курьеру',
-                        'firstText' => new HtmlString('Заказ успешно доставлен. Понравился товар?<br>Оставьте о нем отзыв!'),
+                        'firstText' => new HtmlString('Заказ передан курьеру и скоро будет доставлен.<br> Отслеживайте заказ в разделе «Заказы» в'),
                         'route' => 'lk',
                         'linkName' => 'Личном кабинете.',
                         'status' => 'Передан курьеру',
                         'quantity' => $this->order->items()->pluck('quantity')->toArray(),
-                        'style' => '',
+                        'style' => 'orange',
                     ]);
     }
 
