@@ -45,20 +45,25 @@ jQuery($ => {
                         const icon = $(this).find('i')
                         if (action === 'add') {
                             $(this).data('action', 'remove')
-                            icon.removeClass('ec-favorites')
-                            icon.addClass('heart')
+                            icon.addClass('heart-on')
+                            icon.removeClass('heart-off')
                         } else {
                             $(this).data('action', 'add')
-                            icon.addClass('ec-favorites')
-                            icon.removeClass('heart')
+                            icon.addClass('heart-off')
+                            icon.removeClass('heart-on')
                         }
                     } else {
+                        const icon = $(this).find('i')
                         if (action === 'add') {
                             $(this).data('action', 'remove')
-                            $(this).text('В избранном')
+                            $(this).find('span').text('В избранном')
+                            icon.addClass('heart-on')
+                            icon.removeClass('heart-off')
                         } else {
                             $(this).data('action', 'add')
-                            $(this).text('В избранное')
+                            $(this).find('span').text('В избранное')
+                            icon.addClass('heart-off')
+                            icon.removeClass('heart-on')
                         }
                     }
                     $(this).removeClass('loading')
