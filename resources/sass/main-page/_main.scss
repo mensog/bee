@@ -250,6 +250,8 @@
 
 .main-steps {
    background: #fff;
+    position: relative;
+    z-index: 15;
 
    .container {
       padding-top: 64px;
@@ -866,6 +868,9 @@
       font-weight: bold;
       font-size: 14px;
       color: #ffffff;
+       transition: all .3s;
+
+
 
       &::before {
          content: "";
@@ -879,6 +884,11 @@
       &:nth-child(1) {
          background-color: #00c20a;
 
+          &:hover, &:active {
+              background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #00C20A;
+              color: $white;
+          }
+
          &::before {
             background: url(/svg/main/whatsapp.svg) center no-repeat;
          }
@@ -886,6 +896,11 @@
 
       &:nth-child(2) {
          background-color: #2ca5e0;
+
+          &:hover, &:active {
+              background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #2CA5E0;
+              color: $white;
+          }
 
          &::before {
             background: url(/svg/main/telegram.svg) center no-repeat;
@@ -895,6 +910,11 @@
       &:last-child {
          margin-right: 0;
          background-color: #7b519c;
+
+          &:hover, &:active {
+              background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #7B519C;
+              color: $white;
+          }
 
          &::before {
             background: url(/svg/main/phone.svg) center no-repeat;

@@ -8,10 +8,19 @@
     background: $primary-yellow;
     border-radius: 5px;
     position: relative;
+    cursor: pointer;
 
     &:hover {
-        cursor: pointer;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), #FDD900;
+    }
+
+    &:focus {
+        outline: 0;
         box-shadow: 0 4px 11px rgba(254, 215, 0, 0.35);
+    }
+
+    &:active {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), #FDD900;
     }
 }
 
