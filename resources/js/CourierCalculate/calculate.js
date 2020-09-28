@@ -21,7 +21,9 @@ jQuery($ => {
         calculate(orderPerDay, daysInWeek, brand, pricePerOrder, brandMultiplier, weeksPerMonth)
     })
 
-    $('#daysInWeek').on('input', function () {
+    const $daysInWeek = $('#daysInWeek')
+
+    $daysInWeek.on('input', function () {
         const value = $(this).val()
         if (value > 0 && value <= 7) {
             daysInWeek = value
@@ -29,6 +31,16 @@ jQuery($ => {
             daysInWeek = 0
         }
         calculate(orderPerDay, daysInWeek, brand, pricePerOrder, brandMultiplier, weeksPerMonth)
+    })
+
+    $daysInWeek.on('blur', function () {
+        const value = $(this).val()
+        if (value <= 0) {
+            $(this).val(1)
+        }
+        if (value > 7) {
+            $(this).val(7)
+        }
     })
 
     const calculate = (orderPerDay, daysInWeek, brand, pricePerOrder, brandMultiplier, weeksPerMonth) => {
