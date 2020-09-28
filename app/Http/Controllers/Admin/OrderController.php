@@ -55,7 +55,7 @@ class OrderController extends Controller
         $order->status = $request->input('status');
         $order->address = $request->input('address');
         $order->full_name = $request->input('fullName');
-        $order->phone = $request->input('phone');
+        $order->phone = preg_replace('~[+\- ()]+~', '', $request->input('phone'));
         $order->email = $request->input('email');
         $order->delivery_date = Carbon::createFromFormat('m/d/Y', $request->input('date'))->format('Y-m-d');
         $order->delivery_start_time = Carbon::createFromFormat('H:i', $request->input('timeFrom'))->format('H:i:s');

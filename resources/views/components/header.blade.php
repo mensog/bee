@@ -118,11 +118,11 @@
                         </div>
                     </form>
                     <div class="header-icons">
-                        @if(!auth())
+{{--                        @if(!auth())--}}
                             <a href="{{ route('lk_orders') }}" title="Мои заказы">
                                 <img src="/svg/main/order.svg" alt="Мои заказы">
                             </a>
-                        @endif
+{{--                        @endif--}}
                         <a href="{{ route('favorites') }}">
                      <span id="favoritesCounter" class="{{ $headerFavoritesCount ? 'd-block' : 'd-none' }}">
                         {{ $headerFavoritesCount ?: '' }}

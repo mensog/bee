@@ -258,7 +258,7 @@
                                         <label for="fullName">ФИО</label>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="phone" value="{{ $order->phone }}"
+                                        <input type="text" name="phone" value="{{ preg_replace('~^7~', '', $order->phone) }}"
                                                class="form-control" id="phone" required>
                                         <label for="phone">Телефон</label>
                                     </div>
