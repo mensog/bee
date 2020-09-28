@@ -1,5 +1,23 @@
 @media (max-width: 1199px) {
 
+    .cart-page .liked .liked__item-body > button {
+        top: 125px;
+        left: 35px;
+        width: 26px;
+        height: 26px;
+        background-color: $white;
+        border-radius: 50%;
+    }
+
+    .cart-page {
+
+        ~ .container > .improve {
+            margin-bottom: 30px;
+            margin-top: 0;
+        }
+
+    }
+
 }
 
 @media (max-width: 991px) {
@@ -203,8 +221,8 @@
     }
 
     .cart-page .product__item-favorite {
-        top: auto;
-        left: 10px;
+        top: auto !important;
+        left: 10px !important;
         bottom: 15px;
         width: 26px;
         height: 26px;

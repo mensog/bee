@@ -33,20 +33,6 @@
                     <div class="product-card-gallery">
                         <img class="product-card-gallery__image" src="{{ $product->img_url }}"
                              alt="{{ $product->name }}">
-                        <div class="product-card-gallery-images">
-                            <div class="product-card-gallery-images__item">
-
-                            </div>
-                            <div class="product-card-gallery-images__item active">
-
-                            </div>
-                            <div class="product-card-gallery-images__item">
-
-                            </div>
-                            <div class="product-card-gallery-images__item">
-
-                            </div>
-                        </div>
                     </div>
 
                     <div class="product-card-info">
