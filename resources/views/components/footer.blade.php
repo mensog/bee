@@ -130,42 +130,55 @@
     </ul>
 </nav>
 
-<div class="mobile-content">
-    <div class="mobile-content__header">
-        <div class="mobile-content__header-title">Меню</div>
-        <div class="mobile-content__close" data-close>
-            <img src="/svg/mobile-menu/menu-close.svg" alt="close menu">
-        </div>
-    </div>
-    <ul class="mobile-content__list">
-        <li>
-            <a href="{{ route('main') }}" class="mobile-content__list-link">Главная</a>
-        </li>
-        <li>
-            <a href="{{ route('promotions') }}" class="mobile-content__list-link">Акции</a>
-        </li>
-        <li>
-            <a href="{{ route('about') }}" class="mobile-content__list-link">О сервисе</a>
-        </li>
-        <li>
-            <a href="{{ Route::currentRouteName() === 'about' ? '#delivery-cost' : route('about') . '#delivery-cost' }}"
-               class="mobile-content__list-link">Доставка</a>
-        </li>
-        <li>
-            <a href="{{ route('couriers') }}" class="mobile-content__list-link">Курьерам</a>
-        </li>
-        <li>
-            <a href="{{ route('suppliers') }}" class="mobile-content__list-link">Поставщикам</a>
-        </li>
-        <li>
-            <a href="#" class="mobile-content__list-link">Доп. услуги</a>
-        </li>
-    </ul>
-    <div class="mobile-content__info">
-        <a href="tel:+79005882222">+7 (900) 588 22 22</a>
-        <a href="mailto:beeclub@example.com">beeclub@example.com</a>
-    </div>
-</div>
+
+            <div class="mobile-content">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="mobile-content__header">
+                                <div class="mobile-content__header-title">Меню</div>
+                                <div class="mobile-content__close" data-close>
+                                    <img src="/svg/mobile-menu/menu-close.svg" alt="close menu">
+                                </div>
+                            </div>
+                            <ul class="mobile-content__list">
+                                <li>
+                                    <a href="{{ route('main') }}" class="mobile-content__list-link">Главная</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('promotions') }}" class="mobile-content__list-link">Акции</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('about') }}" class="mobile-content__list-link">О сервисе</a>
+                                </li>
+                                <li>
+                                    <a href="{{ Route::currentRouteName() === 'about' ? '#delivery-cost' : route('about') . '#delivery-cost' }}"
+                                       class="mobile-content__list-link">Доставка</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('couriers') }}" class="mobile-content__list-link">Курьерам</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('suppliers') }}" class="mobile-content__list-link">Поставщикам</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="mobile-content__list-link">Доп. услуги</a>
+                                </li>
+                            </ul>
+                            <div class="mobile-content__info">
+                                <a href="tel:+79005882222">+7 (900) 588 22 22</a>
+                                <a href="mailto:beeclub@example.com">beeclub@example.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
 
 @auth
     <div class="lk-modal">
@@ -301,40 +314,72 @@
     const menuContent = document.querySelector('.mobile-content');
 
 
-    menuTrigger.addEventListener('click', (e) => {
-        e.preventDefault();
-        menuContent.classList.toggle('active');
-        menuTrigger.classList.toggle('active');
-        document.body.classList.toggle('lock');
-    });
 
-    menuClose.addEventListener('click', () => {
-        menuContent.classList.remove('active');
-        menuTrigger.classList.remove('active');
-        document.body.classList.remove('lock');
-    });
+    // menuTrigger.addEventListener('click', (e) => {
+    //     e.preventDefault();
+    //     menuContent.classList.toggle('active');
+    //     menuTrigger.classList.toggle('active');
+    //     document.body.classList.toggle('lock');
+    //     lkModal.classList.remove('active');
+    //     lkTrigger.classList.remove('active');
+    // });
+    //
+    // menuClose.addEventListener('click', () => {
+    //     menuContent.classList.remove('active');
+    //     menuTrigger.classList.remove('active');
+    //     document.body.classList.remove('lock');
+    // });
+
+
+
 
     // Lk-modal
 
     const lkModal = document.querySelector('.lk-modal');
     const lkTrigger = document.querySelector('.lk-entry');
-    if (lkModal && lkTrigger) {
-        const lkClose = lkModal.querySelector('.lk-sidebar__close');
+    const lkClose = lkModal.querySelector('.lk-sidebar__close');
+    // if (lkModal && lkTrigger) {
+        // const lkClose = lkModal.querySelector('.lk-sidebar__close');
 
-        lkTrigger.addEventListener('click', (e) => {
+        // lkTrigger.addEventListener('click', (e) => {
+        //     e.preventDefault();
+        //     lkModal.classList.toggle('active');
+        //     lkTrigger.classList.toggle('active');
+        //     document.body.classList.toggle('lock');
+        //     menuContent.classList.remove('active');
+        //     menuTrigger.classList.remove('active');
+        // });
+        //
+        // lkClose.addEventListener('click', () => {
+        //     lkModal.classList.remove('active');
+        //     lkTrigger.classList.remove('active');
+        //     document.body.classList.remove('lock');
+        // });
+
+    // }
+
+    function openMenu (triggerSelector, closeSelector, content, disabledTrigger, disabledContent) {
+
+        triggerSelector.addEventListener('click', (e) => {
             e.preventDefault();
-            lkModal.classList.toggle('active');
-            lkTrigger.classList.toggle('active');
+            content.classList.toggle('active');
+            triggerSelector.classList.toggle('active');
             document.body.classList.toggle('lock');
+            disabledContent.classList.remove('active');
+            disabledTrigger.classList.remove('active');
         });
 
-        lkClose.addEventListener('click', () => {
-            lkModal.classList.remove('active');
-            lkTrigger.classList.remove('active');
+        closeSelector.addEventListener('click', () => {
+            content.classList.remove('active');
+            triggerSelector.classList.remove('active');
             document.body.classList.remove('lock');
         });
     }
 
+    openMenu(menuTrigger, menuClose, menuContent, lkModal, lkTrigger);
+    if (lkModal && lkTrigger) {
+        openMenu(lkTrigger, lkClose, lkModal, menuContent, menuTrigger);
+    }
 </script>
 </body>
 
