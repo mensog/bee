@@ -12,16 +12,16 @@
 @endif
 
 @if($page === 'favorites')
-{{--    <div class="container">--}}
-        <div class="empty">
-            <div class="empty__inner">
-                <img class="empty__img" src="/svg/components/empty-list/heart.svg" alt="heart">
-                <h2 class="empty__heading">В избранном пусто</h2>
-                <div class="empty__description">Добавляйте товары в избранное, чтобы не потерять</div>
-                <a class="empty__btn btn btn-primary" href="{{ route('main') }}">Перейти к покупкам</a>
-            </div>
+    {{--    <div class="container">--}}
+    <div class="empty">
+        <div class="empty__inner">
+            <img class="empty__img" src="/svg/components/empty-list/heart.svg" alt="heart">
+            <h2 class="empty__heading">В избранном пусто</h2>
+            <div class="empty__description">Добавляйте товары в избранное, чтобы не потерять</div>
+            <a class="empty__btn btn btn-primary" href="{{ route('main') }}">Перейти к покупкам</a>
         </div>
-{{--    </div>--}}
+    </div>
+    {{--    </div>--}}
 @endif
 
 @if($page === 'orders')
@@ -37,13 +37,14 @@
     </div>
 @endif
 
-
-<div class="container">
-    <div class="empty">
-        <div class="empty__inner">
-            <img class="empty__img" src="/svg/components/empty-list/notification.svg" alt="notification">
-            <h2 class="empty__heading">Уведомлений нет</h2>
-            <div class="empty__description">У вас пока нет ни одного уведомления.</div>
+@if($page === 'notifications')
+    <div class="container">
+        <div class="empty">
+            <div class="empty__inner">
+                <img class="empty__img" src="/svg/components/empty-list/notification.svg" alt="notification">
+                <h2 class="empty__heading">Уведомлений нет</h2>
+                <div class="empty__description">У вас пока нет ни одного уведомления.</div>
+            </div>
         </div>
     </div>
-</div>
+@endif

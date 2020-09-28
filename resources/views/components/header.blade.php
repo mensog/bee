@@ -119,7 +119,7 @@
                     </form>
                     <div class="header-icons">
                         @if(!auth())
-                            <a href="/lk/orders" title="Мои заказы">
+                            <a href="{{ route('lk_orders') }}" title="Мои заказы">
                                 <img src="/svg/main/order.svg" alt="Мои заказы">
                             </a>
                         @endif

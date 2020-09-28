@@ -77,16 +77,13 @@
         background-size: 45%, 100%;
         background-repeat: no-repeat no-repeat;
         transition: all 0.3s linear;
+        cursor: auto;
 
         &_right {
             background-image: url(/img/promotions/car.png), linear-gradient(180deg, #35353d 0%, #292a2f 100%);
             background-position: right bottom, center;
             background-size: 70%,  100%;
             background-repeat: no-repeat no-repeat;
-        }
-
-        &:hover {
-            box-shadow: 0 4px 11px rgba($primary-gray, 0.35);
         }
     }
 

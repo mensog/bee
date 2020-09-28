@@ -33,20 +33,6 @@
                     <div class="product-card-gallery">
                         <img class="product-card-gallery__image" src="{{ $product->img_url }}"
                              alt="{{ $product->name }}">
-                        <div class="product-card-gallery-images">
-                            <div class="product-card-gallery-images__item">
-
-                            </div>
-                            <div class="product-card-gallery-images__item active">
-
-                            </div>
-                            <div class="product-card-gallery-images__item">
-
-                            </div>
-                            <div class="product-card-gallery-images__item">
-
-                            </div>
-                        </div>
                     </div>
 
                     <div class="product-card-info">
@@ -60,7 +46,7 @@
                                 <span class="product-card-info-header__score">
                                     {{ number_format($product->getRating(), 1) }}
                                 </span>
-                                <span class="product-card-info-header__sku"><span>|</span> Артикул: {{ $product-> sku }}</span>
+                                    <span class="product-card-info-header__sku"><span>|</span> Артикул: {{ $product-> sku }}</span>
                             </div>
                             <hr>
                         </div>
@@ -100,13 +86,14 @@
                                     <button data-id="{{ $product->id }}" data-action="remove"
                                             class="btn-add-to-favorites add-to-favorites btn btn-outline-black"
                                             style="max-width: 100%">
-                                        В избранном
+                                        <i class="heart-on"></i>
+                                        <span>В избранном</span>
                                     </button>
                                 @else
                                     <button data-id="{{ $product->id }}" data-action="add"
                                             class="btn-add-to-favorites add-to-favorites btn btn-outline-black">
-                                        <i class="ec ec-favorites font-size-15"></i>
-                                        В избранное
+                                        <i class="heart-off"></i>
+                                        <span>В избранное</span>
                                     </button>
                                 @endif
                             </div>
@@ -190,7 +177,8 @@
                         <div class="col-lg-8 col-12">
                             @if($product->reviews->count() > 0)
                                 <h4>Отзывы ({{ $product->reviews->count() }})</h4>
-                                <x-star-rating rating="{{ $product->getRating() }}" class="comments-card__rating" :interaction="false"/>
+                                <x-star-rating rating="{{ $product->getRating() }}" class="comments-card__rating"
+                                               :interaction="false"/>
                                 <span class="comments-card__score">{{ number_format($product->getRating(), 1) }}</span>
                                 <span class="comments-card__count">({{ $product->reviews->count() }})</span>
                             @else
@@ -245,7 +233,7 @@
                                     <div class="form-control-container">
                                         <textarea id="advantages" type="text" class="form-control" rows="3"
                                                   name="advantages" placeholder=" "
-                                                  >{{ old('advantages') }}</textarea>
+                                        >{{ old('advantages') }}</textarea>
                                         <label for="advantages">Достоинства</label>
                                     </div>
                                 </div>
@@ -256,7 +244,7 @@
                                     <div class="form-control-container">
                                          <textarea id="disadvantages" type="text" class="form-control" rows="3"
                                                    name="disadvantages" placeholder=" "
-                                                   >{{ old('disadvantages') }}</textarea>
+                                         >{{ old('disadvantages') }}</textarea>
                                         <label for="disadvantages">Недостатки</label>
                                     </div>
                                 </div>
@@ -267,7 +255,7 @@
                                     <div class="form-control-container">
                                         <textarea id="commentText" type="text" class="form-control" rows="3"
                                                   name="comment" placeholder=" "
-                                                  >{{ old('comment') }}</textarea>
+                                        >{{ old('comment') }}</textarea>
                                         <label for="comment">Комментарий</label>
                                     </div>
                                 </div>
@@ -290,7 +278,8 @@
                                         <div>
                                             <p>{{ $review->user->full_name ?? 'Аноним' }}
                                                 <span>{{ date('d.m.Y', strtotime($review->created_at)) }}</span></p>
-                                            <x-star-rating rating="{{ $review->rating }}" class="comment__rating" :interaction="false"/>
+                                            <x-star-rating rating="{{ $review->rating }}" class="comment__rating"
+                                                           :interaction="false"/>
                                         </div>
                                     </div>
                                     <div class="comment__body">
@@ -341,7 +330,7 @@
 
             if (btnProps.classList.contains('show')) {
                 btnProps.textContent = 'Скрыть';
-            } else  {
+            } else {
                 btnProps.textContent = 'Показать все';
             }
         });

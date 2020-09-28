@@ -63,7 +63,7 @@
                 <p class="footer__muted">BEECLUB @ 2020</p>
             </div>
             <div class="col-lg-6 col-6">
-                <p class="footer__muted text-right">Сделано с любовью в <a href="#">Студии Юрина</a></p>
+                <p class="footer__muted text-right">Сделано с любовью в <a href="http://yurin.biz/">Студии Юрина</a></p>
             </div>
         </div>
     </div>

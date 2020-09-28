@@ -74,7 +74,7 @@
                                 <img src="{{ $store->image_path ?? '' }}" alt="$store->slug">
                             </a>
                         @endforeach
-                        <a href="#" class="main-map-shops__item">
+                        <a href="{{ route('catalog') }}" class="main-map-shops__item">
                             <p>Другие магазины</p>
                         </a>
                     </div>
