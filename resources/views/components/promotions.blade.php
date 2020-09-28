@@ -2,7 +2,6 @@
    <div class="container">
       <div class="promotions__header">
          <h2 class="promotions__heading">Акции и спецпредложения</h2>
-         <a href="#">
       </div>
 
       <div class="row">
