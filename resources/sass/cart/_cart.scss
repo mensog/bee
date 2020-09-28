@@ -385,12 +385,14 @@
         background-color: $white;
     }
 
-    + .container > .improve {
+    ~ .container > .improve {
         margin-bottom: 64px;
+        margin-top: 64px;
     }
 
     .budge {
         display: none;
     }
+
 }
 
