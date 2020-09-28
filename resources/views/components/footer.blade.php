@@ -315,20 +315,20 @@
 
 
 
-    // menuTrigger.addEventListener('click', (e) => {
-    //     e.preventDefault();
-    //     menuContent.classList.toggle('active');
-    //     menuTrigger.classList.toggle('active');
-    //     document.body.classList.toggle('lock');
-    //     lkModal.classList.remove('active');
-    //     lkTrigger.classList.remove('active');
-    // });
-    //
-    // menuClose.addEventListener('click', () => {
-    //     menuContent.classList.remove('active');
-    //     menuTrigger.classList.remove('active');
-    //     document.body.classList.remove('lock');
-    // });
+    menuTrigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        menuContent.classList.toggle('active');
+        menuTrigger.classList.toggle('active');
+        document.body.classList.toggle('lock');
+        lkModal.classList.remove('active');
+        lkTrigger.classList.remove('active');
+    });
+
+    menuClose.addEventListener('click', () => {
+        menuContent.classList.remove('active');
+        menuTrigger.classList.remove('active');
+        document.body.classList.remove('lock');
+    });
 
 
 
@@ -337,49 +337,26 @@
 
     const lkModal = document.querySelector('.lk-modal');
     const lkTrigger = document.querySelector('.lk-entry');
-    const lkClose = lkModal.querySelector('.lk-sidebar__close');
-    // if (lkModal && lkTrigger) {
-        // const lkClose = lkModal.querySelector('.lk-sidebar__close');
 
-        // lkTrigger.addEventListener('click', (e) => {
-        //     e.preventDefault();
-        //     lkModal.classList.toggle('active');
-        //     lkTrigger.classList.toggle('active');
-        //     document.body.classList.toggle('lock');
-        //     menuContent.classList.remove('active');
-        //     menuTrigger.classList.remove('active');
-        // });
-        //
-        // lkClose.addEventListener('click', () => {
-        //     lkModal.classList.remove('active');
-        //     lkTrigger.classList.remove('active');
-        //     document.body.classList.remove('lock');
-        // });
+    if (lkModal && lkTrigger) {
+        const lkClose = lkModal.querySelector('.lk-sidebar__close');
 
-    // }
-
-    function openMenu (triggerSelector, closeSelector, content, disabledTrigger, disabledContent) {
-
-        triggerSelector.addEventListener('click', (e) => {
+        lkTrigger.addEventListener('click', (e) => {
             e.preventDefault();
-            content.classList.toggle('active');
-            triggerSelector.classList.toggle('active');
+            lkModal.classList.toggle('active');
+            lkTrigger.classList.toggle('active');
             document.body.classList.toggle('lock');
-            disabledContent.classList.remove('active');
-            disabledTrigger.classList.remove('active');
+            menuContent.classList.remove('active');
+            menuTrigger.classList.remove('active');
         });
 
-        closeSelector.addEventListener('click', () => {
-            content.classList.remove('active');
-            triggerSelector.classList.remove('active');
+        lkClose.addEventListener('click', () => {
+            lkModal.classList.remove('active');
+            lkTrigger.classList.remove('active');
             document.body.classList.remove('lock');
         });
     }
 
-    openMenu(menuTrigger, menuClose, menuContent, lkModal, lkTrigger);
-    if (lkModal && lkTrigger) {
-        openMenu(lkTrigger, lkClose, lkModal, menuContent, menuTrigger);
-    }
 </script>
 </body>
 
