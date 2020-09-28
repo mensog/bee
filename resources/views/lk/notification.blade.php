@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="card-lk">
-        <div class="card-lk__header">
-            <h3 class="card-lk__title">Уведомления ({{ count($notifications) }})</h3>
-        </div>
         @if(count($notifications))
+            <div class="card-lk__header">
+                <h3 class="card-lk__title">Уведомления ({{ count($notifications) }})</h3>
+            </div>
             <div class="card-lk__body card-lk-notifications">
                 @foreach($notifications as $notification)
                     <div class="card-lk-notification">
