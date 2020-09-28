@@ -135,8 +135,22 @@ jQuery($ => {
                             }
                         }
                         break
+                    case 'phone':
+                        if (mask.unmaskedValue.length === 11) {
+                            $(this).removeClass('is-invalid')
+                            $(this).addClass('is-valid')
+                            if (!isValid.includes($(this).attr('id'))) {
+                                isValid.push($(this).attr('id'))
+                            }
+                        } else {
+                            $(this).removeClass('is-valid')
+                            if (!load)
+                                $(this).addClass('is-invalid')
+                            let index = isValid.indexOf($(this).attr('id'));
+                            if (index !== -1) isValid.splice(index, 1);
+                        }
+                        break
                     case 'password':
-
                         if ($(this).attr('id') === 'password-confirm') {
                             let password = $('#password').val().trim()
                             if ($(this).val() === password && $(this).val().length >= 8) {
