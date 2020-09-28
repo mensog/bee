@@ -7,6 +7,7 @@ use App\Delivery;
 use App\Order;
 use App\Partner;
 use App\Product;
+use App\Promocode;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -171,7 +172,74 @@ class CartController extends Controller
                 $cartTotal = $cart->getTotal();
                 $totalWeight = $cart->getTotalWeight();
                 $response = [];
-                $response['html'] = view('components.cart-aside', ['cartTotal' => $cartTotal, 'quantity' => $cartContent, 'delivery' => $delivery, 'totalWeight' => $totalWeight])->render();
+                $user = auth()->user();
+                $privateAccount = $user->privateAccount;
+                $bonusDiscount = (int) $cart->bonus_discount;
+                if ($request->has('bonusAmount')) {
+                    $bonusesToAdd = (int) $request->input('bonusAmount') * 100;
+                    if ($bonusesToAdd == 0) {
+                        $cart->bonus_discount = 0;
+                        $bonusDiscount = 0;
+                    }elseif ($bonusesToAdd <= $privateAccount->getTotalAmount()) {
+                        $cart->bonus_discount = $bonusesToAdd;
+                        $bonusDiscount = $bonusesToAdd;
+                    }
+                    $cart->save();
+                }
+                if ($bonusDiscount > $cartTotal) {
+                    $bonusDiscount = $cartTotal;
+                    $cart->bonus_discount = $cartTotal;
+                    $cart->save();
+                }
+                $wrongPromocode = false;
+                $promocode = false;
+                $promocodeDiscount = 0;
+                if ($request->has('promocode')) {
+                    $promocode = Promocode::where('name', $request->input('promocode'))->first();
+                    if ($promocode) {
+                        $promocodeDiscount = $promocode->getCurrencyAmountFromTotal($cartTotal);
+                        if ($promocodeDiscount > $cartTotal - $bonusDiscount) {
+                            $promocodeDiscount = $cartTotal - $bonusDiscount;
+                        }
+                        $cart->promocode = $promocode->name;
+                        $cart->save();
+                    } else {
+                        $wrongPromocode = $request->input('promocode');
+                        $promocode = false;
+                    }
+                }
+                if ($request->has('removePromocode')) {
+                    $cart->promocode = null;
+                    $promocode = false;
+                    $cart->save();
+                }
+                if (!$promocode) {
+                    $promocode = Promocode::where('name', $cart->promocode)->first();
+                    if ($promocode) {
+                        $promocodeDiscount = $promocode->getCurrencyAmountFromTotal($cartTotal);
+                        if ($promocodeDiscount > $cartTotal - $bonusDiscount) {
+                            $promocodeDiscount = $cartTotal - $bonusDiscount;
+                        }
+                    } else {
+                        $promocode = false;
+                    }
+                }
+                if ($promocodeDiscount > $cartTotal - $bonusDiscount) {
+                    $promocodeDiscount = $cartTotal - $bonusDiscount;
+                }
+                $hasNoOrders = $user->orders->count() == 0;
+                $response['html'] = view('components.cart-aside', [
+                    'cartTotal'=> $cartTotal,
+                    'quantity' => $cartContent,
+                    'delivery' => $delivery,
+                    'totalWeight' => $totalWeight,
+                    'hasNoOrders' => $hasNoOrders,
+                    'privateAccount' => $privateAccount,
+                    'bonusDiscount' => $bonusDiscount,
+                    'promocode' => $promocode,
+                    'promocodeDiscount' => $promocodeDiscount,
+                    'wrongPromocode' => $wrongPromocode,
+                ])->render();
             }
         }
         return $response;
@@ -179,17 +247,38 @@ class CartController extends Controller
 
     public function showCheckout(Request $request)
     {
-
         $cart = app('Cart');
         $cartContent = $cart->content;
+        $bonusDiscount = (int) $cart->bonus_discount;
         $products = $cart->getProducts();
         $itemsSubTotal = $cart->getItemsSubTotal();
         $cartTotal = $cart->getTotal();
+        if ($bonusDiscount > $cartTotal) {
+            $bonusDiscount = $cartTotal;
+            $cart->bonus_discount = $cartTotal;
+            $cart->save();
+        }
         $user = auth()->user();
+        $hasNoOrders = $user->orders->count() == 0;
         $deliveries = Delivery::all();
         $totalWeight = $cart->getTotalWeight();
         if (Order::WEIGHT_MAX_LIMIT < $totalWeight || Order::WEIGHT_MIN_LIMIT > $totalWeight) {
             return redirect()->route('cart');
+        }
+        $privateAccount = $user->privateAccount;
+        $promocodeDiscount = 0;
+        if ($cart->promocode) {
+            $promocode = Promocode::where('name', $cart->promocode)->first();
+            if ($promocode) {
+                $promocodeDiscount = $promocode->getCurrencyAmountFromTotal($cartTotal);
+                if ($promocodeDiscount > $cartTotal - $bonusDiscount) {
+                    $promocodeDiscount = $cartTotal - $bonusDiscount;
+                }
+            } else {
+                $promocode = false;
+            }
+        } else {
+            $promocode = false;
         }
         return view('pages.checkout', ['products' => $products,
             'quantity' => $cartContent,
@@ -198,6 +287,12 @@ class CartController extends Controller
             'user' => $user,
             'deliveries' => $deliveries,
             'totalWeight' => $totalWeight,
+            'hasNoOrders' => $hasNoOrders,
+            'privateAccount' => $privateAccount,
+            'bonusDiscount' => $bonusDiscount,
+            'promocode' => $promocode,
+            'promocodeDiscount' => $promocodeDiscount,
+            'wrongPromocode' => false,
         ]);
     }
 }

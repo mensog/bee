@@ -6,6 +6,7 @@ use App\Cart;
 use App\Delivery;
 use App\Order;
 use App\OrderStatus;
+use App\Promocode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -45,6 +46,7 @@ class OrderController extends Controller
     public function create(Request $request)
     {
         $cart = Cart::current();
+        $user = Auth::user();
         if (count($cart->content) == 0) {
             return redirect()->route('cart');
         }
@@ -53,20 +55,52 @@ class OrderController extends Controller
         }
         $this->orderCreateValidator($request->all())->validate();
         $order = new Order();
-        $order->user_id = Auth::user()->id;
+        $order->user_id = $user->id;
         $order->full_name = $request->input('fullName');
         $order->email = $request->input('email');
         $order->phone = $request->input('phone');
         $order->address = $request->input('address');
         $order->status = OrderStatus::PAID;
         $order->delivery_id = $request->input('delivery');
-        $order->delivery_amount = Delivery::find($request->input('delivery'))->price;
-        $order->amount_paid = $order->getSum();
+        if (env('FREE_FIRST_DELIVERY_ENABLED') && $user->orders->count() == 0) {
+            $order->delivery_amount = 0;
+        } else {
+            $order->delivery_amount = Delivery::find($request->input('delivery'))->price;
+        }
         $order->save();
         $order->fillFromCart($cart);
         $order = Order::where('id', $order->id)->with('items')->first();
         $order->fillOrderStores();
+        $itemsSum = $order->getItemsSum();
+        if ($cart->bonus_discount > $itemsSum) {
+            $amountToWithdrawFromPrivateAccount = $itemsSum;
+        } else {
+            $amountToWithdrawFromPrivateAccount = $cart->bonus_discount;
+        }
+        $withdrawFromPrivateAccountResult = $user->privateAccount->withdraw($amountToWithdrawFromPrivateAccount);
+        if ($withdrawFromPrivateAccountResult) {
+            $order->bonus_discount = $amountToWithdrawFromPrivateAccount;
+        } else {
+            $order->bonus_discount = 0;
+        }
+        $promocodeDiscount = 0;
+        if (!is_null($cart->promocode)) {
+            $promocode = Promocode::where('name', $cart->promocode)->first();
+            if ($promocode) {
+                $promocodeDiscount = $promocode->getCurrencyAmountFromTotal($itemsSum - $order->bonus_discount);
+                if ($promocodeDiscount > $itemsSum - $order->bonus_discount) {
+                    $order->promocode_discount = $itemsSum - $order->bonus_discount;
+                } else {
+                    $order->promocode_discount = $promocodeDiscount;
+                }
+                $order->promocode_name = $cart->promocode;
+            }
+        }
+        $order->amount_paid = $order->getSum() - $order->bonus_discount - $order->promocode_discount;
+        $amountToPay = $order->getSum() - $order->bonus_discount - $order->promocode_discount;
+        $order->amount_paid = $amountToPay;
         $request->session()->flash('createdOrderId', $order->id);
+        $order->save();
         $cart->clear();
         return redirect()->route('lk_orders');
     }

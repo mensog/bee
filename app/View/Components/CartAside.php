@@ -28,6 +28,13 @@ class CartAside extends Component
      */
     public $delivery;
 
+    public $hasNoOrders;
+    public $privateAccount;
+    public $bonusDiscount;
+    public $promocode;
+    public $promocodeDiscount;
+    public $wrongPromocode;
+
     /**
      * Create a new component instance.
      *
@@ -35,15 +42,17 @@ class CartAside extends Component
      * @param $quantity
      * @param $deliveryId
      */
-
-    public $totalWeight;
-
-    public function __construct($cartTotal, $quantity, $delivery = false, $totalWeight)
+    public function __construct($cartTotal, $quantity, $privateAccount, $delivery = false, $hasNoOrders = false, $bonusDiscount = 0, $promocode = false, $promocodeDiscount = 0, $wrongPromocode = false)
     {
         $this->cartTotal = $cartTotal;
         $this->quantity = $quantity;
         $this->delivery = $delivery;
-        $this->totalWeight = $totalWeight;
+        $this->hasNoOrders = $hasNoOrders;
+        $this->privateAccount = $privateAccount;
+        $this->bonusDiscount = $bonusDiscount;
+        $this->promocode = $promocode;
+        $this->promocodeDiscount = $promocodeDiscount;
+        $this->wrongPromocode = $wrongPromocode;
     }
 
     /**

@@ -146,6 +146,12 @@
                                 <span class="title">Способы доставки</span>
                             </a>
                         </li>
+                        <li class="{{ Route::currentRouteName() === 'admin_promocodes' ? 'active' : '' }}">
+                            <a class="{{ Route::currentRouteName() === 'admin_promocodes' ? 'active' : '' }}"
+                               href="{{ route('admin_promocodes') }}">
+                                <span class="title">Промокоды</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
