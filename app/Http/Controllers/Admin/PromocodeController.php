@@ -35,7 +35,7 @@ class PromocodeController extends Controller
         return view('pages.admin.promocode.index', ['promocodes' => $promocodes]);
     }
 
-    public function showCreatePage(Request $request, $id)
+    public function showCreatePage(Request $request)
     {
         return view('pages.admin.promocode.create');
     }
