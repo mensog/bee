@@ -60,7 +60,8 @@
                         </div>
                     </nav>
                     <div class="menu-right">
-                        <p class="position mb-0"><img src="/svg/main/position.svg" alt=""><span id="curPosition">Москва</span></p>
+                        <p class="position mb-0"><img src="/svg/main/position.svg" alt=""><span
+                                id="curPosition">Москва</span></p>
                         <a class="login" href="{{ route('lk') }}">
                             @auth В личный кабинет @else Войти в профиль @endauth
                         </a>
@@ -110,7 +111,8 @@
                     </div>
                     <form action="{{ route('search') }}" method="get" class="form-inline">
                         <div class="input-group">
-                            <input placeholder="Хочу найти нужный товар" type="text" name="q" class="form-control" value="{{ request()->input('q') ?? '' }}">
+                            <input placeholder="Хочу найти нужный товар" type="text" name="q" class="form-control"
+                                   value="{{ request()->input('q') ?? '' }}">
                             <div class="input-group-append">
                                 <button class="btn btn-primary btn-search"><img src="/svg/main/search.svg" alt="">
                                 </button>
@@ -118,11 +120,9 @@
                         </div>
                     </form>
                     <div class="header-icons">
-{{--                        @if(!auth())--}}
-                            <a href="{{ route('lk_orders') }}" title="Мои заказы">
-                                <img src="/svg/main/order.svg" alt="Мои заказы">
-                            </a>
-{{--                        @endif--}}
+                        <a href="{{ route('lk_orders') }}" title="Мои заказы">
+                            <img src="/svg/main/order.svg" alt="Мои заказы">
+                        </a>
                         <a href="{{ route('favorites') }}">
                      <span id="favoritesCounter" class="{{ $headerFavoritesCount ? 'd-block' : 'd-none' }}">
                         {{ $headerFavoritesCount ?: '' }}
