@@ -20,6 +20,6 @@ class SmsAeroChannel
     {
         $message = $notification->toSmsAero($notifiable);
         $smsaero = new SmsAero;
-        $smsaero->send($message->number, $message->text, 'FREE SIGHT');
+        $smsaero->send($message->number, $message->text, 'FREE SIGN');
     }
 }
