@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Notifications\OrderRefundedNotification;
 use App\OrderItem;
+use App\OrderItemStatus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -54,6 +56,9 @@ class OrderItemController extends Controller
         $item = OrderItem::findOrFail($id);
         $item->status = $status;
         $item->save();
+        if ($item->status == OrderItemStatus::REFUNDED) {
+            $item->order->user->notify(new OrderRefundedNotification($item->order, $item->product));
+        }
         return response('', 200);
     }
 }

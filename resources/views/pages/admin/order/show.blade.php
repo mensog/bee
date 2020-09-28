@@ -214,6 +214,8 @@
                                             <option
                                                 value="{{ \App\OrderStatus::REFUNDED }}">{{ __('order_status.' . \App\OrderStatus::REFUNDED) }}</option>
                                             <option
+                                                value="{{ \App\OrderStatus::ORDERED }}">{{ __('order_status.' . \App\OrderStatus::ORDERED) }}</option>
+                                            <option
                                                 value="{{ \App\OrderStatus::COMPLETED }}">{{ __('order_status.' . \App\OrderStatus::COMPLETED) }}</option>
                                         </select>
                                         <label for="status">Статус заказа</label>

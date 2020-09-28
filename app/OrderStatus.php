@@ -14,4 +14,5 @@ class OrderStatus
     const RE_DELIVERY = 'OrderReDelivery';
     const REFUNDED = 'OrderRefunded';
     const CREATED = 'OrderCreated';
+    const ORDERED = 'OrderOrdered';
 }

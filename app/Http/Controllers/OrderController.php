@@ -99,6 +99,7 @@ class OrderController extends Controller
         $order->amount_paid = $order->getSum() - $order->bonus_discount - $order->promocode_discount;
         $amountToPay = $order->getSum() - $order->bonus_discount - $order->promocode_discount;
         $order->amount_paid = $amountToPay;
+        $order->sendStatusNotification();
         $request->session()->flash('createdOrderId', $order->id);
         $order->save();
         $cart->clear();

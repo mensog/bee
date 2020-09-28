@@ -70,6 +70,7 @@ class OrderController extends Controller
             }
         }
         $order->save();
+        $order->sendStatusNotification();
 
         return redirect()->route('admin_order', $id);
     }
