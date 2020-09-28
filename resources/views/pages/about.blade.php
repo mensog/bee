@@ -396,17 +396,13 @@
         </div>
     </div>
 
-    <x-delivery/>
 
-    <div class="contact">
-        <div class="container">
-            <a href="#" class="contact__improve">
-                <div class="contact__improve-text">Что можно улучшить на этой странице?</div>
-            </a>
-        </div>
-    </div>
 
 </main>
+
+<x-delivery/>
+
+<x-improve/>
 
 <script>
     const hash = window.location.hash
