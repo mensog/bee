@@ -153,7 +153,7 @@
     <table cellpadding="0" cellspacing="0" border="0" align="center"
            style="width:100% !important; margin:0; padding:0;">
         <tr bgcolor="#f4f4f4">
-            <td>
+            <td style="padding-top: 50px;">
                 <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="table"
                        bgcolor="#ffffff">
 
@@ -187,7 +187,7 @@
                                             <tr>
                                                 <td>
                                                     <h1 style="color:#000000; font-size:26px; line-height:1.2; font-weight:normal; margin-top:0; margin-bottom:16px;"><b>Забыли пароль?</b></h1>
-                                                    <p style="margin-top:0; margin-bottom:24px;">
+                                                    <p style="margin-top:0; margin-bottom:50px;">
                                                         Мы выслали ссылку для восстановления пароля. Перейдите по ссылке для восстановления пароля -
                                                             <a href="{{ $link }}"
                                                                style="color:#1990FE; text-decoration: none;">Восстановить пароль</a>
