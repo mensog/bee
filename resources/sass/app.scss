@@ -80,15 +80,22 @@ button {
 
     i:before {
         content: url("/svg/preloaders/loading-btn-primary.svg");
+        vertical-align: middle;
     }
 }
 
 button i.heart-off:before {
     content: url("/svg/heart-off.svg");
+    vertical-align: middle;
+}
+
+button i {
+    margin-right: 10px;
 }
 
 button i.heart-on:before {
     content: url("/svg/heart-on.svg");
+    vertical-align: middle;
 }
 
 
