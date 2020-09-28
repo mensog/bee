@@ -66,9 +66,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'can:
     Route::post('/category/icon/delete/{id}', 'CategoryController@deleteIcon')->name('admin_category_delete_icon');
     Route::get('/category/{id}', 'CategoryController@showEditPage')->name('admin_edit_category_page');
 
-    Route::get('/review/{id}', 'ReviewController@showEditPage')->name('admin_review_update_page');
     Route::post('/review/update/{id}', 'ReviewController@update')->name('admin_review_update');
     Route::post('/review/delete/{id}', 'ReviewController@delete')->name('admin_review_delete');
+    Route::get('/review/{id}', 'ReviewController@showEditPage')->name('admin_review_update_page');
 
     Route::get('/partners', 'PartnerController@index')->name('admin_partners');
     Route::get('/partner/log', 'LogController@index')->name('admin_partners_log');
@@ -80,6 +80,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'can:
     Route::get('/delivery/{id}', 'DeliveryController@show')->name('admin_delivery');
     Route::post('/delivery/update/{id}', 'DeliveryController@createOrUpdate')->name('admin_update_delivery');
     Route::post('/delivery/delete/{id}', 'DeliveryController@delete')->name('admin_delivery_delete');
+
+    Route::get('/promocodes', 'PromocodeController@index')->name('admin_promocodes');
+    Route::get('/promocode/create', 'PromocodeController@showCreatePage')->name('admin_promocode_create_page');
+    Route::post('/promocode/create', 'PromocodeController@create')->name('admin_promocode_create');
+    Route::post('/promocode/update/{id}', 'PromocodeController@update')->name('admin_promocode_update');
+    Route::post('/promocode/delete/{id}', 'PromocodeController@delete')->name('admin_promocode_delete');
+    Route::get('/promocode/{id}', 'PromocodeController@showEditPage')->name('admin_promocode_update_page');
+
 
 });
 
