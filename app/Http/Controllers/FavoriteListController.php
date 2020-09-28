@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\ProductsFavoritesRender;
 use Illuminate\Http\Request;
 
-class FavoriteListController extends Controller
+class FavoriteListController extends ProductsRenderController
 {
     /**
      * Обработка апи-запросов к избранному
@@ -42,12 +43,26 @@ class FavoriteListController extends Controller
         return $response;
     }
 
-    public function show(Request $request)
+    public function show(Request $request, $name = '')
     {
-        $favoritesList = app('FavoriteList');
-        $products = $favoritesList->getProducts();
-        $cart = app('Cart');
-        $inCartProductIds = $cart->getProductIds();
-        return view('pages.favorites', ['products' => $products, 'inCartProductIds' => $inCartProductIds]);
+        $productsRender = new ProductsFavoritesRender($request, $name);
+        $productsRender->initProducts();
+        return view('pages.catalog', [
+            'productsRender' => $productsRender,
+        ]);
+    }
+
+    public function apiShow(Request $request)
+    {
+        $name = $request->has('name') ? $request->input('name') : '';
+        $productsRender = new ProductsFavoritesRender($request, $name);
+        $productsRender->initProducts();
+        $response = [];
+        $response['html'] = view('components.products-list', [
+            'products' => $productsRender->products,
+            'cartContent' => $productsRender->cartContent,
+            'favoritesListContent' => $productsRender->favoritesListContent,
+        ])->render();
+        return response()->json($response);
     }
 }

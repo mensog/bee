@@ -108,6 +108,7 @@ Route::get('/removefromcart', 'CartController@removeProduct')->name('remove_from
 Route::get('/checkout', 'CartController@showCheckout')->middleware('auth')->name('checkout_page');
 Route::post('/order', 'OrderController@create')->middleware('auth')->name('place_order');
 Route::get('/favorites', 'FavoriteListController@show')->name('favorites');
+Route::get('/favorites/{name}', 'FavoriteListController@show')->name('favorites_category');
 Route::get('/couriers', 'CouriersController@index')->name('couriers');
 Route::get('/suppliers', 'SuppliersController@index')->name('suppliers');
 Route::get('/store', 'StoreController@index')->name('store');
@@ -116,7 +117,10 @@ Route::get('/about', 'AboutController@index')->name('about');
 
 Route::post('/api/cart', 'CartController@api')->name('api_cart');
 Route::post('/api/cart-aside', 'CartController@apiAside')->name('api_cart_aside');
-Route::post('/api/favorites', 'FavoriteListController@api')->name('api_favorites');
+Route::post('/api/favorites/action', 'FavoriteListController@api')->name('api_favorites_action');
+Route::get('/api/catalog', 'CategoryController@apiIndex')->name('api_catalog');
+Route::get('/api/search', 'CategoryController@apiSearch')->name('api_search');
+Route::get('/api/favorites', 'FavoriteListController@apiShow')->name('api_favorites');
 
 Auth::routes();
 Route::get('/personal-data-agreement', 'StaticPageController@personalDataAgreement')->name('personal-data-agreement');
@@ -125,8 +129,10 @@ Route::get('/sale-regulations', 'StaticPageController@saleRegulations')->name('s
 
 Route::post('/product/{id}/review', 'ReviewController@create')->name('add_review');
 
-Route::get('/{storeSlug}/catalog', 'CategoryController@index')->name('catalog');
-Route::get('/{storeSlug}/category/{name}', 'CategoryController@index')->name('category');
+Route::get('/search', 'CategoryController@search')->name('search');
+Route::get('/search/{name}', 'CategoryController@search')->name('search_category');
+Route::get('/catalog', 'CategoryController@index')->name('catalog');
+Route::get('/category/{name}', 'CategoryController@index')->name('category');
 Route::get('/{storeSlug}/product/{name}', 'ProductController@show')->name('product');
 
 Route::get('/{storeSlug}', 'MainController@showStore')->name('store_main');

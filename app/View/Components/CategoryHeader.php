@@ -7,16 +7,15 @@ use Illuminate\View\Component;
 class CategoryHeader extends Component
 {
     protected $categories;
-    protected $store;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($categories, $store)
+    public function __construct($categories)
     {
         $this->categories = $categories;
-        $this->store = $store;
     }
 
     /**
@@ -26,6 +25,6 @@ class CategoryHeader extends Component
      */
     public function render()
     {
-        return view('components.category-header', ['categories' => $this->categories, 'store' => $this->store]);
+        return view('components.category-header', ['categories' => $this->categories]);
     }
 }

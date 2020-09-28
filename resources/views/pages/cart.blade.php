@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="liked__item-footer">
                                     <div class="liked__item-price"><span>{{ $recommendedProduct->price / 100 }} ₽</span> / за 1 шт</div>
-                                    <button data-id="{{ $recommendedProduct->id }}" data-quantity="1" class="liked__item-btn btn btn-primary add-to-cart">В корзину</button>
+                                    <button data-page="cart" data-id="{{ $recommendedProduct->id }}" data-quantity="1" class="liked__item-btn btn btn-primary add-to-cart">В корзину</button>
                                 </div>
                             </a>
                         </div>

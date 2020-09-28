@@ -6,14 +6,18 @@ use Illuminate\View\Component;
 
 class Categories extends Component
 {
+    public $currentStore;
+    public $storeCatalog;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($currentStore, $storeCatalog)
     {
-        //
+        $this->currentStore = $currentStore;
+        $this->storeCatalog = $storeCatalog;
     }
 
     /**
@@ -23,6 +27,6 @@ class Categories extends Component
      */
     public function render()
     {
-        return view('components.categories');
+        return view('components.categories', ['storeCatalog' => $this->storeCatalog, 'currentStore' => $this->currentStore]);
     }
 }

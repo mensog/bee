@@ -68,14 +68,14 @@
                 </div>
                 <div class="header-inner">
                     <div class="dropdown">
-                        <a class="catalog-btn btn btn-primary dropdown-toggle {{ (isset($storeCatalog) && $storeCatalog) ? '' : 'dropdown-empty' }}"
+                        <a class="catalog-btn btn btn-primary dropdown-toggle"
                            type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                            aria-expanded="false">
                             <img src="/svg/main/catalog.svg" alt="">Каталог
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            @isset($storeCatalog)
-                                <x-category-header :categories="$storeCatalog" :store="$currentStore"/>
+                            @isset($commonCatalog)
+                                <x-category-header :categories="$commonCatalog"/>
                             @endisset
                         </div>
                     </div>
@@ -108,9 +108,9 @@
                             </ul>
                         </div>
                     </div>
-                    <form action="" class="form-inline">
+                    <form action="{{ route('search') }}" method="get" class="form-inline">
                         <div class="input-group">
-                            <input placeholder="Хочу найти нужный товар" type="text" class="form-control">
+                            <input placeholder="Хочу найти нужный товар" type="text" name="q" class="form-control" value="{{ request()->input('q') ?? '' }}">
                             <div class="input-group-append">
                                 <button class="btn btn-primary btn-search"><img src="/svg/main/search.svg" alt="">
                                 </button>

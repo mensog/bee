@@ -506,6 +506,7 @@
 
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                             <input class="form-control quantity-control" type="number"
+                                                                   id="itemStockQuantityInput{{$item->id}}"
                                                                    min="0" max="{{ $item->quantity }}"
                                                                    value="{{ $item->stock_quantity }}"
                                                                    data-order-item-id="{{ $item->id }}">
@@ -525,10 +526,7 @@
                                                     data-toggle="tooltip" data-placement="bottom"
                                                     data-trigger="hover"
                                                     data-original-title="Удалить">
-                                                    <a href="#" class="btn btn-flat ink-reaction btn-danger"
-                                                       data-action=""
-                                                       data-text="{{ $item->product->name }}"
-                                                       data-toggle="modal" data-target="#deleteModal">
+                                                    <a href="#" class="btn btn-flat btn-danger delete-item" data-order-item-id="{{ $item->id }}">
                                                         <i class="fa fa-trash"></i>
                                                     </a>
                                                 </td>
@@ -653,17 +651,21 @@
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        $('.quantity-control').change(function (e) {
-            e.preventDefault();
-            let itemId = $(this).data('order-item-id');
-            let quantity = $(this).val();
-            let data = {
-                quantity: $(this).val()
-            };
+        function updateAfterQuantityChange(itemId, quantity, itemTotal, refundSum, finalSum) {
+            $('#itemStockQuantity' + itemId).text(quantity);
+            $('#itemStockQuantityInput' + itemId).val(quantity);
+            $('#itemSubTotal' + itemId).text(itemTotal / 100);
+            $('#refundSum').text(refundSum / 100);
+            $('#finalSum').text(finalSum / 100);
+        }
+
+        function changeQuantity(itemId, quantity) {
             let url = "{{ route('admin_order_item_update_quantity', 'ITEMID') }}";
             url = url.replace('ITEMID', itemId);
-            console.log(itemId);
-            console.log(quantity);
+            console.log(url);
+            let data = {
+                quantity: quantity
+            };
             $.ajax({
                 type: 'POST',
                 url: url,
@@ -673,15 +675,24 @@
                 data: JSON.stringify(data),
                 contentType: 'application/json',
                 success: res => {
-                    $('#itemStockQuantity' + itemId).text(quantity);
-                    $('#itemSubTotal' + itemId).text(res.itemTotal / 100);
-                    $('#refundSum').text(res.refund / 100);
-                    $('#finalSum').text(res.final / 100);
+                    updateAfterQuantityChange(itemId, quantity, res.itemTotal, res.refund, res.final)
                 },
                 error: e => {
                     console.log(e)
                 }
             });
+        }
+        $('.delete-item').on('click', function (e) {
+            e.preventDefault();
+            let itemId = $(this).data('order-item-id');
+            let quantity = 0;
+            changeQuantity(itemId, quantity);
+        });
+        $('.quantity-control').change(function (e) {
+            e.preventDefault();
+            let itemId = $(this).data('order-item-id');
+            let quantity = $(this).val();
+            changeQuantity(itemId, quantity);
         });
 
         $('.order-item-status').change(function (e) {

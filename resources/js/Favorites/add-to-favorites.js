@@ -16,7 +16,7 @@ jQuery($ => {
         data = clean(data)
         $.ajax({
             type: 'POST',
-            url: "/api/favorites",
+            url: "/api/favorites/action",
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },

@@ -8,18 +8,19 @@ class CategorySidebarItem extends Component
 {
     protected $categories;
     protected $childCategories;
-    protected $store;
+    protected $activeCategorySlugs;
+    protected $routeName;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($categories, $childCategories, $store, $activeCategorySlugs)
+    public function __construct($categories, $childCategories, $activeCategorySlugs, $routeName)
     {
         $this->categories = $categories;
         $this->childCategories = $childCategories;
-        $this->store= $store;
         $this->activeCategorySlugs = $activeCategorySlugs;
+        $this->routeName = $routeName;
     }
 
     /**
@@ -32,8 +33,8 @@ class CategorySidebarItem extends Component
         return view('components.category-sidebar-item', [
             'categories' => $this->categories,
             'childCategories' => $this->childCategories,
-            'store' => $this->store,
             'activeCategorySlugs' => $this->activeCategorySlugs,
+            'routeName' => $this->routeName,
         ]);
     }
 }

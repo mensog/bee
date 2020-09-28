@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Storage;
 class Category extends Model
 {
     public const ICON_DIRECTORY = '/public/icons/';
+    public const COMMON_CATALOG_CACHE_KEY = 'commonCatalog';
+    public const COMMON_CATALOG_CACHE_TTL = 60 * 60;
+    public const STORE_CATALOG_CACHE_KEY = 'storeCatalog:';
+    public const STORE_CATALOG_CACHE_TTL = 60 * 60;
 
     protected static function boot()
     {
@@ -74,14 +78,25 @@ class Category extends Model
 
     public static function getCatalog($storeId)
     {
-        $cacheKey = 'catalog:' . $storeId;
+        $cacheKey = self::STORE_CATALOG_CACHE_KEY . $storeId;
         $cachedCatalog = Redis::get($cacheKey);
         if ($cachedCatalog) {
             return unserialize($cachedCatalog);
         }
         $categoriesToDisplay = self::getNonEmptyCategoryIds($storeId);
         $groupedCategories = Category::whereNull('parse_url')->whereIn('id', $categoriesToDisplay)->orderBy('parent')->orderBy('name')->get()->groupBy('parent');
-        Redis::set($cacheKey, serialize($groupedCategories), 'EX', 60 * 10);
+        Redis::set($cacheKey, serialize($groupedCategories), 'EX', self::STORE_CATALOG_CACHE_TTL);
+        return $groupedCategories;
+    }
+
+    public static function getCommonCatalog()
+    {
+        $cachedCatalog = Redis::get(self::COMMON_CATALOG_CACHE_KEY);
+        if ($cachedCatalog) {
+            return unserialize($cachedCatalog);
+        }
+        $groupedCategories = Category::whereNull('parse_url')->where('visible', 1)->orderBy('parent')->orderBy('name')->get()->groupBy('parent');
+        Redis::set(self::COMMON_CATALOG_CACHE_KEY, serialize($groupedCategories), 'EX', self::COMMON_CATALOG_CACHE_TTL);
         return $groupedCategories;
     }
 

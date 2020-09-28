@@ -39,6 +39,10 @@ jQuery($ => {
                     const productQty = $('#productQty')
                     productQty.replaceWith(data['html'])
                 } else {
+                    if (fromPage === 'cart') {
+                        const cartContent = $('#cart');
+                        cartContent.replaceWith(data['html']);
+                    }
                     $(this).removeClass('add-to-cart')
                     $(this).addClass('btn-inactive')
                     $(this).text('В корзине')

@@ -9,16 +9,17 @@ class CategorySidebar extends Component
     protected $categories;
     protected $store;
     protected $activeCategorySlugs;
+    protected $routeName;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($categories, $store, $activeCategorySlugs)
+    public function __construct($categories, $activeCategorySlugs, $routeName)
     {
         $this->categories = $categories;
-        $this->store = $store;
         $this->activeCategorySlugs = $activeCategorySlugs;
+        $this->routeName = $routeName;
     }
 
     /**
@@ -30,8 +31,8 @@ class CategorySidebar extends Component
     {
         return view('components.category-sidebar', [
             'categories' => $this->categories,
-            'store' => $this->store,
             'activeCategorySlugs' => $this->activeCategorySlugs,
-            ]);
+            'routeName' => $this->routeName,
+        ]);
     }
 }
