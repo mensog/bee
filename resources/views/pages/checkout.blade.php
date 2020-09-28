@@ -36,39 +36,47 @@
                                     </div>
                                 </div>
                             </div>
-<section id="delivery-cost" class="delivery-cost">
-                            <h3 class="delivery-cost__heading">Способы получения</h3>
-                            <div class="row no-gutters">
-                                @foreach($deliveries as $key => $delivery)
-                                    <div class="col-lg-3 col-md-6 col-6">
-                                        <input id="delivery-{{ $key }}" type="radio" {{ $key === 0 ? 'checked' : '' }}
-                                        name="delivery" value="{{ $delivery->id }}"
-                                               class="input-hidden delivery__input">
-                                        <label class="delivery-cost__item delivery__label border"
-                                               for="delivery-{{ $key }}">
-                                            @if($delivery->icon_path != null)
-                                                <img class="delivery-cost__item-icon"
-                                                     src="{{ asset($delivery->icon_path) }}" alt="{{$delivery->title}}">
-                                            @endif
-                                            <div class="delivery-cost__item-heading py-2">{{ $delivery->title }}</div>
-                                            <div class="delivery-cost__item-descr text-secondary">
-                                                {{ $delivery->description }}
-                                            </div>
-                                            <div class="delivery-cost__item-time">
-                                                c {{ $delivery->getTimeToDelivery() }}
-                                            </div>
-                                            @if(env('FREE_FIRST_DELIVERY_ENABLED', 0) && $hasNoOrders)
-                                                <div class="delivery-cost__item-price"><del class="text-muted"> {{ $delivery->price / 100 }} ₽</del> 0 ₽</div>
-                                                <div>Доставка первого заказа бесплатно</div>
-                                            @else
-                                                <div class="delivery-cost__item-price">{{ $delivery->price / 100 }} ₽</div>
-                                            @endif
-                                        </label>
-                                    </div>
-                                @endforeach
+                            <section id="delivery-cost" class="delivery-cost d-block">
+                                <h3 class="delivery-cost__heading">Способы получения</h3>
+                                <div class="row">
+                                    @foreach($deliveries as $key => $delivery)
+                                        <div class="col-lg-4 col-md-6 col-6">
+                                            <input id="delivery-{{ $key }}" type="radio"
+                                                   {{ $key === 0 ? 'checked' : '' }}
+                                                   name="delivery" value="{{ $delivery->id }}"
+                                                   class="input-hidden delivery__input">
+                                            <label class="delivery-cost__item delivery__label border"
+                                                   for="delivery-{{ $key }}">
+                                                @if($delivery->icon_path != null)
+                                                    <img class="delivery-cost__item-icon"
+                                                         src="{{ asset($delivery->icon_path) }}"
+                                                         alt="{{$delivery->title}}">
+                                                @endif
+                                                <div
+                                                    class="delivery-cost__item-heading py-2">{{ $delivery->title }}</div>
+                                                <div class="delivery-cost__item-descr text-secondary">
+                                                    {{ $delivery->description }}
+                                                </div>
+                                                <div class="delivery-cost__item-time">
+                                                    c {{ $delivery->getTimeToDelivery() }}
+                                                </div>
+                                                @if(env('FREE_FIRST_DELIVERY_ENABLED', 0) && $hasNoOrders)
+                                                    <div class="delivery-cost__item-price">
+                                                        <del class="text-muted"> {{ $delivery->price / 100 }} ₽</del>
+                                                        0 ₽
+                                                    </div>
+                                                    <div>Доставка первого заказа бесплатно</div>
+                                                @else
+                                                    <div class="delivery-cost__item-price">{{ $delivery->price / 100 }}
+                                                        ₽
+                                                    </div>
+                                                @endif
+                                            </label>
+                                        </div>
+                                    @endforeach
 
-                            </div>
-</section>
+                                </div>
+                            </section>
                             <h3 class="cart__subheading">Данные получателя</h3>
                             <p class="cart__after-title">Полные фамилия, имя и отчество потребуются при получении
                                 заказа</p>
@@ -222,7 +230,11 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <x-cart-aside :quantity="$quantity" :cartTotal="$cartTotal" :delivery="$deliveries[0]" :totalWeight="$totalWeight" :hasNoOrders="$hasNoOrders" :privateAccount="$privateAccount" :bonusDiscount="$bonusDiscount" :promocode="$promocode" :promocodeDiscount="$promocodeDiscount" :wrongPromocode="$wrongPromocode"/>
+                    <x-cart-aside :quantity="$quantity" :cartTotal="$cartTotal" :delivery="$deliveries[0]"
+                                  :totalWeight="$totalWeight" :hasNoOrders="$hasNoOrders"
+                                  :privateAccount="$privateAccount" :bonusDiscount="$bonusDiscount"
+                                  :promocode="$promocode" :promocodeDiscount="$promocodeDiscount"
+                                  :wrongPromocode="$wrongPromocode"/>
                 </div>
 
             </div>

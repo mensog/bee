@@ -13,6 +13,7 @@ jQuery($ => {
             data.removePromocode = true
         }
         const $aside = $('.cart-aside')
+        const isDisabled = $('[type="submit"]').prop('disabled')
         $.ajax({
             type: 'POST',
             url: "/api/cart-aside",
@@ -26,6 +27,7 @@ jQuery($ => {
             },
             success: data => {
                 $aside.replaceWith(data['html'])
+                $('[type="submit"]').prop('disabled', isDisabled)
             },
             error: e => {
                 console.log(e)
@@ -33,6 +35,7 @@ jQuery($ => {
             }
         });
     }
+
     $('body').on('input', '[name="delivery"]',
         _.debounce(function () {
             const deliveryValue = $(this).val()
