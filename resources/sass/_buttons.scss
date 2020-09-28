@@ -8,10 +8,15 @@
     background: $primary-yellow;
     border-radius: 5px;
     position: relative;
+    cursor: pointer;
 
     &:hover {
-        cursor: pointer;
-        box-shadow: 0 4px 11px rgba(254, 215, 0, 0.35);
+        background: #F0CE00;
+        box-shadow: none;
+    }
+
+    &:active {
+        background: #F0CE00;
     }
 }
 
@@ -70,13 +75,13 @@
 }
 
 .btn.btn-empty {
-    border: 1px solid #242424;
+    border: 2px solid #FDD900;
     border-radius: 5px;
     background-color: transparent;
     color: #242424;
 
     &:hover {
         cursor: pointer;
-        box-shadow: 0 4px 11px rgba($dark-grey, 0.35);
+        background-color: #FDD900;
     }
 }
