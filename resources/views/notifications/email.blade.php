@@ -260,7 +260,7 @@
                                    class="innertable">
                                 <tr>
                                     <td style="padding-top: 48px; padding-bottom: 48px;">
-                                        <a href="#" target="_blank">
+                                        <a href="{{ route('main') }}" target="_blank">
                                             <img width="160" style="display: block;" src="{{ asset("/img/letters/logo.png") }}" alt="BeeClub">
                                         </a>
                                     </td>
@@ -286,11 +286,11 @@
                                                         <b>
                                                             @if(isset($uniqueTitleNotification))
                                                                 {{ $uniqueTitleNotification }}
-                                                                <a href="#" target="_blank"
+                                                                <a href="{{ route('lk_orders') }}" target="_blank"
                                                                     style="color:#1990fe; text-decoration: none;">№{{ $order->id }}</a>
                                                             @else
                                                                 Заказ
-                                                                <a href="#" target="_blank"
+                                                                <a href="{{ route('lk_orders') }}" target="_blank"
                                                                     style="color:#1990fe; text-decoration: none;">№{{ $order->id }}</a>
                                                                 {{ $titleNotification }}
                                                             @endif
@@ -307,7 +307,7 @@
                                                             {{$thirdText}}
                                                         @endif
                                                         @if(isset($route) && isset($linkName))
-                                                            <a href="{{ asset($route) }}"
+                                                            <a href="{{ route($route) }}"
                                                                style="color:#1990FE; text-decoration: none;">{{ $linkName }}</a>
                                                         @endif
                                                     </p>
@@ -319,10 +319,10 @@
                                 <tr>
                                     <td style="padding-bottom: 24px;">
                                         <span style="color:#9f9f9f;">Статус заказа</span> <br>
-                                        <a href="#" class="{{ $style }}"
+                                        <a href="{{ route('lk_orders') }}" class="{{ $style }}"
                                            style="display: inline-block; margin-bottom: 5px; padding: 8px 16px; background-color: #c4c4c4; border-radius: 6px; color: #ffffff; text-decoration: none;">{{ $status }}</a>
                                         @if(isset($secondStatus))
-                                        <a href="#" class="{{ $secondStyle }}"
+                                        <a href="{{ route('lk_orders') }}" class="{{ $secondStyle }}"
                                            style="display: inline-block; padding: 8px 16px; background-color: #c4c4c4; border-radius: 6px; color: #ffffff; text-decoration: none;">{{ $secondStatus }}</a>
                                         @endif
                                     </td>
@@ -376,7 +376,7 @@
                                                 <tr>
                                                     <td>
                                                         <p style="margin-top:0; margin-bottom:8px;">
-                                                            <a href="#"
+                                                            <a href="{{ route('product', ['name' => $item->product->friendly_url_name, 'storeSlug' => $item->product->store->slug]) }}"
                                                                style="color: #1990fe; text-decoration: none;">{{ $item->product->name }}</a>
                                                         <p>Арт.{{ $item->product->sku }}</p>
                                                         <p style="margin-top:0; margin-bottom:0;">
@@ -437,17 +437,6 @@
                                                 </td>
                                             </tr>
                                         </table>
-                                        <table align="right" width="150" cellpadding="0" cellspacing="0" border="0"
-                                               class="collapse-cell">
-                                            <tr>
-                                                <td>
-                                                    <p style="margin-top:0; margin-bottom:0; color:#9f9f9f;">
-                                                        Количество</p>
-                                                    <p style="margin-top:0; margin-bottom:8px; color:#000000;">{{ array_sum($quantity) }}
-                                                        шт</p>
-                                                </td>
-                                            </tr>
-                                        </table>
                                         <table align="right" width="200" cellpadding="0" cellspacing="0" border="0"
                                                class="collapse-cell">
                                             <tr>
@@ -456,6 +445,17 @@
                                                         учетом доставки</p>
                                                     <p style="margin-top:0; margin-bottom:8px; color:#000000;">{{ $order->getFinalSum() / 100 }}
                                                         руб.</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <table align="right" width="150" cellpadding="0" cellspacing="0" border="0"
+                                               class="collapse-cell">
+                                            <tr>
+                                                <td>
+                                                    <p style="margin-top:0; margin-bottom:0; color:#9f9f9f;">
+                                                        Количество</p>
+                                                    <p style="margin-top:0; margin-bottom:8px; color:#000000;">{{ array_sum($quantity) }}
+                                                        шт</p>
                                                 </td>
                                             </tr>
                                         </table>
@@ -502,7 +502,7 @@
                                                class="collapse-cell">
                                             <tr>
                                                 <td>
-                                                    <p style="margin-top: 32px;"><a href="#" target="_blank">Перейти на
+                                                    <p style="margin-top: 32px;"><a href="{{ route('main') }}" target="_blank">Перейти на
                                                             сайт</a></p>
                                                 </td>
                                             </tr>
