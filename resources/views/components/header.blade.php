@@ -21,7 +21,7 @@
         <div class="header-wrap">
             <div class="header-left">
                 <a href="{{ route('main') }}" class="navbar-brand">
-                    <img src="/svg/main/BeeClub-logo-big.svg" alt="BeeClub-logo">
+                    <img src="/img/logo.jpg" alt="BeeClub-logo">
                 </a>
             </div>
             <div class="header-right">

@@ -55,10 +55,6 @@
      width: 100%;
   }
 
-  .header .navbar-brand img {
-   max-width: 100%;
-  }
-
 }
 
 @media (max-width: 991px) {
@@ -264,10 +260,6 @@
 
   .header .navbar-brand {
      margin-right: 0;
-
-     img {
-        max-width: 70%;
-     }
   }
 
   .header .container {
