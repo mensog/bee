@@ -27,12 +27,12 @@
                                     @if(in_array($recommendedProduct->id, $favoriteList, true))
                                         <button data-id="{{ $recommendedProduct->id }}" data-action="remove" data-page="catalog"
                                                 class="btn-add-to-favorites product__item-favorite add-to-favorites p-0 text-gray-6 font-size-13">
-                                            <i class="ec heart font-size-15"></i>
+                                            <i class="heart-on"></i>
                                         </button>
                                     @else
                                         <button data-id="{{ $recommendedProduct->id }}" data-action="add" data-page="catalog"
                                                 class="btn-add-to-favorites product__item-favorite add-to-favorites p-0 text-gray-6 font-size-13">
-                                            <i class="ec ec-favorites font-size-15"></i>
+                                            <i class="heart-off"></i>
                                         </button>
                                     @endif
                                     <div class="liked__item-descr">{{ $recommendedProduct->name }}</div>
