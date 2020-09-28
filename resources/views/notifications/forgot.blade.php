@@ -55,7 +55,7 @@
         body,
         #body_style {
             width: 100% !important;
-            min-height: 500px;
+            min-height: 400px;
             color: #000000;
             background-color: #ffffff;
             font-family: -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif;
@@ -141,7 +141,7 @@
 
 
 <body
-    style="width:100% !important; min-height:500px; color:#000000; background-color: #ffffff; font-family:-apple-system,Arial,Helvetica,sans-serif; font-size:16px; line-height:1.4;"
+    style="width:100% !important; min-height:400px; color:#000000; background-color: #ffffff; font-family:-apple-system,Arial,Helvetica,sans-serif; font-size:16px; line-height:1.4;"
     alink="#1990fe" link="#1990fe" text="#000000">
 
 
@@ -192,11 +192,11 @@
                                                             <a href="{{ $link }}"
                                                                style="color:#1990FE; text-decoration: none;">Восстановить пароль</a>
                                                     </p>
-                                                    <p style="margin-top:0; margin-bottom:24px;">
-                                                        Проблема с переходом по ссылке? Скопируйте эту ссылку в адресную строку
-                                                            <a href="{{ $link }}"
-                                                               style="color:#1990FE; text-decoration: none; word-break: break-all;">{{ $link }}</a>
-                                                    </p>
+                                                    {{--<p style="margin-top:0; margin-bottom:24px;">--}}
+                                                        {{--Проблема с переходом по ссылке? Скопируйте эту ссылку в адресную строку--}}
+                                                            {{--<a href="{{ $link }}"--}}
+                                                               {{--style="color:#1990FE; text-decoration: none; word-break: break-all;">{{ $link }}</a>--}}
+                                                    {{--</p>--}}
                                                 </td>
                                             </tr>
                                         </table>
