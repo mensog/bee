@@ -83,6 +83,15 @@ button {
     }
 }
 
+button i.heart-off:before {
+    content: url("/svg/heart-off.svg");
+}
+
+button i.heart-on:before {
+    content: url("/svg/heart-on.svg");
+}
+
+
 .cart.loading:before {
     content: url("/svg/preloaders/loading-primary.svg");
     position: absolute;

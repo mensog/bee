@@ -58,36 +58,6 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="checkboxes">
-                            <h4 class="checkboxes__subtitle subtitle">Материал</h4>
-                            <div class="checkboxes__wrap">
-                                <div class="checkboxes__item">
-                                    <input type="checkbox" id="axton">
-                                    <label for="axton">AXTON</label>
-                                </div>
-                                <div class="checkboxes__item">
-                                    <input type="checkbox" id="knauf">
-                                    <label for="knauf">Knauf</label>
-                                </div>
-                                <div class="checkboxes__item">
-                                    <input type="checkbox" id="ceresit">
-                                    <label for="ceresit">Ceresit</label>
-                                </div>
-                                <div class="checkboxes__item">
-                                    <input type="checkbox" id="moment">
-                                    <label for="moment">Момент</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="checkboxes">
-                            <h4 class="checkboxes__subtitle subtitle">Специальные условия</h4>
-                            <div class="checkboxes__wrap">
-                                <div class="checkboxes__item">
-                                    <input type="checkbox" id="discounts">
-                                    <label for="discounts">Скидки</label>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="col-lg-9">
