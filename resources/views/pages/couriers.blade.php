@@ -158,7 +158,7 @@
                             <input type="number" id="orderPerDay" class="choice__input choice__input_mr"
                                    placeholder="Доставленных заказов в день">
                             <input type="number" id="daysInWeek" class="choice__input"
-                                   placeholder="Рабочих дней в неделю">
+                                   placeholder="Рабочих дней в неделю" max="7" min="1">
                         </div>
                         <div class="choice__inner">
                             <div class="choice__box">
