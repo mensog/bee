@@ -42,10 +42,7 @@ class UserRegistered extends Notification implements ShouldQueue
     {
         $message = new MailMessage;
         $message->subject('Регистрация на сайте beeclub.ru')
-            ->line('Спасибо за доверие к BeeClub!');
-        if ((env('REGISTER_BONUS_ENABLED', 0))) {
-            $message->line('Ура! Мы начислили вам ' . env('REGISTER_BONUS_AMOUNT') . ' бонусных баллов. Вы можете потратить их на первую покупку. 1 Балл = 1 ₽');
-        }
+            ->view('notifications.register');
         return $message;
     }
 
