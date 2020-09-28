@@ -320,7 +320,7 @@
                                     <td style="padding-bottom: 24px;">
                                         <span style="color:#9f9f9f;">Статус заказа</span> <br>
                                         <a href="{{ route('lk_orders') }}" class="{{ $style }}"
-                                           style="display: inline-block; margin-bottom: 5px; padding: 8px 16px; background-color: #c4c4c4; border-radius: 6px; color: #ffffff; text-decoration: none;">{{ $status }}</a>
+                                           style="display: inline-block; margin-top: 5px; margin-bottom: 5px; padding: 8px 16px; background-color: #c4c4c4; border-radius: 6px; color: #ffffff; text-decoration: none;">{{ $status }}</a>
                                         @if(isset($secondStatus))
                                         <a href="{{ route('lk_orders') }}" class="{{ $secondStyle }}"
                                            style="display: inline-block; padding: 8px 16px; background-color: #c4c4c4; border-radius: 6px; color: #ffffff; text-decoration: none;">{{ $secondStatus }}</a>
@@ -378,8 +378,8 @@
                                                         <p style="margin-top:0; margin-bottom:8px;">
                                                             <a href="{{ route('product', ['name' => $item->product->friendly_url_name, 'storeSlug' => $item->product->store->slug]) }}"
                                                                style="color: #1990fe; text-decoration: none;">{{ $item->product->name }}</a>
-                                                        <p>Арт.{{ $item->product->sku }}</p>
-                                                        <p style="margin-top:0; margin-bottom:0;">
+                                                        <p style="color:#9f9f9f;">Арт.{{ $item->product->sku }}</p>
+                                                        <p style="margin-top:0; margin-bottom:0;color:#9f9f9f;">
                                                             @if($item->product->weight)
                                                                 {{$item->product->weight / 1000}} КГ|
                                                             @endif
