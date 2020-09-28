@@ -105,6 +105,8 @@
     </div>
 
     <x-delivery/>
+
 </main>
+    <x-improve/>
 
 <x-footer :passwordChanged="$passwordChanged ?? ''"/>
