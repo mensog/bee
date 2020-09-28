@@ -144,7 +144,7 @@
                                 <div>
                                     Личный счет
                                     <span class="pull-right">
-                                    {{ $account->bonus_amount + $account->refund_amount / 100 }} руб
+                                    {{ ($account->bonus_amount + $account->refund_amount) / 100 }} руб
                                 </span>
                                 </div>
                                 <div>
