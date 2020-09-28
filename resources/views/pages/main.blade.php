@@ -189,7 +189,7 @@
                                 <div class="main-qa-card__body">
                                     <p>
                                         Узнать стоимость доставки можно <a
-                                            href="https://demo33.dev2tech.ru/about#delivery-cost">тут</a>.
+                                            href="{{route('about')}}#delivery-cost">тут</a>.
                                     </p>
                                 </div>
                             </div>
