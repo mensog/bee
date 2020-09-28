@@ -146,7 +146,8 @@ jQuery($ => {
         const urlForRequest = createUrlForRequest(dataNormalized, pathname);
         changeUrl(dataNormalized, pathname)
         if (pathname) {
-            const $productsContainer = $('#productsContainer')
+            const $productsContainer = $('#productsContainer');
+            const $breadcrumbs = $('#breadcrumbs');
             $.ajax({
                 type: 'GET',
                 url: `${urlForRequest}`,
@@ -158,7 +159,10 @@ jQuery($ => {
                     $productsContainer.addClass('loading')
                 },
                 success: data => {
-                    $productsContainer.replaceWith(data['html'])
+                    $productsContainer.replaceWith(data['html']);
+                    if (data['breadcrumbs']) {
+                        $breadcrumbs.replaceWith(data['breadcrumbs']);
+                    }
                     $productsContainer.removeClass('loading')
                 },
                 error: e => {

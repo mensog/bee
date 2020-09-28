@@ -44,6 +44,11 @@ class CategoryController extends ProductsRenderController
             'cartContent' => $productsRender->cartContent,
             'favoritesListContent' => $productsRender->favoritesListContent,
         ])->render();
+        $response['breadcrumbs'] = view('components.breadcrumbs',[
+            'pageRootRoute' => $productsRender->pageRootRoute,
+            'pageRootName' => $productsRender->pageName,
+            'breadcrumbs' => $productsRender->breadcrumbs,
+        ])->render();
         return response()->json($response);
     }
 

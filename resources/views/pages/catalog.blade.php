@@ -4,33 +4,7 @@
 
     <div class="breadcrumb-container">
         <div class="container">
-            <ul class="breadcrumb">
-                <li class="breadcrumb__item">
-                    <a class="breadcrumb__link" href="{{ route('main') }}">Главная</a>
-                </li>
-                <li class="breadcrumb__item">/</li>
-                <li class="breadcrumb__item">
-                    <a class="breadcrumb__link" href="{{ $productsRender->pageRootRoute }}">
-                        {{ $productsRender->pageName }}
-                    </a>
-                </li>
-                @foreach($productsRender->breadcrumbs as $key => $crumb)
-                    @if($loop->last)
-                        <li class="breadcrumb__item">/</li>
-                        <li class="breadcrumb__item">
-                            {{ $crumb }}
-                        </li>
-                    @else
-                        <li class="breadcrumb__item">/</li>
-                        <li class="breadcrumb__item">
-                            <a class="breadcrumb__link"
-                               href="{{ route('category', ['name'=> $key]) }}">
-                                {{ $crumb }}
-                            </a>
-                        </li>
-                    @endif
-                @endforeach
-            </ul>
+            <x-breadcrumbs :pageRootRoute="$productsRender->pageRootRoute" :pageRootName="$productsRender->pageName" :breadcrumbs="$productsRender->breadcrumbs"/>
             {{--<div class="delivery__box">--}}
                 {{--<img class="delivery__box-img" src="{{ $store->image_path }}" alt="">--}}
                 {{--<h3 class="delivery__box-title"><span>Доставка из</span>{{ $store->company_name }}</h3>--}}
