@@ -41,6 +41,16 @@
         padding-bottom: 64px;
     }
 
+    .delivery-cost {
+        padding-top: 10px;
+        padding-bottom: 30px;
+    }
+
+    .delivery-cost__heading {
+        font-size: 20px;
+        margin-bottom: 26px;
+    }
+
     &__heading {
         padding: 0 0 40px;
         font-weight: bold;
@@ -340,7 +350,6 @@
 
         &::placeholder {
             font-size: 14px;
-            line-height: 12px;
             color: $secondary-gray;
         }
     }
