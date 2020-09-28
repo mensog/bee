@@ -93,3 +93,12 @@ button {
         margin-right: 10px;
     }
 }
+
+.cart-minus, .cart-plus {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 16px;
+    cursor: pointer;
+    color: #000000;
+    padding: 0 10px;
+}

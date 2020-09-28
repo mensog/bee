@@ -40,7 +40,7 @@
                                 <h3 class="delivery-cost__heading">Способы получения</h3>
                                 <div class="row">
                                     @foreach($deliveries as $key => $delivery)
-                                        <div class="col-lg-4 col-md-6 col-6">
+                                        <div class="col-lg-6 col-md-6 col-6">
                                             <input id="delivery-{{ $key }}" type="radio"
                                                    {{ $key === 0 ? 'checked' : '' }}
                                                    name="delivery" value="{{ $delivery->id }}"
