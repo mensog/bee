@@ -20,7 +20,7 @@
                 <h2 class="liked__heading">Рекомендованные товары</h2>
                 <div class="row">
                     @foreach($recommendedProducts as $recommendedProduct)
-                        <div class="col-3">
+                        <div class="col-12 col-lg-3 col-md-6">
                             <a href="{{ route('product', ['name' => $recommendedProduct->friendly_url_name, 'storeSlug' => $recommendedProduct->store->slug]) }}" class="liked__item">
                                 <div class="liked__item-body">
                                     <img class="liked__item-img" src="{{ $recommendedProduct->img_url ?:'/img/catalog/product/product-img.png' }}" alt="{{ $recommendedProduct->name }}">
