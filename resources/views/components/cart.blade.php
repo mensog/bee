@@ -32,12 +32,22 @@
                                         <div class="cart__product-wrapper">
                                             <div class="cart__product-wrap">
                                                 <div class="cart__product-box">
+                                                    <div class="cart-minus" data-id="{{ $item->id }}"
+                                                         data-quantity="{{ $quantity[$item->id] }}"
+                                                         data-action="updateQuantity" data-page="cart" data-type="minus">
+                                                        -
+                                                    </div>
                                                     <input data-quantity="{{ $quantity[$item->id] }}"
                                                            min="0" oninput="validity.valid||(value='')"
                                                            data-id="{{ $item->id }}" data-action="updateQuantity"
                                                            data-page="cart" class="cart-qty cart__product-input"
                                                            type="number"
                                                            value="{{ $quantity[$item->id] }}">
+                                                    <div class="cart-plus" data-id="{{ $item->id }}"
+                                                         data-quantity="{{ $quantity[$item->id] }}"
+                                                         data-action="updateQuantity" data-page="cart" data-type="plus">
+                                                        +
+                                                    </div>
                                                 </div>
                                                 <div class="cart__product-box">
                                                     @if(in_array($item->id, $favoriteList, true))
@@ -112,8 +122,8 @@
                                 @endif
                             </div>
                             {{--<div class="checkout__wrap">--}}
-                                {{--<span class="checkout__discount">Скидка:</span>--}}
-                                {{--<span class="checkout__discount-price">− 413 ₽</span>--}}
+                            {{--<span class="checkout__discount">Скидка:</span>--}}
+                            {{--<span class="checkout__discount-price">− 413 ₽</span>--}}
                             {{--</div>--}}
                             <div class="checkout__wrap">
                                 <span class="checkout__total">Общая сумма:</span>
@@ -130,18 +140,18 @@
                                 </a>
                             @else
                                 <a href="{{ route('checkout_page') }}" class="checkout__btn btn btn-primary">
-                                @guest
-                                    Войти для оформления
-                                @else
-                                    Перейти к оформлению
-                                @endguest
+                                    @guest
+                                        Войти для оформления
+                                    @else
+                                        Перейти к оформлению
+                                    @endguest
                                 </a>
                             @endif
                         </div>
                         {{--<div class="promocode">--}}
-                            {{--<h4 class="promocode__heading">Введите промокод</h4>--}}
-                            {{--<input class="promocode__input" type="text" placeholder="Промокод на скидку">--}}
-                            {{--<button class="promocode__btn btn btn-empty">Применить промокод</button>--}}
+                        {{--<h4 class="promocode__heading">Введите промокод</h4>--}}
+                        {{--<input class="promocode__input" type="text" placeholder="Промокод на скидку">--}}
+                        {{--<button class="promocode__btn btn btn-empty">Применить промокод</button>--}}
                         {{--</div>--}}
                     </div>
                 </div>

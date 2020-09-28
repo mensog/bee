@@ -23,7 +23,7 @@
                 <img src="/img/lk/card.jpg" alt="">
             </div>
         </div>
-        <div class="card-lk__footer">
+        <div class="card-lk__footer d-none">
             <h4>История операций</h4>
             @if(true)
                 <div class="card-log">
