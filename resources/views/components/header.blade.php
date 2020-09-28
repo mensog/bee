@@ -68,7 +68,7 @@
                 </div>
                 <div class="header-inner">
                     <div class="dropdown">
-                        <a class="catalog-btn btn btn-primary dropdown-toggle"
+                        <a href="{{route('catalog')}}" class="catalog-btn btn btn-primary dropdown-toggle"
                            type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                            aria-expanded="false">
                             <img src="/svg/main/catalog.svg" alt="">Каталог

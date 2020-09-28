@@ -42,7 +42,7 @@
                                 <div class="shops__item-title">Леруа Мерлен</div>
                                 <div class="shops__item-descr">Сеть магазинов для дома и дачи</div>
                             </div>
-                            <a class="shops__item-link" href="#">Смотреть каталог</a>
+                            <a class="shops__item-link" href="{{ route('catalog') }}">Смотреть каталог</a>
                         </div>
                     </div>
                     <div class="swiper-slide">
@@ -52,7 +52,7 @@
                                 <div class="shops__item-title">Петрович</div>
                                 <div class="shops__item-descr">Сеть магазинов строительных <br> материалов</div>
                             </div>
-                            <a class="shops__item-link" href="#">Смотреть каталог</a>
+                            <a class="shops__item-link" href="{{ route('catalog') }}">Смотреть каталог</a>
                         </div>
                     </div>
                     <div class="swiper-slide">
@@ -62,7 +62,7 @@
                                 <div class="shops__item-title">OBI</div>
                                 <div class="shops__item-descr">Сеть магазинов для дома и сада</div>
                             </div>
-                            <a class="shops__item-link" href="#">Смотреть каталог</a>
+                            <a class="shops__item-link" href="{{ route('catalog') }}">Смотреть каталог</a>
                         </div>
                     </div>
                     <div class="swiper-slide">
@@ -72,7 +72,7 @@
                                 <div class="shops__item-title">Castorama</div>
                                 <div class="shops__item-descr">Гипермаркет товаров для дома</div>
                             </div>
-                            <a class="shops__item-link" href="#">Смотреть каталог</a>
+                            <a class="shops__item-link" href="{{ route('catalog') }}">Смотреть каталог</a>
                         </div>
                     </div>
                 </div>
