@@ -77,7 +77,9 @@
         <li>
             <a href="{{ route('catalog') }}" class="mobile-bar__list-link">
                 <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.462394 0 1.03279 0H16.9672C17.5376 0 18 0.447715 18 1C18 1.55228 17.5376 2 16.9672 2H1.03279C0.462394 2 0 1.55228 0 1ZM0 7C0 6.44772 0.462394 6 1.03279 6H16.9672C17.5376 6 18 6.44772 18 7C18 7.55229 17.5376 8 16.9672 8H1.03279C0.462394 8 0 7.55229 0 7ZM0 13C0 12.4477 0.462394 12 1.03279 12H16.9672C17.5376 12 18 12.4477 18 13C18 13.5523 17.5376 14 16.9672 14H1.03279C0.462394 14 0 13.5523 0 13Z" fill="none"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M0 1C0 0.447715 0.462394 0 1.03279 0H16.9672C17.5376 0 18 0.447715 18 1C18 1.55228 17.5376 2 16.9672 2H1.03279C0.462394 2 0 1.55228 0 1ZM0 7C0 6.44772 0.462394 6 1.03279 6H16.9672C17.5376 6 18 6.44772 18 7C18 7.55229 17.5376 8 16.9672 8H1.03279C0.462394 8 0 7.55229 0 7ZM0 13C0 12.4477 0.462394 12 1.03279 12H16.9672C17.5376 12 18 12.4477 18 13C18 13.5523 17.5376 14 16.9672 14H1.03279C0.462394 14 0 13.5523 0 13Z"
+                          fill="none"/>
                 </svg>
 
                 Каталог
@@ -86,7 +88,9 @@
         <li>
             <a href="#" class="mobile-bar__list-link">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M13 7.5C13 10.5376 10.5376 13 7.5 13C4.46243 13 2 10.5376 2 7.5C2 4.46243 4.46243 2 7.5 2C10.5376 2 13 4.46243 13 7.5ZM12.0491 13.4633C10.7873 14.4274 9.21054 15 7.5 15C3.35786 15 0 11.6421 0 7.5C0 3.35786 3.35786 0 7.5 0C11.6421 0 15 3.35786 15 7.5C15 9.21054 14.4274 10.7873 13.4633 12.0491L17.7071 16.2929C18.0976 16.6834 18.0976 17.3166 17.7071 17.7071C17.3166 18.0976 16.6834 18.0976 16.2929 17.7071L12.0491 13.4633Z" fill="none"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M13 7.5C13 10.5376 10.5376 13 7.5 13C4.46243 13 2 10.5376 2 7.5C2 4.46243 4.46243 2 7.5 2C10.5376 2 13 4.46243 13 7.5ZM12.0491 13.4633C10.7873 14.4274 9.21054 15 7.5 15C3.35786 15 0 11.6421 0 7.5C0 3.35786 3.35786 0 7.5 0C11.6421 0 15 3.35786 15 7.5C15 9.21054 14.4274 10.7873 13.4633 12.0491L17.7071 16.2929C18.0976 16.6834 18.0976 17.3166 17.7071 17.7071C17.3166 18.0976 16.6834 18.0976 16.2929 17.7071L12.0491 13.4633Z"
+                          fill="none"/>
                 </svg>
 
                 Поиск
@@ -95,7 +99,9 @@
         <li>
             <a href="{{ route('cart') }}" class="mobile-bar__list-link">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.94436 5C4.94436 3.34315 6.30607 2 7.98583 2H10.0135C11.6932 2 13.0549 3.34315 13.0549 5V7H4.94436V5ZM2.91672 7V5C2.91672 2.23858 5.18623 0 7.98583 0H10.0135C12.8131 0 15.0826 2.23858 15.0826 5V7H16.4786C17.4515 7 18.1742 7.88862 17.9632 8.8254L16.1608 16.8254C16.0062 17.5117 15.3891 18 14.6763 18H3.3237C2.61093 18 1.9938 17.5117 1.83918 16.8254L0.0368304 8.8254C-0.174218 7.88863 0.548463 7 1.52135 7H2.91672ZM3.73033 16L2.15327 9H15.8467L14.2697 16H3.73033Z" fill="none"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M4.94436 5C4.94436 3.34315 6.30607 2 7.98583 2H10.0135C11.6932 2 13.0549 3.34315 13.0549 5V7H4.94436V5ZM2.91672 7V5C2.91672 2.23858 5.18623 0 7.98583 0H10.0135C12.8131 0 15.0826 2.23858 15.0826 5V7H16.4786C17.4515 7 18.1742 7.88862 17.9632 8.8254L16.1608 16.8254C16.0062 17.5117 15.3891 18 14.6763 18H3.3237C2.61093 18 1.9938 17.5117 1.83918 16.8254L0.0368304 8.8254C-0.174218 7.88863 0.548463 7 1.52135 7H2.91672ZM3.73033 16L2.15327 9H15.8467L14.2697 16H3.73033Z"
+                          fill="none"/>
                 </svg>
 
                 Корзина
@@ -162,107 +168,110 @@
 </div>
 
 @auth
-<div class="lk-modal">
-    <div class="lk-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="sticky-top">
-                        <div class="lk-sidebar">
-                            <div class="lk-sidebar__header">
-                                <div class="lk-sidebar__img">
-                                    <img src="/svg/lk/user-avatar.svg" alt="user-avatar">
+    <div class="lk-modal">
+        <div class="lk-page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="sticky-top">
+                            <div class="lk-sidebar">
+                                <div class="lk-sidebar__header">
+                                    <div class="lk-sidebar__img">
+                                        <img src="/svg/lk/user-avatar.svg" alt="user-avatar">
+                                    </div>
+                                    <p class="lk-sidebar__user">
+                                        {{ auth()->user()->full_name }}
+                                    </p>
+                                    <div class="lk-sidebar__close" data-close="">
+                                        <img src="/svg/mobile-menu/menu-close.svg" alt="">
+                                    </div>
                                 </div>
-                                <p class="lk-sidebar__user">
-                                    {{ auth()->user()->full_name }}
-                                </p>
-                                <div class="lk-sidebar__close" data-close="">
-                                    <img src="/svg/mobile-menu/menu-close.svg" alt="">
-                                </div>
+                                <ul>
+                                    <li>
+                                        <a class="{{ Route::currentRouteName() === 'lk' ? 'active' : '' }}"
+                                           href="{{ route('lk') }}">
+                                            <img src="/svg/lk/main.svg" alt="">
+                                            Личный счет ({{ (auth()->user()->privateAccount->getTotalAmount()) / 100 }}
+                                            ₽)
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="{{ Route::currentRouteName() === 'lk_profile' ? 'active' : '' }}"
+                                           href="{{ route('lk_profile') }}">
+                                            <img src="/svg/lk/profile.svg" alt="">
+                                            Личные данные
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="{{ Route::currentRouteName() === 'lk_orders' ? 'active' : '' }}"
+                                           href="{{ route('lk_orders') }}">
+                                            <img src="/svg/lk/orders.svg" alt="">
+                                            Заказы
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class=""
+                                           href="{{ route('lk_profile_notifications') }}">
+                                            <img src="/svg/lk/notifications.svg" alt="">
+                                            Уведомления
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class=""
+                                           href="#">
+                                            <img src="/svg/lk/liked.svg" alt="">
+                                            Любимые товары
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a onclick="event.preventDefault();document.getElementById('logout-form').submit();"
+                                           href="{{ route('logout') }}">
+                                            <img src="/svg/lk/logout.svg" alt="">
+                                            Выйти
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                              style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                </ul>
                             </div>
-                            <ul>
-                                <li>
-                                    <a class="{{ Route::currentRouteName() === 'lk' ? 'active' : '' }}"
-                                       href="{{ route('lk') }}">
-                                        <img src="/svg/lk/main.svg" alt="">
-                                        Личный счет ({{ (auth()->user()->privateAccount->getTotalAmount()) / 100 }} ₽)
+                            <div class="lk-help">
+                                <p class="lk-help__header"><img src="/svg/lk/help.svg" alt=""> <span>Помощь</span></p>
+                                <p class="lk-help__link">
+                                    <a target="_blank"
+                                       href="{{ route('about') . '#questions#accordionOrderThree' }}">
+                                        Какие товары принимают к возврату?
                                     </a>
-                                </li>
-                                <li>
-                                    <a class="{{ Route::currentRouteName() === 'lk_profile' ? 'active' : '' }}"
-                                       href="{{ route('lk_profile') }}">
-                                        <img src="/svg/lk/profile.svg" alt="">
-                                        Личные данные
+                                </p>
+                                <p class="lk-help__link">
+                                    <a target="_blank"
+                                       href="{{ route('about') . '#questions#accordionOrderTwo' }}">
+                                        Как вернуть товар?
                                     </a>
-                                </li>
-                                <li>
-                                    <a class="{{ Route::currentRouteName() === 'lk_orders' ? 'active' : '' }}"
-                                       href="{{ route('lk_orders') }}">
-                                        <img src="/svg/lk/orders.svg" alt="">
-                                        Заказы
+                                </p>
+                                <p class="lk-help__link">
+                                    <a target="_blank"
+                                       href="{{ route('about') . '#questions#accordionOrderFour' }}">
+                                        Что такое личный счет и баллы?
                                     </a>
-                                </li>
-                                <li>
-                                    <a class=""
-                                       href="{{ route('lk_profile_notifications') }}">
-                                        <img src="/svg/lk/notifications.svg" alt="">
-                                        Уведомления
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class=""
-                                       href="#">
-                                        <img src="/svg/lk/liked.svg" alt="">
-                                        Любимые товары
-                                    </a>
-                                </li>
-                                <li>
-                                    <a onclick="event.preventDefault();document.getElementById('logout-form').submit();"
-                                       href="{{ route('logout') }}">
-                                        <img src="/svg/lk/logout.svg" alt="">
-                                        Выйти
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                          style="display: none;">
-                                        @csrf
-                                    </form>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="lk-help">
-                            <p class="lk-help__header"><img src="/svg/lk/help.svg" alt=""> <span>Помощь</span></p>
-                            <p class="lk-help__link">
-                                <a target="_blank"
-                                   href="{{ route('about') . '#questions#accordionOrderThree' }}">
-                                    Какие товары принимают к возврату?
-                                </a>
-                            </p>
-                            <p class="lk-help__link">
-                                <a target="_blank"
-                                   href="{{ route('about') . '#questions#accordionOrderTwo' }}">
-                                    Как вернуть товар?
-                                </a>
-                            </p>
-                            <p class="lk-help__link">
-                                <a target="_blank"
-                                   href="{{ route('about') . '#questions#accordionOrderFour' }}">
-                                    Что такое личный счет и баллы?
-                                </a>
-                            </p>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endauth
 
 <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
 
 @if($passwordChanged)
     <script>
-        $('#passwordChanged').modal('show')
+        jQuery($ => {
+            $('#passwordChanged').modal('show')
+        })
     </script>
 @endif
 
@@ -305,27 +314,26 @@
         document.body.classList.remove('lock');
     });
 
-
     // Lk-modal
 
     const lkModal = document.querySelector('.lk-modal');
     const lkTrigger = document.querySelector('.lk-entry');
-    const lkClose = lkModal.querySelector('.lk-sidebar__close');
+    if (lkModal && lkTrigger) {
+        const lkClose = lkModal.querySelector('.lk-sidebar__close');
 
-    lkTrigger.addEventListener('click', (e) => {
-        e.preventDefault();
-        lkModal.classList.toggle('active');
-        lkTrigger.classList.toggle('active');
-        document.body.classList.toggle('lock');
-    });
+        lkTrigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            lkModal.classList.toggle('active');
+            lkTrigger.classList.toggle('active');
+            document.body.classList.toggle('lock');
+        });
 
-    lkClose.addEventListener('click', () => {
-        lkModal.classList.remove('active');
-        lkTrigger.classList.remove('active');
-        document.body.classList.remove('lock');
-    });
-
-
+        lkClose.addEventListener('click', () => {
+            lkModal.classList.remove('active');
+            lkTrigger.classList.remove('active');
+            document.body.classList.remove('lock');
+        });
+    }
 
 </script>
 </body>
