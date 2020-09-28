@@ -11,6 +11,11 @@
     </div>
     <div class="product">
         <div class="row">
+            @if(count($products) == 0)
+                <div class="col-lg-12 text-center mt-5">
+                    <h4>Товары не найдены</h4>
+                </div>
+                @endif
             @foreach ($products as $key => $product)
                 <div class="col-lg-4">
                     <div id="product_{{ $product->id }}" class="product__item">
