@@ -153,7 +153,7 @@
     <table cellpadding="0" cellspacing="0" border="0" align="center"
            style="width:100% !important; margin:0; padding:0;">
         <tr bgcolor="#f4f4f4">
-            <td>
+            <td style="padding-top: 50px;">
                 <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="table"
                        bgcolor="#ffffff">
 
@@ -188,7 +188,7 @@
                                                 <td>
                                                     <h1 style="color:#000000; font-size:26px; line-height:1.2; font-weight:normal; margin-top:0; margin-bottom:16px;"><b>Спасибо за доверие к BeeClub</b></h1>
                                                     @if(env('REGISTER_BONUS_ENABLED', 0) && env('REGISTER_BONUS_AMOUNT', 0) > 0)
-                                                    <p style="margin-top:0; margin-bottom:24px;">Ура! Мы начислили
+                                                    <p style="margin-top:0; margin-bottom:50px;">Ура! Мы начислили
                                                         Вам {{ env('REGISTER_BONUS_AMOUNT', 0) }} {{ Lang::choice('бонусный балл|бонусных балла|бонусных баллов', env('REGISTER_BONUS_AMOUNT', 0), [], 'ru') }}
                                                         . Вы можете потратить их на первую покупку. 1 балл = 1 ₽
                                                     </p>

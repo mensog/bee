@@ -261,7 +261,7 @@
                                 <tr>
                                     <td style="padding-top: 48px; padding-bottom: 48px;">
                                         <a href="{{ route('main') }}" target="_blank">
-                                            <img width="160" style="display: block;" src="{{ asset("/img/letters/logo.png") }}" alt="BeeClub">
+                                            <img width="160" style="display: block;" src="{{ asset("/img/logo.jpg") }}" alt="BeeClub">
                                         </a>
                                     </td>
                                 </tr>
