@@ -87,4 +87,10 @@ class User extends Authenticatable
         }
         return '';
     }
+
+    public function routeNotificationForMail()
+    {
+        return $this->lastOrder()->email;
+    }
+
 }
