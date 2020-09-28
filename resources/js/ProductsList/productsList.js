@@ -16,8 +16,12 @@ jQuery($ => {
             e.preventDefault()
             const value = $(this).data('category-name')
             if (data.name === value) {
+                $(this).parent().removeClass('active')
                 data.name = ''
             } else {
+                $('.catalog__aside li').removeClass('active')
+                $(this).parent('li').addClass('active')
+                $(this).parent('li').parents('li').addClass('active')
                 data.name = value
             }
             productsListRequest(data)
@@ -69,7 +73,7 @@ jQuery($ => {
      * @return {string}
      */
     function createUrlForRequest(data, pathname) {
-        let pathSegments = pathname.replace(/^\//, '').replace(/\/$/,'').split('/');
+        let pathSegments = pathname.replace(/^\//, '').replace(/\/$/, '').split('/');
         let resultPath = '';
         if (pathSegments[0] == 'catalog' || pathSegments[0] == 'category') {
             resultPath += '/api/catalog'
@@ -90,7 +94,7 @@ jQuery($ => {
     }
 
     function createUrlForAddressBar(data, pathname) {
-        let pathSegments = pathname.replace(/^\//, '').replace(/\/$/,'').split('/');
+        let pathSegments = pathname.replace(/^\//, '').replace(/\/$/, '').split('/');
         let resultPath = '';
         if (pathSegments[0] == 'catalog') {
             if (data.name !== undefined) {
