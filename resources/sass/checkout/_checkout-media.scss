@@ -6,6 +6,16 @@
     .checkout-page .delivery-cost {
         display: block;
         padding: 30px 0 0;
+
+
+        .row {
+            .col-6 {
+                &:nth-of-type(odd) {
+                    padding-right: 0 !important;
+                }
+            }
+        }
+
     }
 
     .cart {
@@ -60,7 +70,7 @@
 
         .delivery-cost__item {
             padding: 16px;
-            //min-height: 190px;
+            max-height: 190px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -74,6 +84,7 @@
 
         .delivery-cost__item-heading {
             font-size: 14px;
+            padding: 0 !important;
         }
 
         .delivery-cost__item-descr {
