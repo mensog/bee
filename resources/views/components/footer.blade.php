@@ -174,8 +174,7 @@
                                     <img src="/svg/lk/user-avatar.svg" alt="user-avatar">
                                 </div>
                                 <p class="lk-sidebar__user">
-                                    Иванов Иван Иванович
-                                    {{--                        {{ $user->name . ' ' . $user->surname }}--}}
+                                    {{ auth()->user()->full_name }}
                                 </p>
                                 <div class="lk-sidebar__close" data-close="">
                                     <img src="/svg/mobile-menu/menu-close.svg" alt="">

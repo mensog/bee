@@ -25,8 +25,7 @@
                                     <img src="/svg/lk/user-avatar.svg" alt="user-avatar">
                                 </div>
                                 <p class="lk-sidebar__user">
-                                    Иванов Иван Иванович
-                                    {{--                        {{ $user->name . ' ' . $user->surname }}--}}
+                                    {{ auth()->user()->full_name }}
                                 </p>
                             </div>
                             <ul>
