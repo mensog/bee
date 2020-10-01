@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Courier;
+use App\Delivery;
 use App\Http\Controllers\Controller;
 use App\Order;
 use App\OrderStatus;
@@ -29,6 +30,7 @@ class OrderController extends Controller
     {
         $couriers = Courier::all();
         $order = Order::with('items', 'items.product')->with('courier')->where('id', $id)->firstOrFail();
+        $delivery = $order->delivery()->withTrashed()->first();
         $groupedOrder = $order->items->groupBy(function ($item) {
             return $item->product->store_id;
         });
@@ -36,7 +38,15 @@ class OrderController extends Controller
         $orderStores = $order->orderStores->keyBy('store_id');
         $storeNames = $stores->pluck('company_name', 'id');
         $privateAccount = $order->user->privateAccount;
-        return view('pages.admin.order.show', ['order' => $order, 'groupedOrder' => $groupedOrder, 'storeNames' => $storeNames, 'orderStores' => $orderStores, 'couriers' => $couriers, 'account' => $privateAccount]);
+        return view('pages.admin.order.show', [
+            'order' => $order,
+            'groupedOrder' => $groupedOrder,
+            'storeNames' => $storeNames,
+            'orderStores' => $orderStores,
+            'couriers' => $couriers,
+            'account' => $privateAccount,
+            'delivery' => $delivery
+        ]);
     }
 
     public function changeOrder(Request $request, $id)
@@ -45,7 +55,7 @@ class OrderController extends Controller
         $order->status = $request->input('status');
         $order->address = $request->input('address');
         $order->full_name = $request->input('fullName');
-        $order->phone = $request->input('phone');
+        $order->phone = preg_replace('~[+\- ()]+~', '', $request->input('phone'));
         $order->email = $request->input('email');
         $order->delivery_date = Carbon::createFromFormat('m/d/Y', $request->input('date'))->format('Y-m-d');
         $order->delivery_start_time = Carbon::createFromFormat('H:i', $request->input('timeFrom'))->format('H:i:s');
@@ -60,6 +70,7 @@ class OrderController extends Controller
             }
         }
         $order->save();
+        $order->sendStatusNotification();
 
         return redirect()->route('admin_order', $id);
     }

@@ -13,7 +13,7 @@
                            value="{{ $user->email }}" disabled readonly>
                 </div>
             </div>
-            <form id="changeEmail" class="change-email" action="{{ route('lk_profile_change_email') }}" method="post">
+            <form id="change-email" class="change-email" action="{{ route('lk_profile_change_email') }}" method="post">
                 @csrf
                 <div class="form-group row">
                     <div class="col-md-12">

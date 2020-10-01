@@ -5,15 +5,21 @@
     <div class="breadcrumbs">
         <div class="container">
             <p class="breadcrumbs-block">
-                <a class="breadcrumbs-block__link" href="{{ route('main') }}">Главная</a>
-                /
-                <a class="breadcrumbs-block__link" href="{{ route('catalog') }}">Каталог</a>
+                <a class="breadcrumbs-block__link" href="{{ route('main', ['storeSlug' => $product->store->slug]) }}">Главная</a>
                 /
                 <a class="breadcrumbs-block__link"
-                   href="{{ route('category', $product->category->friendly_url_name) }}">
-                    {{$product->category->name}}
-                </a>
+                   href="{{ route('store_main', ['storeSlug' => $product->store->slug]) }}">{{ $product->store->company_name }}</a>
                 /
+                <a class="breadcrumbs-block__link"
+                   href="{{ route('catalog') }}">Каталог</a>
+                /
+                @foreach($categoryBreadcrumbs as $url => $catName)
+                    <a class="breadcrumbs-block__link"
+                       href="{{ route('category', ['name' => $url, 'storeId' => $product->store->id]) }}">
+                        {{ $catName }}
+                    </a>
+                    /
+                @endforeach
                 {{ $product->name }}
             </p>
         </div>
@@ -27,20 +33,6 @@
                     <div class="product-card-gallery">
                         <img class="product-card-gallery__image" src="{{ $product->img_url }}"
                              alt="{{ $product->name }}">
-                        <div class="product-card-gallery-images">
-                            <div class="product-card-gallery-images__item">
-
-                            </div>
-                            <div class="product-card-gallery-images__item active">
-
-                            </div>
-                            <div class="product-card-gallery-images__item">
-
-                            </div>
-                            <div class="product-card-gallery-images__item">
-
-                            </div>
-                        </div>
                     </div>
 
                     <div class="product-card-info">
@@ -48,54 +40,13 @@
                             <h3>
                                 {{ $product->name }}
                             </h3>
-
-                            <div>
-                                <div class="product-card-info-header__rating">
-                                    <a href="">
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                  d="M10.8931 13.2222C10.7825 13.2222 10.6712 13.1964 10.569 13.1434L6.99965 11.2851L3.43101 13.1434C3.1944 13.2655 2.9088 13.2445 2.6946 13.0883C2.479 12.932 2.37189 12.6677 2.41739 12.4061L3.0971 8.48022L0.213068 5.70045C0.0212655 5.5156 -0.0480354 5.23797 0.0338656 4.98406C0.115767 4.73154 0.334869 4.54669 0.599472 4.50902L4.58952 3.93144L6.37314 0.355755C6.60974 -0.118585 7.39025 -0.118585 7.62686 0.355755L9.41048 3.93144L13.4005 4.50902C13.6651 4.54669 13.8842 4.73154 13.9661 4.98406C14.048 5.23797 13.9787 5.5156 13.7869 5.70045L10.9029 8.48022L11.5826 12.4061C11.6281 12.6677 11.5203 12.932 11.3054 13.0883C11.1836 13.1776 11.0387 13.2222 10.8931 13.2222"
-                                                  fill="#F78C07"/>
-                                        </svg>
-                                    </a>
-                                    <a href="">
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                  d="M10.8931 13.2222C10.7825 13.2222 10.6712 13.1964 10.569 13.1434L6.99965 11.2851L3.43101 13.1434C3.1944 13.2655 2.9088 13.2445 2.6946 13.0883C2.479 12.932 2.37189 12.6677 2.41739 12.4061L3.0971 8.48022L0.213068 5.70045C0.0212655 5.5156 -0.0480354 5.23797 0.0338656 4.98406C0.115767 4.73154 0.334869 4.54669 0.599472 4.50902L4.58952 3.93144L6.37314 0.355755C6.60974 -0.118585 7.39025 -0.118585 7.62686 0.355755L9.41048 3.93144L13.4005 4.50902C13.6651 4.54669 13.8842 4.73154 13.9661 4.98406C14.048 5.23797 13.9787 5.5156 13.7869 5.70045L10.9029 8.48022L11.5826 12.4061C11.6281 12.6677 11.5203 12.932 11.3054 13.0883C11.1836 13.1776 11.0387 13.2222 10.8931 13.2222"
-                                                  fill="#F78C07"/>
-                                        </svg>
-                                    </a>
-                                    <a href="">
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                  d="M10.8931 13.2222C10.7825 13.2222 10.6712 13.1964 10.569 13.1434L6.99965 11.2851L3.43101 13.1434C3.1944 13.2655 2.9088 13.2445 2.6946 13.0883C2.479 12.932 2.37189 12.6677 2.41739 12.4061L3.0971 8.48022L0.213068 5.70045C0.0212655 5.5156 -0.0480354 5.23797 0.0338656 4.98406C0.115767 4.73154 0.334869 4.54669 0.599472 4.50902L4.58952 3.93144L6.37314 0.355755C6.60974 -0.118585 7.39025 -0.118585 7.62686 0.355755L9.41048 3.93144L13.4005 4.50902C13.6651 4.54669 13.8842 4.73154 13.9661 4.98406C14.048 5.23797 13.9787 5.5156 13.7869 5.70045L10.9029 8.48022L11.5826 12.4061C11.6281 12.6677 11.5203 12.932 11.3054 13.0883C11.1836 13.1776 11.0387 13.2222 10.8931 13.2222"
-                                                  fill="#F78C07"/>
-                                        </svg>
-                                    </a>
-                                    <a href="">
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                  d="M10.8931 13.2222C10.7825 13.2222 10.6712 13.1964 10.569 13.1434L6.99965 11.2851L3.43101 13.1434C3.1944 13.2655 2.9088 13.2445 2.6946 13.0883C2.479 12.932 2.37189 12.6677 2.41739 12.4061L3.0971 8.48022L0.213068 5.70045C0.0212655 5.5156 -0.0480354 5.23797 0.0338656 4.98406C0.115767 4.73154 0.334869 4.54669 0.599472 4.50902L4.58952 3.93144L6.37314 0.355755C6.60974 -0.118585 7.39025 -0.118585 7.62686 0.355755L9.41048 3.93144L13.4005 4.50902C13.6651 4.54669 13.8842 4.73154 13.9661 4.98406C14.048 5.23797 13.9787 5.5156 13.7869 5.70045L10.9029 8.48022L11.5826 12.4061C11.6281 12.6677 11.5203 12.932 11.3054 13.0883C11.1836 13.1776 11.0387 13.2222 10.8931 13.2222"
-                                                  fill="#F78C07"/>
-                                        </svg>
-                                    </a>
-                                    <a href="">
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                  d="M10.8931 13.2222C10.7825 13.2222 10.6712 13.1964 10.569 13.1434L6.99965 11.2851L3.43101 13.1434C3.1944 13.2655 2.9088 13.2445 2.6946 13.0883C2.479 12.932 2.37189 12.6677 2.41739 12.4061L3.0971 8.48022L0.213068 5.70045C0.0212655 5.5156 -0.0480354 5.23797 0.0338656 4.98406C0.115767 4.73154 0.334869 4.54669 0.599472 4.50902L4.58952 3.93144L6.37314 0.355755C6.60974 -0.118585 7.39025 -0.118585 7.62686 0.355755L9.41048 3.93144L13.4005 4.50902C13.6651 4.54669 13.8842 4.73154 13.9661 4.98406C14.048 5.23797 13.9787 5.5156 13.7869 5.70045L10.9029 8.48022L11.5826 12.4061C11.6281 12.6677 11.5203 12.932 11.3054 13.0883C11.1836 13.1776 11.0387 13.2222 10.8931 13.2222"
-                                                  fill="#E3E3E3"/>
-                                        </svg>
-                                    </a>
-                                </div>
-
-                                <span class="product-card-info-header__score">4.0</span>
-
-                                <span class="product-card-info-header__sku">| Артикул: {{ $product-> sku }}</span>
+                            <div class="product-card-info-header__inner">
+                                <x-star-rating rating="{{ $product->getRating() }}"
+                                               class="product-card-info-header__rating" :interaction=false/>
+                                <span class="product-card-info-header__score">
+                                    {{ number_format($product->getRating(), 1) }}
+                                </span>
+                                    <span class="product-card-info-header__sku"><span>|</span> Артикул: {{ $product-> sku }}</span>
                             </div>
                             <hr>
                         </div>
@@ -107,20 +58,17 @@
                                 </header>
 
                                 <ul class="props-list">
-                                    @php $i = 0; @endphp
                                     @if(isset($attributes) && is_array($attributes) && count($attributes) > 0)
-                                        @if($i <=5)
-                                            @foreach($attributes as $attribute)
+                                        @foreach($attributes as $attribute)
+                                            @if ($loop->index <= 5)
                                                 <li>
                                                     <p>{{ $attribute['name'] }}</p>
                                                     <p>{{ $attribute['value'] }}</p>
                                                 </li>
-                                                @php $i ++; @endphp
-                                            @endforeach
-                                        @endif
+                                            @endif
+                                        @endforeach
                                     @endif
                                 </ul>
-
                                 <a href="#description">
                                     <img src="/svg/product/description.svg" alt=""> Перейти к описанию
                                 </a>
@@ -129,20 +77,23 @@
                             <div class="product-card-info-body-cart">
                                 <div class="product-card-info-body-cart__price">
                                     <p>{{ $product->price / 100 }} ₽ <span>/за шт</span></p>
-                                    <a href=""><img src="/svg/product/search.svg" alt=""> Проверить цену в Леруа Мерлен</a>
+                                    <a target="_blank" href="{{ $product->getStoreProductLink() }}"><img
+                                            src="/svg/product/search.svg" alt=""> Проверить цену
+                                        в {{ $product->store->full_name }}</a>
                                 </div>
                                 <x-product-add-to-cart :inCartQuantity="$inCartQuantity" :productId="$product->id"/>
                                 @if($inFavoritesList)
                                     <button data-id="{{ $product->id }}" data-action="remove"
                                             class="btn-add-to-favorites add-to-favorites btn btn-outline-black"
                                             style="max-width: 100%">
-                                        В избранном
+                                        <i class="heart-on"></i>
+                                        <span>В избранном</span>
                                     </button>
                                 @else
                                     <button data-id="{{ $product->id }}" data-action="add"
-                                            class="btn-add-to-favorites add-to-favorites btn btn-outline-black"
-                                            style="max-width: 100%">
-                                        В избранное
+                                            class="btn-add-to-favorites add-to-favorites btn btn-outline-black">
+                                        <i class="heart-off"></i>
+                                        <span>В избранное</span>
                                     </button>
                                 @endif
                             </div>
@@ -154,17 +105,17 @@
                 <div class="product-card__footer">
                     <div class="product-card-requirements">
                         <div class="product-card-requirements__item  product-card-requirements__delivery">
-                            <img src="/svg/shop-icons/leroy-merlin.svg" alt="">
+                            <img src="{{ $product->store->image_path }}" alt="">
                             <p>
                                 <small>Доставка из:</small>
-                                Леруа Мерлен
+                                {{ $product->store->company_name }}
                             </p>
                         </div>
                         <div class="product-card-requirements__item">
                             <img src="/svg/product/price.svg" alt="">
                             <p>
                                 <small>Ближайшее время доставки</small>
-                                Завтра 11:00 - 20:00
+                                От 45 минут
                             </p>
                         </div>
                         <div class="product-card-requirements__item">
@@ -196,21 +147,22 @@
                     <h4 class="product-description-card__header">Характеристики</h4>
                     <div class="row">
                         <div class="col-lg-6 col-12">
-                            <ul class="props-list">
+                            <ul class="props-list mb-0">
                                 @foreach($attributes as $key => $attribute)
                                     <li>
                                         <p>{{ $attribute['name'] }}</p>
                                         <p>{{ $attribute['value'] }}</p>
 
                                     </li>
-                                    @if($key + 1 === intval(round(count($attributes) / 2)))
+                                    @if($key + 1 === (int) round(count($attributes) / 2))
                             </ul>
                         </div>
                         <div class="col-lg-6 col-12">
-                            <ul class="props-list">
+                            <ul class="props-list mb-0 props-list_hidden">
                             @endif
                             @endforeach
                         </div>
+                        <button class="btn btn-outline-black btn-props">Показать все</button>
                     </div>
                 @endif
             </div>
@@ -222,98 +174,136 @@
             <div class="comments-card">
                 <div class="comments-card__header">
                     <div class="row">
-                        <div class="col-lg-6 col-12">
-                            <h4>Отзывы</h4>
-                            <div class="comments-card__rating">
-                                <a href="">
-                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M10.8931 13.2222C10.7825 13.2222 10.6712 13.1964 10.569 13.1434L6.99965 11.2851L3.43101 13.1434C3.1944 13.2655 2.9088 13.2445 2.6946 13.0883C2.479 12.932 2.37189 12.6677 2.41739 12.4061L3.0971 8.48022L0.213068 5.70045C0.0212655 5.5156 -0.0480354 5.23797 0.0338656 4.98406C0.115767 4.73154 0.334869 4.54669 0.599472 4.50902L4.58952 3.93144L6.37314 0.355755C6.60974 -0.118585 7.39025 -0.118585 7.62686 0.355755L9.41048 3.93144L13.4005 4.50902C13.6651 4.54669 13.8842 4.73154 13.9661 4.98406C14.048 5.23797 13.9787 5.5156 13.7869 5.70045L10.9029 8.48022L11.5826 12.4061C11.6281 12.6677 11.5203 12.932 11.3054 13.0883C11.1836 13.1776 11.0387 13.2222 10.8931 13.2222"
-                                              fill="#F78C07"/>
-                                    </svg>
-                                </a>
-                                <a href="">
-                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M10.8931 13.2222C10.7825 13.2222 10.6712 13.1964 10.569 13.1434L6.99965 11.2851L3.43101 13.1434C3.1944 13.2655 2.9088 13.2445 2.6946 13.0883C2.479 12.932 2.37189 12.6677 2.41739 12.4061L3.0971 8.48022L0.213068 5.70045C0.0212655 5.5156 -0.0480354 5.23797 0.0338656 4.98406C0.115767 4.73154 0.334869 4.54669 0.599472 4.50902L4.58952 3.93144L6.37314 0.355755C6.60974 -0.118585 7.39025 -0.118585 7.62686 0.355755L9.41048 3.93144L13.4005 4.50902C13.6651 4.54669 13.8842 4.73154 13.9661 4.98406C14.048 5.23797 13.9787 5.5156 13.7869 5.70045L10.9029 8.48022L11.5826 12.4061C11.6281 12.6677 11.5203 12.932 11.3054 13.0883C11.1836 13.1776 11.0387 13.2222 10.8931 13.2222"
-                                              fill="#F78C07"/>
-                                    </svg>
-                                </a>
-                                <a href="">
-                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M10.8931 13.2222C10.7825 13.2222 10.6712 13.1964 10.569 13.1434L6.99965 11.2851L3.43101 13.1434C3.1944 13.2655 2.9088 13.2445 2.6946 13.0883C2.479 12.932 2.37189 12.6677 2.41739 12.4061L3.0971 8.48022L0.213068 5.70045C0.0212655 5.5156 -0.0480354 5.23797 0.0338656 4.98406C0.115767 4.73154 0.334869 4.54669 0.599472 4.50902L4.58952 3.93144L6.37314 0.355755C6.60974 -0.118585 7.39025 -0.118585 7.62686 0.355755L9.41048 3.93144L13.4005 4.50902C13.6651 4.54669 13.8842 4.73154 13.9661 4.98406C14.048 5.23797 13.9787 5.5156 13.7869 5.70045L10.9029 8.48022L11.5826 12.4061C11.6281 12.6677 11.5203 12.932 11.3054 13.0883C11.1836 13.1776 11.0387 13.2222 10.8931 13.2222"
-                                              fill="#F78C07"/>
-                                    </svg>
-                                </a>
-                                <a href="">
-                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M10.8931 13.2222C10.7825 13.2222 10.6712 13.1964 10.569 13.1434L6.99965 11.2851L3.43101 13.1434C3.1944 13.2655 2.9088 13.2445 2.6946 13.0883C2.479 12.932 2.37189 12.6677 2.41739 12.4061L3.0971 8.48022L0.213068 5.70045C0.0212655 5.5156 -0.0480354 5.23797 0.0338656 4.98406C0.115767 4.73154 0.334869 4.54669 0.599472 4.50902L4.58952 3.93144L6.37314 0.355755C6.60974 -0.118585 7.39025 -0.118585 7.62686 0.355755L9.41048 3.93144L13.4005 4.50902C13.6651 4.54669 13.8842 4.73154 13.9661 4.98406C14.048 5.23797 13.9787 5.5156 13.7869 5.70045L10.9029 8.48022L11.5826 12.4061C11.6281 12.6677 11.5203 12.932 11.3054 13.0883C11.1836 13.1776 11.0387 13.2222 10.8931 13.2222"
-                                              fill="#F78C07"/>
-                                    </svg>
-                                </a>
-                                <a href="">
-                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M10.8931 13.2222C10.7825 13.2222 10.6712 13.1964 10.569 13.1434L6.99965 11.2851L3.43101 13.1434C3.1944 13.2655 2.9088 13.2445 2.6946 13.0883C2.479 12.932 2.37189 12.6677 2.41739 12.4061L3.0971 8.48022L0.213068 5.70045C0.0212655 5.5156 -0.0480354 5.23797 0.0338656 4.98406C0.115767 4.73154 0.334869 4.54669 0.599472 4.50902L4.58952 3.93144L6.37314 0.355755C6.60974 -0.118585 7.39025 -0.118585 7.62686 0.355755L9.41048 3.93144L13.4005 4.50902C13.6651 4.54669 13.8842 4.73154 13.9661 4.98406C14.048 5.23797 13.9787 5.5156 13.7869 5.70045L10.9029 8.48022L11.5826 12.4061C11.6281 12.6677 11.5203 12.932 11.3054 13.0883C11.1836 13.1776 11.0387 13.2222 10.8931 13.2222"
-                                              fill="#E3E3E3"/>
-                                    </svg>
-                                </a>
+                        <div class="col-lg-8 col-12">
+                            @if($product->reviews->count() > 0)
+                                <h4>Отзывы ({{ $product->reviews->count() }})</h4>
+                                <x-star-rating rating="{{ $product->getRating() }}" class="comments-card__rating"
+                                               :interaction="false"/>
+                                <span class="comments-card__score">{{ number_format($product->getRating(), 1) }}</span>
+                                <span class="comments-card__count">({{ $product->reviews->count() }})</span>
+                            @else
+                                <h4>Отзывов пока нет, оцените товар первым!</h4>
+                            @endif
+                        </div>
+                        @can('createReview', $product)
+                            <div class="col-lg-4 col-12">
+                                <button type="button" data-toggle="collapse" data-target="#review"
+                                        aria-expanded="false" aria-controls="comment"
+                                        class="btn btn-outline-black">
+                                    Оставить отзыв
+                                </button>
                             </div>
-                            <span class="comments-card__score">4.0</span>
-                            <span class="comments-card__count">(15)</span>
-                        </div>
-                        <div class="col-lg-6 col-12">
-                            <button class="btn btn-outline-black">Оставить отзыв</button>
-                        </div>
+                        @endcan
                     </div>
-                </div>
+                    @can('createReview', $product)
+                        <form class="form mt-3 floating-label collapse" method="post" id="review"
+                              action="{{ route('add_review', ['id' => $product->id]) }}">
+                            @csrf
+                            <div class="form-group row">
+                                <div class="col-lg-6 col-12">
+                                    <fieldset class="rating">
+                                        <div class="rating__group">
+                                            <input class="rating__input" type="radio" name="rating" id="rating-1"
+                                                   value="1" required>
+                                            <label class="rating__star" for="rating-1" aria-label="Ужасно"></label>
 
-                <div class="comments-card__body">
-                    <div class="comments-list">
-                        <div class="comment">
-                            <div class="comment__header">
-                                <img class="comment__img" src="/svg/product/user.svg" alt="">
-                                <div>
-                                    <p>Артем Иванов <span>23.01.2020</span></p>
-                                    <div class="comment__rating">
-                                        <img src="/svg/product/star.svg" alt="">
-                                        <img src="/svg/product/star.svg" alt="">
-                                        <img src="/svg/product/star.svg" alt="">
-                                        <img src="/svg/product/star.svg" alt="">
-                                        <img src="/svg/product/star.svg" alt="">
+                                            <input class="rating__input" type="radio" name="rating" id="rating-2"
+                                                   value="2" required>
+                                            <label class="rating__star" for="rating-2" aria-label="Сносно"></label>
+
+                                            <input class="rating__input" type="radio" name="rating" id="rating-3"
+                                                   value="3" required>
+                                            <label class="rating__star" for="rating-3" aria-label="Нормально"></label>
+
+                                            <input class="rating__input" type="radio" name="rating" id="rating-4"
+                                                   value="4" required>
+                                            <label class="rating__star" for="rating-4" aria-label="Хорошо"></label>
+
+                                            <input class="rating__input" type="radio" name="rating" id="rating-5"
+                                                   value="5" required>
+                                            <label class="rating__star" for="rating-5" aria-label="Отлично"></label>
+
+                                            <div class="rating__focus"></div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-control-container">
+                                        <textarea id="advantages" type="text" class="form-control" rows="3"
+                                                  name="advantages" placeholder=" "
+                                        >{{ old('advantages') }}</textarea>
+                                        <label for="advantages">Достоинства</label>
                                     </div>
                                 </div>
                             </div>
-                            <div class="comment__body">
-                                <div class="comment__text">
-                                    <p>Достоинства</p>
-                                    <p>Суперский</p>
-                                </div>
-                                <div class="comment__text">
-                                    <p>Недостатки:</p>
-                                    <p>За время использования не обнаружил.
-                                        (когда выбирал еще из кучи моделей - везде часто писали о коротком шнуре,не
-                                        считаю это проблемой, воткнул положил рядом где нибудь, зачем кому то +100500
-                                        метров не понимаю)</p>
-                                </div>
-                                <div class="comment__text">
-                                    <p>Комментарий:</p>
-                                    <p>Это мой первый внешний жесткий, поэтому сравнивать не с чем, но покупкой
-                                        однозначно доволен! работает через ноутбук Sony Vaio usb2.0
-                                        копирование/перемещение с него ~30-40мб, в обратном ~20-30мб</p>
+
+                            <div class="form-group row">
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-control-container">
+                                         <textarea id="disadvantages" type="text" class="form-control" rows="3"
+                                                   name="disadvantages" placeholder=" "
+                                         >{{ old('disadvantages') }}</textarea>
+                                        <label for="disadvantages">Недостатки</label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <button class="btn btn-outline-black">Показать все отзывы</button>
+
+                            <div class="form-group row">
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-control-container">
+                                        <textarea id="commentText" type="text" class="form-control" rows="3"
+                                                  name="comment" placeholder=" "
+                                        >{{ old('comment') }}</textarea>
+                                        <label for="comment">Комментарий</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <button class="btn btn-primary" type="submit">Оставить отзыв</button>
+                                </div>
+                            </div>
+                        </form>
+                    @endcan
                 </div>
+                @if($product->reviews->count() > 0)
+                    <div class="comments-card__body">
+                        <div class="comments-list">
+                            @foreach($product->reviews as $review)
+                                <div class="comment {{ ($loop->iteration > 2) ? 'd-none' : '' }}">
+                                    <div class="comment__header">
+                                        <img class="comment__img" src="/svg/product/user.svg" alt="">
+                                        <div>
+                                            <p>{{ $review->user->full_name ?? 'Аноним' }}
+                                                <span>{{ date('d.m.Y', strtotime($review->created_at)) }}</span></p>
+                                            <x-star-rating rating="{{ $review->rating }}" class="comment__rating"
+                                                           :interaction="false"/>
+                                        </div>
+                                    </div>
+                                    <div class="comment__body">
+                                        <div class="comment__text">
+                                            <p>Достоинства</p>
+                                            <p>{{ $review->advantages }}</p>
+                                        </div>
+                                        <div class="comment__text">
+                                            <p>Недостатки:</p>
+                                            <p>{{ $review->disadvantages }}</p>
+                                        </div>
+                                        <div class="comment__text">
+                                            <p>Комментарий:</p>
+                                            <p>{{ $review->comment }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                        @if($product->reviews->count() > 2)
+                            <button id="showComments" class="btn btn-outline-black mt-4">Показать все отзывы</button>
+                        @endif
+                    </div>
+                @endif
             </div>
         </div>
     </div>
@@ -322,5 +312,29 @@
 
 </main>
 
+<x-app-banner/>
+
 <x-footer/>
 
+<script>
+
+    // Full Properties
+
+    const btnProps = document.querySelector('.btn-props');
+    const propsList = document.querySelector('.props-list_hidden');
+
+    if (btnProps) {
+        btnProps.addEventListener('click', () => {
+            propsList.classList.toggle('show');
+            btnProps.classList.toggle('show');
+
+            if (btnProps.classList.contains('show')) {
+                btnProps.textContent = 'Скрыть';
+            } else {
+                btnProps.textContent = 'Показать все';
+            }
+        });
+    }
+
+
+</script>

@@ -5,34 +5,33 @@
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="card no-shadow">
-                        <div class="card-head">
-                            <header>
-                                Товары
-                            </header>
-                            <div class="tools">
-                                <div class="btn-group">
-                                    <a href="{{ route('admin_create_product_page') }}"
-                                       class="btn btn-block ink-reaction btn-warning">
-                                        Добавить товар
-                                    </a>
-                                </div>
+                    <div class="card-title">
+                        <header>
+                            Товары
+                        </header>
+                        <div class="tools">
+                            <div class="btn-group">
+                                <a href="{{ route('admin_create_product_page') }}"
+                                   class="btn btn-block ink-reaction btn-warning">
+                                    Добавить товар
+                                </a>
                             </div>
                         </div>
-                        <div class="card-body">
+                    </div>
+                    <div class="card">
+                        <div class="card-body no-padding">
                             <div class="table-responsive">
-                                <table id="datatableProducts" class="table table-striped table-hover">
+                                <table id="datatableProducts" class="table table-hover w-100 table-border-bottom">
                                     <thead>
                                     <tr>
-                                        <th>Артикул</th>
+                                        <th></th>
+                                        <th class="sort-alpha">Товар</th>
+                                        <th class="sort-alpha">Категория</th>
+                                        <th class="sort-alpha">Стоимость</th>
+                                        <th class="sort-alpha">Поставщик</th>
                                         <th class="sort-alpha">Модерация</th>
                                         <th class="sort-alpha">Видимость</th>
-                                        <th class="sort-alpha">Название</th>
-                                        <th class="sort-alpha">Поставщик</th>
-                                        <th class="sort-numeric">Стоимость</th>
-                                        <th class="sort-alpha">Категория</th>
-                                        <th>Ссылка в магазине</th>
-                                        <th class="sort-alpha">Посл. изменение</th>
+                                        <th class="sort-alpha">Последнее изменение</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -47,7 +46,7 @@
     </section>
 </div>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
 
         $('#datatableProducts').DataTable({
             "dom": 'lCfrtip',
@@ -77,37 +76,46 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             },
-            "createdRow": function ( row, data, index ) {
-                $(row).attr('data-href',data['editLink']);
-                let nameCell = $(row).find('td:eq(3)');
+            "createdRow": function (row, data, index) {
+                $(row).attr('data-href', data['editLink']);
+                let nameCell = $(row).find('td:eq(1)');
                 nameCell.attr('data-toggle', 'tooltip');
                 nameCell.attr('data-placement', 'bottom');
                 nameCell.attr('data-trigger', 'hover');
                 nameCell.attr('data-original-title', data['name']);
             },
             columns: [
-                { data: 'sku' },
-                { data: 'moderation' },
-                { data: 'visible' },
+                {
+                    data: 'img_url',
+                    render: (data, type, row) => {
+                        return '<img alt="" src="' + data + '"/>'
+
+                    }
+                },
+                // {data: 'sku'},
                 {
                     data: 'name',
                     render: function (data, type, row) {
-                        return data.substr(0, 25);
+                        return (
+                            data.substr(0, 25)
+                        )
                     }
                 },
-                { data: 'partner' },
-                { data: 'price' },
-                { data: 'category' },
-                {
-                    data: 'storeLink',
-                    render: function (data, type, row) {
-                        return '<a href="' + data + '">Ссылка</a>'
-                    }
-                },
-                { data: 'updatedAt' }
+                // {
+                //     data: 'storeLink',
+                //     render: function (data, type, row) {
+                //         return '<a href="' + data + '">Ссылка</a>'
+                //     }
+                // },
+                {data: 'category'},
+                {data: 'price'},
+                {data: 'partner'},
+                {data: 'moderation'},
+                {data: 'visible'},
+                {data: 'updatedAt'}
             ],
             "columnDefs": [
-                { "orderable": false, "targets": 7 }
+                {"orderable": false, "targets": 7}
             ]
         });
         $('#datatableProducts').on('draw.dt', function () {

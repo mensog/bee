@@ -8,17 +8,11 @@
                 <div class="mb-6 border border-width-2 border-color-3 borders-radius-6">
                     <ul id="sidebarNav" class="list-unstyled mb-0 sidebar-navbar view-all">
                         <li>
-                            <div class="dropdown-title">Категории товаров {{ $categories->count() }}</div>
+                            <div class="dropdown-title">Категории товаров</div>
                         </li>
-                        @foreach ($categories as $key => $category)
-                            <li id="category_{{ $category->id }}">
-                                <a class="dropdown-toggle dropdown-toggle-collapse {{$category->friendly_url_name === collect(request()->segments())->last() ? 'active' : ''}}"
-                                   href="{{ route('category', $category->friendly_url_name) }}" role="button">
-                                    {{ $category->name }} ({{ $category->products_count }})<span
-                                        class="text-gray-25 font-size-12 font-weight-normal"></span>
-                                </a>
-                            </li>
-                        @endforeach
+                        @isset($storeCatalog)
+                            <x-category-sidebar :categories="$storeCatalog" :store="$store"/>
+                        @endisset
                     </ul>
                 </div>
             </div>
@@ -35,14 +29,14 @@
                                         <div class="product-item__inner px-xl-4 p-3">
                                             <div class="product-item__body pb-xl-2">
                                                 <div class="mb-2"><a
-                                                        href="{{ route('product', $product->friendly_url_name) }}"
+                                                        href="{{ route('product', ['name' => $product->friendly_url_name, 'storeSlug' => $currentStore->slug]) }}"
                                                         class="font-size-12 text-gray-5">{{ $product->category->name }}</a>
                                                 </div>
                                                 <h5 class="mb-1 product-item__title"><a
-                                                        href="{{ route('product', $product->friendly_url_name) }}"
+                                                        href="{{ route('product', ['name' => $product->friendly_url_name, 'storeSlug' => $currentStore->slug]) }}"
                                                         class="text-blue font-weight-bold">{{ $product->name }}</a></h5>
                                                 <div class="mb-2">
-                                                    <a href="{{ route('product', $product->friendly_url_name) }}"
+                                                    <a href="{{ route('product', ['name' => $product->friendly_url_name, 'storeSlug' => $currentStore->slug]) }}"
                                                        class="d-block text-center"><img
                                                             class="img-fluid" src="{{ $product->img_url }}"
                                                             alt="{{ $product->name }}"></a>
@@ -99,6 +93,8 @@
     </div>
 
 </main>
+
+<x-app-banner/>
 
 <x-footer/>
 

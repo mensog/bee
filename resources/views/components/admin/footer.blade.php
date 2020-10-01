@@ -12,7 +12,7 @@
                 <p>Вы действительно хотите удалить <span id="deleteModalFormText"></span>?</p>
             </div>
             <div class="modal-footer">
-                <form id="deleteModalForm" action="" class="form" method="get">
+                <form id="deleteModalForm" action="" class="form" method="post">
                     @csrf
                     <button onclick="event.preventDefault()" type="button" class="btn btn-default"
                             data-dismiss="modal">Отменить

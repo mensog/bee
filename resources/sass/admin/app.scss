@@ -10,6 +10,20 @@
 // Bootstrap
 //@import '~bootstrap/scss/bootstrap';
 
+#base {
+    background-color: #F4F4F4;
+}
+
+#header {
+    background: #FFFFFF;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+#menubar {
+    .menubar-scroll-panel {
+        background: #373736;
+    }
+}
 
 .order-hover {
     position: relative;
@@ -206,3 +220,108 @@
         }
     }
 }
+
+.btn-warning {
+    padding: 11px 32px;
+    border-radius: 5px;
+}
+
+.btn-warning:hover, .btn-warning:focus {
+    color: #000000;
+    background-color: #fdd900;
+    border-color: #fdd900;
+}
+
+.card-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    header {
+        align-self: center;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 33px;
+        color: #000000;
+    }
+}
+
+.table {
+    img {
+        max-width: 40px;
+    }
+}
+
+.table-border-bottom {
+    border-bottom: 1px solid #D8D8D8;
+}
+
+.order-status {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.order-props {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    > div {
+        padding-left: 60px;
+        padding-right: 60px;
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 33.33%;
+        flex: 0 0 33.33%;
+        max-width: 33.33%;
+    }
+
+    > div:first-of-type {
+        padding-left: 0;
+        border-right: 1px solid #EDEDED;
+    }
+
+    > div:last-of-type {
+        border-left: 1px solid #EDEDED;
+        padding-right: 0;
+    }
+}
+
+.order-props-list {
+
+    &__item {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding-bottom: 6px;
+        margin-bottom: 8px;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 12px;
+        color: #9F9F9F;
+
+        &--label {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 60%;
+            flex: 0 0 60%;
+            max-width: 60%;
+            padding-right: 10px;
+        }
+
+        &--value {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 40%;
+            flex: 0 0 40%;
+            max-width: 40%;
+            padding-left: 10px;
+            text-align: right;
+            color: #000000;
+        }
+    }
+
+}
+

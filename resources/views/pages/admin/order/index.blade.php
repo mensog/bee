@@ -5,15 +5,15 @@
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="card no-shadow" style="overflow: visible">
-                        <div class="card-head">
-                            <header>
-                                Заказы
-                            </header>
-                        </div>
-                        <div class="card-body">
+                    <div class="card-title">
+                        <header>
+                            Товары
+                        </header>
+                    </div>
+                    <div class="card" style="overflow: visible">
+                        <div class="card-body no-padding">
                             <div class="table-responsive" style="overflow: visible">
-                                <table id="orders" class="table table-striped table-hover">
+                                <table id="orders" class="table w-100 table-hover">
                                     <thead>
                                     <tr>
                                         <th class="sort-numeric">№</th>

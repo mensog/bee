@@ -1,5 +1,5 @@
 jQuery($ => {
-    $('.main-map-toggle').on('click', function () {
+    $('.main-map-toggle').hover(function () {
 
         const dataMap = $(this).data('map')
 
@@ -7,6 +7,8 @@ jQuery($ => {
             $(this).removeClass('active')
             $(`#${dataMap}`).removeClass('active')
         } else {
+            $('.main-map-toggle').removeClass('active')
+            $('.main-map-points__item').removeClass('active')
             $(this).addClass('active')
             $(`#${dataMap}`).addClass('active')
         }

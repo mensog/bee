@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
+use App\Category;
+use App\Partner;
+use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
@@ -13,12 +15,28 @@ class MainController extends Controller
      */
     public function index()
     {
-        $bannerProducts = Product::inRandomOrder()->limit(2)->get();
-        $recentProducts = Product::orderBy('created_at','desc')->limit(18)->get();
         $cart = app('Cart');
         $cartContent = $cart->content;
         $favoritesList = app('FavoriteList');
         $favoritesListContent = $favoritesList->content;
-        return view('pages.main', ['bannerProducts' => $bannerProducts, 'recentProducts' => $recentProducts, 'cartContent' => $cartContent, 'favoritesListContent' => $favoritesListContent]);
+        return view('pages.main', ['cartContent' => $cartContent, 'favoritesListContent' => $favoritesListContent]);
+    }
+
+    public function showStore(Request $request, $storeSlug)
+    {
+        $cart = app('Cart');
+        $cartContent = $cart->content;
+        $favoritesList = app('FavoriteList');
+        $favoritesListContent = $favoritesList->content;
+        $currentStore = Partner::where('slug', $storeSlug)->firstOrFail();
+        $likedRandomProducts = $currentStore->products()->inRandomOrder()->take(4)->get();
+        $storeCatalog = Category::getCatalog($currentStore->id);
+        return view('pages.store', [
+            'cartContent' => $cartContent,
+            'favoritesListContent' => $favoritesListContent,
+            'currentStore' => $currentStore,
+            'likedRandomProducts' => $likedRandomProducts,
+            'storeCatalog' => $storeCatalog,
+        ]);
     }
 }

@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Partner;
 use App\Product;
 
 class ProductController extends Controller
 {
-    public function show($name)
+    public function show($storeSlug, $name)
     {
-        $product = Product::with('category')->with('productAttributeValues')->with('productAttributeValues.productAttribute')->where('friendly_url_name', $name)->firstOrFail();
+        $store = Partner::where('slug', $storeSlug)->firstOrFail();
+        $product = Product::with('category')
+            ->with('productAttributeValues')
+            ->with('productAttributeValues.productAttribute')
+            ->where('friendly_url_name', $name)
+            ->where('store_id', $store->id)
+            ->firstOrFail();
         $attributes = [];
         foreach ($product->productAttributeValues as $attributeValue){
             $attributes[] = [
@@ -32,7 +39,17 @@ class ProductController extends Controller
         } else {
             $inFavoritesList = false;
         }
-        return view('pages.product', ['product' => $product, 'inCartQuantity' => $inCartQuantity, 'inFavoritesList' => $inFavoritesList, 'attributes' => $attributes, 'storeName' => $storeName, 'storeLink' => $storeLink]);
+
+        $categoryBreadcrumbs = $product->category->getBreadcrumbs();
+        return view('pages.product', [
+            'product' => $product,
+            'inCartQuantity' => $inCartQuantity,
+            'inFavoritesList' => $inFavoritesList,
+            'attributes' => $attributes,
+            'storeName' => $storeName,
+            'storeLink' => $storeLink,
+            'categoryBreadcrumbs' => $categoryBreadcrumbs,
+            ]);
     }
 
     /**

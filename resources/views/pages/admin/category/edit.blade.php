@@ -6,7 +6,7 @@
 
             <form id="createCategory" class="form"
                   action="{{ route('admin_category_edit_data', $category->id) }}"
-                  method="post">
+                  method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card card-bordered style-default-light no-shadow">
                     <div class="card-head">
@@ -77,6 +77,20 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="categoryIcon">Иконка (в формате svg)</label>
+                                    <input type="file" name="icon" id="categoryIcon">
+                                    @error('icon')
+                                    <span class="text-danger invalid-field" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
                     <div class="card-actionbar style-default-bright">
@@ -88,6 +102,38 @@
                     </div>
                 </div>
             </form>
+
+            @if(!is_null($category->icon_path))
+            <form id="deleteCategoryIcon" class="form"
+                  action="{{ route('admin_category_delete_icon', $category->id) }}" method="post">
+                @csrf
+                <div class="card card-bordered style-default-light no-shadow">
+                    <div class="card-head">
+                        <header>
+                            Иконка
+                        </header>
+                    </div>
+
+                    <div class="card-body style-default-bright floating-label">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <img src="{{ asset($category->icon_path) }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-actionbar style-default-bright">
+                        <div class="card-actionbar-row" style="text-align: left">
+                            <button type="submit" class="btn btn-flex ink-reaction btn-warning">
+                                Удалить иконку
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            @endif
 
             <form id="deleteCategory" class="form"
                   action="{{ route('admin_category_delete', $category->id) }}" method="post">

@@ -292,42 +292,42 @@
                                         <table id="orders" class="table table-striped table-hover">
                                             <thead>
                                             <tr>
+                                                <th class="sort-numeric">id</th>
                                                 <th class="sort-numeric">Дата</th>
-                                                <th class="sort-alpha">Статус</th>
                                                 <th class="sort-alpha">Автор</th>
                                                 <th class="sort-alpha">Отзыв</th>
                                                 {{--TODO ограничение комментария + тултип--}}
                                                 <th class="sort-numeric">Оценка</th>
-                                                <th class="sort-numeric">Ответ</th>
-                                                <th></th>
                                                 <th></th>
                                                 <th></th>
                                             </tr>
                                             </thead>
                                             <tbody>
+                                            @foreach($product->reviews->sortByDesc('created_at') as $review)
                                             <tr>
-                                                <td>22.06.2020 14:42</td>
-                                                <td>На модерации</td>
-                                                <td>Иванов Иван</td>
-                                                <td>Очень хорошо, класс!</td>
-                                                <td>10/10</td>
-                                                <td>-</td>
-                                                <td data-toggle="tooltip" data-placement="bottom"
-                                                    data-trigger="hover"
-                                                    data-original-title="Опубликовать">
-                                                    <a data-target="#publishCommentModal" data-toggle="modal"
-                                                       data-action class="btn btn-flat ink-reaction btn-success">
-                                                        <i class="md md-publish"></i>
-                                                    </a>
+                                                <td>{{ $review->id }}</td>
+                                                <td>{{ date('d.m.Y H:i', strtotime($review->created_at)) }}</td>
+                                                <td>{{ $review->user->full_name }}</td>
+                                                <td>
+                                                    <div>
+                                                        <p class="font-italic">Достоинства:</p>
+                                                        <p>{{ $review->advantages }}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p class="font-italic">Недостатки:</p>
+                                                        <p>{{ $review->disadvantages }}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p class="font-italic">Комментарий:</p>
+                                                        <p>{{ $review->comment }}</p>
+                                                    </div>
                                                 </td>
+                                                <td>{{ $review->rating }}/5</td>
                                                 <td data-toggle="tooltip" data-placement="bottom"
                                                     data-trigger="hover"
-                                                    data-original-title="Ответить">
-                                                    <a class="btn btn-flat ink-reaction btn-default"
-                                                       data-action=""
-                                                       data-toggle="modal"
-                                                       data-target="#replyCommentModal">
-                                                        <i class="md md-reply"></i>
+                                                    data-original-title="Редактировать">
+                                                    <a href="{{ route('admin_review_update_page', $review->id) }}">
+                                                        <i class="md md-edit"></i>
                                                     </a>
                                                 </td>
                                                 <td data-toggle="tooltip" data-placement="bottom"
@@ -335,11 +335,12 @@
                                                     data-original-title="Удалить">
                                                     <x-admin.remove-with-modal
                                                         type="icon"
-                                                        :action="route('admin_product', $product->friendly_url_name)"
+                                                        action="{{ route('admin_review_delete', $review->id) }}"
                                                         :text="'отзыв'">
                                                     </x-admin.remove-with-modal>
                                                 </td>
                                             </tr>
+                                            @endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -348,77 +349,7 @@
                         </div>
                     </div>
 
-                    <div class="modal fade" id="replyCommentModal" tabindex="-1" role="dialog"
-                         aria-labelledby="replyCommentModalLabel"
-                         aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                        &times;
-                                    </button>
-                                    <h4 class="modal-title" id="replyCommentModalLabel">Ответить на комментарий</h4>
-                                </div>
-                                <form id="replyCommentModalForm" class="form-horizontal" method="" action="">
-                                    @csrf
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <div class="col-sm-3">
-                                                <label for="email1" class="control-label">Администратор</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <input type="email" value="Администратор" name="author" id="author"
-                                                       class="form-control"
-                                                       placeholder="Администратор">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-3">
-                                                <label for="text" class="control-label">Комментарий</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <textarea name="text" id="text" class="form-control"
-                                                          placeholder="Текст ответа">Текст ответа</textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button onclick="event.preventDefault()" type="button" class="btn btn-default"
-                                                data-dismiss="modal">Отмена
-                                        </button>
-                                        <button type="submit" class="btn btn-primary">Ответить</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="modal fade" id="publishCommentModal" tabindex="-1" role="dialog"
-                         aria-labelledby="publishCommentModalLabel"
-                         aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                        &times;
-                                    </button>
-                                    <h4 class="modal-title" id="publishCommentModalLabel">Публикация комментария</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Вы действительно хотите опубликовать комментарий?
-                                </div>
-                                <div class="modal-footer">
-                                    <form id="publishCommentModalForm" class="form" method="" action="">
-                                        @csrf
-                                        <button onclick="event.preventDefault()" type="button" class="btn btn-default"
-                                                data-dismiss="modal">Отмена
-                                        </button>
-                                        <button type="submit" class="btn btn-primary">Опубликовать</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
             </div>
