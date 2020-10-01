@@ -22,6 +22,7 @@
         font-size: 42px;
         line-height: 48px;
         color: $black;
+        max-width: 695px;
     }
 
     &__subtitle {
@@ -198,8 +199,6 @@
     &__item {
         position: relative;
         display: flex;
-
-
     }
 
     &__item-img {
@@ -207,7 +206,7 @@
     }
 
     &__item-title {
-        margin: 0 0 24px;
+        margin: 0 0 16px;
         font-weight: bold;
         font-size: 20px;
         line-height: 16px;

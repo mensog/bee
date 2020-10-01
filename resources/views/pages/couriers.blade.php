@@ -9,21 +9,17 @@
                 <li class="breadcrumb__item">/</li>
                 <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Курьерам</a></li>
             </ul>
-            <h1 class="main-screen__title">Доставляйте заказы и <br> зарабатывайте вместе с нами</h1>
-            <h2 class="main-screen__subtitle">Мы доставляем товары и материалы из строительных магазинов в Москве</h2>
+            <h1 class="main-screen__title">Работайте и зарабатывайте вместе с нами</h1>
+            <h2 class="main-screen__subtitle">Мы доставляем товары из строительных магазинов по Москве и ближайшему Подмосковью</h2>
             <div class="main-screen__benefits">
                 <div class="main-screen__benefits-item">
                     <div class="main-screen__benefits-title">150-300 ₽</div>
                     <div class="main-screen__benefits-descr">за доставленный заказ</div>
-                    <span class="main-screen__benefits-add">бензин оплачиваем <br> отдельно</span>
+                    <span class="main-screen__benefits-add">бензин оплачиваем отдельно</span>
                 </div>
                 <div class="main-screen__benefits-item">
                     <div class="main-screen__benefits-title">8-14 <span>заказов</span></div>
-                    <div class="main-screen__benefits-descr">в среднем доставляет <br> курьер BeeClub в день</div>
-                </div>
-                <div class="main-screen__benefits-item">
-                    <div class="main-screen__benefits-title">72 <span>курьера</span></div>
-                    <div class="main-screen__benefits-descr">уже в нашей команде</div>
+                    <div class="main-screen__benefits-descr">в среднем доставляет курьер BeeClub в день</div>
                 </div>
             </div>
             <a href="#income" class="main-screen__btn btn btn-primary">Начать работу</a>
@@ -32,15 +28,13 @@
 
     <section class="expectations">
         <div class="container">
-            <h2 class="expectations__title">Что ожидаем от Вас?</h2>
+            <h2 class="expectations__title">Что BeeClub ожидает от Вас?</h2>
             <div class="row">
                 <div class="col-4">
                     <div class="expectations__item expectations__item_gray">
-                        <div class="expectations__item-title">Собственное авто</div>
+                        <div class="expectations__item-title">Собственный автомобиль</div>
                         <div class="expectations__item-text">
-                            <span>Чистая и укоженная</span>
-                            <span>Вместительный грузовой отсек</span>
-                            <span>Чем больше машина, тем больше <br> товаров сможете доставить</span>
+                            <span>Чистый автомобиль с вместительным грузовым отсеком</span>
                         </div>
                         <img src="/img/couriers/cars.png" alt="cars" class="expectations__item-img">
                     </div>
@@ -52,15 +46,14 @@
                         </div>
                         <div class="expectations__item-text expectations__item-text_white">
                             <span>Средний вес заказа - 12 кг</span>
-                            <span>Максимальный вес заказа - 30 кг</span>
-                            <span>Разгружаем, поднимаем и приносим <br> заказ клиенту</span>
+                            <span>Необходимо самостоятельно разгрузить и доставить заказ до клиента</span>
                         </div>
                         <img src="/svg/couriers/dumbbell.svg" alt="dumbbell" class="expectations__item-img">
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="expectations__item expectations__item_yellow">
-                        <div class="expectations__item-title">Отличное настроение</div>
+                        <div class="expectations__item-title">Аккуратность и ответственность</div>
                         <div class="expectations__item-text">
                             <span>Опрятный внешний вид</span>
                             <span>Доставляем аккуратно, как для себя</span>
@@ -76,58 +69,43 @@
         <div class="container">
             <h2 class="terms__title">Условия и бонусы</h2>
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="terms__item">
-                        <div class="terms__item-img">
-                            <img src="/svg/couriers/curve.svg" alt="curve">
-                        </div>
-                        <div>
-                            <div class="terms__item-title">Карьерный рост</div>
-                            <div class="terms__item-text">
-                                Готовы хорошо работать? <br>
-                                У нас есть возможности для вашего роста
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                     <div class="terms__item">
                         <div class="terms__item-img">
                             <img src="/svg/couriers/ruble.svg" alt="ruble">
                         </div>
                         <div>
-                            <div class="terms__item-title">Стабильная зарплата</div>
+                            <div class="terms__item-title">Достойная заработная плата</div>
                             <div class="terms__item-text">
-                                Официально, 2 раза в месяц
+                              Официально, 2 раза в месяц
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="terms__item">
+                        <div class="terms__item-img">
+                            <img src="/svg/couriers/user.svg" alt="user">
+                        </div>
+                        <div>
+                            <div class="terms__item-title">Официальное трудоустройство</div>
+                            <div class="terms__item-text">
+                              Согласно ТК РФ
                             </div>
                         </div>
 
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                     <div class="terms__item">
                         <div class="terms__item-img">
-                            <img src="/svg/couriers/double.svg" alt="double">
+                            <img src="/svg/couriers/height.svg" alt="height">
                         </div>
                         <div>
-                            <div class="terms__item-title">Переходы между отделами</div>
+                            <div class="terms__item-title">Возможности карьерного роста</div>
                             <div class="terms__item-text">
-                                Хочешь изучать новые направления? <br>
-                                У тебя будет такая возможность в BeeClub
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="terms__item">
-                        <div class="terms__item-img">
-                            <img src="/svg/couriers/percent.svg" alt="percent">
-                        </div>
-                        <div>
-                            <div class="terms__item-title">Бонусы от сетей</div>
-                            <div class="terms__item-text">
-                                Делимся секретными скидками и бонусами с сотрудниками от <br>
-                                магазинов-поставщиков
+                              При работе на постоянной основе,
+                              у нас есть возможности для вашего роста
                             </div>
                         </div>
                     </div>
