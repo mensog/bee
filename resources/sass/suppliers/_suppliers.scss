@@ -1,13 +1,24 @@
 .suppliers {
-    padding-bottom: 64px;
+
    .main-screen {
       background: $light-grey url(/img/suppliers/main-screen-bg.png) right bottom no-repeat;
       background-size: contain;
-   }
 
-    .improve {
-        background-color: $white;
-    }
+      &__title {
+         max-width: 695px;
+      }
+
+      &__benefits-item {
+         &:first-child {
+            max-width: 160px;
+         }
+      }
+
+      &__benefits-title {
+         font-size: 16px;
+         font-weight: bold;
+      }
+   }
 }
 
 .become {
@@ -22,10 +33,10 @@
         flex-direction: column;
         min-height: 396px;
         padding: 30px;
-        background: $white;
+        background: $light-grey;
 
         &_bg {
-            background: $white url(/img/suppliers/note-book.png) 93% 85% / 350px no-repeat;
+            background: $light-grey url(/img/suppliers/note-book.png) 93% 85% / 350px no-repeat;
         }
     }
 
@@ -52,6 +63,15 @@
         max-width: 320px;
         line-height: 1.2;
 
+        a {
+           color: $blue;
+           transition: all .3s;
+
+           &:hover {
+              text-decoration: underline;
+           }
+        }
+
         &_gray {
             margin: 0 0 16px;
             color: $secondary-gray;
@@ -76,7 +96,7 @@
         padding: 15px 20px;
         font-size: 14px;
         color: $black;
-        background: $light-grey;
+        background: $white;
         border: 1px solid $grey;
         border-radius: 5px;
 
