@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', 'MainController@index')->name('main');
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'can:accessAdminPanel'], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => 'can:accessAdminPanel'], function () {
     Route::get('/', 'MainController@index')->name('admin_main');
 
     Route::get('/api/attributes/search', 'ProductAttributeController@search')->name('admin_product_attributes_search');
@@ -62,32 +63,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'can:
     Route::post('/category/update/parent/{id}', 'CategoryController@setParent')->name('admin_category_update_parent');
     Route::post('/category/update/{id}', 'CategoryController@update')->name('admin_category_edit_data');
     Route::post('/category/delete/{id}', 'CategoryController@delete')->name('admin_category_delete');
-    Route::post('/category/icon/delete/{id}', 'CategoryController@deleteIcon')->name('admin_category_delete_icon');
     Route::get('/category/{id}', 'CategoryController@showEditPage')->name('admin_edit_category_page');
-
-    Route::post('/review/update/{id}', 'ReviewController@update')->name('admin_review_update');
-    Route::post('/review/delete/{id}', 'ReviewController@delete')->name('admin_review_delete');
-    Route::get('/review/{id}', 'ReviewController@showEditPage')->name('admin_review_update_page');
 
     Route::get('/partners', 'PartnerController@index')->name('admin_partners');
     Route::get('/partner/log', 'LogController@index')->name('admin_partners_log');
     Route::get('/partner/{id}', 'PartnerController@show')->name('admin_partner');
-
-    Route::get('/deliveries', 'DeliveryController@index')->name('admin_deliveries');
-    Route::get('/deliveries/create', 'DeliveryController@create')->name('admin_create_delivery_page');
-    Route::post('/deliveries/create', 'DeliveryController@createOrUpdate')->name('admin_create_delivery');
-    Route::get('/delivery/{id}', 'DeliveryController@show')->name('admin_delivery');
-    Route::post('/delivery/update/{id}', 'DeliveryController@createOrUpdate')->name('admin_update_delivery');
-    Route::post('/delivery/delete/{id}', 'DeliveryController@delete')->name('admin_delivery_delete');
-
-    Route::get('/promocodes', 'PromocodeController@index')->name('admin_promocodes');
-    Route::get('/promocode/create', 'PromocodeController@showCreatePage')->name('admin_promocode_create_page');
-    Route::post('/promocode/create', 'PromocodeController@create')->name('admin_promocode_create');
-    Route::post('/promocode/update/{id}', 'PromocodeController@update')->name('admin_promocode_update');
-    Route::post('/promocode/delete/{id}', 'PromocodeController@delete')->name('admin_promocode_delete');
-    Route::get('/promocode/{id}', 'PromocodeController@showEditPage')->name('admin_promocode_update_page');
-
-
 });
 
 Route::group(['prefix' => 'lk', 'namespace' => 'Lk', 'middleware' => 'auth'], function () {
@@ -98,41 +78,24 @@ Route::group(['prefix' => 'lk', 'namespace' => 'Lk', 'middleware' => 'auth'], fu
     Route::post('/profile/editdata', 'ProfileController@editData')->name('lk_profile_edit_data');
     Route::get('/profile/changeemail', 'ProfileController@showChangeEmailForm')->name('lk_profile_change_email_form');
     Route::post('/profile/changeemail', 'ProfileController@changeEmail')->name('lk_profile_change_email');
-    Route::get('/profile/notifications', 'ProfileController@showNotification')->name('lk_profile_notifications');
     Route::get('/profile/changepass', 'ProfileController@showChangePasswordForm')->name('lk_profile_change_password_form');
     Route::post('/profile/changepass', 'ProfileController@changePassword')->name('lk_profile_change_password');
 });
+
+Route::get('/catalog', 'CategoryController@index')->name('catalog');
+Route::get('/category/{name}', 'CategoryController@show')->name('category');
+Route::get('/product/{name}', 'ProductController@show')->name('product');
 Route::get('/cart', 'CartController@show')->name('cart');
 Route::get('/addtocart', 'CartController@addProduct')->name('add_to_cart');
 Route::get('/removefromcart', 'CartController@removeProduct')->name('remove_from_cart');
 Route::get('/checkout', 'CartController@showCheckout')->middleware('auth')->name('checkout_page');
 Route::post('/order', 'OrderController@create')->middleware('auth')->name('place_order');
 Route::get('/favorites', 'FavoriteListController@show')->name('favorites');
-Route::get('/favorites/{name}', 'FavoriteListController@show')->name('favorites_category');
-Route::get('/couriers', 'CouriersController@index')->name('couriers');
-Route::get('/suppliers', 'SuppliersController@index')->name('suppliers');
-Route::get('/store', 'StoreController@index')->name('store');
-Route::get('/promotions', 'PromotionsController@index')->name('promotions');
-Route::get('/about', 'AboutController@index')->name('about');
 
 Route::post('/api/cart', 'CartController@api')->name('api_cart');
-Route::post('/api/cart-aside', 'CartController@apiAside')->name('api_cart_aside');
-Route::post('/api/favorites/action', 'FavoriteListController@api')->name('api_favorites_action');
-Route::get('/api/catalog', 'CategoryController@apiIndex')->name('api_catalog');
-Route::get('/api/search', 'CategoryController@apiSearch')->name('api_search');
-Route::get('/api/favorites', 'FavoriteListController@apiShow')->name('api_favorites');
+Route::post('/api/favorites', 'FavoriteListController@api')->name('api_favorites');
 
 Auth::routes();
 Route::get('/personal-data-agreement', 'StaticPageController@personalDataAgreement')->name('personal-data-agreement');
 Route::get('/personal-data-policy', 'StaticPageController@personalDataPolicy')->name('personal-data-policy');
 Route::get('/sale-regulations', 'StaticPageController@saleRegulations')->name('sale-regulations');
-
-Route::post('/product/{id}/review', 'ReviewController@create')->name('add_review');
-
-Route::get('/search', 'CategoryController@search')->name('search');
-Route::get('/search/{name}', 'CategoryController@search')->name('search_category');
-Route::get('/catalog', 'CategoryController@index')->name('catalog');
-Route::get('/category/{name}', 'CategoryController@index')->name('category');
-Route::get('/{storeSlug}/product/{name}', 'ProductController@show')->name('product');
-
-Route::get('/{storeSlug}', 'MainController@showStore')->name('store_main');

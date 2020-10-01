@@ -127,6 +127,7 @@ class FavoriteList extends Model
         return $this->products;
     }
 
+
     public static function mergeFavorites($userId)
     {
         $cookieFavorites = static::currentByCookie();

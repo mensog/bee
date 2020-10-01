@@ -10,5 +10,4 @@ return [
     \App\OrderStatus::RE_DELIVERY => 'Повторная доставка',
     \App\OrderStatus::REFUNDED => 'Заказ возвращен',
     \App\OrderStatus::CREATED => 'Заказ создан',
-    \App\OrderStatus::ORDERED => 'Заказан',
 ];

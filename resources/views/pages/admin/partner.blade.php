@@ -170,9 +170,9 @@
                             @if($partner->products ?? '')
                                 @foreach($partner->products as $product)
                                     <tr class="gradeX clickable-row"
-                                        data-href="{{ route('product', ['name' => $product->friendly_url_name, 'storeSlug' => $partner->slug]) }}">
+                                        data-href="{{ route('product', $product->friendly_url_name) }}">
                                         <td>
-                                            <a href="{{ route('product', ['name' => $product->friendly_url_name, 'storeSlug' => $partner->slug]) }}">
+                                            <a href="{{ route('product', $product->friendly_url_name) }}">
                                                 {{ $product->sku }}
                                             </a>
                                         </td>
@@ -187,7 +187,7 @@
                                         <td class="remove">
                                             <x-admin.remove-with-modal
                                                 type="icon"
-                                                :action="route('product', ['name' => $product->friendly_url_name, 'storeSlug' => $partner->slug])"
+                                                :action="route('product', $product->friendly_url_name)"
                                                 :text="$product->name">
                                             </x-admin.remove-with-modal>
                                         </td>

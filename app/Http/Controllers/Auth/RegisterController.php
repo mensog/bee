@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Notifications\UserRegistered;
 use App\PrivateAccount;
 use App\Providers\RouteServiceProvider;
 use App\User;
-use App\UserRole;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -58,20 +56,23 @@ class RegisterController extends Controller
             'email.unique' => 'Пользователь с таким e-mail уже существует',
             'max' => 'Поле :attribute должно содержать не более :max символов',
             'password.confirmed' => 'Пароли не совпадают',
+            'personal-data-agree.accepted' => 'Необходимо согласиться на обработку персональных данных',
         ];
 
         $names = [
-            'fullName' => 'ФИО',
+            'name' => 'имя',
+            'surname' => 'фамилия',
             'email' => 'e-mail',
             'password' => 'пароль',
-            'phone' => 'телефон'
+            'personal-data-agree' => 'согласие на обработку персональных данных',
         ];
 
         return Validator::make($data, [
-            'fullName' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
+            'surname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phone' => ['required', 'string', 'min:11', 'max:11'],
+            'personal-data-agree' => ['required', 'accepted'],
         ], $messages, $names);
     }
 
@@ -84,19 +85,14 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $user = User::create([
-            'full_name' => $data['fullName'],
+            'name' => $data['name'],
+            'surname' => $data['surname'],
             'email' => $data['email'],
-            'role' => UserRole::CUSTOMER,
-            'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
         ]);
         $account = new PrivateAccount();
         $account->user_id = $user->id;
-        if (env('REGISTER_BONUS_ENABLED', 0)) {
-            $account->bonus_amount = env('REGISTER_BONUS_AMOUNT', 0) * 100;
-        }
         $account->save();
-        $user->notify(new UserRegistered());
         return $user;
     }
 }

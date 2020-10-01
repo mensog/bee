@@ -2,67 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use App\ProductsCatalogRender;
-use App\ProductsSearchRender;
-use Illuminate\Http\Request;
+use App\Category;
+use App\Product;
 
-class CategoryController extends ProductsRenderController
+class CategoryController extends Controller
 {
-    public const PRODUCTS_PER_PAGE = 50;
-
     /**
-     * Вывод товаров из категории, или общий список товаров если категория не выбрана
+     * Вывод списка категорий, разделенный на страницы
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, $name = '')
+    public function index()
     {
-        $productsRender = new ProductsCatalogRender($request, $name);
-        $productsRender->initProducts();
-        return view('pages.catalog', [
-            'productsRender' => $productsRender,
-        ]);
+        $categories = Category::withCount('products')->get(); // Ограничение для демонстрации и пока нет разделения на категории и подкатегории
+        $productsPaginator = Product::paginate(50);
+        $cart = app('Cart');
+        $cartContent = $cart->content;
+        $favoritesList = app('FavoriteList');
+        $favoritesListContent = $favoritesList->content;
+        return view('pages.catalog', ['categories' => $categories, 'products' => $productsPaginator, 'cartContent' => $cartContent, 'favoritesListContent' => $favoritesListContent]);
     }
 
-    public function search(Request $request, $name = '')
+    public function show($name)
     {
-        $productsRender = new ProductsSearchRender($request, $name);
-        $productsRender->initProducts();
-        return view('pages.catalog', [
-            'productsRender' => $productsRender,
-        ]);
-    }
-
-    public function apiIndex(Request $request)
-    {
-        $name = $request->has('name') ? $request->input('name') : '';
-        $productsRender = new ProductsCatalogRender($request, $name);
-        $productsRender->initProducts();
-        $response = [];
-        $response['html'] = view('components.products-list', [
-            'products' => $productsRender->products,
-            'cartContent' => $productsRender->cartContent,
-            'favoritesListContent' => $productsRender->favoritesListContent,
-        ])->render();
-        $response['breadcrumbs'] = view('components.breadcrumbs',[
-            'pageRootRoute' => $productsRender->pageRootRoute,
-            'pageRootName' => $productsRender->pageName,
-            'breadcrumbs' => $productsRender->breadcrumbs,
-        ])->render();
-        return response()->json($response);
-    }
-
-    public function apiSearch(Request $request)
-    {
-        $name = $request->has('name') ? $request->input('name') : '';
-        $productsRender = new ProductsSearchRender($request, $name);
-        $productsRender->initProducts();
-        $response = [];
-        $response['html'] = view('components.products-list', [
-            'products' => $productsRender->products,
-            'cartContent' => $productsRender->cartContent,
-            'favoritesListContent' => $productsRender->favoritesListContent,
-        ])->render();
-        return response()->json($response);
+        $categories = Category::withCount('products')->get(); // Ограничение для демонстрации и пока нет разделения на категории и подкатегории
+        $productsPaginator = Category::where('friendly_url_name', $name)->firstOrFail()->products()->paginate(50);
+        $cart = app('Cart');
+        $cartContent = $cart->content;
+        $favoritesList = app('FavoriteList');
+        $favoritesListContent = $favoritesList->content;
+        return view('pages.category', ['categories' => $categories, 'products' => $productsPaginator, 'cartContent' => $cartContent, 'favoritesListContent' => $favoritesListContent]);
     }
 }

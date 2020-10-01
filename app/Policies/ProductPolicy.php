@@ -93,9 +93,4 @@ class ProductPolicy
     {
         //
     }
-
-    public function createReview(User $user, Product $product)
-    {
-        return $product->reviews->where('user_id', $user->id)->count() == 0;
-    }
 }

@@ -11,15 +11,9 @@ require('./bootstrap');
 require('./Product/add-to-cart');
 require('./Favorites/add-to-favorites');
 require('./Product/change-cart');
+require('./Product/product-change-cart');
 require('./Registration/registration');
 require('./Main/toggle-map')
-require('./Main/swiper')
-require('./Delivery/delivery')
-require('./geolocation')
-require('./CourierCalculate/calculate')
-require('./ProductsList/productsList')
-
-window.utils = require('./utils')
 
 // window.Vue = require('vue');
 
@@ -50,35 +44,3 @@ export const clean = obj => {
     Object.keys(obj).forEach(key => (obj[key] == null || undefined) && delete obj[key]);
     return obj
 };
-
-jQuery($ => {
-
-    $('#showComments').on('click', function () {
-        $(this).addClass('d-none')
-
-        $('.comments-list .comment').removeClass('d-none')
-    })
-
-    const street = window.utils.storage('beeclub-street')
-    if (street) {
-        document.getElementById('curPosition').textContent = street
-    }
-
-    $('[data-toggle="tooltip"]').tooltip()
-
-    const storeDropdown = $('#navbarDropdown')
-
-    $('.dropdown-empty ').on('click', function () {
-        storeDropdown.css({
-            borderColor: '#fdd900',
-            boxShadow: '0px 1px 3px rgba(253, 217, 0, 1)'
-        })
-    })
-
-    storeDropdown.on('click', function () {
-        storeDropdown.css({
-            borderColor: '#E3E3E3',
-            boxShadow: 'none'
-        })
-    })
-})

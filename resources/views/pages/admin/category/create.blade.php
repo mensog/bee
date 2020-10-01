@@ -4,7 +4,9 @@
     <section>
         <div class="section-body">
 
-            <form id="createCategory" class="form" action="{{ route('admin_create_category') }}" method="post" enctype="multipart/form-data">
+            <form id="createCategory" class="form"
+                  action="{{ route('admin_create_category') }}"
+                  method="post">
                 @csrf
                 <div class="card card-bordered style-default-light no-shadow">
                     <div class="card-head">
@@ -72,19 +74,6 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="categoryIcon">Иконка (в формате svg)</label>
-                                    <input type="file" name="icon" id="categoryIcon">
-                                    @error('icon')
-                                    <span class="text-danger invalid-field" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="card-actionbar style-default-bright">

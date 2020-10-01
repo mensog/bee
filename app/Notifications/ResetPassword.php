@@ -43,10 +43,10 @@ class ResetPassword extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('Ссылка для восстановления пароля')
-                    ->view('notifications.forgot', [
-                        'link' => url('password/reset', $this->token),
-                    ]);
+                    ->subject('Сброс пароля')
+                    ->line('Для сброса пароля перейдите по ссылке ниже')
+                    ->action('Сбросить пароль', url('password/reset', $this->token))
+                    ->line('Если вы не запрашивали сброс пароля, просто проигнорируйте это письмо');
     }
 
     /**

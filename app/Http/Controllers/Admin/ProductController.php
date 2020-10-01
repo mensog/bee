@@ -227,7 +227,6 @@ class ProductController extends Controller
             $result['data'][] = [
                 'DT_RowClass' => 'gradeX clickable-row',
                 'sku' => $product->sku,
-                'img_url' => $product->img_url,
                 'moderation' => __('product_moderation_status_short.' . $product->moderation),
                 'visible' => ($product->visible) ? 'да' : 'нет',
                 'name' => $product->name,

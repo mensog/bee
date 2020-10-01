@@ -11,51 +11,10 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap-grid';
 
-// Swiper
-@import '~swiper/swiper';
-
 //App
 @import "main-page/main";
 @import "product-page/product";
 @import "catalog/catalog";
-@import "header/header";
-@import "couriers/couriers";
-@import "services/services";
-@import "suppliers/suppliers";
-@import "auth/auth";
-@import "inputs";
-@import "store/store";
-@import "promotions/promotions";
-@import "cart/cart";
-@import "about/about";
-@import "lk/lk";
-@import "lk/orders";
-@import "lk/notification";
-@import "lk/check-email";
-
-// Components
-@import "components/categories";
-@import "components/liked";
-@import "components/empty-list";
-@import "components/improve";
-
-// Media
-@import "main-page/main-media";
-@import "store/store-media";
-@import "product-page/products-media";
-@import "cart/cart-media";
-@import "auth/auth-media";
-@import "lk/lk-media";
-@import "lk/profile-media";
-@import "lk/notification-media";
-@import "lk/orders-media";
-@import "checkout/checkout-media";
-@import "catalog/catalog-media";
-
-
-#content {
-    background: #F4F4F4;
-}
 
 .pagination {
     justify-content: center;
@@ -77,30 +36,14 @@ button {
 }
 
 .add-to-favorites.loading {
-    //position: relative;
+    position: relative;
 
     i:before {
         content: url("/svg/preloaders/loading-btn-primary.svg");
-        vertical-align: middle;
     }
 }
 
-button i.heart-off:before {
-    content: url("/svg/heart-off.svg");
-    vertical-align: middle;
-}
-
-button i {
-    margin-right: 10px;
-}
-
-button i.heart-on:before {
-    content: url("/svg/heart-on.svg");
-    vertical-align: middle;
-}
-
-
-.cart.loading:before {
+.card-cart.loading:before {
     content: url("/svg/preloaders/loading-primary.svg");
     position: absolute;
     left: 0;
@@ -111,11 +54,98 @@ button i.heart-on:before {
     max-width: 70px;
     max-height: 70px;
     display: block;
-    z-index: 3;
 }
 
-.cart.loading {
+.card-cart.loading {
     opacity: 0.5;
+}
+
+.card-cart {
+    position: relative;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+
+    .card-cart__body {
+        padding: 45px 30px 20px;
+        position: relative;
+    }
+
+    .card-cart__footer {
+        padding: 20px 30px 45px;
+    }
+
+    .card-cart__title {
+        margin-top: 10px;
+        font-size: 18px;
+    }
+
+    .card-cart__delete {
+        button {
+            background: #fff;
+            border: 0;
+            max-width: 40px;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+    }
+
+    .card-cart__props, .card-cart__delete {
+        align-self: center;
+    }
+
+    .card-cart__sku {
+        font-size: 14px;
+        margin-bottom: 0;
+    }
+
+    .card-cart__price {
+        align-self: center;
+
+        .card-cart__price-total {
+            font-size: 18px;
+            color: #333e48;
+        }
+
+        p {
+            margin-bottom: 0;
+            text-align: right;
+        }
+    }
+}
+
+.card-cart-total {
+    align-self: center;
+
+    .card-cart-total__delete {
+        align-self: center;
+
+        p {
+            color: #000;
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+    }
+
+    .card-cart-total__price {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-self: center;
+
+        p {
+            color: #000;
+            font-size: 20px;
+            margin-bottom: 0;
+        }
+
+        .card-cart-total__title {
+            color: #000;
+            font-size: 20px;
+            margin-bottom: 0;
+        }
+    }
 }
 
 .product-in-cart {
@@ -139,6 +169,25 @@ button i.heart-on:before {
 .cart-qty, .product-qty {
     padding: 5px;
     -moz-appearance: textfield;
+}
+
+.card-auth {
+    position: relative;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin-bottom: 40px;
+
+    .card-auth__body {
+        padding: 45px 70px;
+    }
+
+    label {
+        padding-left: 16px;
+    }
+
+    .invalid-feedback {
+        padding-left: 16px;
+    }
 }
 
 .checkout {
@@ -186,17 +235,70 @@ button i.heart-on:before {
     }
 }
 
-html {
-    .menu-last {
+.lk-sidebar {
+    padding: 20px 30px 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 
-        &::before {
-            content: none !important;
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li:last-of-type {
+            margin-bottom: 0;
+
         }
 
-        a {
-            background-image: none !important;
+        li {
+            margin-bottom: 10px;
+
+            a {
+                font-size: 1rem;
+                font-weight: normal;
+                color: #333e48;
+                transition: 145ms ease-in-out;
+            }
+
+            a:hover {
+                color: #000;
+            }
+
+            a.active {
+                font-weight: 700;
+            }
         }
     }
+}
+
+.card-lk {
+    position: relative;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: 145ms ease-in-out;
+
+    .card-lk__body {
+        padding: 20px 30px 20px;
+    }
+
+    label {
+        padding-left: 16px;
+    }
+
+    .card-lk__title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #333e48;
+        margin-bottom: 0;
+    }
+
+    .invalid-feedback {
+        padding-left: 16px;
+    }
+}
+
+.card-lk.card-lk-hover:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
 }
 
 .btn-link.text-gray-6:hover {
@@ -232,19 +334,16 @@ html {
         font-size: 16px;
         line-height: 14px;
         text-align: center;
-        color: #242424;
+        color: #252524;
         border: 1px solid #252524;
         box-sizing: border-box;
         border-radius: 5px;
         max-width: 255px;
         width: 100%;
-
-
     }
 
     .btn.btn-outline-black:hover {
         background-color: #fff;
-        border-color: $yellow;
     }
 }
 
@@ -252,18 +351,10 @@ button.btn:hover {
     cursor: pointer;
 }
 
-.budge {
-    width: 177px;
-    padding: 5px 8px 5px 26px;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 14px;
-    color: $white;
-    background: $green url(/svg/check-small.svg) 4% 25% no-repeat;
-    border-radius: 6px;
-}
-
-
-.lock {
-    overflow: hidden;
+.add-to-cart.btn-primary {
+    padding: 19px;
+    width: 100%;
+    border-radius: 5px;
+    background: $light-yellow;
+    margin-bottom: 16px;
 }

@@ -4,7 +4,7 @@
     <h2>Изменение личных данных</h2>
     <div class="card-lk">
         <div class="card-lk__body">
-            <form id="edit-data" class="edit-data" action="{{ route('lk_profile_edit_data') }}" method="post">
+            <form id="editData" class="edit-data" action="{{ route('lk_profile_edit_data') }}" method="post">
                 @csrf
                 <div class="form-group row">
                     <div class="col-md-6">

@@ -63,14 +63,4 @@ class Product extends Model
     {
         return $this->belongsTo('App\Partner','store_id', 'id');
     }
-
-    public function reviews()
-    {
-        return $this->hasMany('App\Review');
-    }
-
-    public function getRating()
-    {
-        return round($this->reviews->avg('rating'), 1);
-    }
 }

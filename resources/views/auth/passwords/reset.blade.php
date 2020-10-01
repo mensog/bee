@@ -1,76 +1,69 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="auth-page">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="card-auth">
+    <div class="container">
+        <h1 class="text-center mb-4">Создание нового пароля</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card-auth">
 
-                        <div class="card-auth__body">
-                            <h3>Создание нового пароля</h3>
-                            <form id="reset-password" class="reset-password form floating-label" method="POST"
-                                  action="{{ route('password.update') }}">
-                                @csrf
+                    <div class="card-auth__body">
+                        <form class="reset-password" method="POST" action="{{ route('password.update') }}">
+                            @csrf
 
-                                <input type="hidden" name="token" value="{{ $token }}">
+                            <input type="hidden" name="token" value="{{ $token }}">
 
-                                <div class="form-group row">
+                            <div class="form-group row">
 
-                                    <div class="col-md-12">
-                                        <div class="form-control-container">
-                                            <input id="email" type="email"
-                                                   placeholder=" "
-                                                   class="form-control @error('email') is-invalid @enderror"
-                                                   name="email"
-                                                   value="{{ $email ?? old('email') }}" required autocomplete="email"
-                                                   autofocus>
-                                            <label for="email">e-mail</label>
-                                            @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                {{ $message }}
-                                            </span>
-                                            @enderror
-                                        </div>
-                                    </div>
+                                <div class="col-md-12">
+                                    <label for="email">e-mail</label>
+                                    <input id="email" type="email"
+                                           placeholder="Введите e-mail"
+                                           class="form-control @error('email') is-invalid @enderror" name="email"
+                                           value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
 
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
+                            </div>
 
-                                <div class="form-group row">
+                            <div class="form-group row">
 
-                                    <div class="col-md-6">
-                                        <div class="form-control-container">
-                                            <input id="password" type="password"
-                                                   placeholder=" "
-                                                   class="form-control @error('password') is-invalid @enderror"
-                                                   name="password"
-                                                   required autocomplete="new-password">
-                                            <label for="password">Новый пароль</label>
-                                            @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                {{ $message }}
-                                            </span>
-                                            @enderror
-                                        </div>
-                                    </div>
+                                <div class="col-md-12">
+                                    <label for="password">Новый пароль <span class="text-secondary small">(не менее 8 символов)</span></label>
+                                    <input id="password" type="password"
+                                           placeholder="Введите пароль"
+                                           class="form-control @error('password') is-invalid @enderror" name="password"
+                                           required autocomplete="new-password">
 
-                                    <div class="col-md-6">
-                                        <input id="password-confirm" type="password" class="form-control"
-                                               placeholder=" "
-                                               name="password_confirmation" required autocomplete="new-password">
-                                        <label for="password-confirm">Повторите пароль</label>
-                                    </div>
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
+                            </div>
 
-                                <div class="row">
-                                    <div class="col-md-12 text-center">
-                                        <button type="submit" class="btn btn-primary mb-0">
-                                            Создать новый пароль
-                                        </button>
-                                    </div>
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <label for="password-confirm">Повторите пароль</label>
+                                    <input id="password-confirm" type="password" class="form-control"
+                                           placeholder="Повторите пароль"
+                                           name="password_confirmation" required autocomplete="new-password">
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+
+                            <div class="form-group row mb-0">
+                                <div class="col-md-12 text-center">
+                                    <button type="submit" class="btn btn-primary">
+                                        Создать новый пароль
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

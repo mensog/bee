@@ -18,13 +18,7 @@ class ProfileController extends Controller
         } else {
             $passwordChanged = false;
         }
-        $title = 'Личные данные';
-        return view('lk.profile', [
-            'user' => $user,
-            'passwordChanged' => $passwordChanged,
-            'title' => $title,
-
-        ]);
+        return view('lk.profile', ['user' => $user, 'passwordChanged' => $passwordChanged]);
     }
 
     public function showEditDataForm(Request $request)
@@ -33,28 +27,28 @@ class ProfileController extends Controller
         return view('lk.edit-data', ['user' => $user]);
     }
 
-    protected function editDataValidator(array $data, $userId)
+    protected function editDataValidator(array $data)
     {
         $messages = [
             'required' => 'Поле :attribute обязательно для заполнения.',
             'max' => 'Поле :attribute должно содержать не более :max символов',
         ];
         $names = [
-            'fullName' => 'ФИО',
-            'email' => 'email',
+            'name' => 'имя',
+            'surname' => 'фамилия',
         ];
         return Validator::make($data, [
-            'fullName' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email', \Illuminate\Validation\Rule::unique('users', 'email')->ignore($userId), 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
+            'surname' => ['required', 'string', 'max:255'],
         ], $messages, $names);
     }
 
     public function editData(Request $request)
     {
+        $this->editDataValidator($request->all())->validate();
         $user = Auth::user();
-        $this->editDataValidator($request->all(), $user->id)->validate();
-        $user->full_name = $request->input('fullName');
-        $user->email = $request->input('email');
+        $user->name = $request->input('name');
+        $user->surname = $request->input('surname');
         $user->save();
         return redirect()->route('lk_profile');
     }
@@ -109,14 +103,6 @@ class ProfileController extends Controller
         $user->save();
         $request->session()->flash('passwordChanged', true);
         return redirect()->route('lk_profile');
-    }
-
-    public function showNotification()
-    {
-        $notifications = Auth::user()->notifications;
-        return view('lk.notification', [
-            'notifications' => $notifications,
-        ]);
     }
 
     protected function changePasswordValidator(array $data)

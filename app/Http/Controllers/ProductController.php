@@ -2,20 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Partner;
 use App\Product;
 
 class ProductController extends Controller
 {
-    public function show($storeSlug, $name)
+    public function show($name)
     {
-        $store = Partner::where('slug', $storeSlug)->firstOrFail();
-        $product = Product::with('category')
-            ->with('productAttributeValues')
-            ->with('productAttributeValues.productAttribute')
-            ->where('friendly_url_name', $name)
-            ->where('store_id', $store->id)
-            ->firstOrFail();
+        $product = Product::with('category')->with('productAttributeValues')->with('productAttributeValues.productAttribute')->where('friendly_url_name', $name)->firstOrFail();
         $attributes = [];
         foreach ($product->productAttributeValues as $attributeValue){
             $attributes[] = [
@@ -39,17 +32,7 @@ class ProductController extends Controller
         } else {
             $inFavoritesList = false;
         }
-
-        $categoryBreadcrumbs = $product->category->getBreadcrumbs();
-        return view('pages.product', [
-            'product' => $product,
-            'inCartQuantity' => $inCartQuantity,
-            'inFavoritesList' => $inFavoritesList,
-            'attributes' => $attributes,
-            'storeName' => $storeName,
-            'storeLink' => $storeLink,
-            'categoryBreadcrumbs' => $categoryBreadcrumbs,
-            ]);
+        return view('pages.product', ['product' => $product, 'inCartQuantity' => $inCartQuantity, 'inFavoritesList' => $inFavoritesList, 'attributes' => $attributes, 'storeName' => $storeName, 'storeLink' => $storeLink]);
     }
 
     /**

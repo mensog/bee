@@ -1,5 +1,5 @@
 <x-header/>
-<main id="content" role="main">
+<main class="py-4">
     @yield('content')
 </main>
 <x-footer/>

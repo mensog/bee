@@ -11,7 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js(['resources/js/app.js'], 'public/js') // внешний сайт
+mix.js(['resources/js/app.js', 'resources/js/owl.carousel.js'], 'public/js') // внешний сайт
     .styles([
         'resources/css/app.css', 'resources/css/animate.css/animate.css',
         'resources/css/font-awesome/fontawesome-all.min.css',
@@ -25,9 +25,6 @@ mix.js(['resources/js/app.js'], 'public/js') // внешний сайт
         'resources/css/owl.theme.default.min.css',
     ], 'public/css/app.css')
     .sass('resources/sass/app.scss', 'public/css/app-sass.css')
-    .options({
-        processCssUrls: false
-    })
     .js([
         'resources/js/admin/app.js',
         'resources/js/admin/libs/spin.js/spin.min.js',
@@ -65,7 +62,4 @@ mix.js(['resources/js/app.js'], 'public/js') // внешний сайт
         'resources/css/admin/theme-4/libs/dropzone/dropzone-theme.css'
     ], 'public/css/admin/app.css')
     .sass('resources/sass/admin/app.scss', 'public/css/admin/app-sass.css')
-    .options({
-        processCssUrls: false
-    })
     .version();

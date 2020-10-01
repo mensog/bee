@@ -7,23 +7,11 @@ use Illuminate\View\Component;
 class Cart extends Component
 {
     /**
-     * Array of favorites.
+     * Array of products.
      *
      * @var array
      */
-    public $favoriteList;
-    /**
-     * Grouped cart content.
-     *
-     * @var array
-     */
-    public $groupedCartContent;
-    /**
-     * Array of stores.
-     *
-     * @var array
-     */
-    public $stores;
+    public $products;
     /**
      * Array of quantity.
      *
@@ -44,30 +32,20 @@ class Cart extends Component
      */
     public $cartTotal;
 
-    public $favoritesListContent;
-
-    public $totalWeight;
-
     /**
      * Create a new cart component instance.
      *
-     * @param $favoriteList
-     * @param $groupedCartContent
-     * @param $stores
+     * @param $products
      * @param $quantity
      * @param $itemsSubTotal
      * @param $cartTotal
      */
-    public function __construct($favoriteList, $groupedCartContent, $stores, $quantity, $itemsSubTotal, $cartTotal, $favoritesListContent, $totalWeight)
+    public function __construct($products, $quantity, $itemsSubTotal, $cartTotal)
     {
-        $this->groupedCartContent = $groupedCartContent;
-        $this->favoriteList = $favoriteList;
-        $this->stores = $stores;
+        $this->products = $products;
         $this->quantity = $quantity;
         $this->itemsSubTotal = $itemsSubTotal;
         $this->cartTotal = $cartTotal;
-        $this->favoritesListContent = $favoritesListContent;
-        $this->totalWeight = $totalWeight;
     }
 
     /**

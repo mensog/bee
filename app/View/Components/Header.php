@@ -6,17 +6,16 @@ use Illuminate\View\Component;
 
 class Header extends Component
 {
-    public $currentStore;
-
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($currentStore = null)
+    public function __construct()
     {
-        $this->currentStore = $currentStore;
+
     }
+
 
     /**
      * Get the view / contents that represent the component.
@@ -25,6 +24,6 @@ class Header extends Component
      */
     public function render()
     {
-        return view('components.header', ['currentStore' => $this->currentStore]);
+        return view('components.header');
     }
 }

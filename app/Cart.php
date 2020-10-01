@@ -111,8 +111,6 @@ class Cart extends Model
     public function clear()
     {
         $this->content = [];
-        $this->promocode = null;
-        $this->bonus_discount = 0;
         $this->save();
     }
 
@@ -158,7 +156,7 @@ class Cart extends Model
     protected function initProducts()
     {
         $productIds = $this->getProductIds();
-        $this->products = Product::with('store')->find($productIds);
+        $this->products = Product::find($productIds);
     }
 
     public function getProducts()
@@ -204,14 +202,5 @@ class Cart extends Model
     public static function deleteExpiredCarts()
     {
         Cart::where('updated_at', '<', Carbon::now()->subSeconds(self::CART_ID_COOKIE_EXPIRES))->whereNull('user_id')->delete();
-    }
-
-    public function getTotalWeight()
-    {
-        $totalWeight = 0;
-        foreach ($this->getProducts()->pluck('weight', 'id') as $key => $weight) {
-            $totalWeight += (int)$weight * $this->content[$key];
-        }
-        return $totalWeight;
     }
 }

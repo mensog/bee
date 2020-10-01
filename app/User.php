@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'surname', 'email', 'password', 'role', 'full_name', 'phone'
+        'name', 'surname', 'email', 'password', 'role'
     ];
 
     /**
@@ -87,10 +87,4 @@ class User extends Authenticatable
         }
         return '';
     }
-
-    public function routeNotificationForMail()
-    {
-        return $this->lastOrder()->email;
-    }
-
 }
