@@ -23,18 +23,23 @@
    }
 
    &__item {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      max-width: 350px;
-      min-height: 350px;
       padding: 51px 30px 30px;
       background-color: $quaternary-gray;
+   }
 
-      img {
-         display: table;
-         margin: 0 auto 51px;
-      }
+   &__item-wrap {
+      min-height: 250px;
+   }
+
+   &__item-img {
+         display: flex;
+         justify-content: center;
+         margin-bottom: 51px;
+
+         img {
+            width: 256px;
+            height: 117px;
+         }
    }
 
    &__item-title {
@@ -46,6 +51,7 @@
    }
 
    &__item-descr {
+      max-width: 270px;
       margin: 0 0 15px;
       font-size: 14px;
       line-height: 16px;

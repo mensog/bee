@@ -99,19 +99,27 @@
                                     <li class="dropdown__mainmenu-item menu-last">
                                         <a class="dropdown__mainmenu-link"
                                            href="{{ route('store_main', $store->slug) }}">
-                              <span class="dropdown-stores__img">
-                                 <img src="{{ $store->image_path ?? '' }}" alt="">
-                              </span>
+                                          <span class="dropdown-stores__img">
+                                             <img src="{{ $store->image_path ?? '' }}" alt="">
+                                          </span>
                                             {{ $store->company_name }}
                                         </a>
                                     </li>
                                 @endforeach
+                              <li class="dropdown__mainmenu-item menu-last">
+                                 <a class="dropdown__mainmenu-link"
+                                    href="{{ route('catalog') }}">
+                                    <span class="dropdown-stores__img">
+                                    </span>
+                                    Все магазины
+                                 </a>
+                             </li>
                             </ul>
                         </div>
                     </div>
                     <form action="{{ route('search') }}" method="get" class="form-inline">
                         <div class="input-group">
-                            <input placeholder="Хочу найти нужный товар" type="text" name="q" class="form-control"
+                            <input placeholder="Я ищу.." type="text" name="q" class="form-control"
                                    value="{{ request()->input('q') ?? '' }}">
                             <div class="input-group-append">
                                 <button class="btn btn-primary btn-search"><img src="/svg/main/search.svg" alt="">

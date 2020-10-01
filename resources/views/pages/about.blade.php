@@ -38,7 +38,9 @@
                     <div class="swiper-slide">
                         <div class="shops__item">
                             <div class="shops__item-wrap">
-                                <img src="/svg/shop-icons/leroy-medium.svg" alt="leroy-merlin">
+                                <div class="shops__item-img">
+                                   <img src="/svg/shop-icons/leroy-merlin.svg" alt="leroy-merlin">
+                                </div>
                                 <div class="shops__item-title">Леруа Мерлен</div>
                                 <div class="shops__item-descr">Сеть магазинов для дома и дачи</div>
                             </div>
@@ -48,9 +50,11 @@
                     <div class="swiper-slide">
                         <div class="shops__item">
                             <div class="shops__item-wrap">
-                                <img src="/svg/shop-icons/petrovich-medium.svg" alt="petrovich">
+                                <div class="shops__item-img">
+                                   <img src="/svg/shop-icons/petrovich.svg" alt="petrovich">
+                                </div>
                                 <div class="shops__item-title">Петрович</div>
-                                <div class="shops__item-descr">Сеть магазинов строительных <br> материалов</div>
+                                <div class="shops__item-descr">Сеть магазинов строительных материалов</div>
                             </div>
                             <a class="shops__item-link" href="{{ route('catalog') }}">Смотреть каталог</a>
                         </div>
@@ -58,7 +62,9 @@
                     <div class="swiper-slide">
                         <div class="shops__item">
                             <div class="shops__item-wrap">
-                                <img src="/svg/shop-icons/obi-medium.svg" alt="obi">
+                                <div class="shops__item-img">
+                                   <img src="/svg/shop-icons/obi.svg" alt="obi">
+                                </div>
                                 <div class="shops__item-title">OBI</div>
                                 <div class="shops__item-descr">Сеть магазинов для дома и сада</div>
                             </div>
@@ -68,7 +74,9 @@
                     <div class="swiper-slide">
                         <div class="shops__item">
                             <div class="shops__item-wrap">
-                                <img src="/svg/shop-icons/castorama-medium.svg" alt="castorama">
+                                <div class="shops__item-img">
+                                   <img src="/svg/shop-icons/castorama.svg" alt="castorama">
+                                </div>
                                 <div class="shops__item-title">Castorama</div>
                                 <div class="shops__item-descr">Гипермаркет товаров для дома</div>
                             </div>
