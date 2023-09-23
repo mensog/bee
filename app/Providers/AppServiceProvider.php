@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Cart;
-use App\FavoriteList;
+use App\Models\Cart;
+use App\Models\FavoriteList;
 use App\Observers\CartObserver;
 use Illuminate\Support\ServiceProvider;
 

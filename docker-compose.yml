@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: db
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_TCP_PORT: ${DB_PORT}
+    ports:
+      - "3307:${DB_PORT}"
+    networks:
+      - mynet
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8100:8080"
+    networks:
+      - mynet
+    volumes:
+      - ./:/app
+    depends_on:
+      - mysql
+    entrypoint: [ "/bin/bash", "-c" ]
+    command:
+      - |
+        composer install && npm install
+        php artisan key:generate && php artisan migrate
+        php artisan serve --host=0.0.0.0 --port=8080
+
+volumes:
+  mysql_data:
+networks:
+  mynet:
+    driver: bridge

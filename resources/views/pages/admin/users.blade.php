@@ -34,6 +34,7 @@
                                             <td>{{ $user->email }}</td>
                                             <td class="remove">
                                                 @foreach($user->orders as $order)
+                                                <!-- TODO переменная $loop больше недоступна с laravel 9.x версии  -->
                                                     @if ($loop->last)
                                                         <a href="{{ route('admin_order', $order->id) }}">№{{ $order->id }}</a>
                                                     @endif

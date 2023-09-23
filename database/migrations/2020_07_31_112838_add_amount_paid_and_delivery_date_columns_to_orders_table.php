@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Order;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,7 +18,7 @@ class AddAmountPaidAndDeliveryDateColumnsToOrdersTable extends Migration
             $table->integer('amount_paid')->default(0);
             $table->date('delivery_date')->nullable();
         });
-        \App\Order::all()->each(function ($order) {
+        Order::all()->each(function ($order) {
            $order->amount_paid = $order->getSum();
            $order->save();
         });

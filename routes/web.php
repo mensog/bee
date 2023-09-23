@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'MainController@index')->name('main');
+Route::get('/', [MainController::class, 'index'])->name('main');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => 'can:accessAdminPanel'], function () {
     Route::get('/', 'MainController@index')->name('admin_main');

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Order;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -21,7 +22,7 @@ class CreateOrderStoresTable extends Migration
             $table->string('status');
             $table->string('store_order_id')->nullable();
         });
-        \App\Order::all()->each(function ($order) {
+        Order::all()->each(function ($order) {
             $order->fillOrderStores();
         });
     }

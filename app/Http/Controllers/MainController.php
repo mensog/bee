@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
+use App\Models\Product;
 
 class MainController extends Controller
 {
@@ -19,6 +19,14 @@ class MainController extends Controller
         $cartContent = $cart->content;
         $favoritesList = app('FavoriteList');
         $favoritesListContent = $favoritesList->content;
-        return view('pages.main', ['bannerProducts' => $bannerProducts, 'recentProducts' => $recentProducts, 'cartContent' => $cartContent, 'favoritesListContent' => $favoritesListContent]);
+        $view = view('pages.main', [
+            'bannerProducts' => $bannerProducts,
+            'recentProducts' => $recentProducts,
+            'cartContent' => $cartContent,
+            'favoritesListContent' => $favoritesListContent
+        ]);
+    
+        return response($view);
+
     }
 }

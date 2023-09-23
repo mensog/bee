@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\PrivateAccount;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -20,8 +22,8 @@ class CreatePrivateAccountsTable extends Migration
             $table->integer('refund_amount')->default(0);
             $table->integer('bonus_amount')->default(0);
         });
-        \App\User::all()->each(function ($user) {
-            $account = new \App\PrivateAccount();
+        User::all()->each(function ($user) {
+            $account = new PrivateAccount();
             $account->user_id = $user->id;
             $account->save();
         });

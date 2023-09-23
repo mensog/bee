@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\OrderItem;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,7 +18,7 @@ class RenameExistStatusToExistQuantityInOrderItemsTable extends Migration
             $table->renameColumn('exist_status', 'stock_quantity');
             $table->renameColumn('process_status', 'status');
         });
-        \App\OrderItem::all()->each(function ($item) {
+        OrderItem::all()->each(function ($item) {
            $item->stock_quantity = $item->quantity;
            $item->save();
         });
@@ -34,7 +35,7 @@ class RenameExistStatusToExistQuantityInOrderItemsTable extends Migration
             $table->renameColumn('stock_quantity', 'exist_status');
             $table->renameColumn('status', 'process_status');
         });
-        \App\OrderItem::all()->each(function ($item) {
+        OrderItem::all()->each(function ($item) {
             $item->exist_status = 1;
             $item->save();
         });

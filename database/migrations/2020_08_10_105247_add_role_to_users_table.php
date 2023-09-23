@@ -1,7 +1,8 @@
 <?php
 
-use App\PrivateAccount;
-use App\User;
+use App\Models\PrivateAccount;
+use App\Models\User;
+use App\Models\UserRole;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Hash;
@@ -17,7 +18,7 @@ class AddRoleToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('role')->default(\App\UserRole::CUSTOMER);
+            $table->string('role')->default(UserRole::CUSTOMER);
         });
         $data = [
             'name' => 'Администратор',
@@ -30,7 +31,7 @@ class AddRoleToUsersTable extends Migration
             'surname' => $data['surname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'role' => \App\UserRole::ADMIN,
+            'role' => UserRole::ADMIN,
         ]);
         $account = new PrivateAccount();
         $account->user_id = $user->id;
