@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Cart;
-use App\Order;
-use App\OrderStatus;
+use App\Models\Cart;
+use App\Models\Order;
+use App\Models\OrderStatus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;

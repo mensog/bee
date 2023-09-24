@@ -13,17 +13,17 @@ class Product extends Model
      */
     public function category()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo('App\Models\Category');
     }
 
     public function orderItem()
     {
-        return $this->hasMany('App\OrderItem');
+        return $this->hasMany('App\Models\OrderItem');
     }
 
     public function productAttributeValues()
     {
-        return $this->hasMany('App\ProductAttributeValue');
+        return $this->hasMany('App\Models\ProductAttributeValue');
     }
 
     public function getStoreName()
@@ -61,6 +61,6 @@ class Product extends Model
 
     public function store()
     {
-        return $this->belongsTo('App\Partner','store_id', 'id');
+        return $this->belongsTo('App\Models\Partner','store_id', 'id');
     }
 }
