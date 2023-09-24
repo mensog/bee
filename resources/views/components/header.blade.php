@@ -8,8 +8,9 @@
 
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
-    <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ mix('css/app-sass.css') }}">
+    @vite('resources/js/app.js')
+    <!-- <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ mix('css/app-sass.css') }}"> -->
 </head>
 
 <body>

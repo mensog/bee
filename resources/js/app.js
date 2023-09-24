@@ -6,6 +6,7 @@
 
 //Bootstrap
 import './bootstrap';
+// import '../css/app.css';
 
 //App
 require('./Product/add-to-cart');

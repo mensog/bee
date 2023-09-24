@@ -1,17 +1,30 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
-use App\Category;
-use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-$factory->define(Category::class, function (Faker $faker) {
-    $name = mb_strtolower($faker->unique()->lastName);
-    return [
-        'name' => ucfirst($name),
-        'store_id' => 1,
-        'parse_url' => 'example.com/' . Str::slug($name, '-'),
-        'friendly_url_name' => Str::slug($name, '-'),
-    ];
-});
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
+ */
+
+class CategoryFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition()
+    {
+        $name = mb_strtolower($this->faker->unique()->lastName);
+
+        return [
+            'name' => ucfirst($name),
+            'store_id' => 1,
+            'parse_url' => 'example.com/' . Str::slug($name, '-'),
+            'friendly_url_name' => Str::slug($name, '-'),
+        ];
+    }
+}

@@ -1,22 +1,33 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
-use App\Product;
-use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-$factory->define(Product::class, function (Faker $faker) {
-    $name = mb_strtolower($faker->firstName);
-    return [
-        'name' => ucfirst($name),
-        'sku' => $faker->unique()->numberBetween(10000, 10000000),
-        'store_id' => 1,
-        'parse_url' => 'example.com/' . Str::slug($name, '-'),
-        'friendly_url_name' => Str::slug($name, '-') . '-' . $faker->unique()->numberBetween(),
-        'price' => $faker->numberBetween(10000, 1000000),
-        'img_url' => 'https://picsum.photos/200/200?' . $faker->unique()->numberBetween(),
-        'description' => $faker->text(rand(150, 350)),
-        'weight' => $faker->numberBetween(50, 50000),
-    ];
-});
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Product>
+ */
+class ProductFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition()
+    {
+        $name = mb_strtolower(fake()->firstName());
+        return [
+            'name' => ucfirst($name),
+            'sku' => fake()->unique()->numberBetween(10000, 10000000),
+            'store_id' => 1,
+            'parse_url' => 'example.com/' . Str::slug($name, '-'),
+            'friendly_url_name' => Str::slug($name, '-') . '-' . fake()->unique()->numberBetween(),
+            'price' => fake()->numberBetween(10000, 1000000),
+            'img_url' => 'https://picsum.photos/200/200?' . fake()->unique()->numberBetween(),
+            'description' => fake()->text(rand(150, 350)),
+            'weight' => fake()->numberBetween(50, 50000),
+        ];
+    }
+}
