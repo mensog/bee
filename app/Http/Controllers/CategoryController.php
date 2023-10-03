@@ -15,12 +15,19 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::withCount('products')->get(); // Ограничение для демонстрации и пока нет разделения на категории и подкатегории
-        $productsPaginator = Product::paginate(50);
+        $productsPaginator = Product::paginate(10);
         $cart = app('Cart');
         $cartContent = $cart->content;
         $favoritesList = app('FavoriteList');
         $favoritesListContent = $favoritesList->content;
-        return view('pages.catalog', ['categories' => $categories, 'products' => $productsPaginator, 'cartContent' => $cartContent, 'favoritesListContent' => $favoritesListContent]);
+        $view = view('pages.catalog', [
+            'categories' => $categories,
+            'products' => $productsPaginator,
+            'cartContent' => $cartContent,
+            'favoritesListContent' => $favoritesListContent
+        ]);
+
+        return response($view);
     }
 
     public function show($name)

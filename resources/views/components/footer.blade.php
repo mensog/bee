@@ -22,13 +22,13 @@
         <div class="row">
             <div class="col-lg-6 col-12">
                 <div class="app-banner__body">
-                    <span class="app-banner__badge">Скоро</span>
+                    <span class="app-banner__badge">{{ __('loc.SOON') }}</span>
                     <p class="app-banner__header">
-                        Покупки удобнее с приложением BeeClub
+                        {{ __('loc.shopping_is_more_convenient') }}
                     </p>
                     <p class="app-banner__text">
                         <span>%</span>
-                        Еще больше скидок и акций
+                        {{ __('loc.more_discounts_and_promotions') }}
                     </p>
                     <div class="app-banner-links">
                         <a class="app-banner-links__item" href="">
@@ -52,27 +52,27 @@
         <div class="row">
             <div class="col-lg-3">
                 <p class="footer__logo">
-                    <img src="/svg/main/BeeClub.svg" alt="beeclub">
+                    <img src="{{ asset('/svg/main/BeeClub.svg') }}" alt="beeclub">
                 </p>
-                <a class="footer__link">Пользовательское соглашение</a>
+                <a class="footer__link">{{ __('loc.footer.user_agreement') }}</a>
             </div>
             <div class="col-lg-2">
-                <p class="footer__header">Покупателям</p>
-                <a class="footer__link" href="">О сервисе</a>
-                <a class="footer__link" href="">Доставка</a>
+                <p class="footer__header">{{ __('loc.footer.buyers') }}</p>
+                <a class="footer__link" href="">{{ __('loc.footer.about_service') }}</a>
+                <a class="footer__link" href="">{{ __('loc.footer.delivery') }}</a>
             </div>
             <div class="col-lg-2">
-                <p class="footer__header">Курьерам</p>
-                <a class="footer__link" href="">Сколько заработаю?</a>
-                <a class="footer__link" href="">Стать курьером</a>
+                <p class="footer__header">{{ __('loc.footer.couriers') }}</p>
+                <a class="footer__link" href="">{{ __('loc.footer.how_much_money') }}</a>
+                <a class="footer__link" href="">{{ __('loc.footer.become_a_courier') }}</a>
             </div>
             <div class="col-lg-2">
-                <p class="footer__header">Поставщикам</p>
-                <a class="footer__link" href="">Какие условия?</a>
-                <a class="footer__link" href="">Стать поставщиком</a>
+                <p class="footer__header">{{ __('loc.footer.suppliers') }}</p>
+                <a class="footer__link" href="">{{ __('loc.footer.what_conditions') }}</a>
+                <a class="footer__link" href="">{{ __('loc.footer.become_a_supplier') }}</a>
             </div>
             <div class="col-lg-2">
-                <p class="footer__header">Контакты</p>
+                <p class="footer__header">{{ __('loc.footer.contacts') }}</p>
                 <a class="footer__link" href="">beeclub@example.com</a>
                 <a class="footer__link" href="">+7 (900) 588 22 22</a>
             </div>
@@ -92,9 +92,9 @@
 <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
 
 @if($passwordChanged)
-    <script>
-        $('#passwordChanged').modal('show')
-    </script>
+<script>
+    $('#passwordChanged').modal('show')
+</script>
 @endif
 
 <script>
@@ -116,4 +116,5 @@
     })
 </script>
 </body>
+
 </html>

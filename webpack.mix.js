@@ -12,9 +12,12 @@ const mix = require('laravel-mix');
  */
 
 mix.js(['resources/js/app.js', 'resources/js/owl.carousel.js'], 'public/js') // внешний сайт
+    .postCss("resources/css/app.css", "public/css", [
+        require("tailwindcss"),
+    ])
     .styles([
-        'resources/css/app.css', 'resources/css/animate.css/animate.css',
-        'resources/css/font-awesome/fontawesome-all.min.css',
+        'resources/css/app.css', 'resources/css/vendor/animate.css/animate.css',
+        // 'resources/css/font-awesome/fontawesome-all.min.css',
         'resources/css/vendor/hs-megamenu/src/hs.megamenu.css',
         'resources/css/vendor/ion-rangeslider/css/ion.rangeSlider.css',
         'resources/css/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css',

@@ -5,8 +5,7 @@
  */
 
 //Bootstrap
-import './bootstrap';
-// import '../css/app.css';
+require('./bootstrap');
 
 //App
 require('./Product/add-to-cart');

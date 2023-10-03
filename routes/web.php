@@ -18,6 +18,7 @@ use App\Http\Controllers\Lk\ProfileController as LkProfileController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FavoriteListController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
 
@@ -25,7 +26,6 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\StaticPageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use PHPUnit\TextUI\XmlConfiguration\Group;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +40,7 @@ use PHPUnit\TextUI\XmlConfiguration\Group;
 
 Route::get('/', [MainController::class, 'index'])->name('main');
 
-Route::prefix('admin')->namespace('Admin')->middleware(['can:accessAdminPanel'])->group(function () {
+Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('/', [AdminMainController::class, 'index'])->name('admin_main');
 
     Route::get('/api/attributes/search', [AdminProductAttributeController::class, 'search'])->name('admin_product_attributes_search');
@@ -123,3 +123,4 @@ Auth::routes();
 Route::get('/personal-data-agreement', [StaticPageController::class, 'personalDataAgreement'])->name('personal-data-agreement');
 Route::get('/personal-data-policy', [StaticPageController::class, 'personalDataPolicy'])->name('personal-data-policy');
 Route::get('/sale-regulations', [StaticPageController::class, 'saleRegulations'])->name('sale-regulations');
+Route::post('/language-switch', [LanguageController::class, 'languageSwitch'])->name('language.switch');

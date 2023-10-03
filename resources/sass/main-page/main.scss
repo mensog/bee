@@ -1,5 +1,5 @@
 .main-map {
-    background: url("/svg/main/main-map.svg") no-repeat right;
+    background: url("/img/main/bg_home.webp") no-repeat right;
     background-size: cover;
 
     .main-map-points {
@@ -94,6 +94,18 @@
             margin-right: 20px;
             margin-bottom: 20px;
             text-align: center;
+            position: relative;
+
+            ::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 25px;
+                height: 25px;
+                background: url('/svg/map_circle.svg') no-repeat center center;
+            }
 
             img {
                 display: table;

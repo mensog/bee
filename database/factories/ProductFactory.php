@@ -25,7 +25,7 @@ class ProductFactory extends Factory
             'parse_url' => 'example.com/' . Str::slug($name, '-'),
             'friendly_url_name' => Str::slug($name, '-') . '-' . fake()->unique()->numberBetween(),
             'price' => fake()->numberBetween(10000, 1000000),
-            'img_url' => 'https://picsum.photos/200/200?' . fake()->unique()->numberBetween(),
+            'img_url' => $this->faker->imageUrl(300, 250),
             'description' => fake()->text(rand(150, 350)),
             'weight' => fake()->numberBetween(50, 50000),
         ];

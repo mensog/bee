@@ -1,13 +1,14 @@
 <?php
+use App\Models\OrderStatus;
 
 return [
-    \App\OrderStatus::PENDING => 'В ожидании',
-    \App\OrderStatus::COMPLETED => 'Заказ доставлен',
-    \App\OrderStatus::CANCELED => 'Заказ отменен',
-    \App\OrderStatus::PAID => 'Заказ оплачен',
-    \App\OrderStatus::READY_FOR_DELIVERY => 'Готов к выдаче курьеру',
-    \App\OrderStatus::GIVEN_TO_COURIER => 'Передан курьеру',
-    \App\OrderStatus::RE_DELIVERY => 'Повторная доставка',
-    \App\OrderStatus::REFUNDED => 'Заказ возвращен',
-    \App\OrderStatus::CREATED => 'Заказ создан',
+    OrderStatus::PENDING => 'В ожидании',
+    OrderStatus::COMPLETED => 'Заказ доставлен',
+    OrderStatus::CANCELED => 'Заказ отменен',
+    OrderStatus::PAID => 'Заказ оплачен',
+    OrderStatus::READY_FOR_DELIVERY => 'Готов к выдаче курьеру',
+    OrderStatus::GIVEN_TO_COURIER => 'Передан курьеру',
+    OrderStatus::RE_DELIVERY => 'Повторная доставка',
+    OrderStatus::REFUNDED => 'Заказ возвращен',
+    OrderStatus::CREATED => 'Заказ создан',
 ];

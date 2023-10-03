@@ -1,5 +1,5 @@
-import is from '../../../node_modules/is_js/is'
-import IMask from '../../../node_modules/imask/dist/imask.min'
+import is from 'is_js'
+import IMask from 'imask/dist/imask.min'
 
 const element = document.getElementById('phone');
 

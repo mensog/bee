@@ -48,12 +48,12 @@ class User extends Authenticatable
 
     public function orders()
     {
-        return $this->hasMany('App\Order');
+        return $this->hasMany('App\Models\Order');
     }
 
     public function privateAccount()
     {
-        return $this->hasOne('App\PrivateAccount');
+        return $this->hasOne('App\Models\PrivateAccount');
     }
 
     public function hasRole($role)
@@ -64,7 +64,7 @@ class User extends Authenticatable
 
     public function products()
     {
-        return $this->hasMany('App\Product', 'store_id', 'partner_id');
+        return $this->hasMany('App\Models\Product', 'store_id', 'partner_id');
     }
 
     public function lastOrder()

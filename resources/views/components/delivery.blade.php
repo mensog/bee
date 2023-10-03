@@ -1,20 +1,20 @@
 <div class="main-delivery">
     <div class="container">
         <h3 class="main-delivery__header">
-            Доставка от 2 часов по Москве
+            {{ __('loc.delivery_from_two_hours') }}
         </h3>
         <p class="main-delivery__after-header">
-            Выбирая BeeClub вы выбираете:
+            {{ __('loc.by_choosing_beeclub') }}
         </p>
 
         <div class="row">
             <div class="col-lg-4 col-12">
                 <div class="main-delivery-card main-delivery-card-grey">
                     <p class="main-delivery-card__header">
-                        Честные цены
+                        {{ __('loc.fair_prices') }}
                     </p>
                     <p class="main-delivery-card__text">
-                        Товары от наших партнеров с ценами как в магазине
+                        {{ __('loc.products_from_our_partners') }}
                     </p>
                 </div>
             </div>
@@ -22,10 +22,10 @@
                 <div class="main-delivery-card main-delivery-card-yellow">
                     <div class="main-delivery-card__body">
                         <p class="main-delivery-card__header">
-                            Экономию времени и денег
+                            {{ __('loc.saving_time_and_money')}}
                         </p>
                         <p class="main-delivery-card__text">
-                            Теперь не нужно ездить по магазинам или платить за доставку из каждого магазина
+                            {{ __('loc.now_you_dont_have_to_go_shopping') }}
                         </p>
                     </div>
                 </div>
@@ -34,13 +34,12 @@
                 <div class="main-delivery-card main-delivery-card-dark-grey">
                     <div class="main-delivery-card__body">
                         <p class="main-delivery-card__header">
-                            Комфорт
+                        {{ __('loc.comfort')}}
                         </p>
                         <p class="main-delivery-card__text">
-                            Мы собираем Ваши заказы как для себя. Проверим товарный вид и целостность каждого
-                            товара.
+                            {{ __('loc.we_collect_your_orders_as_for_ourselves') }}
                         </p>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </div>
