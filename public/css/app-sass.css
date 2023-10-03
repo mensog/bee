@@ -4409,7 +4409,7 @@ html {
 }
 
 .main-map .main-map-shops__item.border-lm.active {
-  border-bottom: 3px solid #00A454;
+  border-bottom: 3px solid #160d74;
 }
 
 .main-map .main-map-shops__item.border-petr.active {
@@ -4417,11 +4417,11 @@ html {
 }
 
 .main-map .main-map-shops__item.border-obi.active {
-  border-bottom: 3px solid #F2994A;
+  border-bottom: 3px solid #2D9CDB;
 }
 
 .main-map .main-map-shops__item.border-cr.active {
-  border-bottom: 3px solid #2D9CDB;
+  border-bottom: 3px solid #F2994A;
 }
 
 .main-map .main-map-shops__item:hover {

@@ -13,7 +13,7 @@ class Order extends Model
      */
     public function items()
     {
-        return $this->hasMany('App\OrderItem');
+        return $this->hasMany('App\Models\OrderItem');
     }
 
     /**
@@ -62,12 +62,12 @@ class Order extends Model
 
     public function courier()
     {
-        return $this->belongsTo('App\Courier');
+        return $this->belongsTo('App\Models\Courier');
     }
 
     public function orderStores()
     {
-        return $this->hasMany('App\OrderStore');
+        return $this->hasMany('App\Models\OrderStore');
     }
 
     public function fillOrderStores()
@@ -88,6 +88,6 @@ class Order extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User');
     }
 }

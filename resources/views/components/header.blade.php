@@ -49,7 +49,7 @@
                         </li>
                     </ul>
                     <div class="menu-right">
-                        <a class="position" href="#"><img src="{{ asset('/svg/main/position.svg') }}" alt="">Москва</a>
+                        <a class="position" href="#"><img src="{{ asset('/svg/main/position.svg') }}" alt="">Istanbul</a>
                         <a class="login" href="{{ route('lk') }}">{{__('loc.login')}}</a>
                     </div>
                 </div>
@@ -65,16 +65,17 @@
                     <div class="dropdown">
                         <a class="nav-link dropdown-toggle dropdown-btn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div>
-                                <img src="/svg/shop-icons/leroy-mini.svg" alt="">
-                                Леруа Мерлен
+                                <img width='24px' height='24px' src="/svg/shop-icons/ikea.svg" alt="">
+                                Ikea
                             </div>
                             <img src="/svg/main/accordion-arrow.svg" alt="">
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">ТЕКСТ ТЕКСТ</a>
-                            <a class="dropdown-item" href="#">ТЕКСТ ТЕКСТ</a>
+                            <a class="dropdown-item ikea" href="#">Ikea</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">ТЕКСТ ТЕКСТ</a>
+                            <a class="dropdown-item bauhaus" href="#">Bauhaus</a>
+                            <a class="dropdown-item koctas" href="#">Koçtaş</a>
+                            <a class="dropdown-item" href="#">Tekzen</a>
                         </div>
                     </div>
                 </div>
@@ -102,7 +103,7 @@
 
                         <div class="header-cart">
                             <span class="header-cart__price">
-                                0 ₽
+                                0 TL
                             </span>
                             <a href="{{ route('cart') }}">
                                 <span id="cartCounter" class="{{ $headerCartCount ? 'd-block' : 'd-none' }}">

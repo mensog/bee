@@ -14,10 +14,10 @@
                             <img style="height: 90%; width: 95%;" src="/svg/shop-icons/bauhaus_logo.svg" alt="">
                         </div>
                         <div class="main-map-shops__item border-obi main-map-toggle" data-map="obi">
-                            <img style="height: 90%; width: 95%;" src="/svg/shop-icons/Ikea_logo.svg.png" alt="">
+                            <img style="height: 90%; width: 95%;" src="/svg/shop-icons/ikea_logo.png" alt="">
                         </div>
                         <div class="main-map-shops__item border-cr main-map-toggle" data-map="cr">
-                            <img style="height: 90%; width: 95%;" src="/svg/shop-icons/partner_1.jpeg" alt="">
+                            <img style="height: 90%; width: 95%;" src="/svg/shop-icons/koctas.jpeg" alt="">
                         </div>
                         <div class="main-map-shops__item active border-lm main-map-toggle" data-map="lm">
                             <img style="height: 90%; width: 95%;" src="/svg/shop-icons/tekzen_e.jpeg" alt="">
@@ -153,7 +153,7 @@
                         <span class="main-steps-row__badge">{{ __('loc.step') }} 2</span>
                     </div>
                     <p class="main-steps-row__header">
-                        {{ __('loc.we_collect_your_orders_as_for_ourselves') }}
+                        {{ __('loc.we_collect_your_orders') }}
                     </p>
                     <p class="main-steps-row__text">
                         {{ __('loc.well_check_the_merchandise') }}
@@ -301,18 +301,18 @@
                                 <div class="main-qa-card__body">
                                     <p class="main-qa-card__contacts">
                                         {{ __('loc.common_question.contact_us') }}
-                                        <a href="tel:+7(900) 000-00-00">
-                                            +7(900) 000-00-00
+                                        <a href="tel:+90(551) 273-79-71">
+                                            +90(551) 273-79-71
                                         </a>
                                     </p>
                                     <div class="main-qa-card__social">
-                                        <a href="tel:+7(900) 000-00-00">
+                                        <a href="tel:+90(551) 273-79-71">
                                             <img src="/svg/main/phone.svg" alt="">
                                         </a>
-                                        <a href="tel:+7(900) 000-00-00">
+                                        <a href="tel:+90(551) 273-79-71">
                                             <img src="/svg/main/whatsapp.svg" alt="">
                                         </a>
-                                        <a href="tel:+7(900) 000-00-00">
+                                        <a href="tel:+90(551) 273-79-71">
                                             <img src="/svg/main/telegram.svg" alt="">
                                         </a>
                                     </div>
@@ -342,7 +342,7 @@
                     </form>
                     <div class="contact__box">
                         <div class="contact__box-descr">{{ __('loc.feedback_form.contact_us') }}</div>
-                        <a class="contact__box-phone" href="tel:+79000000000">+7(900) 000-00-00</a>
+                        <a class="contact__box-phone" href="tel:+79000000000">+90(551) 273-79-71</a>
                         <div class="contact__social">
                             <a href="#" class="contact__social-item">WhatsApp</a>
                             <a href="#" class="contact__social-item">Telegram</a>

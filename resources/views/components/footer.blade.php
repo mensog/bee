@@ -79,11 +79,8 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col-lg-6 col-12">
-                <p class="footer__muted">BEECLUB @ 2020</p>
-            </div>
-            <div class="col-lg-6 col-12">
-                <p class="footer__muted text-right">Сделано с любовью в <a href="">Студии Юрина</a></p>
+            <div class="text-center">
+                Beeclub 2023
             </div>
         </div>
     </div>

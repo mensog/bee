@@ -84,7 +84,7 @@
                                 </button>
                             </div>
                             <div class="col-md-12 text-center">
-                                <a class="btn btn-link" href="{{ route('login') }}">{{__('loc.auth.reg.auth')}}</a>
+                                <a class="btn btn-link mt-3" href="{{ route('login') }}">{{__('loc.auth.reg.auth')}}</a>
                             </div>
                         </div>
                     </form>

@@ -63,7 +63,7 @@
         flex-wrap: wrap;
 
         &__item.border-lm.active {
-            border-bottom: 3px solid $green;
+            border-bottom: 3px solid linear-gradient(to right bottom, #5f0f18, #1b407a);;
         }
 
         &__item.border-petr.active {
@@ -71,11 +71,11 @@
         }
 
         &__item.border-obi.active {
-            border-bottom: 3px solid #F2994A;
+            border-bottom: 3px solid #2D9CDB;
         }
 
         &__item.border-cr.active {
-            border-bottom: 3px solid #2D9CDB;
+            border-bottom: 3px solid #F2994A;
         }
 
         &__item:hover {

@@ -37,7 +37,7 @@
                         {{ __('loc.comfort')}}
                         </p>
                         <p class="main-delivery-card__text">
-                            {{ __('loc.we_collect_your_orders_as_for_ourselves') }}
+                            {{ __('loc.we_collect_your_orders') }}
                         </p>
                     </div> 
                 </div>

@@ -22,7 +22,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8100:8100"
+      - "80:8100"
       - "5173:5173"
     networks:
       - mynet

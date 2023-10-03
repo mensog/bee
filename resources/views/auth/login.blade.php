@@ -58,7 +58,7 @@
                             </div>
                             <div class="col-12 text-center">
                                 @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <a class="btn btn-link mt-3 mb-3" href="{{ route('password.request') }}">
                                     {{__('loc.auth.login.forgot')}}
                                 </a>
                                 <a class="btn btn-link" href="{{ route('register') }}">{{__('loc.auth.login.not_reg')}}</a>

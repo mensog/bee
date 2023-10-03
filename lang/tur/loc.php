@@ -12,7 +12,7 @@ return [
 
     'delivery_service' => 'BeeClub - inşaat mağazalarından mal ve malzemelerin tek elden teslimatı',
     'other_stores' => 'Diğer mağazalar',
-    'want_to_find' => 'Doğru ürünü bulmak istiyorum',
+    'want_to_find' => 'Ben arıyorum...',
     'by_choosing_beeclub' => 'BeeClub`ı seçerek şunları seçmiş olursunuz:',
     'delivery_from_two_hours' => 'İstanbul içi 2 saatten başlayan teslimat',
     'fair_prices' => 'Adil fiyatlar',
@@ -21,7 +21,7 @@ return [
     'now_you_dont_have_to_go_shopping' => 'Artık mağazalara gitmek veya her mağazadan teslimat için ödeme yapmak zorunda değilsiniz',
     'comfort' => 'Konfor',
 
-    'promotions_special_offers' => 'Promosyonlar ve özel tekliflerия',
+    'promotions_special_offers' => 'Promosyonlar ve özel teklifler',
     'balls' => 'puan',
     'for_registration' => 'kayıt için',
     'on_the_second_order' => 'ikinci dereceden',
@@ -48,9 +48,9 @@ return [
         'how_much_does_it_cost' => 'Teslimat ücreti ne kadar?',
         'if_i_order_merchandise' => 'Farklı mağazalardan ürün sipariş edersem, kargo için kaç kez ödeme yaparım?',
         'do_i_need_to_register' => 'Sipariş vermek için kayıt olmam gerekiyor mu?',
-
+        'how_to_trace' => 'Siparişimi nasıl takip edebilirim?',
         'other' => 'Diğer',
-        'if_question' => 'Herhangi bir sorunuz varsa, cevaplayacağız?',
+        'if_questions' => 'Herhangi bir sorunuz varsa, cevaplayacağız?',
         'contact_us' => 'Bize herhangi bir uygun yolla ulaşın',
     ],
 
@@ -72,7 +72,7 @@ return [
         '' => '',
     ],
 
-    'we_collect_your_orders_as_for_ourselves' => 'Siparişlerinizi kendi siparişimizmiş gibi alıyoruz. Her ürünün malını ve bütünlüğünü kontrol ediyoruz',
+    'we_collect_your_orders' => 'Siparişi hazırlıyoruz',
     'what_can_be_improved_on_this_page' => 'Bu sayfada ne geliştirilebilir?',
     'SOON' => 'ÇOK YAKINDA',
     'shopping_is_more_convenient' => 'BeeClub uygulaması ile alışveriş daha kolay',

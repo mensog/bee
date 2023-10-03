@@ -12,7 +12,7 @@ return [
 
     'delivery_service' => 'BeeClub - единая доставка товаров и материалов из строительных магазинов',
     'other_stores' => 'Другие магазины',
-    'want_to_find' => 'Хочу найти нужный товар',
+    'want_to_find' => 'Я ищу...',
     'by_choosing_beeclub' => 'Выбирая BeeClub вы выбираете:',
     'delivery_from_two_hours' => 'Доставка от 2 часов по Стамбулу',
     'fair_prices' => 'Честные цены',
@@ -30,7 +30,7 @@ return [
     'more_shares' => 'Еще акции',
 
     'how_we_work' => 'Как мы работаем?',
-    'step' => 'шаг',
+    'step' => 'Шаг',
     'you_place_an_order' => 'Вы оформляйте заказ',
     'we_will_deliver_your_order_quickly' => 'Мы доставим ваш заказ быстро и в удобное время',
     'were_putting_together_an_order' => 'Мы собираем заказ',
@@ -48,7 +48,7 @@ return [
         'how_much_does_it_cost' => 'Сколько стоит доставка? ',
         'if_i_order_merchandise' => 'Если я закажу товары из разных магазинов, сколько раз мне платить за доставку?',
         'do_i_need_to_register' => 'Нужно ли мне регистрироваться для оформления заказа?',
-
+        'how_to_trace' => 'Как отследить свой заказ?',
         'other' => 'Другое',
         'if_questions' => 'Если остались вопросы - обязательно ответим',
         'contact_us' => 'Cвяжитесь с нами любым удобным способом',
@@ -72,7 +72,7 @@ return [
         '' => '',
     ],
 
-    'we_collect_your_orders_as_for_ourselves' => 'Мы собираем Ваши заказы как для себя. Проверим товарный вид и целостность каждого товара',
+    'we_collect_your_orders' => 'Собираем заказ',
     'what_can_be_improved_on_this_page' => 'Что можно улучшить на этой странице?',
     'SOON' => 'СКОРО',
     'shopping_is_more_convenient' => 'Покупки удобнее с приложением BeeClub',

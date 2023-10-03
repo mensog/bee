@@ -8,7 +8,7 @@
                 <div class="col-md-12">
                     <label for="phoneOld">Текущий e-mail</label>
                     <input id="phoneOld" type="phoneOld"
-                           placeholder="+7 (000) 000-00-00"
+                           placeholder="+90(551) 273-79-71"
                            class="form-control" name="phoneOld"
                            value="{{ $user->email }}" disabled readonly>
                 </div>

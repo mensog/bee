@@ -5547,6 +5547,36 @@ input[type="button"].btn-block {
     border: 0;
 }
 
+.dropdown-item {
+    position: relative; /* Установите позицию элемента как относительную */
+    padding-left: 30px; /* Задайте отступ слева, чтобы сделать место для иконки */
+}
+
+.dropdown-item::before {
+    content: ""; 
+    position: absolute; 
+    left: 5px;
+    top: 50%; 
+    transform: translateY(-50%); 
+    width: 22px; 
+    height: 22px;
+    background-size: cover;
+    background-position: center;
+}
+
+.ikea::before {
+    background-image: url('/svg/shop-icons/ikea.svg');
+}
+
+.bauhaus::before {
+    background-image: url('/svg/shop-icons/bauhaus.png');
+}
+
+.koctas::before {
+    background-image: url('/svg/shop-icons/koctas.jpeg'); 
+}
+
+
 .dropdown-item:hover, .dropdown-item:focus {
     color: #1e2022;
     text-decoration: none;
